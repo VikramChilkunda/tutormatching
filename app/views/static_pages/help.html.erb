@@ -2,9 +2,18 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>Help</h1>
-    <p>
-      Temporary Help page.
-    </p>
+    
+     <%= render 'layouts/header' %>
+    <div class="center jumbotron">
+        <h1>Help</h1>
+      
+        <h2>
+          This is the help page for the
+          Tutor application. To sign up for tutoring (or to become a tutor), <br>
+          press the button below!
+        </h2>
+      
+        <%= render 'layouts/button' %>
+      </div>
   </body>
 </html>

@@ -2,9 +2,16 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>About</h1>
-    <p>
-      This website is intended to match tutors with tutees.
-    </p>
+    <%= render 'layouts/header' %>
+    <div class="center jumbotron">
+        <h1>About</h1>
+      
+        <h2>
+          This tutor application was made by three students taking the AP Computer Science Class.
+          <br> We are: Vikram C., Adarsh C., and Jack M.
+        </h2>
+      
+        <%= render 'layouts/button' %>
+      </div>
   </body>
 </html>
