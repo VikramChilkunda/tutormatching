@@ -1,0 +1,12 @@
+<% if @tutee.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@tutee.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @tutee.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

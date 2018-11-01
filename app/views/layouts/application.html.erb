@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
+<<<<<<< HEAD
+<<<<<<< HEAD
+     <title><%= full_title(yield(:title)) %></title>
+=======
     <title><%= yield(:title) %> | CV Tutoring</title>
+>>>>>>> 2e8f54c59f412c13620ed903bfe8678d1e5649c4
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<<<<<<< HEAD
+=======
+    <title>Hi</title>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+>>>>>>> ca2b81e8d9da66764cfc1077d12c513a3929abde
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+      <div class="center jumbotron">
+        <h1>Welcome to the Tutor Program</h1>
+      
+        <h2>
+          This is the home page for the
+          Tutor application.
+        </h2>
+      
+        <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+      </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+     <%= render 'layouts/footer' %>
+=======
   </head>
 
   <body>
     <%= yield %>
+>>>>>>> 2e8f54c59f412c13620ed903bfe8678d1e5649c4
   </body>
 </html>

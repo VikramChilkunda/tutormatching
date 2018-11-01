@@ -1,0 +1,212 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+//Krub
+@font-face{
+  font-family: "Krub-Regular";
+  src: url(/assets/fonts/Krub-Regular.ttf) format("truetype");
+}
+//Bangers
+@font-face{
+  font-family: "Bangers-Regular";
+  src: url(/assets/fonts/Bangers-Regular.ttf) format("truetype");
+}
+//Sixcaps
+@font-face{
+  font-family: "SixCaps";
+  src: url(/assets/fonts/SixCaps.ttf) format("truetype");
+}
+//Poppins
+@font-face{
+  font-family: "Poppins";
+  src: url(/assets/fonts/Poppins-Regular.ttf) format("truetype");
+  
+}
+.jumbotron{
+  background-image: url("https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=24d86ecc52a3e5d0d8f4f085e82a14ef&auto=format&fit=crop&w=750&q=80");
+  background-size: 100%;
+}
+.mycontainer{
+  text-align: center;
+}
+header{
+  text-transform: uppercase;
+  font-family: Krub-Regular;
+}
+header ul li{
+  font-family: Poppins;
+  font-size: 1.2em;
+   &:hover{
+      color: #fff;
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+    }
+    &:hover:before{
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  color: #fff;
+  text-decoration: none;
+}
+body {
+  padding-top: 60px;
+}
+small{
+  padding-left: 20px;
+  font-size: 1.1em;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: 0.01px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  letter-spacing: -2px;
+  font-family: Krub-Regular;
+  font-size: 1.4em;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #000;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+#logo {
+  font-family: Poppins;
+  float: left;
+  margin-top: 10px;
+  font-size: 1.9em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: light;
+    &:hover{
+      color: #fff;
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+    }
+    &:hover:before{
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+// footer {
+//   font-family: "Bangers-Regular";
+//   width: 100%;
+//   padding-right: 40px;
+//   font-size: 1.2em;
+//   position: fixed;
+//   bottom: 0;
+//   border-top: 1px solid #eaeaea;
+//   color: #777;
+// }
+
+// footer a {
+//   color: #555;
+// }
+
+// footer a:hover {
+//   color: #222;
+// }
+
+// footer small {
+//   float: left;
+// }
+
+// footer ul {
+//   float: right;
+//   list-style: none;
+  
+// }
+
+// footer ul li {
+//   float: left;
+//   margin-left: 15px;
+//   &:hover{
+//       color: #fff;
+//     }
+//     &:before{
+//       content: "";
+//       position: absolute;
+//       width: 100%;
+//       height: 2px;
+//       bottom: 0;
+//       left: 0;
+//       background-color: #fff;
+//       visibility: hidden;
+//       -webkit-transform: scaleX(0);
+//       transform: scaleX(0);
+//       -webkit-transition: all 0.3s ease-in-out 0s;
+//       transition: all 0.3s ease-in-out 0s;
+//     }
+//     &:hover:before{
+//       visibility: visible;
+//       -webkit-transform: scaleX(1);
+//       transform: scaleX(1);
+//     }
+//   position: relative;
+//   color: #fff;
+//   text-decoration: none;
+// }
+.btn{
+  font-family: Poppins;
+  transition: background-color 0.5s ease;
+  &:hover{
+    background-color:blue;
+  }
+}
