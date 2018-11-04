@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserTest < ActiveSupport::TestCase
+class TutorTest < ActiveSupport::TestCase
 
   def setup
     @tutor = Tutor.new(name: "Example User", email: "user@example.com", id:123456, password: "foobar", password_confirmation: "foobar")
