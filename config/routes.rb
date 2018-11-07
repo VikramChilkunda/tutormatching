@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get '/tuteesignup', to: 'tutees#new'
+  
+  get '/tutorsignup', to: 'tutors#new'
 
   get '/home', to: 'static_pages#home'
 
