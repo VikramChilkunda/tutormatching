@@ -1,0 +1,11 @@
+<% provide(:title, @tutor.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="tutor_info">
+      <h1>
+        <%= gravatar_for @tutor %>
+        <%= @tutor.name %>
+      </h1>
+    </section>
+  </aside>
+</div>
