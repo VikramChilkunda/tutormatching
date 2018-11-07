@@ -12,17 +12,17 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :gradYear %>
+      <%= f.label :gradYear, 'Graduation Year' %>
       <%= f.text_field :gradYear, class: 'form-control' %>
       
-      <%= f.label :student_id %>
-      <%= f.text_field :student_id, class: 'form-control' %>
+      <%= f.label :student_id, 'Student Id' %>
+      <%= f.text_field :student_id,class: 'form-control' %>
       
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
+      <br><br>
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
