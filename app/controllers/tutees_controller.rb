@@ -5,6 +5,7 @@ class TuteesController < ApplicationController
   def show
     @tutee = Tutee.find(params[:id])
   end
+
   def signup
   end
   
@@ -19,7 +20,8 @@ class TuteesController < ApplicationController
   def create
     @tutee = Tutee.new(tutee_params)
     if @tutee.save
-      
+      flash[:success] = "Congrats on signing up to be tutored!"
+      redirect_to home_path
     else
       render 'new'
     end

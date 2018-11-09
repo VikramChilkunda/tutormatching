@@ -3,7 +3,7 @@ require 'test_helper'
 class TutorTest < ActiveSupport::TestCase
 
   def setup
-    @tutor = Tutor.new(name: "Example User", email: "user@example.com", id:123456, password: "foobar", password_confirmation: "foobar")
+    @tutor = Tutor.new(name: "Example User", email: "user@example.com", id_num:123456, password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid" do
@@ -21,7 +21,7 @@ class TutorTest < ActiveSupport::TestCase
   end
   
   test "id should be present" do
-    @tutor.id = ""
+    @tutor.id_num = ""
     assert_not @tutor.valid?
   end
   
@@ -36,7 +36,7 @@ class TutorTest < ActiveSupport::TestCase
   end
   
   test "id should be 6 digits" do
-    @tutor.id = "1234567"
+    @tutor.id_num = "1234567"
     assert_not @tutor.valid?
   end
   
