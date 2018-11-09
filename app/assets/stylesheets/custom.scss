@@ -20,7 +20,27 @@
 @font-face{
   font-family: "Poppins";
   src: url(/assets/fonts/Poppins-Regular.ttf) format("truetype");
-  
+}
+.form-control{
+  margin-bottom: 10px;
+}
+select{
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .jumbotron{
   background-image: url("https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=24d86ecc52a3e5d0d8f4f085e82a14ef&auto=format&fit=crop&w=750&q=80");
@@ -63,6 +83,7 @@ header ul li{
 }
 body {
   padding-top: 60px;
+  background-color: blue;
 }
 small{
   padding-left: 20px;
@@ -72,14 +93,12 @@ small{
 section {
   overflow: auto;
 }
-
 textarea {
   resize: vertical;
 }
 .center {
   text-align: center;
 }
-
 .center h1 {
   margin-bottom: 10px;
 }
@@ -111,14 +130,14 @@ p {
 }
 
 #logo {
-  font-family: Poppins;
-  float: left;
-  margin-top: 10px;
+  position: relative;
+  top: 0.1em;
+  padding-bottom: 10px;
+  display: block;
   font-size: 1.9em;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
-  font-weight: light;
     &:hover{
       color: #fff;
     }
@@ -141,7 +160,6 @@ p {
       -webkit-transform: scaleX(1);
       transform: scaleX(1);
     }
-  position: relative;
   color: #fff;
   text-decoration: none;
 }
