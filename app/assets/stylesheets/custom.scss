@@ -1,230 +1,265 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-//Krub
-@font-face{
-  font-family: "Krub-Regular";
-  src: url(/assets/fonts/Krub-Regular.ttf) format("truetype");
+button:focus{
+	outline: 0;
 }
-//Bangers
-@font-face{
-  font-family: "Bangers-Regular";
-  src: url(/assets/fonts/Bangers-Regular.ttf) format("truetype");
+.row{
+	margin: 0px;
 }
-//Sixcaps
-@font-face{
-  font-family: "SixCaps";
-  src: url(/assets/fonts/SixCaps.ttf) format("truetype");
+.large_content{
+	text-align: center;
+	padding: 100px;
+	padding-top: 200px;
+	background-image: url("https://images.unsplash.com/photo-1470921346718-b615f097684b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f12ee75700589839ff988a69c452c838&auto=format&fit=crop&w=1350&q=80");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	margin-bottom: 10px;
 }
-//Poppins
-@font-face{
-  font-family: "Poppins";
-  src: url(/assets/fonts/Poppins-Regular.ttf) format("truetype");
+.large_content h1{
+	color: white;
+	font-family: Cabin;
+	font-size: 100px;
+	margin-bottom: 50px;
 }
-.form-control{
-  margin-bottom: 10px;
+.large_content p{
+	color: white;
+	font-family: Signika;
+	font-size: 27px;
+	max-width: 50%;
+	margin-left: 50%;
+	position: relative;
+	left: -25%;
+	line-height: 1.8em;
 }
-select{
-  display: block;
-  width: 100%;
-  height: 34px;
-  padding: px 12px;
-  font-size: 14px;
-  line-height: 1.428571429;
-  color: #555555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+.large_content button{
+	font-family: Signika;
+	font-size: 22px;
+	margin-top: 30px;
+	width: 10em;
+	height: 3em;
+	border-radius: 10em;
+	background-color: white;
+	transition: 0.3s;
 }
-.jumbotron{
-  background-image: url("https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=24d86ecc52a3e5d0d8f4f085e82a14ef&auto=format&fit=crop&w=750&q=80");
-  background-size: 100%;
+.large_content button:hover{
+	transition: 0.3s;
+	background-color: #19F5E5;
+	cursor: pointer;
 }
-.mycontainer{
-  text-align: center;
+.container-fluid{
+	padding: 0;
+	width: 50%;
 }
-header{
-  text-transform: uppercase;
-  font-family: Krub-Regular;
+#color{	
+	background-color: #eee;
+	padding-right: 10px;
+	padding: 30px;
 }
-header ul li{
-  font-family: Poppins;
-  font-size: 1.2em;
-   &:hover{
-      color: #fff;
-    }
-    &:before{
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition: all 0.3s ease 0s;
-      transition: all 0.3s ease 0s;
-    }
-    &:hover:before{
-      visibility: visible;
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-    }
-  color: #fff;
-  text-decoration: none;
+.col-lg-8 p{
+	font-size: 17px;
+	line-height: 2em;
 }
-body {
-  padding-top: 60px;
-  background-color: blue;
+.col-lg-8 button{
+	padding: 15px;
+	width: 10em;
+	border-radius: 10px;
 }
-small{
-  padding-left: 20px;
-  font-size: 1.1em;
+.col-lg-4{
+	overflow: hidden;
 }
-
-section {
-  overflow: auto;
+.specific_content{
+	width: 100%;
 }
-textarea {
-  resize: vertical;
+a{
+	color: black;
+	text-decoration: none;
 }
-.center {
-  text-align: center;
+a:hover{
+	text-decoration: none;
+	color: black;
 }
-.center h1 {
-  margin-bottom: 10px;
+.img{
+	height: 256px;
+	width: 256px;
+	overflow: hidden;
 }
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.3;
+.img img{
+	height: 256px;
+	width: 256px;
 }
-
-h1 {
-  font-size: 3em;
-  letter-spacing: 0.01px;
-  margin-bottom: 30px;
-  text-align: center;
+#top{
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	width: 50px;
+	height: 50px;
+	border-radius: 10em;
+	width: 5em;
+	background-color: white;
+	transition: 0.3s;
 }
-
-h2 {
-  letter-spacing: -2px;
-  font-family: Krub-Regular;
-  font-size: 1.4em;
-  letter-spacing: 0.5px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #000;
+#top:hover{
+	background-color: #eee;
+	transition: 0.3s;
+	cursor: pointer;
 }
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+/*Navbar stuff
+*/
+.navbar{
+  padding-bottom: 0;
+  font-family: Signika;
 }
-
-#logo {
+ .navbar-brand{
+  font-size: 15px;
+ }
+.nav-item{
+  font-size: 16px;
   position: relative;
-  top: 0.1em;
-  padding-bottom: 10px;
-  display: block;
-  font-size: 1.9em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-    &:hover{
-      color: #fff;
-    }
-    &:before{
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: #fff;
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transition: all 0.3s ease 0s;
-      transition: all 0.3s ease 0s;
-    }
-    &:hover:before{
-      visibility: visible;
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-    }
-  color: #fff;
+  color: #000;
   text-decoration: none;
+  padding-bottom: 0.3rem;
 }
-// footer {
-//   font-family: "Bangers-Regular";
-//   width: 100%;
-//   padding-right: 40px;
-//   font-size: 1.2em;
-//   position: fixed;
-//   bottom: 0;
-//   border-top: 1px solid #eaeaea;
-//   color: #777;
-// }
+.nav-item:hover {
+  color: black;
+}
+.nav-item:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: teal;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.nav-item:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.nav-link:hover{
+	color: black;
+}
+/*End Navbar Stuff*/
+/*Back to top Button*/
+#back2Top {
+	opacity: 0.7;
+    width: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    z-index: 999;
+    display: none;
+    cursor: pointer;
+    -moz-transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: none;
+	transition: 0.5s;
+}
+#back2Top:hover {
+	transition: 0.3s ease-out;
+    background-color: #fcfcfc;
+    color: #000;
+}
 
-// footer a {
-//   color: #555;
-// }
 
-// footer a:hover {
-//   color: #222;
-// }
+/*End Back to Top*/
+/*hamburger menu*/
+.hmenu{
+	width: 20px;
+	height: 2px;
+	background-color: gray;
+	margin-top: 5px;
+}
+#hmenu{
+	padding-top: 2%;
+	float: left;
+	cursor: pointer;
+	margin-right: 20px;
+}
+#hmenu:hover:before{
+	visibility: hidden;
+}
+/*end hamburger menu*/
+	/* filler div*/
+.filler{
+	height: 100px;
+}		
 
-// footer small {
-//   float: left;
-// }
+/*end filler div*/
 
-// footer ul {
-//   float: right;
-//   list-style: none;
-  
-// }
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: black; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
+    text-align: left;
+}
 
-// footer ul li {
-//   float: left;
-//   margin-left: 15px;
-//   &:hover{
-//       color: #fff;
-//     }
-//     &:before{
-//       content: "";
-//       position: absolute;
-//       width: 100%;
-//       height: 2px;
-//       bottom: 0;
-//       left: 0;
-//       background-color: #fff;
-//       visibility: hidden;
-//       -webkit-transform: scaleX(0);
-//       transform: scaleX(0);
-//       -webkit-transition: all 0.3s ease-in-out 0s;
-//       transition: all 0.3s ease-in-out 0s;
-//     }
-//     &:hover:before{
-//       visibility: visible;
-//       -webkit-transform: scaleX(1);
-//       transform: scaleX(1);
-//     }
-//   position: relative;
-//   color: #fff;
-//   text-decoration: none;
-// }
-.btn{
-  font-family: Poppins;
-  transition: background-color 0.5s ease;
-  &:hover{
-    background-color:blue;
-  }
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    font-family: Signika;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;		}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.sidenav h1{
+	font-size: 40px;
+	color: white;
+}
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .2s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+#body{
+	padding-top: 0;
+}
+
+/*Tutor signup css*/
+.col-md-6{
+	padding: 50px;
+}
+h1{
+	padding-left: 50px;
+	padding-top: 50px;
 }

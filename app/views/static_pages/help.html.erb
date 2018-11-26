@@ -1,20 +1,80 @@
-<% provide(:title, "Help") %>
+<% provide(:title, "Home") %>
 <!DOCTYPE html>
 <html>
-  <body>
-    
-     <%= render 'layouts/header' %>
-    <div class="center jumbotron">
-        <h1>Help</h1>
-      
-        <h2>
-          This is the help page for the
-          Tutor application. To sign up for tutoring, <br>
-          press the button below!
-        </h2>
-      
-        <%= render 'layouts/button1' %>
-        <%= render 'layouts/button2' %>
-      </div>
-  </body>
+<head>
+	<title>HOME PAGE</title>
+	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+	<script src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		/*Scroll to top when arrow up clicked BEGIN*/
+		$(window).scroll(function() {
+		    var height = $(window).scrollTop();
+		    if (height > 100) {
+		        $('#back2Top').fadeIn();
+		    } else {
+		        $('#back2Top').fadeOut();
+		    }
+		});
+		$(document).ready(function() {
+		    $("#back2Top").click(function(event) {
+		        event.preventDefault();
+		        $("html, body").animate({ scrollTop: 0 }, "slow");
+		        return false;
+		    });
+
+		});
+		 /*Scroll to top when arrow up clicked END*/
+		function openNav() {
+		    document.getElementById("mySidenav").style.opacity = 0.8;
+		    document.getElementById("mySidenav").style.width = "13%";
+		}
+
+		/* Set the width of the side navigation to 0 */
+		function closeNav() {
+		    document.getElementById("mySidenav").style.opacity = 0;
+		    document.getElementById("mySidenav").style.width = "0";
+		}
+	</script>
+</head>
+<body id="body">
+	<div id="mySidenav" class="sidenav">
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <h1> Quick Links </h1>
+	  <a href="/tutorsignup">Tutor Signup</a>
+	  <a href="/signup">Tutee Signup</a>
+	</div>
+	<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item" id="hmenu" onclick="openNav()">
+              	<div class="hmenu"> </div>
+              	<div class="hmenu"> </div>
+              	<div class="hmenu"> </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="/home">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+              	<a class="nav-link"="/about">About</a>
+              </li>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link"id="active"  href href="/help">Help</a>
+              </li>
+            </ul>
+          <a class="navbar-brand" href="index.html">CV Enterprises</a>
+          </div>
+        </nav>
+	<div class="large_content">
+		<h1>Tutor Signup</h1>
+		<p> To signup, click the button below, or return to the home page using the navigation bar on the top. Additionally, you could view our quick links by pressing the
+		menu in the top left corner.</p>
+		<a href="/signup">
+			<button> Sign Up </button>	
+		</a>
+ 	</div>
+ 	<!-- <button id="top" onload ="hide()" onclick="topFunction()" >Top</button> -->
+ 	<a id="back2Top" title="Back to top" href="#">&#10148;</a>
+ 	<div class="filler"></div>
+</body>
 </html>
