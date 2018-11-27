@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/about',   to: 'static_pages#about'
   get  '/signup', to: 'tutees#signup'
   post '/signup',  to: 'tutees#create'
-  get  '/tutorsignup', to: 'tutors#signup'
+  get  '/tutorsignup', to: 'tutors#tsignup'
   post '/tutorsignup', to: 'tutors#create'
   resources :tutees
   

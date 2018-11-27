@@ -1,5 +1,5 @@
 class TutorsController < ApplicationController
-  def new
+  def signup
     @tutor = Tutor.new
   end
   
@@ -7,4 +7,19 @@ class TutorsController < ApplicationController
     @tutor = Tutor.find(params[:id])
     #debugger
   end
+  
+  def create 
+    @tutor = Tutor.new(params[tutor_params])
+    if @tutor.save
+      
+    else 
+      render 'new'
+    end
+  end
+  
+  private 
+  
+    def tutor_params
+      params.require(:tutor).permit(:name, :email, :id_num, :password, :password_confirmation)
+    end
 end
