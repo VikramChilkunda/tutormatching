@@ -3,19 +3,48 @@
   <head>
     <title><%= yield(:title) %> | CV Tutoring</title>
      <title><%= full_title(yield(:title)) %></title>
-     	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
-
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
 
-    <title>Hi</title>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
+    	<script type="text/javascript">
+      		/*Scroll to top when arrow up clicked BEGIN*/
+      		$(window).scroll(function() {
+      		    var height = $(window).scrollTop();
+      		    if (height > 100) {
+      		        $('#back2Top').fadeIn();
+      		    } else {
+      		        $('#back2Top').fadeOut();
+      		    }
+      		});
+      		$(document).ready(function() {
+      		    $("#back2Top").click(function(event) {
+      		        event.preventDefault();
+      		        $("html, body").animate({ scrollTop: 0 }, "slow");
+      		        return false;
+      		    });
+      
+      		});
+      		 /*Scroll to top when arrow up clicked END*/
+      		function openNav() {
+      		    document.getElementById("mySidenav").style.opacity = 0.8;
+      		    document.getElementById("mySidenav").style.width = "17%";
+      		}
+      
+      		/* Set the width of the side navigation to 0 */
+      		function closeNav() {
+      		    document.getElementById("mySidenav").style.opacity = 0;
+      		    document.getElementById("mySidenav").style.width = "0";
+      		}
+      	</script>
     <![endif]-->
   </head>
   <body>
+
      <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
