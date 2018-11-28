@@ -3,13 +3,21 @@ class TutorsController < ApplicationController
     @tutor = Tutor.new
   end
   
+  def new
+    @tutor = Tutor.new
+  end
+  
+  def edit
+    @tutor = Tutor.find(params[:id])
+  end
+  
   def show
     @tutor = Tutor.find(params[:id])
-    #debugger
+   # debugger
   end
   
   def create 
-    @tutor = Tutor.new(params[tutor_params])
+    @tutor = Tutor.new(tutor_params)
     if @tutor.save
       
     else 
