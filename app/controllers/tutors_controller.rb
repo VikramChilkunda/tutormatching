@@ -12,7 +12,7 @@ class TutorsController < ApplicationController
   end
   
   def show
-    @tutor = Tutor.find(params[:id])
+    @tutor = Tutor.find(params[:id]) 
    # debugger
   end
   
