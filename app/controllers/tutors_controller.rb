@@ -19,7 +19,8 @@ class TutorsController < ApplicationController
   def create 
     @tutor = Tutor.new(tutor_params)
     if @tutor.save
-      
+      flash[:success] = "Tutor signup successful!"
+      redirect_to @tutor
     else 
       render 'new'
     end
