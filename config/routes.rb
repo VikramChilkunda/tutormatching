@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root 'static_pages#home'
   get '/home',    to: 'static_pages#home'
   get '/help',    to: 'static_pages#help'
@@ -7,6 +9,9 @@ Rails.application.routes.draw do
   post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#new'
   post '/tutorsignup', to: 'tutors#create'
+  get  '/login', to: 'sessions#new'
+  post  '/login', to: 'sessions#create'
+  delete '/login', to: 'sessions#destroy'
   resources :tutees
   
   resources :tutors

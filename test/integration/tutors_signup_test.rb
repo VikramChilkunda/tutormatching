@@ -12,7 +12,7 @@ class TutorsSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end
-    follow_redirect!
+    #follow_redirect!
     assert_template 'tutors/new'
     assert_select 'form[action="/tutorsignup"]'
   end
