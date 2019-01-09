@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  integer: MyString
+  tutee_id: MyString
+  integer: MyString
+  tutor_id: MyString
+
+two:
+  integer: MyString
+  tutee_id: MyString
+  integer: MyString
+  tutor_id: MyString

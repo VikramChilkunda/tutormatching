@@ -1,36 +1,6 @@
 <head>
   	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
   	<script src="jquery-3.3.1.min.js"></script>
-	<script type="text/javascript">
-		/*Scroll to top when arrow up clicked BEGIN*/
-		$(window).scroll(function() {
-		    var height = $(window).scrollTop();
-		    if (height > 100) {
-		        $('#back2Top').fadeIn();
-		    } else {
-		        $('#back2Top').fadeOut();
-		    }
-		});
-		$(document).ready(function() {
-		    $("#back2Top").click(function(event) {
-		        event.preventDefault();
-		        $("html, body").animate({ scrollTop: 0 }, "slow");
-		        return false;
-		    });
-
-		});
-		 /*Scroll to top when arrow up clicked END*/
-		function openNav() {
-		    document.getElementById("mySidenav").style.opacity = 0.8;
-		    document.getElementById("mySidenav").style.width = "13%";
-		}
-
-		/* Set the width of the side navigation to 0 */
-		function closeNav() {
-		    document.getElementById("mySidenav").style.opacity = 0;
-		    document.getElementById("mySidenav").style.width = "0";
-		}
-	</script>
 </head>
 <% provide(:title, 'Register') %>
 <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">

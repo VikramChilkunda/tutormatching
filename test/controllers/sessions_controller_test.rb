@@ -1,10 +1,9 @@
 require 'test_helper'
 
-class TuteesControllerTest < ActionDispatch::IntegrationTest
+class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get signup_path
+    get login_path
     assert_response :success
   end
-
 
 end
