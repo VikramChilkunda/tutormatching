@@ -1,4 +1,4 @@
-<% provide(:title, "Home") %>
+<% provide(:title, "About") %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +10,6 @@
   <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" id="hmenu" onclick="openNav()">
-          	<div class="hmenu"> </div>
-          	<div class="hmenu"> </div>
-          	<div class="hmenu"> </div>
-          </li>
           <li class="nav-item ">
             <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
           </li>
@@ -25,23 +20,26 @@
           <li class="nav-item">
             <a class="nav-link" href="/help">Help</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/studygroup">Study Group</a>
+          </li>
         </ul>
       <a class="navbar-brand" href="/home">CV Enterprises</a>
       </div>
     </nav>
-	<div id="mySidenav" class="sidenav">
-	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <h1> Quick Links </h1>
-	  <a href="/tutorsignup">Tutor Signup</a>
-	  <a href="/signup">Tutee Signup</a>
-	</div>
-	<div class="large_content">
-		<h1>Tutor Signup</h1>
-		<p>This website was made by Vikram C, Adarsh C, and Jack M. Press the button below to sign up!</p>
-		<a href="/signup">
-			<button> Sign Up </button>	
-		</a>
- 	</div>
+		<div class="large_content">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6" id="border">
+					<h1>About Us</h1>
+				</div>
+				<div class="col-lg-6">
+					<p>This website serves as a place to match a tutor with a tutee. We do not take responsibility for any issues
+					that occur as a result of using this website.
+					</p>		
+				</div>
+			</div>
+		</div>
  	<!-- <button id="top" onload ="hide()" onclick="topFunction()" >Top</button> -->
  	<a id="back2Top" title="Back to top" href="#">&#10148;</a>
  	<div class="filler"></div>

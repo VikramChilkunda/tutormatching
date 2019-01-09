@@ -4,32 +4,51 @@ button:focus{
 .row{
 	margin: 0px;
 }
+#border{
+	border-right: 1px solid white;
+}
+.small_content{
+	padding: 30px;
+	font-family: Signika;
+	font-size: 50px;
+	float: center;
+	display: block;
+	background-color: #669999;
+}
+.small_content p{
+	font-size: 20px;
+	font-family: Lato;
+}
+.col-lg-6{
+	text-align: center;
+	padding-bottom: 20px;
+}
 #large_content{
 	padding-bottom: 50px;
 }
 .large_content{
+	padding-bottom: 50px;
 	text-align: center;
-	padding: 100px;
-	padding-top: 00px;
+	padding-top: 100px;
 	background-image: url("https://images.unsplash.com/photo-1470921346718-b615f097684b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f12ee75700589839ff988a69c452c838&auto=format&fit=crop&w=1350&q=80");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	margin-bottom: 10px;
+	width: 100%;
 }
 .large_content h1{
 	color: white;
 	font-family: Cabin;
-	font-size: 100px;
+	font-size: 90px;
 	margin-bottom: 50px;
+	z-index: 100;
 }
 .large_content p{
 	color: white;
 	font-family: Signika;
 	font-size: 27px;
 	max-width: 50%;
-	margin-left: 50%;
 	position: relative;
-	left: -25%;
+	top: 0;
 	line-height: 1.8em;
 	margin-bottom: 50px;
 }
@@ -51,6 +70,9 @@ button:focus{
 .container-fluid{
 	padding: 0;
 	width: 50%;
+}
+.container{
+	max-width: 100%;
 }
 #color{	
 	background-color: #eee;
@@ -271,4 +293,19 @@ h1{
 }
 #bottominput{
 	margin-bottom: 24px;
+}
+
+//
+.col-lg-6 p{
+	display: inline;
+	padding-top: 1em;
+	width: 50%;
+	margin: 0;
+	text-align: center;
+	left: 0;
+	top: 30%;
+	z-index: 100;
+}
+.col-lg-6 h1{
+	z-index: 100;
 }

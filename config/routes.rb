@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#signup'
   post '/tutorsignup', to: 'tutors#create'
+  get '/studygroup', to: 'static_pages#studygroup'
   resources :tutees
   
   resources :tutors
