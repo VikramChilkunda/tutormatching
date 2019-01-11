@@ -67,7 +67,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@tutor, url: tutorsignup_path) do |f| %>
+    <%= form_for(@tutor_person, url: signup_path) do |f| %>
     
     <%= render 'shared/error_messages' %>
 
@@ -80,14 +80,14 @@
       <%= f.label :id_num %>
       <%= f.text_field :id_num, class: 'form-control' %>
       
-      <%= f.label :grade %>
-      <select class = "form-control" name="Contact[email_provider]">
+     <%= f.label :grade %>
+      <%= f.text_field :grade, class: 'form-control' %>
+  <!--   <select class = "form-control" name="Contact[email_provider]">
         <option>9</option>
         <option>10</option>
         <option>11</option>
         <option>12</option>
-      </select>
-      
+      </select>  -->
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 

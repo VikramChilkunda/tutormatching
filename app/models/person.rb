@@ -1,2 +1,10 @@
 class Person < ApplicationRecord
+    has_one :tutee, foreign_key: :people_id, autosave: true, inverse_of: :person
+    has_one :tutor, foreign_key: :people_id, autosave: true, inverse_of: :person
+    validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
+    has_secure_password
+    validates :password, presence: true, length: {minimum: 6}
+    before_save { self.email = email.downcase }
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+    validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
 end

@@ -69,19 +69,23 @@
     
   </div>
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@tutee) do |f| %>
+    <%= form_for(@tutee_person, url: signup_path) do |f| %>
 
 <%= render 'shared/tutee_error_maybe' %>
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
       
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      
       <%= f.label :grade %>
-      <select class = "form-control" name="Contact[email_provider]">
+      <%= f.text_field :grade, class: 'form-control' %>
+  <!--   <select class = "form-control" name="Contact[email_provider]">
         <option>9</option>
         <option>10</option>
         <option>11</option>
         <option>12</option>
-      </select>
+      </select>  -->
       
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
