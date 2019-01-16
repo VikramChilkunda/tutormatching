@@ -1,47 +1,11 @@
-<% provide(:title, 'Become a Tutor') %>
 <head>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-  <script src="jquery-3.3.1.min.js"></script>
-	<script type="text/javascript">
-		/*Scroll to top when arrow up clicked BEGIN*/
-		$(window).scroll(function() {
-		    var height = $(window).scrollTop();
-		    if (height > 100) {
-		        $('#back2Top').fadeIn();
-		    } else {
-		        $('#back2Top').fadeOut();
-		    }
-		});
-		$(document).ready(function() {
-		    $("#back2Top").click(function(event) {
-		        event.preventDefault();
-		        $("html, body").animate({ scrollTop: 0 }, "slow");
-		        return false;
-		    });
-
-		});
-		 /*Scroll to top when arrow up clicked END*/
-		function openNav() {
-		    document.getElementById("mySidenav").style.opacity = 0.8;
-		    document.getElementById("mySidenav").style.width = "13%";
-		}
-
-		/* Set the width of the side navigation to 0 */
-		function closeNav() {
-		    document.getElementById("mySidenav").style.opacity = 0;
-		    document.getElementById("mySidenav").style.width = "0";
-		}
-	</script>
+  	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+  	<script src="jquery-3.3.1.min.js"></script>
 </head>
+<% provide(:title, 'Become a Tutor') %>
 <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item" id="hmenu" onclick="openNav()">
-          	<div class="hmenu"> </div>
-          	<div class="hmenu"> </div>
-          	<div class="hmenu"> </div>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
           </li>
@@ -52,33 +16,25 @@
           <li class="nav-item">
             <a class="nav-link" href="/help">Help</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/studygroup">Study Group</a>
+          </li>
         </ul>
       <a class="navbar-brand" href="/home">CV Enterprises</a>
       </div>
     </nav>
-<div id="mySidenav" class="sidenav">
-	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <h1> Quick Links </h1>
-	  <a href="/tutorsignup">Tutor Signup</a>
-	  <a href="/signup">Tutee Signup</a>
+<div class="large_content" id="large_content">
+  <h1> Sign Up</h1>
 </div>
-	
-<h1>Sign up</h1>
-
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@tutor, url: tutorsignup_path) do |f| %>
+  <div class="col-md-3 col-md-offset-3">
     
-    <%= render 'shared/error_messages' %>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:tutee) do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
-      
-       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-      
-      <%= f.label :id_num %>
-      <%= f.text_field :id_num, class: 'form-control' %>
       
       <%= f.label :grade %>
       <select class = "form-control" name="Contact[email_provider]">
@@ -92,9 +48,10 @@
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, "Re-enter password" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', id: 'bottominput' %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
-    </div>
-    </div>
+  </div>
+</div>
+    
