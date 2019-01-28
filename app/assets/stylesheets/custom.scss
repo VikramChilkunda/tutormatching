@@ -7,13 +7,20 @@ button:focus{
 #border{
 	border-right: 1px solid white;
 }
+#bob{
+	padding: 25px;
+}
 .small_content{
-	padding: 30px;
+	padding: 300px;
 	font-family: Signika;
 	font-size: 50px;
+	color: white;
 	float: center;
 	display: block;
-	background-color: #669999;
+	//background-color: #669999;
+	background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/04/29/37/07583f8326c8274.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 .small_content p{
 	font-size: 20px;
