@@ -11,12 +11,19 @@ button:focus{
 	padding: 25px;
 }
 .small_content{
-	padding: 250px 300px 300px 300px;
+	padding: 300px;
+	padding: 30px;
+	width: 100%;
+	padding-left: 25%;
+	padding-right: 25%;
+	padding: 300px;
 	font-family: Signika;
 	font-size: 50px;
 	color: white;
 	float: center;
 	display: block;
+	background-color: #eee;
+	padding-bottom: 100px;
 	//background-color: #669999;
 	background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/04/29/37/07583f8326c8274.jpg");
 	background-repeat: no-repeat;
@@ -38,13 +45,14 @@ button:focus{
 	padding-bottom: 50px;
 	text-align: center;
 	padding-top: 100px;
-	background-image: url("https://images.unsplash.com/photo-1470921346718-b615f097684b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f12ee75700589839ff988a69c452c838&auto=format&fit=crop&w=1350&q=80");
+	background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	width: 100%;
 }
 .large_content h1{
 	color: white;
+	font-weight: bold;
 	font-family: Cabin;
 	font-size: 90px;
 	margin-bottom: 50px;
@@ -60,8 +68,13 @@ button:focus{
 	line-height: 1.8em;
 	margin-bottom: 50px;
 }
+#homep{
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+}
 .large_content button{
-	font-family: Signika;
+	font-family: Lato;
 	font-size: 22px;
 	margin-top: 30px;
 	width: 10em;
@@ -92,6 +105,7 @@ button:focus{
 	line-height: 2em;
 }
 .col-lg-8 button{
+	position: relative;
 	padding: 15px;
 	width: 10em;
 	border-radius: 10px;
@@ -141,9 +155,9 @@ a:hover{
   padding-bottom: 0;
   font-family: Signika;
 }
- .navbar-brand{
-  font-size: 15px;
- }
+.navbar-light .navbar-brand {
+	font-size: 15px;
+}
 .nav-item{
   font-size: 16px;
   position: relative;
@@ -314,6 +328,7 @@ h1{
 }
 .col-lg-6 h1{
 	z-index: 100;
+<<<<<<< HEAD
 }
 
 #error_explanation {
@@ -322,4 +337,6 @@ h1{
     color: red;
     margin: 0 0 30px 0;
   }
+=======
+>>>>>>> ef7e74c623d132dff2eba497d968183d9dca6b59
 }
