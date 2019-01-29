@@ -1,1 +1,12 @@
-<%= @tutee.name %>, <%= @tutee.email %>
+<% provide(:title, @tutee_person.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="tutor_info">
+      <h1>
+        <%= gravatar_for @tutee_person %>
+        <br></br>
+        <%= @tutee_person.name %>
+      </h1>
+    </section>
+  </aside>
+</div>

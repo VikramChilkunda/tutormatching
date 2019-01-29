@@ -10,31 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181214225223) do
+ActiveRecord::Schema.define(version: 20181225042029) do
 
   create_table "people", force: :cascade do |t|
-    t.string   "integer"
-    t.string   "tutee_id"
-    t.string   "tutor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "name"
+    t.string   "password_digest"
+    t.string   "email"
   end
 
   create_table "tutees", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "people_id"
+    t.index ["people_id"], name: "index_tutees_on_people_id"
   end
 
   create_table "tutors", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
     t.integer  "id_num"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "password_digest"
-    t.index ["email"], name: "index_tutors_on_email", unique: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "people_id"
+    t.integer  "grade"
+    t.index ["people_id"], name: "index_tutors_on_people_id"
   end
 
 end

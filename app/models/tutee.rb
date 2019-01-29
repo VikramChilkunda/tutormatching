@@ -1,6 +1,4 @@
 class Tutee < ApplicationRecord
-    validates :name, presence: true, length: {maximum: 50}
-    validates :password, presence: true, length: { minimum: 6 }
-    has_secure_password
-    
+    belongs_to :person, foreign_key: :people_id, inverse_of: :tutee
+    accepts_nested_attributes_for :person
 end

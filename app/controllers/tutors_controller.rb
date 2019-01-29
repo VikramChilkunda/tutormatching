@@ -1,32 +1,35 @@
 class TutorsController < ApplicationController
-  def signup
-    @tutor = Tutor.new
-    @person = Person.new
-  end
-  
   def new
-    @tutor = Tutor.new
-    @person = Person.new
+   @tutor_person = TutorPerson.new
   end
   
   def edit
-    @tutor = Tutor.find(params[:id])
+     @tutor = Tutor.find(params[:id])
+     @person = Person.find(@tutor.people_id)
+     @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
   end
   
   def show
-    @tutor = Tutor.find(params[:id]) 
+     @tutor = Tutor.find(params[:id])
+     @person = Person.find(@tutor.people_id)
+     @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
    # debugger
   end
   
   def create 
-    @tutor = Tutor.new(tutor_params)
-    @person = Person.new(tutee_id: 0)
-    if @tutor.save
-      @person.tutor_id = Tutor.last.id
-      @person.save
+    @tutor_person = tutor_person
+    @person = Person.find_or_initialize_by email: tutor_params[:email]
+    @person.name = tutor_params[:name]
+    @person.password = tutor_params[:password]
+    @person.password_confirmation = tutor_params[:password_confirmation]
+    @tutor = @person.build_tutor
+    @tutor.id_num = tutor_params[:id_num]
+    @tutor.grade = tutor_params[:grade]
+    if @person.save 
       flash[:success] = "Tutor signup successful!"
-      redirect_to @tutor
+      redirect_to action: "show", id: @tutor.id
     else 
+      flash[:error] = @person.errors.full_messages
       render 'new'
     end
   end
@@ -34,6 +37,9 @@ class TutorsController < ApplicationController
   private 
   
     def tutor_params
-      params.require(:tutor).permit(:name, :email, :id_num, :password, :password_confirmation)
+      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation)
+    end
+    def tutor_person
+      TutorPerson.new(tutor_params)
     end
 end
