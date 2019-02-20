@@ -3,64 +3,54 @@
   	<script src="jquery-3.3.1.min.js"></script>
 </head>
 <% provide(:title, 'Become a Tutor') %>
-<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-          	<a class="nav-link" href="/about">About</a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/help">Help</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/studygroup">Study Group</a>
-          </li>
-        </ul>
+  <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+        	<a class="nav-link" href="/about">About</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/help">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/studygroup">Study Group</a>
+        </li>
+      </ul>
       <a class="navbar-brand" href="/home">CV Enterprises</a>
-      </div>
-    </nav>
-<div class="large_content" id="large_content">
-  <h1> Sign Up</h1>
-</div>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-<<<<<<< HEAD
-    <%= form_for(@tutor_person, url: signup_path) do |f| %>
-  <div class="col-md-3 col-md-offset-3">
-=======
-    <%= form_for(@tutor_person, url: tutorsignup_path) do |f| %>
->>>>>>> 13cd8161c82281d79495cbfbbe908d2fa2396405
-    
+    </div>
+  </nav>
+  <div class="large_content" id="large_content">
+    <h1> Sign Up</h1>
   </div>
+<div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:tutee) do |f| %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
-      
+      <br>
       <%= f.label :grade %>
       <select class = "form-control" name="Contact[email_provider]">
-       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-      
-      <%= f.label :id_num %>
-      <%= f.text_field :id_num, class: 'form-control' %>
-      
-     <%= f.label :grade %>
-      <%= f.text_field :grade, class: 'form-control' %>
-  <!--   <select class = "form-control" name="Contact[email_provider]">
         <option>9</option>
         <option>10</option>
         <option>11</option>
         <option>12</option>
-      </select>  -->
+      </select>
+      <!--<select class = "form-control" name="Contact[email_provider]">-->
+      <br>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      <br>
+      <%= f.label :Id_Number%>
+      <%= f.text_field :id_num, class: 'form-control' %>
+      <br>
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
-
+      <br>
       <%= f.label :password_confirmation, "Re-enter password" %>
       <%= f.password_field :password_confirmation, class: 'form-control', id: 'bottominput' %>
 
