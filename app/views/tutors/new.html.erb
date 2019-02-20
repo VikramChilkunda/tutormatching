@@ -29,33 +29,44 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:tutee) do |f| %>
-
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
       <br>
       <%= f.label :grade %>
       <select class = "form-control" name="Contact[email_provider]">
-        <option>9</option>
+  </div>
+  <div class="large_content" id="large_content">
+  <h1> Sign Up</h1>
+</div>
+  <div class="row">
+    <div  class="col-md-6 col-md-offset-3">
+      <%= form_for(@tutor_person, url: tutorsignup_path) do |f| %>
+      <%= render 'shared/error_messages' %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+        
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+        
+        <%= f.label :Id_Number %>
+        <%= f.text_field :id_num, class: 'form-control' %>
+        
+        <%= f.label :grade %>
+        <select class = "form-control" name="Contact[email_provider]">
+          <option>9</option>
         <option>10</option>
         <option>11</option>
         <option>12</option>
       </select>
-      <!--<select class = "form-control" name="Contact[email_provider]">-->
-      <br>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-      <br>
-      <%= f.label :Id_Number%>
-      <%= f.text_field :id_num, class: 'form-control' %>
-      <br>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-      <br>
-      <%= f.label :password_confirmation, "Re-enter password" %>
-      <%= f.password_field :password_confirmation, class: 'form-control', id: 'bottominput' %>
-
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+        </select>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <br>
+        <%= f.label :password_confirmation, "Re-enter password" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', id: 'bottominput' %>
+  
+        <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
-    
+</div>
