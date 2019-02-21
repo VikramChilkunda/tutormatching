@@ -33,14 +33,9 @@
       <%= f.text_field :name, class: 'form-control' %>
       <br>
       <%= f.label :grade %>
-      <select class = "form-control" name="Contact[email_provider]">
-  </div>
-  <div class="large_content" id="large_content">
-  <h1> Sign Up</h1>
-</div>
-  <div class="row">
-    <div  class="col-md-6 col-md-offset-3">
-      <%= form_for(@tutor_person, url: tutorsignup_path) do |f| %>
+      <select class = "form-control" name="Contact[email_provider]"></select>
+    <% end %>
+    <%= form_for(@tutor_person, url: tutorsignup_path) do |f| %>
       <%= render 'shared/error_messages' %>
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
@@ -67,6 +62,7 @@
   
         <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
+  </div>
   </div>
 </div>
 </div>

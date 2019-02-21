@@ -340,3 +340,11 @@ h1{
     margin: 0 0 30px 0;
   }
 }
+
+
+//media queries
+@media only screen and (max-width: 760px){
+	.large_content h1{
+		text-align: center;
+	}
+}
