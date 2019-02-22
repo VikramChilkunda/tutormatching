@@ -3,26 +3,41 @@
   	<script src="jquery-3.3.1.min.js"></script>
 </head>
 <% provide(:title, 'Become a Tutor') %>
-  <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-        	<a class="nav-link" href="/about">About</a>
-        </li>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/help">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/studygroup">Study Group</a>
-        </li>
-      </ul>
-      <a class="navbar-brand" href="/home">CV Enterprises</a>
-    </div>
-  </nav>
+<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+          	<a class="nav-link" href="/about">About</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/help">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/studygroup">Study Group</a>
+          </li>
+          
+          <!--<li class="nav-item">-->
+          <!--  <li><%= link_to "Tutor", '#' %></li> -->
+          <!--</li>-->
+          <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </button>
+            <ul class="dropdown-menu">
+              <li class = "dropdown-item"><%= link_to "Profile", current_tutor %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", '#', method: :delete %>
+              </li>
+            </ul>
+          </div>
+       
+        </ul>
   <div class="large_content" id="large_content">
     <h1> Sign Up</h1>
   </div>
