@@ -11,19 +11,14 @@ button:focus{
 	padding: 25px;
 }
 .small_content{
-	padding: 250px 300px 300px 300px;
-	padding: 30px;
+	padding: 200px;
 	width: 100%;
-	padding-left: 25%;
-	padding-right: 25%;
-	padding: 300px;
 	font-family: Signika;
 	font-size: 50px;
 	color: white;
 	float: center;
 	display: block;
 	background-color: #eee;
-	padding-bottom: 100px;
 	//background-color: #669999;
 	background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/04/29/37/07583f8326c8274.jpg");
 	background-repeat: no-repeat;
@@ -339,4 +334,14 @@ h1{
     color: red;
     margin: 0 0 30px 0;
   }
+}
+
+center{
+	text-align: center;
+}
+//media queries
+@media only screen and (max-width: 760px){
+	.large_content h1{
+		text-align: center;
+	}
 }
