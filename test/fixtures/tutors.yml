@@ -1,0 +1,4 @@
+adarsh:
+  name: Adarsh Example
+  email: developer@example.com
+  password_digest: <%= Tutor.digest('password') %>
