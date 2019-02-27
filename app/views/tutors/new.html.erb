@@ -39,8 +39,9 @@
   </div>
 </nav>
 <div class="large_content" id="large_content">
-    <h1> Sign Up</h1>
-  </div>
+  <h1>Sign up</h1>    
+</div>
+    
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:tutee) do |f| %>
@@ -64,10 +65,9 @@
         <%= f.label :grade %>
         <select class = "form-control" name="Contact[email_provider]">
           <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-      </select>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
         </select>
         <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control' %>
@@ -77,7 +77,8 @@
   
         <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
+   
   </div>
-  </div>
+</div>
 </div>
 </div>
