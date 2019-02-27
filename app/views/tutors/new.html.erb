@@ -1,6 +1,7 @@
 <head>
   	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
   	<script src="jquery-3.3.1.min.js"></script>
+  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <% provide(:title, 'Become a Tutor') %>
 <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
@@ -23,22 +24,21 @@
           <!--<li class="nav-item">-->
           <!--  <li><%= link_to "Tutor", '#' %></li> -->
           <!--</li>-->
-          <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Account
-              </button>
-            <ul class="dropdown-menu">
-              <li class = "dropdown-item"><%= link_to "Profile", current_tutor %></li>
-              <li><%= link_to "Settings", '#' %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", '#', method: :delete %>
-              </li>
-            </ul>
-          </div>
-       
-        </ul>
-  <div class="large_content" id="large_content">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Account
+    </button>
+    <ul class="dropdown-menu">
+      <li class = "dropdown-item"><%= link_to "Profile", current_tutor %></li>
+      <li><%= link_to "Settings", '#' %></li>
+      <li class="divider"></li>
+      <li>
+        <%= link_to "Log out", '#', method: :delete %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="large_content" id="large_content">
     <h1> Sign Up</h1>
   </div>
 <div class="row">
