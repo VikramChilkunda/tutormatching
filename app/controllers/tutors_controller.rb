@@ -26,6 +26,7 @@ class TutorsController < ApplicationController
     @tutor.id_num = tutor_params[:id_num]
     @tutor.grade = tutor_params[:grade]
     if @person.save 
+      log_in @person
       flash[:success] = "Tutor signup successful!"
       redirect_to action: "show", id: @tutor.id
     else 

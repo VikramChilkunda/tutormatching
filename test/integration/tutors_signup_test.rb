@@ -15,5 +15,6 @@ class TutorsSignupTest < ActionDispatch::IntegrationTest
     #follow_redirect!
     assert_template 'tutors/new'
     assert_select 'form[action="/tutorsignup"]'
+    assert is_logged_in?
   end
 end
