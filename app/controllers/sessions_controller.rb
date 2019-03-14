@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
   
   def create 
-    tutor = Tutor.find_by(id_num: params[:session][:id_num])
+    tutor = Person.find_by(email: params[:session][:email])
     if tutor && tutor.authenticate(params[:session][:password])
       log_in tutor
       redirect_to tutor

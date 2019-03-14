@@ -1,4 +1,4 @@
-class TutorsController < ApplicationController
+class PeopleController < ApplicationController
   def new
    @tutor_person = TutorPerson.new
   end
@@ -16,22 +16,12 @@ class TutorsController < ApplicationController
    # debugger
   end
   
-  def create 
-    @tutor_person = tutor_person
-    @person = Person.find_or_initialize_by email: tutor_params[:email]
-    @person.name = tutor_params[:name]
-    @person.password = tutor_params[:password]
-    @person.password_confirmation = tutor_params[:password_confirmation]
-    @tutor = @person.build_tutor
-    @tutor.id_num = tutor_params[:id_num]
-    @tutor.grade = tutor_params[:grade]
-    if @person.save 
-      log_in @person
-      flash[:success] = "Tutor signup successful!"
-      redirect_to action: "show", id: @person.id
+  def update 
+    @person = Person.find(Tutor.find(params[:id]).people_id)
+    if @person.update_attributes(tutor_params)
+    
     else 
-      flash[:error] = @tutor.errors.full_messages
-      render 'new'
+    render 'edit'
     end
   end
   
