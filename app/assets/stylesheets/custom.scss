@@ -78,9 +78,19 @@ button:focus{
 	background-color: white;
 	transition: 0.3s;
 }
+.overwrite{
+	font-family: Lato;
+	font-size: 22px;
+	margin-top: 30px;
+	width: 10em;
+	height: 3em;
+	border-radius: 10em;
+	background-color: black;
+	transition: 0.3s;
+}
 .large_content button:hover{
 	transition: 0.3s;
-	background-color: #19F5E5;
+	background-color: lightslategray;
 	cursor: pointer;
 }
 .container-fluid{

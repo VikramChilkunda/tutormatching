@@ -35,6 +35,16 @@ class TutorsController < ApplicationController
     end
   end
   
+  def update
+    @tutor = Person.find(params[:id])
+    if @tutor.update_attributes(tutor_params)
+      # Handle a successful update.
+      
+    else
+      render 'edit'
+    end
+  end
+  
   private 
   
     def tutor_params

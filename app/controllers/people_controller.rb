@@ -19,18 +19,19 @@ class PeopleController < ApplicationController
   def update 
     @person = Person.find(Tutor.find(params[:id]).people_id)
     if @person.update_attributes(tutor_params)
-    
+      flash[:success] = "Profile updated"
+      redirect_to @person
     else 
     render 'edit'
     end
   end
   
   private 
-  
-    def tutor_params
-      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation)
-    end
+   
     def tutor_person
       TutorPerson.new(tutor_params)
+    end
+    def tutor_params
+      params.require(:person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation)
     end
 end

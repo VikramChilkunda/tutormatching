@@ -16,6 +16,26 @@
           <li class="nav-item">
             <a class="nav-link" href="/help">Help</a>
           </li>
+          
+          <% if logged_in? %>
+          <li><%= link_to "Tutors", '#' %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_tutor %></li>
+              <li><%= link_to "Settings", edit_tutor_path(current_tutor) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
         
         </ul>
       <a class="navbar-brand" href="/home">CV Enterprises</a>
