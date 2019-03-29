@@ -1,4 +1,8 @@
 class PeopleController < ApplicationController
+  
+  before_action :logged_in_person, only: [:edit, :update]
+  before_action :correct_person, only: [:edit, :update]
+  
   def new
    @tutor_person = TutorPerson.new
   end
@@ -33,5 +37,11 @@ class PeopleController < ApplicationController
     end
     def tutor_params
       params.require(:person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation)
+    end
+    def logged_in_person
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
     end
 end

@@ -10,6 +10,7 @@ class TutorsEditTest < ActionDispatch::IntegrationTest
   end
 
   test "unsuccessful edit" do
+    log_in_as(@tutor)
     get edit_person_path(@tutor)
     assert_template 'people/edit'
     patch person_path(@tutor), params: { person: { name:  "",
@@ -21,6 +22,7 @@ class TutorsEditTest < ActionDispatch::IntegrationTest
   end
   
   test "successful edit" do
+    log_in_as(@person)
     get edit_tutor_path(@person)
     assert_template 'people/edit'
     name  = "Foo Bar"
