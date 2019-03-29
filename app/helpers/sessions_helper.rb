@@ -3,6 +3,10 @@ module SessionsHelper
     session[:tutor_id] = tutor.id
  end
  
+ def current_person?(person)
+    person == current_person
+ end
+ 
  def current_tutor
    if session[:tutor_id]
     @current_tutor ||= Tutor.find_by(id: session[:tutor_id])

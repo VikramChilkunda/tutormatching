@@ -44,4 +44,8 @@ class PeopleController < ApplicationController
         redirect_to login_url
       end
     end
+    def correct_person
+      @person = Person.find(params[:id])
+      redirect_to(root_url) unless current_person?(@person)
+    end
 end
