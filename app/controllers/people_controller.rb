@@ -1,7 +1,11 @@
 class PeopleController < ApplicationController
   
-  before_action :logged_in_person, only: [:edit, :update]
+  before_action :logged_in_person, only: [:index, :edit, :update]
   before_action :correct_person, only: [:edit, :update]
+  
+  def index
+    @people = Person.all
+  end
   
   def new
    @tutor_person = TutorPerson.new
@@ -40,6 +44,7 @@ class PeopleController < ApplicationController
     end
     def logged_in_person
       unless logged_in?
+        store_location
         flash[:danger] = "Please log in."
         redirect_to login_url
       end

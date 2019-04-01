@@ -4,7 +4,12 @@ class TutorsControllerTest < ActionDispatch::IntegrationTest
   
   def setup
     @person = tutors(:adarsh)
-    @other_person = tutors(:adarsh)
+    @other_person = tutors(:archer)
+  end
+  
+  test "should redirect index when not logged in" do
+    get tutors_path
+    assert_redirected_to login_url
   end
   
   test "should get new" do

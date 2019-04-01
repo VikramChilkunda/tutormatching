@@ -21,10 +21,10 @@ class TutorsEditTest < ActionDispatch::IntegrationTest
     assert_template 'people/edit'
   end
   
-  test "successful edit" do
-    log_in_as(@person)
+  test "successful edit with friendly forwarding" do
     get edit_tutor_path(@person)
-    assert_template 'people/edit'
+    log_in_as(@person)
+    assert_redirected_to edit_tutor_url(@person)
     name  = "Foo Bar"
     email = "foo@bar.com"
     patch user_path(@person), params: { tutor: { name:  name,
