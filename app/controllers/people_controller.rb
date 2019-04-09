@@ -1,10 +1,10 @@
 class PeopleController < ApplicationController
   
-  before_action :logged_in_person, only: [:index, :edit, :update]
+  before_action :logged_in_person, only: [:index, :edit, :update, :destroy]
   before_action :correct_person, only: [:edit, :update]
   
   def index
-    @people = Person.all
+    @people = Person.paginate(page: params[:page])
   end
   
   def new
@@ -32,6 +32,13 @@ class PeopleController < ApplicationController
     else 
     render 'edit'
     end
+  end
+  
+  def destroy
+    Tutor.find(params[:person_id]).destroy
+    Person.find(params[:id]).destroy
+    flash[:success] = "Person deleted"
+    redirect_to people_url
   end
   
   private 
