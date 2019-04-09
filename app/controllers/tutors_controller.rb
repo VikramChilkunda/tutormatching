@@ -28,7 +28,7 @@ class TutorsController < ApplicationController
     if @person.save 
       log_in @person
       flash[:success] = "Tutor signup successful!"
-      redirect_to action: "show", id: @person.id
+      redirect_to action: "show", id: @tutor.id
     else 
       flash[:error] = @tutor.errors.full_messages
       render 'new'
