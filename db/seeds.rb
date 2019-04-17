@@ -11,8 +11,8 @@ Person.create!(name:  "Adarsh Chilkunda",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true)
-Tutor.create!(name:  "Adarsh Chilkunda",
-             email: "adroyalz@gmail.com",
-             password:              "foobar",
+Tutor.create!(id_num: 419418,
+              people_id: 1,
+              grade: 10,
              password_confirmation: "foobar",
              admin: true)

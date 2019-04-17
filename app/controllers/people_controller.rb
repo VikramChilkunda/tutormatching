@@ -1,7 +1,8 @@
 class PeopleController < ApplicationController
   
-  before_action :logged_in_person, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_person, only: [:edit, :update, :destroy]
   before_action :correct_person, only: [:edit, :update]
+  before_action :admin_person,     only: [:destroy, :index]
   
   def index
     @people = Person.paginate(page: params[:page])
@@ -59,5 +60,9 @@ class PeopleController < ApplicationController
     def correct_person
       @person = Person.find(params[:id])
       redirect_to(root_url) unless current_person?(@person)
+    end
+    
+    def admin_person
+      redirect_to(root_url) unless current_person.admin?
     end
 end
