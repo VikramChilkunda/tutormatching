@@ -80,10 +80,12 @@
 	  <a href="/tutorsignup">Tutor Signup</a>
 	  <a href="/signup">Tutee Signup</a>
 </div>
-<h1>Log in</h1>
+
+<body class=login_background>
+<h1 id="bob">Log in</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div id="bob" class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
 
       <%= f.label :email %>
@@ -92,9 +94,14 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
+      <div>
+        <p></p>  <!-- Intentionally left blank to add space before the log in button -->
+      </div>
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
+    
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p id="bob">New user? <%= link_to "Sign up now!", signup_path, {:style=>"color:#fff;"} %></p>
   </div>
 </div>
+</body>
