@@ -31,5 +31,20 @@ class TutorsControllerTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_redirected_to login_url
   end
+  
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'Person.count' do
+      delete person_path(@person)
+    end
+    assert_redirected_to login_url
+  end
+
+  test "should redirect destroy when logged in as a non-admin" do
+    log_in_as(@person_user)
+    assert_no_difference 'Person.count' do
+      delete user_path(@person)
+    end
+    assert_redirected_to root_url
+  end
 
 end
