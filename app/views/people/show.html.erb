@@ -40,15 +40,23 @@
       </div>
  </nav>
 <% provide(:title, @tutor_person.name) %>
+<body id="not_taken">
 <div class="row">
   <aside class="col-md-4">
     <section class="tutor_info">
       <h1>
         <%= gravatar_for @tutor_person %>
         <br></br>
+        <div id="bob">
         <%= @tutor_person.name %>
         <%= @tutor_person.email %>
+        
+        <div><p></p></div>
+        
+        <%= link_to "Edit Profile", edit_person_path(current_person), {:style=>"color:#fff;"} %>
+        </div>
       </h1>
     </section>
   </aside>
 </div>
+</body>
