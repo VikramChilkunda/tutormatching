@@ -72,11 +72,12 @@ button:focus{
 	font-family: Lato;
 	font-size: 22px;
 	margin-top: 30px;
-	width: 10em;
+	width: 7em;
 	height: 3em;
-	border-radius: 10em;
+	border-radius: 0.5em;
 	background-color: white;
 	transition: 0.3s;
+	padding: 10px 10px;
 }
 .overwrite{
 	font-family: Lato;
@@ -157,7 +158,7 @@ a:hover{
 /*Navbar stuff
 */
 .navbar{
-  padding-bottom: 0;
+  padding-bottom: 0px;
   font-family: Signika;
 }
 .navbar-light .navbar-brand {
@@ -370,6 +371,74 @@ center{
 #lettercolor{
 	color: black;
 }
+<<<<<<< HEAD
+.defaultlink{
+	color: #0645AD;
+}
+.defaultlink:hover{
+	color: #0645AD;
+	text-decoration: underline;
+}
+
+/*Responsive stuff*/
+@media screen and (max-width: 600px){
+	.large_content{
+		// height: 100v
+		width: 95vw;
+		padding: 0px;
+		background-color: black;
+		background-image: none;
+		text-align: center;
+		justify-content: center;
+	}
+	.container{
+		width: 100%;
+	}
+	.large_content h1{
+		font-size: 49px;
+		// width: 94vw;
+		padding-top: 15vh;
+		padding-bottom: 15vh;
+		margin: auto;
+		border: 7px solid cornflowerblue;
+		padding-left: 10vw;
+		padding-right: 10vw;
+		margin-bottom: 10vh;
+	}
+	.large_content p{
+		max-width: 75%;
+		width: 100vw;
+		font-size: 20px;
+		font-family: Lato;
+		margin: 0;
+		padding: 0;
+		// border: 1px solid white;
+	}
+	.large_content button{
+		padding: 2px 4px;
+		font-size: 15px;
+		border-radius: 1.2em;
+		margin-top: 10%;
+		margin-bottom: 19%;
+	}
+	.small_content{
+		background-image: none;
+		padding: 25px;
+		background-color: green;
+		margin-bottom: 0px;
+	}
+	.container{
+		padding: 0px;
+	}
+	.col-md-6{
+		max-width: 90%;
+	}
+}
+
+
+
+/*End Responsive Stuff*/
+
 .login_background{
 	background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	
