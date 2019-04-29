@@ -42,14 +42,16 @@
     </div>
   </nav>
 
-<h1>Update your profile</h1>
+
+<h1 id="martin"><div style="background-color:lightgrey; opacity: 0.96; text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 70% 0% -1%; border-radius:25px;"> Update your profile </h1></div>
 
 
-<div class="row">
+<div id="martin" class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@person) do |f| %>
       <%= render 'shared/error_messages' %>
 
+<div style="background-color:lightgrey; text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 5%% 0% -1%; border-radius:25px;">
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
@@ -61,13 +63,27 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+  
+      <div>
+        <p></p>
+      </div>
+      
+      <div class="gravatar_edit", id="center_save_changes">
+        <%= gravatar_for @person %>
+        <a href="http://gravatar.com/emails" target="_blank">Change Profile Picture</a>
+        <p></p>
+      </div>
+    
+      <div id="center_save_changes"> <%= f.submit "Save changes", class: "btn btn-primary" %> </div>
+     
+      <div>
+        <p>
+        </p>
+      </div>
+      
     <% end %>
 
-    <div class="gravatar_edit">
-      <%= gravatar_for @person %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
+    
   </div>
+</div>
 </div>
