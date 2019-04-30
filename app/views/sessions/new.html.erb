@@ -45,10 +45,15 @@
   <h1>Log In</h1>
 </div>
 
-<div class="row">
-  <div id="bob" class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+<<<<<<< HEAD
+=======
 
+
+>>>>>>> fc760c55c61c171eee74f8a419a5512f88619ae1
+<div class="row">
+  <div  class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+       
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
       <br>
@@ -63,5 +68,5 @@
     <br>
     <a href="/signup" class="defaultlink">New User? Sign up now!</a>
   </div>
-</div>
+
 </body>
