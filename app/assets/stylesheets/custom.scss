@@ -74,7 +74,7 @@ button:focus{
 	margin-top: 30px;
 	width: 7em;
 	height: 3em;
-	border-radius: 0.5em;
+	border-radius: 5em;
 	background-color: white;
 	transition: 0.3s;
 	padding: 10px 10px;
@@ -315,7 +315,7 @@ a:hover{
 .col-md-6{
 	padding: 50px;
 	text-align: center;
-	max-width: 50%;
+	max-width: 30%;
 	margin: auto;
 }
 h1{
@@ -371,7 +371,7 @@ center{
 #lettercolor{
 	color: black;
 }
-<<<<<<< HEAD
+
 .defaultlink{
 	color: #0645AD;
 }
@@ -406,7 +406,7 @@ center{
 		margin-bottom: 10vh;
 	}
 	.large_content p{
-		max-width: 75%;
+		max-width: 35%;
 		width: 100vw;
 		font-size: 20px;
 		font-family: Lato;
@@ -417,7 +417,7 @@ center{
 	.large_content button{
 		padding: 2px 4px;
 		font-size: 15px;
-		border-radius: 1.2em;
+		border-radius: 5em;
 		margin-top: 10%;
 		margin-bottom: 19%;
 	}
@@ -454,4 +454,13 @@ center{
 #martin{
 	background-image: url("https://img1.akspic.com/image/114418-skyscraper-architect-modern_architecture-day-glass-1280x1024.jpg");
 	background-size: 100%;
+}
+#not_taken{
+	height: 100vh;
+}
+#not_taken .row{
+	height: 100%;
+}
+#not_taken h1{
+	color: white;
 }
