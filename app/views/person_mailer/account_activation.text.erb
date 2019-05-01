@@ -1,0 +1,5 @@
+Hi <%= @person.name %>,
+
+Welcome to the TutorMatching app! Click on that little link below to get started!
+
+<%= edit_account_activation_url(@person.activation_token, email: @person.email) %>
