@@ -42,7 +42,7 @@ button:focus{
 	padding-top: 100px;
 	background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: cover;
 	width: 100%;
 }
 .large_content h1{
@@ -158,7 +158,7 @@ a:hover{
 /*Navbar stuff
 */
 .navbar{
-  padding-bottom: 0px;
+  padding-bottom: 0px !important;
   font-family: Signika;
 }
 .navbar-light .navbar-brand {
@@ -197,38 +197,7 @@ a:hover{
 	color: black;
 }
 /*End Navbar Stuff*/
-/*Back to top Button*/
-#back2Top {
-	opacity: 0.7;
-    width: 40px;
-    line-height: 40px;
-    overflow: hidden;
-    z-index: 999;
-    display: none;
-    cursor: pointer;
-    -moz-transform: rotate(270deg);
-    -webkit-transform: rotate(270deg);
-    -o-transform: rotate(270deg);
-    -ms-transform: rotate(270deg);
-    transform: rotate(270deg);
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    background-color: #333333;
-    color: white;
-    text-align: center;
-    font-size: 30px;
-    text-decoration: none;
-	transition: 0.5s;
-}
-#back2Top:hover {
-	transition: 0.3s ease-out;
-    background-color: #fcfcfc;
-    color: #000;
-}
 
-
-/*End Back to Top*/
 /*hamburger menu*/
 .hmenu{
 	width: 20px;
@@ -371,10 +340,8 @@ center{
 #lettercolor{
 	color: black;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 0fe83301f4347266550a06fbf07813cdf6b4eb64
+
 .defaultlink{
 	color: #0645AD;
 }
@@ -384,13 +351,39 @@ center{
 }
 
 /*Responsive stuff*/
+
+/*End*/
+
+@media screen and (max-width: 683px){
+	.container{
+		padding: 0px !important;
+	}
+	.large_content{
+		color: red;
+		background-color: black;
+		margin-right: 0px !important;
+		width: 100vw !important;
+	}
+	.large_content p{
+		max-width: 90%;
+	}
+	.small_content{
+		padding: 15px;
+		background-color: green;
+		background-image: none;
+	}
+	.col-md-6{
+		max-width: 90%;
+	}
+}
 @media screen and (max-width: 600px){
 	.large_content{
-		// height: 100v
-		width: 95vw;
+		min-height: 100vh;
+		width: 100vw;
 		padding: 0px;
-		background-color: black;
-		background-image: none;
+		background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+		background-repeat: no-repeat;
+		background-size: cover;
 		text-align: center;
 		justify-content: center;
 	}
@@ -398,20 +391,19 @@ center{
 		width: 100%;
 	}
 	.large_content h1{
-		font-size: 49px;
+		font-size: 59px;
 		// width: 94vw;
-		padding-top: 15vh;
-		padding-bottom: 15vh;
+		padding-top: 20vh;
+		padding-bottom: 5vh;
 		margin: auto;
-		border: 7px solid cornflowerblue;
+		margin-bottom: 5vh;
 		padding-left: 10vw;
 		padding-right: 10vw;
-		margin-bottom: 10vh;
 	}
 	.large_content p{
 		max-width: 35%;
 		width: 100vw;
-		font-size: 20px;
+		font-size: 23px;
 		font-family: Lato;
 		margin: 0;
 		padding: 0;
@@ -422,7 +414,7 @@ center{
 		font-size: 15px;
 		border-radius: 5em;
 		margin-top: 10%;
-		margin-bottom: 19%;
+		margin-bottom: 0%;
 	}
 	.small_content{
 		background-image: none;
@@ -437,14 +429,28 @@ center{
 		max-width: 90%;
 	}
 }
-
-
+@media screen and (max-width: 667px){
+	.large_content{
+		color: red;
+		background-color: black;
+	}
+	.large_content p{
+		max-width: 90%;
+	}
+	.small_content{
+		padding: 15px;
+		background-color: green;
+		background-image: none;
+	}
+	.col-md-6{
+		max-width: 90%;
+	}
+}
 
 /*End Responsive Stuff*/
 
 .login_background{
 	background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-	
 	background-size: 100%;
 }
 #bob{
