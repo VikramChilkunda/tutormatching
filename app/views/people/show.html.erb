@@ -33,7 +33,7 @@
             <li><%= link_to "Settings", '#' %></li>
             <li class="divider"></li>
             <li>
-              <!--  <(delete_this_message with parentheses when uncommenting)%= link_to "Log out", '#', method: :delete %> -->
+              <%= link_to "Log out", '#', method: :delete %>
             </li>
           </ul>
       </ul>
@@ -62,7 +62,7 @@
               <th>Rate</th>
             </tr>
             <tr>
-              <td> <%= @tutor_person.name %></td>
+              <td> <%= @tutor_person.name %></td> 
               <td> <%=  %> </td> 
               <td><%=  %></td>
             </tr>

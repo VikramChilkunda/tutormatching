@@ -3,7 +3,7 @@ class CreateSubjects < ActiveRecord::Migration[5.0]
     create_table :subjects do |t|
       t.string :name
       t.string :date
-      t.boolean :paid
+      t.string :rate
 
       t.timestamps
     end
