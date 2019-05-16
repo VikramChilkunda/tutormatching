@@ -18,15 +18,8 @@ class PeopleController < ApplicationController
      @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
   end
   
-  #subject stuff
-  def newsubject
-    @subject = Subject.new
-  end
-  def createsubject
-        
-  end
-  
   def show
+  
      @tutor = Tutor.find(params[:id])
      @person = Person.find(@tutor.people_id)
      @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
@@ -38,7 +31,7 @@ class PeopleController < ApplicationController
     if @person.update_attributes(tutor_params)
       flash[:success] = "Profile updated"
       redirect_to @person
-    else 
+    else
     render 'edit'
     end
   end
