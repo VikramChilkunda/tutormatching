@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/studygroup', to: 'static_pages#studygroup'
   get  '/login', to: 'sessions#new'
   post  '/login', to: 'sessions#create'
+  get '/subjectcreate', to: 'subject#new'
+  post '/subjectcreate', to: 'subject#create'
   delete '/login', to: 'sessions#destroy'
   resources :tutees
   
