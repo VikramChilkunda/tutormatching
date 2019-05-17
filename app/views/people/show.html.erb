@@ -40,16 +40,16 @@
       <a class="navbar-brand" href="/home">CV Enterprises</a>
     </div>
   </nav>
-  <% provide(:title, @tutor_person.name) %>
+  <% provide(:title, @person.name) %>
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
         <h1>
-          <%= gravatar_for @tutor_person %>
+          <%= gravatar_for @person %>
           <br></br>
           <div id="bob">
-          <%= @tutor_person.name %>
-          <%= @tutor_person.email %>
+          <%= @person.name %>
+          <%= @person.email %>
             
           <div><p></p></div>
           
@@ -62,7 +62,7 @@
               <th>Rate</th>
             </tr>
             <tr>
-              <td> <%= @tutor_person.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) -->
+              <td> <%= @person.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) -->
               <td> <%=  %> </td> 
               <td><%=  %></td>
             </tr>
