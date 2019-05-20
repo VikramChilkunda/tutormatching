@@ -9,7 +9,8 @@ class PeopleController < ApplicationController
   end
   
   def new
-   @tutor_person = TutorPerson.new
+   @person = Person.new
+
   end
   
   def edit
@@ -19,24 +20,21 @@ class PeopleController < ApplicationController
   end
   
   def show
-     @tutor = Tutor.find(params[:id])
-     @person = Person.find(@tutor.people_id)
-     @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
+     @person = Person.find(params[:id])
    # debugger
   end
   
   def update 
-    @person = Person.find(Tutor.find(params[:id]).people_id)
+    @person = Person.find(params[:id])
     if @person.update_attributes(tutor_params)
       flash[:success] = "Profile updated"
       redirect_to @person
-    else 
+    else
     render 'edit'
     end
   end
   
   def destroy
-    Tutor.find(params[:person_id]).destroy
     Person.find(params[:id]).destroy
     flash[:success] = "Person deleted"
     redirect_to people_url

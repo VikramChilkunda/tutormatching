@@ -3,9 +3,9 @@
 one:
   name: MyString
   date: MyString
-  paid: false
+  rate: MyString
 
 two:
   name: MyString
   date: MyString
-  paid: false
+  rate: MyString

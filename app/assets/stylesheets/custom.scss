@@ -79,6 +79,18 @@ button:focus{
 	transition: 0.3s;
 	padding: 10px 10px;
 }
+.idk{
+	font-family: Lato;
+	font-size: 22px;
+	margin-top: 30px;
+	width: 7em;
+	height: 3em;
+	border-radius: 5em;
+	background-color: white;
+	transition: 0.3s;
+	padding: 5px 5px;
+	border-radius: 50%;
+}
 .overwrite{
 	font-family: Lato;
 	font-size: 22px;
@@ -90,6 +102,11 @@ button:focus{
 	transition: 0.3s;
 }
 .large_content button:hover{
+	transition: 0.3s;
+	background-color: lightslategray;
+	cursor: pointer;
+}
+.idk button:hover{
 	transition: 0.3s;
 	background-color: lightslategray;
 	cursor: pointer;
@@ -390,6 +407,11 @@ center{
 		text-align: center;
 		justify-content: center;
 	}
+	.idk{
+		min-height: 100vh;
+		width: 100vw;
+		padding: 0px;
+	}
 	.container{
 		width: 100%;
 	}
@@ -413,6 +435,13 @@ center{
 		// border: 1px solid white;
 	}
 	.large_content button{
+		padding: 2px 4px;
+		font-size: 15px;
+		border-radius: 5em;
+		margin-top: 10%;
+		margin-bottom: 0%;
+	}
+	.idk button{
 		padding: 2px 4px;
 		font-size: 15px;
 		border-radius: 5em;
