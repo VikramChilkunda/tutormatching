@@ -81,6 +81,8 @@ group :production do
   gem 'pg',  '0.20.0'
 
   gem 'fog', '1.42'
+  
+  gem 'rails_12factor'
 
 end
 
