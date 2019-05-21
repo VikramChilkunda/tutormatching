@@ -493,8 +493,8 @@ center{
 	background-size: 100%;
 }
 #martin{
-	background-image: url("https://img1.akspic.com/image/114418-skyscraper-architect-modern_architecture-day-glass-1280x1024.jpg");
-	background-size: 100%;
+	// background-image: url("https://img1.akspic.com/image/114418-skyscraper-architect-modern_architecture-day-glass-1280x1024.jpg");
+	// background-size: 100%;
 }
 #not_taken{
 	height: 100vh;
@@ -515,4 +515,12 @@ table, th, td {
   border: 1px solid white;
   font-size: 30px;
 
+}
+#createsubjectbutton{
+	padding: 20px;
+	font-family: Lato;
+	font-size: 20px;
+}
+#createsubjectdropdown{
+	padding: 10px;
 }
