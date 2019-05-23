@@ -30,7 +30,7 @@
             </button>
           <ul class="dropdown-menu">
             <li class = "dropdown-item"><%= link_to "Profile", current_person %></li>
-            <li><%= link_to "Settings", '#' %></li>
+            <li><%= link_to "Settings", edit_person_path(current_person) %></li>
             <li class="divider"></li>
             <li>
               <%= link_to "Log out", '#', method: :delete %>

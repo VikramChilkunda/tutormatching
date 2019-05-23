@@ -13,6 +13,4 @@ Person.create!(name:  "Adarsh Chilkunda",
              admin: true)
 Tutor.create!(id_num: 419418,
               people_id: 1,
-              grade: 10,
-             password_confirmation: "foobar",
-             admin: true)
+              grade: 10)
