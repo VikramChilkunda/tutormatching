@@ -4,6 +4,7 @@
       </script>
   <script src="jquery-3.3.1.min.js"></script>
 </head>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -42,7 +43,7 @@
       <div>
         <p></p>  <!-- Intentionally left blank to add space before the log in button -->
       </div>
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-primary", id: "animatedbutton" %>
     <% end %>
     <br>
     <a href="/signup" class="defaultlink">New User? Sign up now!</a>
