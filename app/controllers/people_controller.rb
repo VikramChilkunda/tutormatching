@@ -40,6 +40,7 @@ class PeopleController < ApplicationController
     redirect_to people_url
   end
   
+  
   private 
    
     def tutor_person
