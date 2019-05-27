@@ -3,10 +3,12 @@ class SessionsController < ApplicationController
   end
   
   def create 
-    tutor = Person.find_by(email: params[:session][:email])
-    if tutor && tutor.authenticate(params[:session][:password])
-      log_in tutor
-      redirect_to tutor
+    person = Person.find_by(email: params[:session][:email])
+    if person && person.authenticate(params[:session][:password])
+      log_in person
+      remember person
+      params[:session][:remember_me] == '1' ? remember(person) : forget(person)
+      redirect_to person
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
