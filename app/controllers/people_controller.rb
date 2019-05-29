@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   
   before_action :logged_in_person, only: [:edit, :update, :destroy]
-  before_action :correct_person, only: [:edit, :update]
+ # before_action :correct_person, only: [:edit, :update]
   before_action :admin_person,     only: [:destroy, :index]
   
   def index

@@ -7,19 +7,19 @@ module SessionsHelper
     person == current_person
  end
  
+ def current_tutor
+   if session[:tutor_id]
+    @current_tutor ||= Tutor.find_by(id: session[:tutor_id])
+   end
+ end
+ 
  def current_person
    if session[:id]
      @current_person ||= Person.find_by(id: session[:id])
    else
      @current_person ||= Person.first
    end
-  
- end
- 
- def current_tutor
-   if session[:tutor_id]
-    @current_tutor ||= Tutor.find_by(id: session[:tutor_id])
-   end
+   
  end
  
  def logged_in?
