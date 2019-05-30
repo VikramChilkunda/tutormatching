@@ -62,7 +62,7 @@
               <th>Rate</th>
             </tr>
             <tr>
-              <td> <%= @person.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) -->
+              <td> <%= Subject.all.map(&:name) %></td> <!-- Subject.find_by(tutor_id: params[:id]) -->
               <td> <%=  %> </td> 
               <td><%=  %></td>
             </tr>

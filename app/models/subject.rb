@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-    belongs_to :tutor
+    belongs_to :tutor, optional: true
     include ActiveModel::Model
      attr_accessor :name, :date, :rate
     # def self.from_tutor_id(id)
