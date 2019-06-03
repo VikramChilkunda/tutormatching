@@ -4,7 +4,11 @@ class SubjectController < ApplicationController
   end
   
   def create 
-    @subject = Subject.new(:name => subject_params[:name], :date => subject_params[:date], :rate => subject_params[:rate])
+    #@subject = Subject.new(:name => subject_params[:name], :date => subject_params[:date], :rate => subject_params[:rate])
+    @subject = Subject.new(subject_params)
+   # @subject.name = subject_params[:name]
+    #@subject.date = subject_params[:date]
+    #@subject.rate = subject_params[:rate]
     if @subject.save
       flash[:success] = "Created Subject"
       render 'new'
