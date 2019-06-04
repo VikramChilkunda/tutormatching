@@ -1,4 +1,5 @@
 <% provide(:title, "Create Subject") %>
+<<<<<<< HEAD
 
 <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -15,10 +16,32 @@
           </li>
           
           <% if logged_in? %>
+=======
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/help">Help</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/studygroup">Study Group</a>
+      </li>
+                <% if logged_in? %>
+>>>>>>> 56e1dcb69ed8096a4dae10555709922566d7bd52
           <li class="nav-item">
             <a class="nav-link" href="#">Tutors</a>
           </li>
           <div class="dropdown">
+<<<<<<< HEAD
             <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
             <!--  Account -->
             <!--</button>-->
@@ -37,6 +60,34 @@
       <a class="navbar-brand" href="/home">CV Enterprises</a>
     </div>
   </nav>
+=======
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account 
+            </button>
+            <ul class="dropdown-menu" id="createsubjectdropdown">
+              <li><%= link_to "Profile", current_tutor %></li>
+              <li><%= link_to "Settings", edit_tutor_path(current_tutor) %></li>
+              <li class="divider"></li>
+            </ul>
+          </div>
+          <!--<li class="dropdown">-->
+          <!--  <a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+          <!--    Account <b class="caret"></b>-->
+          <!--  </a>-->
+          <!--  <ul class="dropdown-menu">-->
+              <!--<li><%= link_to "Profile", current_tutor %></li>-->
+          <!--    <li><%= link_to "Settings", edit_tutor_path(current_tutor) %></li>-->
+          <!--    <li class="divider"></li>-->
+            
+          <!--  </ul>-->
+          <!--</li>-->
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+    </ul>
+  </div>
+</nav>
+>>>>>>> 56e1dcb69ed8096a4dae10555709922566d7bd52
 
 <body >
 
