@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Oswald-Regular;
+  src: url('../fonts/Oswald-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Oswald-Medium;
+  src: url('../fonts/Oswald-Medium.ttf'); 
+}
+
 button:focus{
 	outline: 0;
 }
@@ -6,9 +16,6 @@ button:focus{
 }
 #border{
 	border-right: 1px solid white;
-}
-#bob{
-	padding: 25px;
 }
 .small_content{
 	padding: 200px;
@@ -93,6 +100,26 @@ button:focus{
 	border: 2px solid #3498db;
 	border-radius: 24px;
 	transition: 0.3s;
+}
+#specialanimatedbutton{
+	color: black;
+	margin: 20px auto;
+	display: block;
+	padding: 14px 10px;
+	background-color: rgba(255, 255, 255, 1);
+	text-align: center;
+	width: 200px;
+	outline: blue;
+	border: 2px solid #3498db;
+	border-radius: 24px;
+	transition: 0.3s;
+}
+#specialanimatedbutton:hover{
+	text-decoration: none;
+	transition: 0.3s;
+	border-color: #2ecc71;
+	background-color: #222222;
+	color: white;
 }
 #animatedbutton:hover{
 	text-decoration: none;
@@ -214,6 +241,7 @@ a:hover{
 .nav-item:hover {
   color: black;
 }
+//CODE TO MAKE LINE APPEAR BELOW ELEMENTS IN NAVBAR
 .nav-item:before {
   content: "";
   position: absolute;
@@ -233,6 +261,7 @@ a:hover{
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+//end navbar
 .nav-link:hover{
 	color: black;
 }
@@ -511,6 +540,9 @@ center{
 #bob{
 	color: white;
 }
+#edit_profile{
+	width: 10em;
+}
 #not_taken{
 	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
 	background-size: 100%;
@@ -551,6 +583,9 @@ table, th, td {
 	background-image: url("https://img1.akspic.com/image/114418-skyscraper-architect-modern_architecture-day-glass-1280x1024.jpg");
 }
 #createsubjecth1{
-	color: rgb(100,255,0);
-	text-shadow: 1px 1px red;
+	color: white;
 }
+input, select{
+	border-radius: 20px!important;
+}
+

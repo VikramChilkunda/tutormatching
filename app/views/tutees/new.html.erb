@@ -63,10 +63,10 @@
     <%= form_for(@tutee_person, url: signup_path) do |f| %>
       <%= render 'shared/tutee_error_maybe' %>
       <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Joe Falcon" %>
       
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "example@gmail.com"%>
       
       <%= f.label :grade %>
        <select class = "form-control" name="Contact[email_provider]">
@@ -82,7 +82,7 @@
       <%= f.label :password_confirmation, "Re-enter password" %>
       <%= f.password_field :password_confirmation, class: 'form-control', id: 'bottominput' %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary", id: "animatedbutton" %>
+      <%= f.submit "Create my account", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>
   </div>
 </div>
