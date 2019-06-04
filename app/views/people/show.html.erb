@@ -54,6 +54,8 @@
           <%= @person.email %>
             
           <div><p></p></div>
+          
+          <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %>
           <button class="btn btn-warning" id="edit_profile">
           <%= link_to "Edit Profile", edit_person_path(current_person), {:style=>"color:#fff;"} %>
           </button>

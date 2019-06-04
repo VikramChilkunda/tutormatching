@@ -1,4 +1,5 @@
 class Tutor < ApplicationRecord
+    has_many :subject
     belongs_to :person, foreign_key: :people_id, inverse_of: :tutor
     accepts_nested_attributes_for :person
     validates :id_num, presence: true, length: {is: 6}, uniqueness: true
