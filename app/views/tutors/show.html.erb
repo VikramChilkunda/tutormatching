@@ -39,6 +39,8 @@
       </ul>
       <a class="navbar-brand" href="/home">CV Enterprises</a>
     </div>
+      </ul>
+    </div>
   </nav>
   <% provide(:title, @person.name) %>
   <div class="row">
@@ -54,6 +56,7 @@
           <div><p></p></div>
           
           <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %>
+          <!--<button class="btn btn-warning" id="edit_profile">-->
           <div><p></p></div>
           <table style="width:240%">
             <tr>
@@ -62,14 +65,14 @@
               <th>Rate</th>
             </tr>
             <tr>
-              <td> <%= Subject.all.map(&:name) %></td> <!-- Subject.find_by(tutor_id: params[:id]) -->
-              <td> <%=  %> </td> 
-              <td><%=  %></td>
+              <td> <%= Subject.first.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) -->
+              <td> <%= Subject.first.date %> </td> 
+              <td><%= Subject.first.rate %></td>
             </tr>
             <tr>
-              <td><%=  %></td>
-              <td><%=  %></td> 
-              <td><%= %></td>
+              <td><%=Subject.second.name%></td>
+              <td><%= Subject.second.date %></td> 
+              <td><%= Subject.second.rate %></td>
             </tr>
           </table>
           <div>
