@@ -4,8 +4,12 @@ class SubjectController < ApplicationController
   end
   
   def create 
-    #@subject = Subject.new(:name => subject_params[:name], :date => subject_params[:date], :rate => subject_params[:rate])
-    @subject = Subject.new(subject_params)
+    @tutor = Tutor.last
+    @subject = Subject.new
+    #@subject = @tutor.build_subject
+    @subject.name = subject_params[:name]
+    @subject.date = subject_params[:date]
+    @subject.rate = subject_params[:rate]
    # @subject.name = subject_params[:name]
     #@subject.date = subject_params[:date]
     #@subject.rate = subject_params[:rate]
