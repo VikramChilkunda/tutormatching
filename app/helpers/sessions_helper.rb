@@ -56,7 +56,7 @@ module SessionsHelper
   
   def remember(person)
     person.remember
-    cookies.permanent.signed[:user_id] = person.id
+    cookies.permanent.signed[:person_id] = person.id
     cookies.permanent[:remember_token] = person.remember_token
   end
   
@@ -72,15 +72,18 @@ module SessionsHelper
     end
    end
    
+   def log_out
+    flash[:danger] = "hello world"
+   
+    session.delete(:person_id)
+    @current_person = nil
+   end
+   
    def forget(person)
     person.forget
     cookies.delete(:person_id)
     cookies.delete(:remember_token)
    end
   
-   def log_out
-    forget(current_person)
-    session.delete(:person_id)
-    @current_person = nil
-   end
+   
 end

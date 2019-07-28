@@ -1,4 +1,5 @@
 class Tutor < ApplicationRecord
+     attr_accessor :remember_token
     has_many :subject, foreign_key: :tutor_id, autosave: true, inverse_of: :tutor
     belongs_to :person, foreign_key: :people_id, inverse_of: :tutor
     accepts_nested_attributes_for :person
