@@ -30,9 +30,9 @@
             </button>
           <ul class="dropdown-menu">
             <li class = "dropdown-item"><%= link_to "Profile", current_person %></li>
-            <li><%= link_to "Settings", edit_person_path(@person) %></li>
+            <li class = "dropdown-item"><%= link_to "Settings", edit_person_path(@person) %></li>
             <li class="divider"></li>
-            <li>
+            <li class = "dropdown-item">
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
@@ -59,9 +59,6 @@
 
           <!--<button class="btn btn-warning" id="edit_profile">-->
 
-          <button class="btn btn-warning" id="edit_profile">
-        
-          </button>
 
           <div><p></p></div>
           <table style="width:240%" id="VisualTable">
