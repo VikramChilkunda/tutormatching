@@ -5,7 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -52,19 +52,19 @@
     <%= form_for(@person) do |f| %>
       <%= render 'shared/error_messages' %>
 
-<div style="background-color:lightgrey; text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 5%% 0% -1%; border-radius:25px;">
+<div style="text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 5%% 0% -1%; border-radius:25px;">
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
-
+<br>
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
-
+<br>
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
-
+<br>
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
-  
+  <br>
       <div>
         <p></p>
       </div>
