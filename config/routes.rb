@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/subjectcreate', to: 'subject#new'
   post '/subjectcreate', to: 'subject#create'
   delete '/logout', to: 'sessions#destroy'
+  get '/subject', to: 'people#subject'
   resources :tutees
   
   resources :tutors

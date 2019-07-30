@@ -40,6 +40,11 @@ class PeopleController < ApplicationController
     redirect_to people_url
   end
   
+  def subject
+    @tutor = Tutor.find(params[:id])
+    @person = Person.find(@tutor.people_id)
+    @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
+  end
   
   private 
    
