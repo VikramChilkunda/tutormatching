@@ -25,7 +25,7 @@
         <!--  <li><%= link_to "Tutor", '#' %></li> -->
         <!--</li>-->
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
             </button>
           <ul class="dropdown-menu">
@@ -92,7 +92,7 @@
           <div>
             <p></p>
           </div>
-          <%= link_to "Create Subject", subject_path(@person), {:style=>"color:#fff;"} %>
+          <%= link_to "Create Subject", person_subject_path, {:style=>"color:#fff;"} %>
           <!--<a href="/subjectcreate">-->
           <!--  <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Subject</button>-->
           <!--</a>-->

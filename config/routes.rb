@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   post  '/login', to: 'sessions#create'
   get '/subjectcreate', to: 'subject#new'
   post '/subjectcreate', to: 'subject#create'
+   get '/subject', to: 'people#subject'
   delete '/logout', to: 'sessions#destroy'
-  get '/subject', to: 'people#subject'
+ 
   resources :tutees
   
   resources :tutors
