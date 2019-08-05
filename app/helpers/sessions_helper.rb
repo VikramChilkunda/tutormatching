@@ -1,6 +1,7 @@
 module SessionsHelper
  def log_in(tutor)
     session[:tutor_id] = tutor.id
+  #  flash[:danger]="created"
  end
  
  def current_person?(person)
@@ -11,6 +12,7 @@ module SessionsHelper
    if session[:tutor_id]
     @current_tutor ||= Tutor.find_by(id: session[:tutor_id])
    end
+   
  end
  
  def current_person
@@ -19,7 +21,6 @@ module SessionsHelper
    else
      @current_person ||= Person.first
    end
-   
  end
  
  def logged_in?
@@ -73,8 +74,7 @@ module SessionsHelper
    end
    
    def log_out
-    flash[:danger] = "hello world"
-   
+    current_person && forget(current_person)
     session.delete(:person_id)
     @current_person = nil
    end
