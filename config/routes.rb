@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/home',    to: 'static_pages#home'
   get '/help',    to: 'static_pages#help'
   get '/about',   to: 'static_pages#about'
+  get '/findatutor', to: 'static_pages#findatutor'
   get  '/signup', to: 'tutees#new'
   post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#new'
