@@ -32,5 +32,14 @@ class Person < ApplicationRecord
     def forget
     update_attribute(:remember_digest, nil)
     end
+    
+  def self.current=(u)
+    @current_person = u
+  end
+
+  def self.current
+    @current_person
+  end
+    
      has_secure_password
 end

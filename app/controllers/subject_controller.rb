@@ -22,7 +22,7 @@ class SubjectController < ApplicationController
     else
       #flash[:error] = @subject.errors.full_messages
      # redirect_back(fallback_location: '/home')
-     render 'new'
+      render 'new'
     end
   end
   private

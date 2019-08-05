@@ -46,6 +46,8 @@ class PeopleController < ApplicationController
     @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
   end
   
+  
+  
   private 
    
     def tutor_person
