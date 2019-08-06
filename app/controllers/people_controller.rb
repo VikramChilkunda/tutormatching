@@ -21,6 +21,7 @@ class PeopleController < ApplicationController
   
   def show
      @person = Person.find(params[:id])
+    # $knockout = params[:id]
    # debugger
   end
   
