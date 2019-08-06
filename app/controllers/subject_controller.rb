@@ -17,9 +17,10 @@ class SubjectController < ApplicationController
     @subject.name = subject_params[:name]
     @subject.date = subject_params[:date]
     @subject.rate = subject_params[:rate]
+    @subject.creatorid = session[:tutor_id]
     if @subject.save
       flash[:success] = "Created Subject"
-      render 'new'
+      redirect_to Person.find_by(id: session[:tutor_id])
     else
       #flash[:error] = @subject.errors.full_messages
      # redirect_back(fallback_location: '/home')
