@@ -70,6 +70,6 @@ class PeopleController < ApplicationController
     end
     
     def admin_person
-      redirect_to(root_url) unless current_person.admin?
+      redirect_to(root_url) unless Person.find_by(id: session[:tutor_id]).admin?
     end
 end
