@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20190806224813) do
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
     t.string   "date"
-    t.string   "rate"
+    t.boolean  "paid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "creatorid"
