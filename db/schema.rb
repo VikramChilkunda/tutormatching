@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20190808191601) do
+
 
   create_table "people", force: :cascade do |t|
     t.datetime "created_at",                      null: false
@@ -29,6 +31,12 @@ ActiveRecord::Schema.define(version: 20190808191601) do
     t.integer  "creatorid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "creatorid"
+    t.string   "rate"
+
   end
 
   create_table "tutees", force: :cascade do |t|
@@ -47,4 +55,3 @@ ActiveRecord::Schema.define(version: 20190808191601) do
     t.index ["people_id"], name: "index_tutors_on_people_id"
   end
 
-end
