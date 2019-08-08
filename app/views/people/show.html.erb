@@ -61,12 +61,31 @@
 
 
           <div><p></p></div>
+           <script>
+              function addRow() {
+               // alert('ok');
+                document.getElementById("VisualTable").insertRow(-1);
+             //    document.getElementById("VisualTable").insertRow(1);
+                 document.getElementById("VisualTable").insertRow().insertCell(0);
+                 document.getElementById("VisualTable").insertRow().insertCell(1);
+                  document.getElementById("VisualTable").insertRow().insertCell(2);
+              }
+              window.onload = addRow();
+            </script> 
           <table style="width:240%" id="VisualTable">
             <tr>
               <th>Subject</th>
               <th>Date</th> 
               <th>Rate</th>
             </tr>
+            
+            <!--% Subject.each do |i|-->
+            <!--  % if i.creatorid == session[:tutor_id] %>-->
+            <!--    addRow()-->
+            <!--  % end %>-->
+            <!--%>-->
+            
+            
             <!--<tr>-->
             <!--  <td> %= Subject.first.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) --> 
             <!--  <td> %= Subject.first.date %> </td> -->
@@ -78,17 +97,7 @@
             <!--  <td>%= Subject.second.rate %></td>-->
             <!--</tr>-->
           </table>
-          <script>
-              function addRow() {
-               // alert('ok');
-                document.getElementById("VisualTable").insertRow(0);
-             //    document.getElementById("VisualTable").insertRow(1);
-                 document.getElementById("VisualTable").insertRow(0).insertCell(0);
-                 document.getElementById("VisualTable").insertRow(0).insertCell(1);
-                  document.getElementById("VisualTable").insertRow(0).insertCell(2);
-              }
-              window.onload = addRow();
-            </script> 
+         
           <div>
             <p></p>
           </div>
