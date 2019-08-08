@@ -3,18 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [7.25.0](https://github.com/heroku/cli/compare/v7.24.4...v7.25.0) (2019-06-03)
-
-**Note:** Version bump only for package heroku
-
+<a name="7.27.1"></a>
+## [7.27.1](https://github.com/heroku/cli/compare/v7.27.0...v7.27.1) (2019-07-30)
 
 
+### Bug Fixes
+
+* **cli:** upgrade v7 plugin-pipelines ([13ca934](https://github.com/heroku/cli/commit/13ca934))
 
 
-## [7.24.4](https://github.com/heroku/cli/compare/v7.24.3...v7.24.4) (2019-05-22)
 
-**Note:** Version bump only for package heroku
 
+<a name="7.27.0"></a>
+# [7.27.0](https://github.com/heroku/cli/compare/v7.26.2...v7.27.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* pin qqjs ([c04fad3](https://github.com/heroku/cli/commit/c04fad3))
+
+
+### Features
+
+* **pipelines:** add reviewapps:enable command ([#1269](https://github.com/heroku/cli/issues/1269)) ([c9b7dbb](https://github.com/heroku/cli/commit/c9b7dbb))
 
 
 
