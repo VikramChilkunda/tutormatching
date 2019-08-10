@@ -30,7 +30,7 @@ class TutorsController < ApplicationController
       flash[:success] = "Tutor signup successful!"
       redirect_to action: "show", id: @tutor.id
     else 
-      flash[:error] = @tutor.errors.full_messages
+     # flash[:error] = @tutor.errors.full_messages
       render 'new'
     end
   end

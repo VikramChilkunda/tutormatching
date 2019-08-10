@@ -1,21 +1,21 @@
 class StudyGroupsController < ApplicationController
   def new
-    @group = StudyGroup.new
+    @study_groups = StudyGroup.new
   end
   
   def create
-    @group = StudyGroup.new
-    @group.name = group_params[:creatorName]
-    @group.name = group_params[:date]
-    @group.name = group_params[:location]
-    @group.name = group_params[:groupSize]
-    @group.name = group_params[:groupName]
-    @group.name = group_params[:time]
-    if @group.save 
+    @study_groups  = StudyGroup.new
+   @study_groups.creatorName = group_params[:creatorName]
+    @study_groups.date = group_params[:date]
+     @study_groups.location = group_params[:location]
+     @study_groups.groupSize = group_params[:groupSize]
+     @study_groups.groupName = group_params[:groupName]
+     @study_groups.time = group_params[:time]
+    if @study_groups.save 
       flash[:success] = "Group creation successful!"
       redirect_to action: "new"
     else 
-      flash[:error] = @group.errors.full_messages
+     # flash[:error] =  @study_groups.errors.full_messages
       render 'new'
     end
   end
@@ -23,7 +23,7 @@ class StudyGroupsController < ApplicationController
   private 
   
     def group_params
-      params.require(:study_groups).permit(:creatorName, :date, :location, :groupSize, :groupName, :time)
+      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time)
     end
   
 end

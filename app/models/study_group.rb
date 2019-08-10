@@ -1,5 +1,6 @@
 class StudyGroup < ApplicationRecord
     include ActiveModel::Model
+    #attr_accessor :creatorname, :date, :location, :groupSize, :groupName, :time
     
     validates :creatorName, presence: true
     validates :date, presence: true

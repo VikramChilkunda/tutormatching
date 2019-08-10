@@ -32,7 +32,7 @@
 <div class="row">
   
     <div  class="col-md-6 col-md-offset-3">
-    <%= form_for(@group, url: studygroup_path) do |f| %>
+    <%= form_for(@study_groups, url: studygroup_path) do |f| %>
       <%= render 'shared/error_messages_group' %>
         <%= f.label :creatorName, "Your Name" %>
         <%= f.text_field :creatorName, placeholder: "Joe Falcon",class: 'form-control' %>
