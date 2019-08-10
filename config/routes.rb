@@ -12,12 +12,12 @@ Rails.application.routes.draw do
   post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#new'
   post '/tutorsignup', to: 'tutors#create'
-  get '/studygroup', to: 'static_pages#studygroup'
   get  '/login', to: 'sessions#new'
   post  '/login', to: 'sessions#create'
   get '/subjectcreate', to: 'subject#new'
   post '/subjectcreate', to: 'subject#create'
-  post '/findatutor', to: 'static_pages#findatutor'
+  get '/studygroup', to: 'study_groups#new'
+  post '/studygroup', to: 'study_groups#create'
   delete '/logout', to: 'sessions#destroy'
   #get '/subject', to: 'people#subject'
   
@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   resources :subject
   
   resources :account_activations, only: [:edit]
+  
+  resources :study_group
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

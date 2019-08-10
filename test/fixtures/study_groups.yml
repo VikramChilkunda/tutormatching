@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creatorName: MyString
+  date: MyString
+  location: MyString
+  groupSize: 1
+
+two:
+  creatorName: MyString
+  date: MyString
+  location: MyString
+  groupSize: 1
