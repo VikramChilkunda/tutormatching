@@ -79,11 +79,14 @@
               <th>Rate</th>
             </tr>
             
-            <!--% Subject.each do |i|-->
-            <!--  % if i.creatorid == session[:tutor_id] %>-->
-            <!--    addRow()-->
-            <!--  % end %>-->
-            <!--%>-->
+            
+            <% Subject.all.each do |i| %>
+              <% if i.creatorid == session[:tutor_id] %>
+                <script>document.getElementById("VisualTable").insertRow(-1);</script>
+                 <text></tr><tr></text>
+                <%= i.name %>
+              <% end %>
+            <% end %>
             
             
             <!--<tr>-->
