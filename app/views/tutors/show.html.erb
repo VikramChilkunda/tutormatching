@@ -61,12 +61,38 @@
 
 
           <div><p></p></div>
-          <table style="width:240%" id="VisualTable">
+           <script>
+              function addRow() {
+               // alert('ok');
+                document.getElementById("VisualTable").insertRow(-1);
+             //    document.getElementById("VisualTable").insertRow(1);
+                 document.getElementById("VisualTable").insertRow().insertCell(0);
+                 document.getElementById("VisualTable").insertRow().insertCell(1);
+                  document.getElementById("VisualTable").insertRow().insertCell(2);
+              }
+              window.onload = addRow();
+            </script> 
+          <table style="width:180%" id="VisualTable">
             <tr>
-              <th>Subject</th>
+              <th>My subjects</th>
               <th>Date</th> 
               <th>Rate</th>
             </tr>
+            
+              <% Subject.all.each do |i| %>
+                <% if i.creatorid == session[:tutor_id] %>
+                 
+                  <table style="width:180%" id="VisualSubjects">
+                    <tr>
+                      <th style="width:44.6%"> <%= i.name %></th>
+                      <th style="width:28.2%"> <%= i.date %></th> 
+                      <th> <%= i.rate %></th>
+                    </tr>
+                  </table>
+                <% end %>
+              <% end %>
+            
+            
             <!--<tr>-->
             <!--  <td> %= Subject.first.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) --> 
             <!--  <td> %= Subject.first.date %> </td> -->
@@ -78,17 +104,7 @@
             <!--  <td>%= Subject.second.rate %></td>-->
             <!--</tr>-->
           </table>
-          <script>
-              function addRow() {
-               // alert('ok');
-                document.getElementById("VisualTable").insertRow(0);
-             //    document.getElementById("VisualTable").insertRow(1);
-                 document.getElementById("VisualTable").insertRow(0).insertCell(0);
-                 document.getElementById("VisualTable").insertRow(0).insertCell(1);
-                  document.getElementById("VisualTable").insertRow(0).insertCell(2);
-              }
-              window.onload = addRow();
-            </script> 
+         
           <div>
             <p></p>
           </div>

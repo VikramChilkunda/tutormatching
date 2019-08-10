@@ -72,21 +72,25 @@
               }
               window.onload = addRow();
             </script> 
-          <table style="width:240%" id="VisualTable">
+          <table style="width:180%" id="VisualTable">
             <tr>
-              <th>Subject</th>
+              <th>My subjects</th>
               <th>Date</th> 
               <th>Rate</th>
             </tr>
             
-            
-            <% Subject.all.each do |i| %>
-              <% if i.creatorid == session[:tutor_id] %>
-                <script>document.getElementById("VisualTable").insertRow(-1);</script>
-                 <text></tr><tr></text>
-                <%= i.name %>
+              <% Subject.all.each do |i| %>
+                <% if i.creatorid == session[:tutor_id] %>
+                 
+                  <table style="width:180%" id="VisualSubjects">
+                    <tr>
+                      <th style="width:44.6%"> <%= i.name %></th>
+                      <th style="width:28.2%"> <%= i.date %></th> 
+                      <th> <%= i.rate %></th>
+                    </tr>
+                  </table>
+                <% end %>
               <% end %>
-            <% end %>
             
             
             <!--<tr>-->
