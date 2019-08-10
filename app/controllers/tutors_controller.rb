@@ -1,6 +1,7 @@
 class TutorsController < ApplicationController
   def new
    @tutor_person = TutorPerson.new
+   @person = Person.new
   end
   
   def edit
