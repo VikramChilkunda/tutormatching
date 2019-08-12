@@ -61,17 +61,17 @@
 
 
           <div><p></p></div>
-           <script>
-              function addRow() {
-               // alert('ok');
-                document.getElementById("VisualTable").insertRow(-1);
-             //    document.getElementById("VisualTable").insertRow(1);
-                 document.getElementById("VisualTable").insertRow().insertCell(0);
-                 document.getElementById("VisualTable").insertRow().insertCell(1);
-                  document.getElementById("VisualTable").insertRow().insertCell(2);
-              }
-              window.onload = addRow();
-            </script> 
+           <!--<script>-->
+           <!--   function addRow() {-->
+           <!--     alert('ok');-->
+           <!--     document.getElementById("VisualTable").insertRow(-1);-->
+           <!--      document.getElementById("VisualTable").insertRow(1);-->
+           <!--      document.getElementById("VisualTable").insertRow().insertCell(0);-->
+           <!--      document.getElementById("VisualTable").insertRow().insertCell(1);-->
+           <!--       document.getElementById("VisualTable").insertRow().insertCell(2);-->
+           <!--   }-->
+           <!--   window.onload = addRow();-->
+           <!-- </script> -->
           <table style="width:180%" id="VisualTable">
             <tr>
               <th>My subjects</th>
@@ -82,7 +82,7 @@
               <% Subject.all.each do |i| %>
                 <% if i.creatorid == session[:tutor_id] %>
                  
-                  <table style="width:180%" id="VisualSubjects">
+                  <table style="width:180%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
                       <th style="width:44.6%"> <%= i.name %></th>
                       <th style="width:28.2%"> <%= i.date %></th> 

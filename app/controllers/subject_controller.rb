@@ -27,6 +27,14 @@ class SubjectController < ApplicationController
       render 'new'
     end
   end
+  
+  def destroy
+    Subject.find(session[:selected_subject_id]).destroy
+    flash[:success] = "Subject deleted"
+    redirect_to people_url  
+  end
+  
+  
   private
     def subject_params
       params.require(:subject).permit(:name, :date, :rate)

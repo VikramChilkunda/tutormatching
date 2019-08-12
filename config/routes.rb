@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post '/subjectcreate', to: 'subject#create'
   get '/studygroup', to: 'study_groups#new'
   post '/studygroup', to: 'study_groups#create'
+  delete '/subjects', to: 'subject#destroy'
   delete '/logout', to: 'sessions#destroy'
   #get '/subject', to: 'people#subject'
   
