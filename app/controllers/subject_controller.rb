@@ -34,9 +34,14 @@ class SubjectController < ApplicationController
     redirect_to people_url  
   end
   
+  def findatutor
+    @subjuctivos = Subject.search(params[:search])
+  end
+  
+  
   
   private
     def subject_params
-      params.require(:subject).permit(:name, :date, :rate)
+      params.require(:subject).permit(:name, :date, :rate, :search)
     end
 end

@@ -47,6 +47,16 @@
  	      <%= text_field_tag(:search, params[:search]) %>
  	      <%= submit_tag ("Search") %>
  	    <% end %>
+ 	    
+ 	    <h3>Available tutors for <%= params[:search] %></h3> 
+ 	    <% @subjuctivos.each do |subjuctivo| %>
+ 	        <ul>
+ 	            <li>
+ 	                <%= link_to Person.find_by(id: subjuctivo.creatorid).name %>
+ 	                    
+ 	            </li> 
+ 	        </ul>
+ 	    <% end %>
  	</div>
 </body>
 </html>
