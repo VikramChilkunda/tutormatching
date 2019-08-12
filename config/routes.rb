@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :tutors
   
   resources :people
-
+ 
   resources :subject
   
   resources :account_activations, only: [:edit]
