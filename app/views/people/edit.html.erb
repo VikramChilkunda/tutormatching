@@ -26,7 +26,11 @@
             Account <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li class="dropdown-item"><%= link_to "Profile", current_tutor %></li>
+            <% if Person.find_by(id: session[:tutor_id]).admin? %>
+              <li class = "dropdown-item"><%= link_to "Profile", adminPage_path %></li>
+            <% else %>
+              <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
+            <% end %>
             <li class="dropdown-item"><%= link_to "Settings", edit_tutor_path(current_tutor) %></li>
             <li class="divider"></li>
           

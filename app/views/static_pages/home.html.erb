@@ -81,10 +81,10 @@
 			<p id="homep">Welcome to the Tutor Matching home page! Click the button below to sign up or login. </p>		
 		</div>
 			
-		<a href="/signup" id="animatedbutton">
-		  I'm a Student
+		<!--<a href="/signup" id="animatedbutton">-->
+		<!--  I'm a Student-->
 				<!--<button id="button" class="button-responsive"> Find a Tutor</button>	-->
-		</a>
+		<!--</a>-->
 		<a href="/tutorsignup" id="animatedbutton">
 		  I'm a Tutor
 			<!--<button id="tutor" class="button-responsive"> I'm a Tutor</button>	-->
@@ -93,15 +93,14 @@
 		  Find a tutor
 			<!--<button id="tutor" class="button-responsive"> I'm a Tutor</button>	-->
 		</a>
-			<a href="/download" id="animatedbutton">
-		  Download
-			<!--<button id="tutor" class="button-responsive"> I'm a Tutor</button>	-->
-		</a>
+			
 		<div><p></p></div>
-			<a href="/login" id="animatedbutton">
-		  Login
+		  <% if !session[:tutor_id] %>
+		  	<a href="/login" id="animatedbutton">
+		    Login
 			<!--<button id="tutor" class="button-responsive"> Login </button>-->
-		</a>
+	    	</a>
+	    <% end %>
  	</div>
  	<!-- <button id="top" onload ="hide()" onclick="topFunction()" >Top</button> -->
 	<center>

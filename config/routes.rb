@@ -20,8 +20,11 @@ Rails.application.routes.draw do
   post '/studygroup', to: 'study_groups#create'
   delete '/subjects', to: 'subject#destroy'
   delete '/logout', to: 'sessions#destroy'
-  get '/download', to: 'people#excel'
-  get '/persons', to: 'people#excel'
+  get '/download', to: 'people#adminPage'
+  get '/persons', to: 'people#adminPage'
+  
+  get '/adminPage', to: 'people#adminPage'
+  post '/adminPage', to: 'people#adminPage'
   #get '/subject', to: 'people#subject'
   
   resources :tutees
