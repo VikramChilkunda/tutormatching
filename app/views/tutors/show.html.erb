@@ -74,8 +74,8 @@
            <!-- </script> -->
           <table style="width:180%" id="VisualTable">
             <tr>
-              <th>My subjects</th>
-              <th>Date</th> 
+              <th  style="width:44.6%">My subjects</th>
+              <th style="width:28.2%">Date</th> 
               <th>Rate</th>
             </tr>
             
@@ -88,6 +88,9 @@
                       <th style="width:28.2%"> <%= i.date %></th> 
                       <th> <%= i.rate %></th>
                     </tr>
+                    <%# session[:selected_subject_id] = i.id %>
+                     <%= link_to "delete", i, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
                   </table>
                 <% end %>
               <% end %>
