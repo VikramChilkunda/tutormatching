@@ -10,6 +10,7 @@ class Subject < ApplicationRecord
     # end
     
   def self.search(search)
+   #search = search.downcase   *no need for downcase if we implement dropdowns
     if search  #if search is not nil
       subjuctivo = Subject.find_by(name: search)
       if subjuctivo #if subject exists
