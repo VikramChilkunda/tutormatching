@@ -47,7 +47,15 @@ class PeopleController < ApplicationController
     @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
   end
   
-  
+  def excel 
+    @persons = Person.order('created_at DESC')
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="all_people.xlsx"'
+      }
+    end
+  end
   
   private 
    

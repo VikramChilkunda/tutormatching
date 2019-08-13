@@ -1,0 +1,6 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "People") do |sheet|
+    @persons.each do |person|
+        sheet.add_row [person.name, person.email, Tutor.find_by(people_id: person.id).id_num, Tutor.find_by(people_id: person.id).grade]
+    end
+end
