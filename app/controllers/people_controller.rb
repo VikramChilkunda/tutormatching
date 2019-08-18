@@ -93,5 +93,5 @@ class PeopleController < ApplicationController
       if(session[:tutor_id])
       redirect_to(root_url) unless Person.find_by(id: session[:tutor_id]).admin?
       end
-    end
+    end 
 end

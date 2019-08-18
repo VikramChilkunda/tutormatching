@@ -42,21 +42,29 @@
  	</div>
  	
  	<div>
- 	  <h4>Search by subject name: </h4>
+ 	 
  	    <%= form_tag(findatutor_path, method: :get) do %>
- 	      <%= text_field_tag(:search, params[:search]) %>
+ 	       <h4>Subject name: </h4>
+ 	       <%= text_field_tag(:searchName, params[:searchName]) %>
+ 	       <h4>Date: </h4>
+ 	       <%= text_field_tag(:searchDate, params[:searchDate]) %>
  	      <%= submit_tag ("Search") %>
  	    <% end %>
  	    
- 	    <h3>Available tutors for <%= params[:search] %></h3> 
- 	    <% @subjuctivos.each do |subjuctivo| %>
- 	        <ul>
- 	            <li>
- 	                <%= link_to Person.find_by(id: subjuctivo.creatorid).name %>
- 	                    
- 	            </li> 
- 	        </ul>
- 	    <% end %>
+ 	    <div><p></p></div>
+ 	    <h3>Available tutors for <%= params[:searchName] %></h3> 
+ 	    <% if @subjuctivos.nil? %>
+ 	      <%= render 'shared/error_messages_search' %>
+ 	    <% else %>
+   	    <% @subjuctivos.each do |subjuctivo| %>
+   	        <ul>
+   	            <li>
+   	                <%= link_to Person.find_by(id: subjuctivo.creatorid).name%>
+   	                <p><%= subjuctivo.date %>   --   <%= subjuctivo.rate %></p>
+   	            </li> 
+   	        </ul>
+   	    <% end %>
+   	  <% end %>
  	</div>
 </body>
 </html>

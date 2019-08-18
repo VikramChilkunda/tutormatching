@@ -74,9 +74,10 @@
            <!-- </script> -->
           <table style="width:180%" id="VisualTable">
             <tr>
-              <th  style="width:44.6%">My subjects</th>
-              <th style="width:28.2%">Date</th> 
-              <th>Rate</th>
+              <th  style="width:43%", "position:absolute">My subjects</th>
+              <th style="width:22%", "position:absolute">Date</th> 
+              <th style="width:15%", "position:absolute">Rate</th>
+              <th style="width:24%", "position:absolute">Options</th>
             </tr>
             
               <% Subject.all.each do |i| %>
@@ -84,13 +85,14 @@
                  
                   <table style="width:180%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
-                      <th style="width:44.6%"> <%= i.name %></th>
-                      <th style="width:28.2%"> <%= i.date %></th> 
-                      <th> <%= i.rate %></th>
+                      <th style="width:43.1%", "position:absolute"> <%= i.name %></th>
+                      <th style="width:22%", "position:absolute"> <%= i.date %></th> 
+                      <th style="width:15%", "position:absolute"> <%= i.rate %></th>
+                      <th><%= link_to " Delete", subjects_path(check: i.id),method: :delete,
+                                  data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
-                     <%= link_to "delete", i, method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
+                     
                   </table>
                 <% end %>
               <% end %>
