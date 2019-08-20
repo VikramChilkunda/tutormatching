@@ -37,6 +37,15 @@ class SubjectController < ApplicationController
   
   def findatutor
     @subjuctivos = Subject.search(params[:searchName], params[:searchDate])
+    if !params[:searchName].nil?
+     #redirect_to findresults_path
+     redirect_to  controller: 'subject', action: 'findresults', searchName: params[:searchName], searchDate: params[:searchDate]
+    end
+  end
+  
+  def findresults
+    #redirect_to findresults_path
+    @subjuctivos = Subject.search(params[:searchName], params[:searchDate])
   end
   
   
