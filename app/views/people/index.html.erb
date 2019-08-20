@@ -30,11 +30,14 @@
             Account
           </button>
         <ul class="dropdown-menu">
-          <li class = "dropdown-item"><%= link_to "Profile", current_tutor %></li>
-          <li><%= link_to "Settings", '#' %></li>
+           <% if Person.find_by(id: session[:tutor_id]).admin? %>
+              <li class = "dropdown-item"><%= link_to "Profile", adminPage_path %></li>
+            <% else %>
+              <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
+            <% end %>
           <li class="divider"></li>
           <li>
-            <%= link_to "Log out", '#', method: :delete %>
+            <%= link_to "Log out", logout_path, method: :delete %>
           </li>
         </ul>
         </div>

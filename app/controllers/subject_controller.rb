@@ -27,8 +27,22 @@ class SubjectController < ApplicationController
       render 'new'
     end
   end
+  
+  def destroy 
+   # Subject.find(session[:selected_subject_id]).destroy
+   Subject.find(params[:check]).delete
+    flash[:success] = "Subject deleted"
+    redirect_to person_path(Person.find_by(id: session[:tutor_id]))
+  end
+  
+  def findatutor
+    @subjuctivos = Subject.search(params[:searchName], params[:searchDate])
+  end
+  
+  
+  
   private
     def subject_params
-      params.require(:subject).permit(:name, :date, :rate)
+      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate)
     end
 end

@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   
   before_action :logged_in_person, only: [:edit, :update, :destroy]
  # before_action :correct_person, only: [:edit, :update]
-  before_action :admin_person,     only: [:destroy, :index]
+  before_action :admin_person,     only: [:destroy, :index, :excel, :adminPage]
   
   def index
     @people = Person.paginate(page: params[:page])
@@ -47,7 +47,27 @@ class PeopleController < ApplicationController
     @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
   end
   
+  def excel 
+    @persons = Person.order('created_at DESC')
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="all_people.xlsx"'
+      }
+    end
+  end
   
+  def adminPage
+    @person = Person.find(session[:tutor_id])
+    
+    @persons = Person.order('created_at DESC')
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="all_people.xlsx"'
+      }
+    end
+  end
   
   private 
    
@@ -70,6 +90,8 @@ class PeopleController < ApplicationController
     end
     
     def admin_person
+      if(session[:tutor_id])
       redirect_to(root_url) unless Person.find_by(id: session[:tutor_id]).admin?
-    end
+      end
+    end 
 end

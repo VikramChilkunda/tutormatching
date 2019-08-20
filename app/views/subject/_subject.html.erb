@@ -1,0 +1,17 @@
+<li>
+    <% if subject.creatorid == session[:tutor_id] %>
+        <%= link_to subject.name, subject %>
+            <table style="width:180%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
+                <tr>
+                  <th style="width:44.6%"> <%= i.name %></th>
+                  <th style="width:28.2%"> <%= i.date %></th> 
+                  <th> <%= i.rate %></th>
+                </tr>
+                
+            </table>
+    <% end %>
+    
+   
+    |  <%= link_to "delete", subject, method: :delete,
+                              data: { confirm: "Are you sure?" } %>
+</li>

@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190810060422) do
+ActiveRecord::Schema.define(version: 20190814235321) do
+
+  create_table "cv_subjects", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "people", force: :cascade do |t|
     t.datetime "created_at",                      null: false
@@ -20,6 +26,7 @@ ActiveRecord::Schema.define(version: 20190810060422) do
     t.string   "email"
     t.boolean  "admin",           default: false
     t.string   "remember_digest"
+    t.string   "adminKey"
   end
 
   create_table "study_groups", force: :cascade do |t|

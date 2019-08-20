@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/home',    to: 'static_pages#home'
   get '/help',    to: 'static_pages#help'
   get '/about',   to: 'static_pages#about'
-  get '/findatutor', to: 'static_pages#findatutor'
+  get '/findatutor', to: 'subject#findatutor'
   get  '/signup', to: 'tutees#new'
   post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#new'
@@ -18,7 +18,13 @@ Rails.application.routes.draw do
   post '/subjectcreate', to: 'subject#create'
   get '/studygroup', to: 'study_groups#new'
   post '/studygroup', to: 'study_groups#create'
+  delete '/subjects', to: 'subject#destroy'
   delete '/logout', to: 'sessions#destroy'
+  get '/download', to: 'people#adminPage'
+  get '/persons', to: 'people#adminPage'
+  
+  get '/adminPage', to: 'people#adminPage'
+  post '/adminPage', to: 'people#adminPage'
   #get '/subject', to: 'people#subject'
   
   resources :tutees
@@ -26,7 +32,7 @@ Rails.application.routes.draw do
   resources :tutors
   
   resources :people
-
+ 
   resources :subject
   
   resources :account_activations, only: [:edit]

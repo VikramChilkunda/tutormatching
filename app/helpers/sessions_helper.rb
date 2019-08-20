@@ -28,8 +28,10 @@ module SessionsHelper
  end
  
  def log_out
-  session.delete(:tutor_id)
+  #session.delete(:tutor_id)
+  reset_session
   @current_tutor = nil
+  @current_person = nil
  end
  
   def create

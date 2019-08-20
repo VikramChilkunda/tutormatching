@@ -11,7 +11,11 @@ class SessionsController < ApplicationController
       remember(person)
       params[:session][:remember_me] == '1' ? remember(person) : forget(person)
      # session[:id] = person.id
-      redirect_to person
+      if person.admin?
+        redirect_to :controller => 'people', :action => 'adminPage', :id => session[:tutor_id]
+      else
+        redirect_to person               #This code can replace 'person':       :controller => 'people', :action => 'show', :id => session[:tutor_id]
+      end
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
@@ -21,5 +25,6 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     redirect_to root_url
+    session[:tutor_id] = nil
   end
 end
