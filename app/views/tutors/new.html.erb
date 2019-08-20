@@ -20,9 +20,7 @@
         <a class="nav-link" href="/studygroup">Study Group</a>
       </li>
       
-      <!--<li class="nav-item">-->
-      <!--  <li><%= link_to "Tutor", '#' %></li> -->
-      <!--</li>-->
+       <% if Person.find_by(id: session[:tutor_id]).admin? %>
       <div class="dropdown">
           <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Account 
@@ -34,7 +32,8 @@
             <%= link_to "Log out", '#', method: :delete %>
           </li>
         </ul>
-        </div>
+      </div>
+      <% end %>
   </ul>
   <a class="navbar-brand" href="/home">CV Enterprises</a>
   </div>
@@ -42,16 +41,6 @@
     
 <div class="large_content" id="large_content">
     <h1> Sign Up</h1>
-  <!--<div class="dropdown">-->
-  <!--  <ul class="dropdown-menu">-->
-  <!--    <li class = "dropdown-item"><%= link_to "Profile", current_tutor %></li>-->
-  <!--    <li><%= link_to "Settings", '#' %></li>-->
-  <!--    <li class="divider"></li>-->
-  <!--    <li>-->
-  <!--      <%= link_to "Log out", '#', method: :delete %>-->
-  <!--    </li>-->
-  <!--  </ul>-->
-  <!--</div>-->
 </div>
 
 <body>    

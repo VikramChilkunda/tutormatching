@@ -2,7 +2,7 @@ class Person < ApplicationRecord
      attr_accessor :remember_token
     has_one :tutee, foreign_key: :people_id, autosave: true, inverse_of: :person
     has_one :tutor, foreign_key: :people_id, autosave: true, inverse_of: :person
-    validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
+    validates :name, presence: true, length: { maximum: 50 }, uniqueness: false
    
     validates :password, presence: true, length: {minimum: 6}, allow_nil: true
     before_save { self.email = email.downcase }
