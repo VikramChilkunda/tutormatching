@@ -36,6 +36,7 @@ class PeopleController < ApplicationController
   end
   
   def destroy
+    Tutor.find(params[:id]).destroy
     Person.find(params[:id]).destroy
     flash[:success] = "Person deleted"
     redirect_to people_url
