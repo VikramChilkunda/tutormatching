@@ -35,8 +35,8 @@
 </nav>
 	<div class="large_content">
 		<div class="container">
-			<h1 id="homeh1">Find yerself a tutor</h1>
-			<p id="homep">hello im just a front end boi whos getting a bit bored</p>		
+			<h1 id="homeh1">Find a tutor</h1>
+			<p id="homep"></p>		
 		</div>
 			
  	</div>
@@ -59,8 +59,11 @@
    	    <% @subjuctivos.each do |subjuctivo| %>
    	        <ul>
    	            <li>
-   	                <%= link_to Person.find_by(id: subjuctivo.creatorid).name%>
+   	                <% if Person.find_by(id: subjuctivo.creatorid).nil? %>
+   	                <% else %>
+   	                <%= link_to Person.find_by(id: subjuctivo.creatorid).name %>
    	                <p><%= subjuctivo.date %>   --   <%= subjuctivo.rate %></p>
+   	                <% end %>
    	            </li> 
    	        </ul>
    	    <% end %>
