@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/help',    to: 'static_pages#help'
   get '/about',   to: 'static_pages#about'
   get '/findatutor', to: 'subject#findatutor'
+  post '/findatutor', to: 'subject#findatutor'
   get  '/signup', to: 'tutees#new'
   post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#new'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/download', to: 'people#adminPage'
   get '/persons', to: 'people#adminPage'
-  
+  get '/findresults', to: 'subject#findresults'
   get '/adminPage', to: 'people#adminPage'
   post '/adminPage', to: 'people#adminPage'
   #get '/subject', to: 'people#subject'
