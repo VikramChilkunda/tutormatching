@@ -647,6 +647,7 @@ ul.tutors li img{
 #VisualSubjects tr th{
 	font-weight: normal;
 	font-family: "Arimo";
+}
 #VisualTable{
 	color: white;
 }
@@ -656,4 +657,27 @@ ul.tutors li img{
 #downloadExcel{
 	position: absolute;
 	margin-left: 0%;
+}
+.findatutor_heading{
+	text-align: center;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-size: 16px;
+	font-weight: normal;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#findatutorcontainer input:not(:last-child){
+	margin: 10px;
+	width: 50%;
+	height: 40px;
+	padding: 20px;
+}
+#findatutorcontainer input:last-child{
+	margin-top: 20px;
+	width: 40%;
+	height: 50px;
+	padding: 5px;
+}
+#findatutor_headingavailabletutors{
+	font-family: Cabin;
 }

@@ -42,17 +42,18 @@
  	</div>
  	
  	<div>
- 	 
+    <div  class="col-md-6 col-md-offset-3" id="findatutorcontainer">
  	    <%= form_tag(findatutor_path, method: :get) do %>
- 	       <h4>Subject name: </h4>
+ 	       <h4 class="findatutor_heading">Subject  </h4>
  	       <%= text_field_tag(:searchName, params[:searchName]) %>
- 	       <h4>Date: </h4>
- 	       <%= text_field_tag(:searchDate, params[:searchDate]) %>
+ 	       <h4 class="findatutor_heading">Date </h4>
+ 	       <%= text_field_tag(:searchDate, params[:searchDate]) %><br>
  	      <%= submit_tag ("Search") %>
  	    <% end %>
+ 	  </div>
  	    
  	    <div><p></p></div>
- 	    <h3>Available tutors for <%= params[:searchName] %></h3> 
+ 	    <h3 id="findatutor_headingavailabletutors">Available tutors for <%= params[:searchName] %></h3> 
  	    <% if @subjuctivos.nil? %>
  	      <%= render 'shared/error_messages_search' %>
  	    <% else %>
