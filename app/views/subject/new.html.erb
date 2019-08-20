@@ -65,86 +65,10 @@
 
 <div style=" text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 5%% 0% -1%; border-radius:25px;">
       <%= f.label :subject %>
-      <%= f.text_field :name, class: 'form-control' %><br>
-      
-      <%= f.label :subject %>
       <!--%= f.collection_select :subject, :cvsubject_id, CvSubject.all, :id %>-->
       <!--collection_select(:post, :author_id, Author.all, :id, :name_with_initial, prompt: true)-->
-      <select class="form-control">
-        <option>English 9</option>
-        <option>English 9 Advanced</option>
-        <option>English 10</option>
-        <option>English 10 Honors</option>
-        <option>American Literature</option>
-        <option>English Literature</option>
-        <option>ELD Level 1-2</option>
-        <option>ELD Level 3</option>
-        <option>ELD Level 4</option>
-        <option>ELD Level 5</option>
-        <option>Lit for Success</option>
-        <option>Human Geography</option>
-        <option>World History</option> 
-        <option>US History</option>
-        <option>American Government</option>
-        <option>Economics</option>
-        <option>Sociology</option>
-        <option>Psychology</option>
-        <option>Integrated Math I</option>
-        <option>Integrated Math II</option>
-        <option>Integrated Math II Accelerated</option>
-        <option>Integrated Math III</option>
-        <option>Integrated Math III Accelerated</option>
-        <option>Trigonometry/Statistics</option>
-        <option>Math Analysis</option></option>
-        <option>Math Analysis Honors</option>
-        <option>Linear Algebra Honors</option>
-        <option>Intervention Math</option>
-        <option>Int Math II Concepts</option>
-        <option>Math Thinking</option>
-        <option>Biology</option>
-        <option>Medical Biology</option>
-        <option>Earth Space Science</option>
-        <option>Chemistry</option>
-        <option>Physics</option>
-        <option>Kinesiology</option>
-        <option>Physiology</option>
-        <option>Physiology Honors</option>
-        <option>Sports Medicine</option>
-        <option>Health</option>
-        <option>French 1-2</option>
-        <option>French 3-4</option>
-        <option>French 5-6</option>
-        <option>German 1-2</option>
-        <option>German 3-4</option>
-        <option>German 5-6</option>
-        <option>German 5-6 Honors</option>
-        <option>Korean 1-2</option>
-        <option>Korean 3-4</option>
-        <option>Korean 5-6</option>
-        <option>Spanish 1-2</option>
-        <option>Spanish 3-4</option>
-        <option>Spanish 5-6</option>
-        <option>AP English Language</option>
-        <option>AP English Literature</option>
-        <option>AP European History</option>
-        <option>AP US History</option>
-        <option>AP Economics</option>
-        <option>AP Government/Politics</option>
-        <option>AP Psychology</option>
-        <option>AP Human Geography</option>
-        <option>AP Calculus AB</option>
-        <option>AP Calculus BC</option>
-        <option>AP Statistics</option>
-        <option>AP Biology</option>
-        <option>AP Chemistry</option>
-        <option>AP Physics 1</option>
-        <option>AP Physics 2</option>
-        <option>AP Physics C</option>
-        <option>AP Environmental Science</option>
-        <option>AP French Language</option>
-        <option>AP German Language</option>
-        <option>AP Spanish Language (7-8)</option>
-        <option>AP Spanish Literature (9-10)</option>
+      <%= f.select :name, options_for_select(['English 9','English 9 Advanced','English 10','English 10 Honors','American Literature','English Literature','ELD Level 1-2','ELD Level 3','ELD Level 4','ELD Level 5','Lit for Success','Human Geography','World History','US History','American Government','Economics','Sociology','Psychology','Integrated Math I','Integrated Math II','Integrated Math II Accelerated','Integrated Math III','Integrated Math III Accelerated','Trigonometry/Statistics','Math Analysis','Math Analysis Honors','Linear Algebra Honors','Intervention Math','Int Math II Concepts','Math Thinking','Biology','Medical Biology','Earth Space Science','Chemistry','Physics','Kinesiology','Physiology','Physiology Honors','Sports Medicine','Health','French 1-2','French 3-4','French 5-6','German 1-2','German 3-4','German 5-6','German 5-6 Honors','Korean 1-2','Korean 3-4','Korean 5-6','Spanish 1-2','Spanish 3-4','Spanish 5-6','AP English Language','AP English Literature','AP European History','AP US History','AP Economics','AP Government/Politics','AP Psychology','AP Human Geography','AP Calculus AB','AP Calculus BC','AP Statistics','AP Biology','AP Chemistry','AP Physics 1','AP Physics 2','AP Physics C','AP Environmental Science','AP French Language','AP German Language','AP Spanish Language (7-8)','AP Spanish Literature (9-10)'], (@subject.name)), { include_blank: 'None'}, class: "" %>
+      
       </select><br>
       
       <%= f.label :date %>
