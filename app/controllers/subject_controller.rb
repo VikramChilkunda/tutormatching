@@ -48,8 +48,10 @@ class SubjectController < ApplicationController
     @subjuctivos = Subject.search(params[:searchName], params[:searchDate])
   end
   
-  def selectedTutor (a)
-    flash[:success] = a.email
+  def selectedTutor
+    redirect_to action: "findresults"
+    flash[:success] = params[:helpthevariables]
+    
   end
   
   
