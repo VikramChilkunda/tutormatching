@@ -17,6 +17,8 @@ gem 'will_paginate',           '3.1.6'
 
 gem 'bootstrap-will_paginate', '1.0.0'
 
+gem 'bootstrap-sass',          '3.3.7'
+
 gem 'puma',                    '3.9.1'
 
 gem 'sass-rails',              '5.0.6'
@@ -34,6 +36,17 @@ gem 'jbuilder',                '2.7.0'
 # Export data to spreadsheets
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
+
+
+ # Used for importing, reading excel files
+      # @link https://github.com/roo-rb/roo
+      gem 'roo'
+      # This library extends Roo to add support for handling class Excel files, including:
+      # .xls files
+      # .xml files in the SpreadsheetML format (circa 2003)
+      # @dependent on roo gem
+      # @link https://github.com/roo-rb/roo-xls
+      gem 'roo-xls'
 
 group :development, :test do
 

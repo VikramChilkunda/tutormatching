@@ -13,12 +13,17 @@ class StudyGroupsController < ApplicationController
      @study_groups.time = group_params[:time]
     if @study_groups.save 
       flash[:success] = "Group creation successful!"
-      redirect_to action: "new"
+      redirect_to allgroups_path
     else 
      # flash[:error] =  @study_groups.errors.full_messages
       render 'new'
     end
   end
+  
+  def allgroups
+    
+  end    
+
   
   private 
   

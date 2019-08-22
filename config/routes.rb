@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cvstudents/import_from_excel'
+
   get 'subject/new'
 
   get 'sessions/new'
@@ -26,7 +28,10 @@ Rails.application.routes.draw do
   get '/findresults', to: 'subject#findresults'
   get '/adminPage', to: 'people#adminPage'
   post '/adminPage', to: 'people#adminPage'
+  get '/selectedTutor', to: 'subject#selectedTutor'
   #get '/subject', to: 'people#subject'
+  
+  post 'import_from_excel' => "cvstudents#import_from_excel"
   
   resources :tutees
   
