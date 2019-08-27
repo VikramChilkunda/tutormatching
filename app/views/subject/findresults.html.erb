@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>HOME PAGE</title>
-	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin|Montserrat|Red+Hat+Text" rel="stylesheet">
 	<script src="jquery-3.3.1.min.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	
@@ -47,15 +47,29 @@
  	      <%= render 'shared/error_messages_search' %>
  	    <% else %>
    	    <% @subjuctivos.each do |subjuctivo| %>
-   	        <ul>
-   	            <li>
-   	                <% if Person.find_by(id: subjuctivo.creatorid).nil? %>
+   	        
+   	            <% if Person.find_by(id: subjuctivo.creatorid).nil? %>
    	                <% else %>
+   	                <!--new thing vikram implemented on 8/26-->
+   	                <div class = "tutordisplaycard">
+                			<div class="tutorgrade">
+                				11
+                				<!--Adarsh i need you to put the Carrot Percent thing for tutor's grade here (-->
+                			</div>
+                			<div class="tutorname">
+                			<%=	Person.find_by(id: subjuctivo.creatorid).name %>
+                			</div>
+                			<div class="date">
+                				<%= subjuctivo.date %>
+                			</div>
+                			<div class="rate">
+                				Rate: $<%= subjuctivo.rate %>
+                			</div>
+                		</div>
    	                <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email) %>
    	                <p><%= subjuctivo.date %>  &nbsp; &nbsp; Rate:  <%= subjuctivo.rate %></p>
    	                <% end %>
-   	            </li> 
-   	        </ul>
+   	        
    	    <% end %>
    	  <% end %>
    </body>

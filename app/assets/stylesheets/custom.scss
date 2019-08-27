@@ -668,17 +668,85 @@ ul.tutors li img{
 }
 #findatutorcontainer input:not(:last-child){
 	margin: 10px;
-	width: 50%;
+	width: 70%;
 	height: 40px;
 	padding: 20px;
 }
 #findatutorcontainer input:last-child{
 	margin-top: 20px;
-	width: 40%;
+	// width: 60%;
 	height: 50px;
 	padding: 5px;
 }
 #findatutor_headingavailabletutors{
 	font-family: Lato;
 	margin-left: 20px;
+}
+
+#searchName{
+	width: 70%;
+	height: 44px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	outline: none;
+}
+#searchDate{
+	outline: none;
+	border: 1px solid #a9a9a9;
+}
+.findatutorbutton{
+	display: inline !important;
+	height: 60px !important;
+	padding: 15px !important;
+}
+
+
+
+
+//Tutor cards
+.tutordisplaycard{
+	width: 45vw;
+	height: 12.6vw;
+	margin: auto;
+	/* border: 1px solid black; */
+	background-color: #eee;
+	position: relative;
+}
+.tutorgrade{
+	float: left;
+	width: 28%;
+	height: 100%;
+	background-color: #eee;
+	font-family: "Red Hat Text";
+	text-align: center;
+	font-size: 150px;
+	background-color: cornflowerblue;
+	padding: 10px;
+}
+.tutorname{
+	float: left;
+	padding-top: 1.566vw;
+	padding-left: 6%;
+	font-family: "Cabin";
+	text-transform: uppercase;
+	font-weight: 700px;
+	font-size: 1.8229vw;
+}
+.date{
+	// font-size: 20px;
+	font-family: "Cabin";
+	position: absolute;
+	right: 6%;
+	bottom: 1.5666vw;
+	font-size: 1vw;
+}
+.rate{
+	float: left;
+	position: absolute;
+	left: 34%;
+	bottom: 1.566vw;
+	font-family: "Red Hat Text";
+	font-size: 20px;
 }
