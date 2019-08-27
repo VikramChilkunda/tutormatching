@@ -31,9 +31,9 @@
         <a class="nav-link" href="/findatutor">Find a Tutor</a>
       </li>
       <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account
-            </button>
+          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </button>
           <ul class="dropdown-menu">
             
             <% if Person.find_by(id: session[:tutor_id]).admin? %>
@@ -47,7 +47,7 @@
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
-        </div>
+      </div>
     </ul>
   </div>
 </nav>
