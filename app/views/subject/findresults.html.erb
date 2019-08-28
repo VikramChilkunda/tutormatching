@@ -77,8 +77,8 @@
    	                <!--new thing vikram implemented on 8/26-->
    	                <div class = "tutordisplaycard">
                 			<div class="tutorgrade">
-                				11
-                				<!--Adarsh i need you to put the Carrot Percent thing for tutor's grade here (-->
+                				<%= Tutor.find_by(people_id: subjuctivo.creatorid).grade %>
+                				<!--Adarsh i need you to put the Carrot Percent thing for tutor's grade here  *DONE*(-->
                 			</div>
                 			<div class="tutorname">
                 			<%=	Person.find_by(id: subjuctivo.creatorid).name %>
@@ -87,7 +87,7 @@
                 				<%= subjuctivo.date %>
                 			</div>
                 			<div class="rate">
-                				Rate: $<%= subjuctivo.rate %>
+                				Rate: <%= subjuctivo.rate %>
                 			</div>
                 		</div>
    	                <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email) %>
