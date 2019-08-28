@@ -6,7 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
 	<script src="jquery-3.3.1.min.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body id="body">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,8 +54,6 @@
       <% else %>
         
       <% end %>
-    </ul>
-  </div>
 </nav>
 	<div class="large_content">
 		<div class="container">
@@ -70,19 +68,88 @@
  	    <%= form_tag(findatutor_path, method: :get) do %>
  	       <h4 class="findatutor_heading">Subject  </h4>
  	      
- 	       <div class="form-control">
-   	       <%= select_tag :searchName, options_for_select(['English 9','English 9 Advanced','English 10','English 10 Honors','American Literature','English Literature','ELD Level 1-2','ELD Level 3','ELD Level 4','ELD Level 5','Lit for Success',
-   	       'Human Geography','World History','US History','American Government','Economics','Sociology','Psychology','Integrated Math I','Integrated Math II','Integrated Math II Accelerated','Integrated Math III',
-   	       'Integrated Math III Accelerated','Trigonometry/Statistics','Math Analysis','Math Analysis Honors','Linear Algebra Honors','Intervention Math','Int Math II Concepts','Math Thinking','Biology','Medical Biology',
-   	       'Earth Space Science','Chemistry','Physics','Kinesiology','Physiology','Physiology Honors','Sports Medicine','Health','French 1-2','French 3-4','French 5-6','German 1-2','German 3-4','German 5-6','German 5-6 Honors',
-   	       'Korean 1-2','Korean 3-4','Korean 5-6','Spanish 1-2','Spanish 3-4','Spanish 5-6','AP English Language','AP English Literature','AP European History','AP US History','AP Economics','AP Government/Politics','AP Psychology',
-   	       'AP Human Geography','AP Calculus AB','AP Calculus BC','AP Statistics','AP Biology','AP Chemistry','AP Physics 1','AP Physics 2','AP Physics C','AP Environmental Science','AP French Language','AP German Language',
-   	       'AP Spanish Language (7-8)','AP Spanish Literature (9-10)'], (params[:searchName])), { include_blank: 'None'}%>
+ 	       <div>
+   	       <select name="searchName" id="searchName">
+   	        <option value="English 9">English 9</option>
+            <option value="English 9 Advanced">English 9 Advanced</option>
+            <option value="English 10">English 10</option>
+            <option value="English 10 Honors">English 10 Honors</option>
+            <option value="American Literature">American Literature</option>
+            <option value="English Literature">English Literature</option>
+            <option value="ELD Level 1-2">ELD Level 1-2</option>
+            <option value="ELD Level 3">ELD Level 3</option>
+            <option value="ELD Level 4">ELD Level 4</option>
+            <option value="ELD Level 5">ELD Level 5</option>
+            <option value="Lit for Success">Lit for Success</option>
+            <option value="Human Geography">Human Geography</option>
+            <option value="World History">World History</option>
+            <option value="US History">US History</option>
+            <option value="American Government">American Government</option>
+            <option value="Economics">Economics</option>
+            <option value="Sociology">Sociology</option>
+            <option value="Psychology">Psychology</option>
+            <option value="Integrated Math I">Integrated Math I</option>
+            <option value="Integrated Math II">Integrated Math II</option>
+            <option value="Integrated Math II Accelerated">Integrated Math II Accelerated</option>
+            <option value="Integrated Math III">Integrated Math III</option>
+            <option value="Integrated Math III Accelerated">Integrated Math III Accelerated</option>
+            <option value="Trigonometry/Statistics">Trigonometry/Statistics</option>
+            <option value="Math Analysis">Math Analysis</option>
+            <option value="Math Analysis Honors">Math Analysis Honors</option>
+            <option value="Linear Algebra Honors">Linear Algebra Honors</option>
+            <option value="Intervention Math">Intervention Math</option>
+            <option value="Int Math II Concepts">Int Math II Concepts</option>
+            <option value="Math Thinking">Math Thinking</option>
+            <option value="Biology">Biology</option>
+            <option value="Medical Biology">Medical Biology</option>
+            <option value="Earth Space Science">Earth Space Science</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Physics">Physics</option>
+            <option value="Kinesiology">Kinesiology</option>
+            <option value="Physiology">Physiology</option>
+            <option value="Physiology Honors">Physiology Honors</option>
+            <option value="Sports Medicine">Sports Medicine</option>
+            <option value="Health">Health</option>
+            <option value="French 1-2">French 1-2</option>
+            <option value="French 3-4">French 3-4</option>
+            <option value="French 5-6">French 5-6</option>
+            <option value="German 1-2">German 1-2</option>
+            <option value="German 3-4">German 3-4</option>
+            <option value="German 5-6">German 5-6</option>
+            <option value="German 5-6 Honors">German 5-6 Honors</option>
+            <option value="Korean 1-2">Korean 1-2</option>
+            <option value="Korean 3-4">Korean 3-4</option>
+            <option value="Korean 5-6">Korean 5-6</option>
+            <option value="Spanish 1-2">Spanish 1-2</option>
+            <option value="Spanish 3-4">Spanish 3-4</option>
+            <option value="Spanish 5-6">Spanish 5-6</option>
+            <option value="AP English Language">AP English Language</option>
+            <option value="AP English Literature">AP English Literature</option>
+            <option value="AP European History">AP European History</option>
+            <option value="AP US History">AP US History</option>
+            <option value="AP Economics">AP Economics</option>
+            <option value="AP Government/Politics">AP Government/Politics</option>
+            <option value="AP Psychology">AP Psychology</option>
+            <option value="AP Human Geography">AP Human Geography</option>
+            <option value="AP Calculus AB">AP Calculus AB</option>
+            <option value="AP Calculus BC">AP Calculus BC</option>
+            <option value="AP Statistics">AP Statistics</option>
+            <option value="AP Biology">AP Biology</option>
+            <option value="AP Chemistry">AP Chemistry</option>
+            <option value="AP Physics 1">AP Physics 1</option>
+            <option value="AP Physics 2">AP Physics 2</option>
+            <option value="AP Physics C">AP Physics C</option>
+            <option value="AP Environmental Science">AP Environmental Science</option>
+            <option value="AP French Language">AP French Language</option>
+            <option value="AP German Language">AP German Language</option>
+            <option value="AP Spanish Language (7-8)">AP Spanish Language (7-8)</option>
+            <option value="AP Spanish Literature (9-10)">AP Spanish Literature (9-10)</option>
+          </select>
  	       </div>
  	       <h4 class="findatutor_heading">Date </h4>
- 	       <%= text_field_tag(:searchDate, params[:searchDate]) %><br>
- 	      <%= submit_tag ("Search")%>
- 	    <% end %>
+ 	       <input type="text" name="searchDate" id="searchDate"><br>
+          <input type="submit" name="commit" value="Search" data-disable-with="Search" id="specialanimatedbutton" class="btn btn-primary findatutorbutton">	    
+        <% end %>
  	  </div>
  	</div>
 </body>
