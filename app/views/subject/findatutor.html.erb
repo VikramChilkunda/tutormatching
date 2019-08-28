@@ -30,24 +30,30 @@
       <li class="nav-item active">
         <a class="nav-link" href="/findatutor">Find a Tutor</a>
       </li>
-      <div class="dropdown">
+      <% if session[:tutor_id] %>
+        <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
             </button>
           <ul class="dropdown-menu">
-            
-            <% if Person.find_by(id: session[:tutor_id]).admin? %>
+           <% if Person.find_by(id: session[:tutor_id]).admin? %>
               <li class = "dropdown-item"><%= link_to "Profile", adminPage_path %></li>
             <% else %>
               <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
-            
             <li class="divider"></li>
             <li>
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
-        </div>
+      </ul>
+      
+      <a class="navbar-brand" href="/home">CV Enterprises</a>
+    </div>
+    </nav>
+      <% else %>
+        
+      <% end %>
     </ul>
   </div>
 </nav>

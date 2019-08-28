@@ -30,7 +30,7 @@ class SubjectController < ApplicationController
   
   def destroy 
    # Subject.find(session[:selected_subject_id]).destroy
-   Subject.find(params[:check]).delete
+    Subject.find(params[:check]).destroy
     flash[:success] = "Subject deleted"
     redirect_to person_path(Person.find_by(id: session[:tutor_id]))
   end
@@ -50,7 +50,7 @@ class SubjectController < ApplicationController
   
   def selectedTutor
     redirect_to action: "findresults"
-    flash[:success] = params[:helpthevariables]
+    flash[:success] = "Tutor email: " + params[:helpthevariables]
     
   end
   
