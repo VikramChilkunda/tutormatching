@@ -49,7 +49,7 @@ class SubjectController < ApplicationController
   end
   
   def selectedTutor
-    redirect_to action: "findresults"
+    redirect_to action: "findresults", searchName: params[:searchName], searchDate: params[:searchDate]
     flash[:success] = "Tutor email: " + params[:helpthevariables]
     
   end
