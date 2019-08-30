@@ -563,6 +563,10 @@ center{
 }
 #not_taken{
 	height: 100vh;
+	background: #12c2e9 !important;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 #not_taken .row{
 	height: 100%;
@@ -714,8 +718,10 @@ ul.tutors li img{
 	background-color: #eee;
 	position: relative;
 	background: #ff00cc;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(left, #333399, #ff00cc);
+background: -moz-linear-gradient(left, #333399, #ff00cc);
+background: -o-linear-gradient(left, #333399, #ff00cc);
+background: linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 .tutorgrade{

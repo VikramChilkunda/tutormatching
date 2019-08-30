@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tutor_requests/new'
+
   get 'cvstudents/import_from_excel'
 
   get 'subject/new'
@@ -31,7 +33,8 @@ Rails.application.routes.draw do
   post '/adminPage', to: 'people#adminPage'
   get '/selectedTutor', to: 'subject#selectedTutor'
   #get '/subject', to: 'people#subject'
-  
+  get '/request', to: 'tutor_requests#new'
+  post '/request', to: 'tutor_requests#create'
   post 'import_from_excel' => "cvstudents#import_from_excel"
   
   resources :tutees
@@ -45,6 +48,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   
   resources :study_group
+  
+  resources :tutor_request
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
