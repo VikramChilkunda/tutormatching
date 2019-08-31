@@ -77,7 +77,7 @@
           <table style="width:180%" id="VisualTable">
             <tr>
               <th  style="width:43%", "position:absolute">My subjects</th>
-              <th style="width:22%", "position:absolute">Date</th> 
+              <th style="width:22%", "position:absolute">Day</th> 
               <th style="width:15%", "position:absolute">Rate</th>
               <th style="width:24%", "position:absolute">Options</th>
             </tr>
@@ -124,19 +124,19 @@
         <h1>
         <div id="bob">
           <p style = "color:#fff;">Requests</p>
-        <table style="width:180%" id="VisualTable"> 
+        <table style="width:120%" id="VisualTable"> 
             <tr>
-                      <th style="width:43.1%", "position:absolute">Student name</th>
-                      <th style="width:22%", "position:absolute">Email</th> 
+                      <th style="width:13.1%", "position:absolute">Student name</th>
+                      <th style="width:12%", "position:absolute">Email</th> 
               </tr>
             
               <% TutorRequest.all.each do |i| %>
                 <% if i.name == Person.find_by(id: session[:tutor_id]).email %>
                  
-                  <table style="width:180%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
+                  <table style="width:120%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
-                      <th style="width:43.1%", "position:absolute"> <%= i.student %></th>
-                      <th style="width:22%", "position:absolute"> <%= i.email %></th> 
+                      <th style="width:13.1%", "position:absolute"> <%= i.student %></th>
+                      <th style="width:12%", "position:absolute"> <%= i.email %></th> 
                       
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>

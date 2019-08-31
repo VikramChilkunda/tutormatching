@@ -21,7 +21,7 @@ class StudyGroupsController < ApplicationController
   end
   
   def allgroups
-    
+    @allofthemgroups = StudyGroup.all
   end    
 
   

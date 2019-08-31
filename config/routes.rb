@@ -11,18 +11,19 @@ Rails.application.routes.draw do
   get '/home',    to: 'static_pages#home'
   get '/help',    to: 'static_pages#help'
   get '/about',   to: 'static_pages#about'
+  
   get '/findatutor', to: 'subject#findatutor'
   post '/findatutor', to: 'subject#findatutor'
+  
   get  '/signup', to: 'tutees#new'
   post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#new'
   post '/tutorsignup', to: 'tutors#create'
   get  '/login', to: 'sessions#new'
   post  '/login', to: 'sessions#create'
+ 
   get '/subjectcreate', to: 'subject#new'
   post '/subjectcreate', to: 'subject#create'
-  get '/studygroup', to: 'study_groups#new'
-  post '/studygroup', to: 'study_groups#create'
   post '/subjectdelete', to: 'subject#destroy'
   delete '/subjectdelete', to: 'subject#destroy'
   delete '/logout', to: 'sessions#destroy'
@@ -36,6 +37,12 @@ Rails.application.routes.draw do
   get '/request', to: 'tutor_requests#new'
   post '/request', to: 'tutor_requests#create'
   post 'import_from_excel' => "cvstudents#import_from_excel"
+  
+    
+  get '/studygroup', to: 'study_groups#allgroups'
+  post '/studygroup', to: 'study_groups#allgroups'
+  get '/allgroups', to: 'study_groups#new'
+  post '/allgroups', to: 'study_groups#create'
   
   resources :tutees
   
