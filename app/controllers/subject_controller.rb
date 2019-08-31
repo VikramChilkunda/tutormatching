@@ -62,4 +62,5 @@ class SubjectController < ApplicationController
     def subject_params
       params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate)
     end
+    
 end
