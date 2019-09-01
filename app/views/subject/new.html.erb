@@ -72,7 +72,7 @@
       </select><br>
       
       <%= f.label "Optimal day" %>
-      <%= f.select :name, options_for_select(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), { include_blank: 'None'}, class: "form-control" %>
+      <%= f.select :date, options_for_select(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), { include_blank: 'None'}, class: "form-control" %>
       
       <%= f.label :rate %>
       <%= f.text_field :rate, class: 'form-control' %><br>
