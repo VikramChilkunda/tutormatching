@@ -41,8 +41,8 @@ Rails.application.routes.draw do
     
   get '/studygroup', to: 'study_groups#allgroups'
   post '/studygroup', to: 'study_groups#allgroups'
-  get '/allgroups', to: 'study_groups#new'
-  post '/allgroups', to: 'study_groups#create'
+  get '/creategroup', to: 'study_groups#new'
+  post '/creategroup', to: 'study_groups#create'
   
   resources :tutees
   

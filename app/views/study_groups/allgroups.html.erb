@@ -53,10 +53,38 @@
 <div class="large_content" id="large_content">
     <h1>Study groups</h1>
 </div>
+<br>
 
-            <% StudyGroup.all.each do |i| %>
-               <p><%= i.creatorName %></p>
-            <% end %>
+            <% @allofthemgroups.each do |i| %>
+   	        
+   	            <% if !StudyGroup.find(i).nil? %>
+   	                <!--new thing vikram implemented on 8/26-->
+   	                <div class = "tutordisplaycard searchresultslargecontainer">
+                			<div class="tutorgrade">
+                				Host: <%= i.creatorName %>
+                			</div>
+                			<div class="tutorname">
+                			  Group Size: <%= i.groupSize %>
+                			</div>
+                			<div class="date">
+                				Meet at: <%=  i.location %> (<%= i.time %>)
+                			</div>
+                			<div class="rate">
+                				Date: <%= i.date %>
+                			</div>
+                			<div class="">
+                				Contact: <%= i.email %>
+                			</div>
+                    </div>
+                    <br>
+   	             <% end %>
+   	  <% end %>
+            </div>
+          <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
+          <a href="/creategroup">
+            <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Group</button>
+          </a>
+          </div>
 
 <body>    
 </div>

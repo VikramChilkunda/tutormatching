@@ -11,6 +11,7 @@ class StudyGroupsController < ApplicationController
      @study_groups.groupSize = group_params[:groupSize]
      @study_groups.groupName = group_params[:groupName]
      @study_groups.time = group_params[:time]
+     @study_groups.email = group_params[:email]
     if @study_groups.save 
       flash[:success] = "Group creation successful!"
       redirect_to allgroups_path
@@ -28,7 +29,7 @@ class StudyGroupsController < ApplicationController
   private 
   
     def group_params
-      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time)
+      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email)
     end
   
 end
