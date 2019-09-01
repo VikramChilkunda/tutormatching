@@ -8,4 +8,5 @@ class StudyGroup < ApplicationRecord
     validates :groupSize, presence: true
     validates :groupName, presence: true
     validates :time, presence: true
+    validates :email, presence: true
 end

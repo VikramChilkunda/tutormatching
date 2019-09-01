@@ -14,9 +14,9 @@ class StudyGroupsController < ApplicationController
      @study_groups.email = group_params[:email]
     if @study_groups.save 
       flash[:success] = "Group creation successful!"
-      redirect_to allgroups_path
+      redirect_to studygroup_path
     else 
-     # flash[:error] =  @study_groups.errors.full_messages
+      #flash[:error] =  "Could not create group"
       render 'new'
     end
   end
