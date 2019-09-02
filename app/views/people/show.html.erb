@@ -44,12 +44,11 @@
     </div>
   </nav>
   <% provide(:title, @person.name) %>
+  <h1 id="bob" style="font-size:3vw;">Profile</h1>
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
         <h1>
-          <%= gravatar_for @person %>
-          <br></br>
           <div id="bob">
           <%= @person.name %>
           <%= @person.email %>
@@ -90,7 +89,7 @@
                       <th style="width:43.1%", "position:absolute"> <%= i.name %></th>
                       <th style="width:22%", "position:absolute"> <%= i.date %></th> 
                       <th style="width:15%", "position:absolute"> <%= i.rate %></th>
-                      <th><%= button_to " Delete", subjectdelete_path(check: i.id), method: :delete,
+                      <th><%= link_to " Delete", subjectdelete_path(check: i.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
