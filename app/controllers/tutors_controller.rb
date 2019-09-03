@@ -2,6 +2,7 @@ class TutorsController < ApplicationController
   def new
    @tutor_person = TutorPerson.new
    @person = Person.new
+   @tutor = Tutor.new
   end
   
   def edit
@@ -26,22 +27,18 @@ class TutorsController < ApplicationController
     @tutor = @person.build_tutor
     @tutor.id_num = tutor_params[:id_num]
     @tutor.grade = tutor_params[:grade]
-    Cvstudent.all.each do |i|
-      flash[:success] = i.idnum
-      if i.idnum == tutor_params[:id_num]
-        flash[:success] = "Success"
-        if @person.save
+    
+        if @person.save && @tutor.save
           log_in @person
           flash[:success] = "Tutor signup successful!"
           redirect_to action: "show", id: @tutor.id
         else 
-        # flash[:error] = @tutor.errors.full_messages
-        render 'new'
+          # flash[:error] = @tutor.errors.full_messages
+          render 'new'
+          flash[:notice] = "hi"        
         end
-      end
-     # flash[:success] = "hi"
-    end
-    redirect_to home_path
+     
+    
   end
   
   def update

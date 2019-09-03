@@ -35,6 +35,7 @@
     <div  class="col-md-6 col-md-offset-3">
     <%= form_for(@tutor_person, url: tutorsignup_path) do |f| %>
       <%= render 'shared/error_messages_tutor_people' %>
+          
         <%= f.label :name %>
         <%= f.text_field :name, placeholder: "Joe Falcon",class: 'form-control' %>
         
@@ -44,8 +45,12 @@
         <%= f.label :ID_Number %>
         <%= f.text_field :id_num, placeholder: "123456", class: 'form-control' %>
         
+        <!--% Cvstudent.all.each do |i| %>-->
+        <!--  % if tutor_params[:id_num] == i.idnum %>-->
+          
+        
         <%= f.label :grade %>
-         <%= f.text_field :grade, placeholder: '9', class: 'form-control' %>
+         <%= f.text_field :grade, class: 'form-control' %>
         <!--<select class = "form-control" name="Contact[email_provider]">-->
         <!--  <option>9</option>-->
         <!--  <option>10</option>-->
