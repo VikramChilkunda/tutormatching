@@ -1,4 +1,4 @@
-<% provide(:title, "Create Subject") %>
+<% provide(:title, "Register a subject") %>
        <!--   % if logged_in? %> -->
 	
 	
@@ -51,7 +51,7 @@
 
 <div class="large_content" id="createsubjectlargecontent">
 		<div class="container">
-			<h1 id="createsubjecth1">Create a Subject</h1>
+			<h1 id="createsubjecth1">Register to tutor a subject</h1>
 		</div>
 </div>
 <!--<h1 id="martin"><div style="background-color:lightgrey; opacity: 0.96; text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 75% 0% -1%; border-radius:25px;"> Create a subject</h1></div>-->
@@ -71,8 +71,8 @@
       
       </select><br>
       
-      <%= f.label :date %>
-      <%= f.text_field :date, class: 'form-control' %><br>
+      <%= f.label "Optimal day" %>
+      <%= f.select :date, options_for_select(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), { include_blank: 'None'}, class: "form-control" %>
       
       <%= f.label :rate %>
       <%= f.text_field :rate, class: 'form-control' %><br>

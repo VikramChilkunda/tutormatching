@@ -453,13 +453,17 @@
     date-fns "^1.29.0"
     http-call "^5.2.3"
 
-"@heroku-cli/plugin-webhooks-v5@^7.24.0":
-  version "7.24.0"
-  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-webhooks-v5/-/plugin-webhooks-v5-7.24.0.tgz#39beac4d8c3e0ff31f18ec399f4a02e9511a645c"
-  integrity sha512-TR7T7MXLDoWCP+b2+Bd7BUz7GG4ICZBHRjATDl0GtrrsROCgr/lnLdfhNRKuFYWgYVuBrXTyDHD9k5vzXUNQaw==
+"@heroku-cli/plugin-webhooks@^7.29.0":
+  version "7.29.0"
+  resolved "https://registry.yarnpkg.com/@heroku-cli/plugin-webhooks/-/plugin-webhooks-7.29.0.tgz#168481d44f8af1dea8074c4d576417b5011b0100"
+  integrity sha512-Vkd4RqvdgSooS4vIaqJ1AmDRLf7rXuK4tAH8KYtsG4RWp17gwkksoYVj+fCEfbOjUR2f16IFwGwG8eyUxyak8Q==
   dependencies:
-    "@heroku-cli/command" "^8.2.10"
-    heroku-cli-util "^8.0.11"
+    "@heroku-cli/color" "^1.1.14"
+    "@heroku-cli/command" "^8.2.11"
+    "@oclif/command" "^1"
+    "@oclif/config" "^1"
+    cli-ux "^5.2.1"
+    tslib "^1"
 
 "@heroku-cli/schema@^1.0.25":
   version "1.0.25"

@@ -353,6 +353,11 @@ a:hover{
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+    .nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
+	}
 }
 
 #body{
@@ -403,6 +408,11 @@ center{
 	.large_content h1{
 		text-align: center;
 	}
+	.nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
+	}
 }
 
 /* Users index */
@@ -448,11 +458,16 @@ center{
 	}
 	.small_content{
 		padding: 15px;
-		background-color: green;
-		background-image: none;
+		// background-color: green;
+		// background-image: none;
 	}
 	.col-md-6{
 		max-width: 80%!important;
+	}
+	.nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
 	}
 }
 @media screen and (max-width: 600px){
@@ -511,9 +526,9 @@ center{
 		margin-bottom: 0%;
 	}
 	.small_content{
-		background-image: none;
+		// background-image: none;
 		padding: 25px;
-		background-color: green;
+		// background-color: green;
 		margin-bottom: 0px;
 	}
 	.container{
@@ -521,6 +536,11 @@ center{
 	}
 	.col-md-6{
 		max-width: 90%;
+	}
+	.nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
 	}
 }
 @media screen and (max-width: 667px){
@@ -533,12 +553,13 @@ center{
 	}
 	.small_content{
 		padding: 15px;
-		background-color: green;
-		background-image: none;
+		// background-color: green;
+		// background-image: none;
 	}
 	.col-md-6{
 		max-width: 90%;
 	}
+	
 }
 
 /*End Responsive Stuff*/
@@ -563,9 +584,11 @@ center{
 }
 #not_taken{
 	height: 100vh;
-	background: #12c2e9 !important;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
+	background-size: 100%;
+	//background: #12c2e9 !important;  /* fallback for old browsers */
+	//background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+	//background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 #not_taken .row{
@@ -654,9 +677,21 @@ ul.tutors li img{
 }
 #VisualTable{
 	color: white;
+	width: 50vw !important;
+	table-layout: fixed;
+}
+#VisualTable th{
+	width: 50%;
+	padding: 5px;
 }
 #VisualSubjects{
+	width: 50vw !important;
 	color: white;
+	table-layout: fixed;
+}
+#VisualSubjects th{
+	width: 50%;
+	padding: 5px	;
 }
 #downloadExcel{
 	position: absolute;
@@ -764,6 +799,7 @@ ul.tutors li img{
 }
 .tutorsendrequest{
 	// border: 1px solid black;
+	float: right;
 	height: 100%;
 	position: absolute;
 	left: 100%;
@@ -776,11 +812,12 @@ ul.tutors li img{
 	background: #E0EAFC;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-	
 }
+
+.tutorsendrequest #specialanimatedbutton{
+	float: right;
+}
+
 .tutordisplaycard:hover{
 	cursor: pointer;
 }
@@ -788,4 +825,15 @@ background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, F
 	visibility: visible;
 	transition: 0.2s;
 	transform: scaleX(1);
+}
+.studygroupcreator{
+	float: left;
+	width: 28%;
+	height: 100%;
+	background-color: black;
+	font-family: "Red Hat Text";
+	text-align: center;
+	font-size: 3vw;
+	padding: 10px;
+	color: white;
 }

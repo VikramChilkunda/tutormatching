@@ -1,0 +1,61 @@
+<head>
+  	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+  	<script src="jquery-3.3.1.min.js"></script>
+  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body id="" style="background-color:white;" style="font-family: Signika">
+  <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+        	<a class="nav-link" href="/about">About</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/help">Help</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/studygroup">Study Group</a>
+        </li>
+        
+        <!--<li class="nav-item">-->
+        <!--  <li><%= link_to "Tutor", '#' %></li> -->
+        <!--</li>-->
+         <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </button>
+          <ul class="dropdown-menu">
+            
+            <% if Person.find_by(id: session[:tutor_id]).admin? %>
+              <li class = "dropdown-item"><%= link_to "Profile", adminPage_path %></li>
+            <% else %>
+              <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
+            <% end %>
+            
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Log out", logout_path, method: :delete %>
+            </li>
+          </ul>
+      </ul>
+      </nav>
+      <a class="navbar-brand" href="/home">CV Enterprises</a>
+    </div>
+      </ul>
+    </div>
+  </nav>
+  <% provide(:title, "Import from excel") %>
+
+
+
+<h1>Import From Excel</h1>
+ <%= form_tag import_from_excel_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import", :class=> "btn"%>
+<% end %>
+
+<!-- CLEAR ALL BUTTON -->

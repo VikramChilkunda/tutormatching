@@ -1,0 +1,92 @@
+<head>
+  	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+  	<script src="jquery-3.3.1.min.js"></script>
+  	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<% provide(:title, 'Find a group') %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/help">Help</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/studygroup">Study Group</a>
+      </li>
+      <% if session[:tutor_id] %>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </button>
+          <ul class="dropdown-menu">
+           <% if Person.find_by(id: session[:tutor_id]).admin? %>
+              <li class = "dropdown-item"><%= link_to "Profile", adminPage_path %></li>
+            <% else %>
+              <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
+            <% end %>
+            <li class="divider"></li>
+            <li class = "dropdown-item">
+              <%= link_to "Log out", logout_path, method: :delete %>
+            </li>
+          </ul>
+      </ul>
+      
+      <a class="navbar-brand" href="/home">CV Enterprises</a>
+    </div>
+    </nav>
+      <% else %>
+        
+      <% end %>
+      
+    </ul>
+  </div>
+</nav>
+<div class="large_content" id="large_content">
+    <h1>Study groups</h1>
+</div>
+<br>
+
+            <% @allofthemgroups.each do |i| %>
+   	        
+   	            <% if !StudyGroup.find(i).nil? %>
+   	                <!--new thing vikram implemented on 8/26-->
+   	                <div class = "tutordisplaycard searchresultslargecontainer">
+                			<div class="studygroupcreator">
+                				Host: <%= i.creatorName %>
+                			</div>
+                			<div class="tutorname">
+                			  Group Size: <%= i.groupSize %>
+                			</div>
+                			<div class="date">
+                				Meet at: <%=  i.location %> (<%= i.time %>)
+                			</div>
+                			<div class="rate">
+                				Date: <%= i.date %>
+                			</div>
+                			<div class="">
+                				Contact: <%= i.email %>
+                			</div>
+                    </div>
+                    <br>
+   	             <% end %>
+   	  <% end %>
+            </div>
+          <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
+          <a href="/creategroup">
+            <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Group</button>
+          </a>
+          </div>
+
+<body>    
+</div>
+</body>
+

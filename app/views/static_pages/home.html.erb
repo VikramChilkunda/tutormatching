@@ -39,7 +39,7 @@
               <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
             <li class="divider"></li>
-            <li>
+            <li class = "dropdown-item">
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>

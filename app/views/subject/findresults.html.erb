@@ -42,7 +42,7 @@
               <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
             <li class="divider"></li>
-            <li>
+            <li class = "dropdown-item">
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
@@ -65,42 +65,44 @@
 			
  	</div>
  	
- 	<div><p></p></div>
+ 	<!--<div><p></p></div>-->
  	    <% if @subjuctivos.nil? %>
  	      <%= render 'shared/error_messages_search' %>
  	    <% else %>
    	    <% @subjuctivos.each do |subjuctivo| %>
-   	        
-   	            <% if Person.find_by(id: subjuctivo.creatorid).nil? %>
-   	                <% else %>
-   	                <!--new thing vikram implemented on 8/26-->
-   	                <div class = "tutordisplaycard">
-                			<div class="tutorgrade">
-                				<%= Tutor.find_by(people_id: subjuctivo.creatorid).grade %>
-                				<!--Adarsh i need you to put the Carrot Percent thing for tutor's grade here  *DONE*(-->
-                			</div>
-                			<div class="tutorname">
-                			  <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email, searchName: params[:searchName], searchDate: params[:searchDate]) %>
-                			</div>
-                			<div class="date">
-                				<%= subjuctivo.date %>
-                			</div>
-                			<div class="rate">
-                				Rate: <%= subjuctivo.rate %>
-                			</div>
-                			<div class="tutorsendrequest">
-              			    <%= form_tag(request_path(name: Person.find_by(id: subjuctivo.creatorid).name), method: :post) do %>
-                          <div><p></p></div>
-                 	       <h4 class="findatutor_heading">Send request to tutor: </h4>
-                 	       <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
-                 	        <input type="text" name="student" id="student" placeholder="Your name" class = "form-control"> <!-- params[:name] is for the tutor's name not the student's name -->
-                          <input type="submit" name="commit" value="Send" data-disable-with="Search" id="specialanimatedbutton">
-                        <% end %>
-                			</div>
-                		</div>
-   	                <% end %>
-   	        
-   	    <% end %>
+         <% if Person.find_by(id: subjuctivo.creatorid).nil? %>
+           
+         <% else %>
+             <!--new thing vikram implemented on 8/26-->
+             <div class = "tutordisplaycard">
+        			<div class="tutorgrade">
+        				<%= Tutor.find_by(people_id: subjuctivo.creatorid).grade %>
+        				<!--Adarsh i need you to put the Carrot Percent thing for tutor's grade here  *DONE*(-->
+        			</div>
+        			<div class="tutorname">
+        			  <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email, searchName: params[:searchName], searchDate: params[:searchDate]) %>
+        			</div>
+        			<div class="date">
+        				<%= subjuctivo.date %>
+        			</div>
+        			<div class="rate">
+        				Rate: <%= subjuctivo.rate %>
+        			</div>
+  
+              <div class="tutorsendrequest">
+                    <%= form_tag(request_path(name: Person.find_by(id: subjuctivo.creatorid).email), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
+                      <div><p></p></div>
+             	       <h4 class="findatutor_heading">Send request to tutor: </h4>
+             	       <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
+             	        <input type="text" name="student" id="student" placeholder="Your name"  class = "form-control"><br> 
+                      <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
+                    <% end %>
+              </div>
+              <div><p></p></div>
+            </div>
+          <% end %>
    	  <% end %>
-   </body>
-   </html>
+   	  <br>
+   	<% end %>
+</body>
+</html>

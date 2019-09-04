@@ -63,10 +63,16 @@
           <!--<button class="btn btn-warning" id="edit_profile">-->
           <div>
             <h5 id="downloadExcel">
+              <br>
                 <%= link_to 'Download user list', persons_path(format: :xlsx) %>
 	        </h5>
           </div>
-        </h1>
+          </h1>
+          <br>
+          <a href="/import_from_excel" id="animatedbutton">
+		        Import excel sheet (cv student list)
+	    	  </a>
+        
       </section>
     </aside>
    </div>

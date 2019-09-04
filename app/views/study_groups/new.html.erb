@@ -53,7 +53,7 @@
               <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
             <li class="divider"></li>
-            <li>
+            <li class = "dropdown-item">
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
@@ -77,25 +77,28 @@
 <div class="row">
   
     <div  class="col-md-6 col-md-offset-3">
-    <%= form_for(@study_groups, url: studygroup_path) do |f| %>
+    <%= form_for(@study_groups, url: creategroup_path) do |f| %>
       <%= render 'shared/error_messages_group' %>
         <%= f.label :creatorName, "Your Name" %>
-        <%= f.text_field :creatorName, placeholder: "Joe Falcon",class: 'form-control' %>
+        <%= f.text_field :creatorName, class: 'form-control' %>
         
         <%= f.label :date, "Date" %>
-        <%= f.text_field :date, placeholder: "mm/dd/yy", class: 'form-control' %>
+        <%= f.text_field :date, class: 'form-control' %>
         
         <%= f.label :location, "Location" %>
-        <%= f.text_field :location, placeholder: "La Crescenta Library", class: 'form-control' %>
+        <%= f.text_field :location, class: 'form-control' %>
         
         <%= f.label :groupSize, "Size of your group" %>
-         <%= f.text_field :groupSize, placeholder: "Set above 100 if this doesn't matter", class: 'form-control' %>   
+         <%= f.text_field :groupSize, placeholder: "*Set above 100 if this doesn't matter", class: 'form-control' %>   
        
         <%= f.label :groupName, "What you want to study" %>
-        <%= f.text_field :groupName, placeholder: "AP Calc AB", class: 'form-control' %>
+        <%= f.text_field :groupName, placeholder: "Ex: AP Calc AB", class: 'form-control' %>
         <br>
         <%= f.label :time, "Time" %>
-        <%= f.text_field :time, placeholder: "6:30 P.M.", class: 'form-control', id: 'bottominput' %>
+        <%= f.text_field :time, placeholder: "6:30 p.m.", class: 'form-control', id: 'bottominput' %>
+        
+        <%= f.label :email, "Your email address" %>
+        <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
   
         <%= f.submit "Create group", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>

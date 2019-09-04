@@ -12,19 +12,26 @@ class Subject < ApplicationRecord
   def self.search(searchName, searchDate)
    #search = search.downcase   *no need for downcase if we implement dropdowns
     if searchName && searchDate   #if a name and date have been entered
-      subjuctivo = Subject.find_by(name: searchName, date: searchDate)
-      if subjuctivo #if subject exists with correct name and date
-        self.where(name: searchName, date: searchDate)
-        #flash[:error] = "No such subject" 
+      if searchDate == "All"      #if searching for any day
+        self.where(name: searchName)
       else
-        subjuctivo = Subject.find_by(name: searchName)
-        if subjuctivo                #if subject is available but not on chosen date
-            #flash[:error] = "No tutors available on " + searchDate + " for "+ searchName
-            self.where(name: searchName)
-        else                         #if no tutors are available for subject
-            #flash[:error] = "No tutors available for " + searchName
-            return nil
-        end
+          subjuctivo = Subject.find_by(name: searchName, date: searchDate)
+          if subjuctivo #if subject exists with correct name and date
+            self.where(name: searchName, date: searchDate)
+            #flash[:error] = "No such subject" 
+          else
+            subjuctivo = Subject.find_by(name: searchName)
+            if subjuctivo                #if subject is available but not on chosen date
+                #flash[:error] = "No tutors available on " + searchDate + " for "+ searchName
+                
+                #self.where(name: searchName)
+                
+                return nil
+            else                         #if no tutors are available for subject
+                #flash[:error] = "No tutors available for " + searchName
+                return nil
+            end
+          end
       end
     else if searchName               #if only name has been entered
         subjuctivo = Subject.find_by(name: searchName)

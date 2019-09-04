@@ -42,7 +42,7 @@
               <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
             <li class="divider"></li>
-            <li>
+            <li class = "dropdown-item">
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
@@ -146,8 +146,17 @@
             <option value="AP Spanish Literature (9-10)">AP Spanish Literature (9-10)</option>
           </select>
  	       </div>
- 	       <h4 class="findatutor_heading">Date </h4>
- 	       <input type="text" name="searchDate" id="searchDate"><br>
+ 	       <h4 class="findatutor_heading">Day </h4>
+ 	      <select name="searchDate" id="searchName">
+ 	          <option value="All">Any day</option>
+   	        <option value="Sunday">Sunday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+          </select>
           <input type="submit" name="commit" value="Search" data-disable-with="Search" id="specialanimatedbutton" class="btn btn-primary findatutorbutton">	    
         <% end %>
  	  </div>
