@@ -35,7 +35,7 @@ class TutorsController < ApplicationController
         else 
           # flash[:error] = @tutor.errors.full_messages
           render 'new'
-          flash[:notice] = "hi"        
+         # flash[:notice] = "hibye"        
         end
      
     

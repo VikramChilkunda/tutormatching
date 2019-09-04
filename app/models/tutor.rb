@@ -1,5 +1,5 @@
 class Tutor < ApplicationRecord
-     attr_accessor :remember_token
+     attr_accessor :remember_token, :please
     has_many :subject, foreign_key: :tutor_id, autosave: true, inverse_of: :tutor
     belongs_to :person, foreign_key: :people_id, inverse_of: :tutor
     before_save :save_validation
@@ -14,18 +14,12 @@ class Tutor < ApplicationRecord
         @check = false
         Cvstudent.all.each do |i|
             
-            if i.idnum == :id_num
+            if i.idnum == self.id_num
                 @check = true
-                flash[:notice] = i.idnum
+               # flash[:notice] = "thank god"
             end
             
         end
         throw(:abort) if !@check
-        
-        #flash[:notice] = "hi"
-    end
-    
-    def idnum_validation_check
-        1 == 3
     end
 end
