@@ -89,7 +89,11 @@
                       <th style="width:43%", "position:absolute"> <%= i.name %></th>
                       <th style="width:22%", "position:absolute"> <%= i.date %></th> 
                       <th style="width:15%", "position:absolute"> <%= i.rate %></th>
+<<<<<<< HEAD
                       <th style="width: 24%"><%= link_to " Delete", subjectdelete_path(check: i.id), method: :delete,
+=======
+                      <th><%= link_to " Delete", subjectdelete_path(check: i.id), method: :destroy,
+>>>>>>> 17a5bb52a000dd0600cca3cf75c32baa47b89d0e
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>

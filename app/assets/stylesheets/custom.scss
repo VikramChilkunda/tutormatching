@@ -683,6 +683,7 @@ ul.tutors li img{
 #VisualTable th{
 	width: 50%;
 	padding: 5px;
+	background-color:rgba(0,0,0,.5);
 }
 #VisualSubjects{
 	width: 50vw !important;
@@ -691,7 +692,8 @@ ul.tutors li img{
 }
 #VisualSubjects th{
 	width: 50%;
-	padding: 5px	;
+	padding: 5px;
+	background-color:rgba(255,255,255,.1);
 }
 #downloadExcel{
 	position: absolute;

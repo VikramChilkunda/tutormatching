@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190902011500) do
+ActiveRecord::Schema.define(version: 20190905050302) do
 
   create_table "cv_subjects", force: :cascade do |t|
     t.string   "name"
@@ -73,10 +73,11 @@ ActiveRecord::Schema.define(version: 20190902011500) do
 
   create_table "tutors", force: :cascade do |t|
     t.integer  "id_num"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "people_id"
     t.integer  "grade"
+    t.string   "adminOverride"
     t.index ["people_id"], name: "index_tutors_on_people_id"
   end
 

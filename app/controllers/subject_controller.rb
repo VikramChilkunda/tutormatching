@@ -29,9 +29,11 @@ class SubjectController < ApplicationController
   end
   
   def destroy 
-   # Subject.find(session[:selected_subject_id]).destroy
-    Subject.find(params[:check]).destroy
+   #Subject.find(session[:selected_subject_id]).destroy
+    Subject.find(params[:check]).destroy!
     flash[:success] = "Subject deleted"
+    #flash[:success] = Subject.find(params[:check])
+    
     redirect_to person_path(Person.find_by(id: session[:tutor_id]))
   end
   
