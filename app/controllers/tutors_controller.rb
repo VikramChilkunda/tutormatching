@@ -27,9 +27,14 @@ class TutorsController < ApplicationController
     @tutor = @person.build_tutor
     @tutor.id_num = tutor_params[:id_num]
     @tutor.grade = tutor_params[:grade]
-    
+    if tutor_params[:adminKey] != nil
+      @tutor.adminOverride = tutor_params[:adminKey]
+      #@person.adminKey = tutor_params[:adminKey]
+      #flash[:notice] = tutor_params[:adminKey]
+    end
         if @person.save && @tutor.save
           log_in @person
+          @tutor.adminOverride = nil
           flash[:success] = "Tutor signup successful!"
           redirect_to action: "show", id: @tutor.id
         else 
@@ -54,7 +59,7 @@ class TutorsController < ApplicationController
   private 
   
     def tutor_params
-      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation)
+      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation, :adminKey)
     end
     def tutor_person
       TutorPerson.new(tutor_params)

@@ -62,6 +62,9 @@
         <br>
         <%= f.label :password_confirmation, "Re-enter password" %>
         <%= f.password_field :password_confirmation, class: 'form-control', id: 'bottominput' %>
+        
+        <!--%= f.label "Admin Key (admin use only)" %>-->
+        <!--%= f.text_field :adminKey, class: 'form-control' %>-->
   
         <%= f.submit "Create my account", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>
