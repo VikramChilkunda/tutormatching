@@ -4,7 +4,7 @@ class Tutor < ApplicationRecord
     belongs_to :person, foreign_key: :people_id, inverse_of: :tutor
     before_save :save_validation 
     accepts_nested_attributes_for :person
-    validates :id_num, presence: true, length: {is: 6}, uniqueness: true  #, if: :adminOverride
+    validates :id_num, presence: true, length: {is: 6}, uniqueness: true, if: :letAdminRepeat  #, if: :adminOverride
     validates :grade, presence: true
     # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     # validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
@@ -32,6 +32,13 @@ class Tutor < ApplicationRecord
         # end
         
         throw(:abort) if !@check
+    end
+    
+    def letAdminRepeat
+       if self.id_num == 111111
+           return false
+       end
+       return true
     end
     
     def adminOverride
