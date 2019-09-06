@@ -89,11 +89,8 @@
                       <th style="width:43%", "position:absolute"> <%= i.name %></th>
                       <th style="width:22%", "position:absolute"> <%= i.date %></th> 
                       <th style="width:15%", "position:absolute"> <%= i.rate %></th>
-<<<<<<< HEAD
-                      <th style="width: 24%"><%= link_to " Delete", subjectdelete_path(check: i.id), method: :delete,
-=======
-                      <th><%= link_to " Delete", subjectdelete_path(check: i.id), method: :destroy,
->>>>>>> 17a5bb52a000dd0600cca3cf75c32baa47b89d0e
+                      
+                      <th style="width: 24%"><%= link_to " Delete", subjectdelete_path(check: i.id), method: :destroy,
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
@@ -131,6 +128,8 @@
             <tr>
                       <th style="width:13.1%", "position:absolute">Student name</th>
                       <th style="width:12%", "position:absolute">Email</th> 
+                      <th style="width:12%", "position:absolute">Subject</th> 
+                      <th style="width:12%", "position:absolute">Day</th> 
               </tr>
             
               <% TutorRequest.all.each do |i| %>
@@ -140,6 +139,8 @@
                     <tr>
                       <th style="width:13.1%", "position:absolute"> <%= i.student %></th>
                       <th style="width:12%", "position:absolute"> <%= i.email %></th> 
+                      <th style="width:12%", "position:absolute"> <%= i.whichSubject %></th> 
+                      <th style="width:12%", "position:absolute"> <%= i.time %></th> 
                       
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
