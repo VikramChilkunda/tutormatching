@@ -35,9 +35,10 @@ button:focus{
 	color: white;
 	float: center;
 	display: block;
-	background-color: #eee;
+	// background-color: #eee;
 	//background-color: #669999;
-	background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/04/29/37/07583f8326c8274.jpg");
+	// background-image: url("https://png.pngtree.com/thumb_back/fw800/back_pic/04/29/37/07583f8326c8274.jpg");
+	// background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	background-repeat: no-repeat;
 	background-size: 100%;
 }
@@ -57,7 +58,8 @@ button:focus{
 	padding-bottom: 50px;
 	text-align: center;
 	padding-top: 100px;
-	background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+	// background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+	background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
@@ -362,6 +364,7 @@ a:hover{
 
 #body{
 	padding-top: 0;
+	// background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") !important;
 }
 
 /*Tutor signup css*/
@@ -855,3 +858,55 @@ background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, F
 	padding: 10px;
 	color: white;
 }
+
+//group study stuff
+.studygroupdisplaycard{
+	width: 55%;
+	height: 30%;
+	margin: auto;
+	/* border: 1px solid black; */
+	background-color: #eee;
+}
+.groupsize{
+	float: left;
+	width: 28%;
+	height: 100%;
+	background-color: #eee;
+	font-family: "Red Hat Text";
+	text-align: center;
+	/* padding: 10px; */
+	box-sizing: border-box;
+	font-size: 150px;
+	background-color: cornflowerblue;
+}
+.host{
+	margin-left: 200px;
+	padding-top: 30px;
+	padding-left: 50px;
+	font-family: "Cabin";
+	text-transform: uppercase;
+	font-weight: 700px;
+	font-size: 35px;
+}
+.studydate{
+	float: right;
+	margin-right: 20px;
+	margin-top: -30px;
+	font-size: 20px;
+	font-family: Cabin;
+}
+.location{
+	float: right;
+	margin-right: 20px;
+	margin-top: 80px;
+	font-size: 20px;
+	font-family: Cabin;
+}
+.contact{
+	float: left;
+	margin-left: 45px;
+	margin-top: 50px;
+	font-size: 20px;
+	font-family: "Cabin Condensed";
+}
+//end group study stuff

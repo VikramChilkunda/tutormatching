@@ -1,5 +1,5 @@
 <head>
-  	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+  	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin|Red+Hat+Text" rel="stylesheet">
   	<script src="jquery-3.3.1.min.js"></script>
   	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
@@ -50,7 +50,7 @@
     </ul>
   </div>
 </nav>
-<div class="large_content" id="large_content">
+<div class="large_content" id="large_content" style="background-position: 30% 37%">
     <h1>Study groups</h1>
 </div>
 <br>
@@ -59,23 +59,30 @@
    	        
    	            <% if !StudyGroup.find(i).nil? %>
    	                <!--new thing vikram implemented on 8/26-->
-   	                <div class = "tutordisplaycard searchresultslargecontainer">
-                			<div class="studygroupcreator">
-                				Host: <%= i.creatorName %>
-                			</div>
-                			<div class="tutorname">
-                			  Group Size: <%= i.groupSize %>
-                			</div>
-                			<div class="date">
-                				Meet at: <%=  i.location %> (<%= i.time %>)
-                			</div>
-                			<div class="rate">
-                				Date: <%= i.date %>
-                			</div>
-                			<div class="">
-                				Contact: <%= i.email %>
-                			</div>
-                    </div>
+   	               <div class = "studygroupdisplaycard">
+                			<div class="host">Joe Schmoe</div>
+                			<div class="groupsize">35</div>
+                			<div class="contact">777-777-7777</div>
+                			<div class="studydate">9/15/19</div>
+                			<div class="location">La Crescenta</div>			
+                		</div>
+   	               <!-- <div class = "tutordisplaycard searchresultslargecontainer">-->
+                			<!--<div class="studygroupcreator">-->
+                			<!--	Host: <%= i.creatorName %>-->
+                			<!--</div>-->
+                			<!--<div class="tutorname">-->
+                			<!--  Group Size: <%= i.groupSize %>-->
+                			<!--</div>-->
+                			<!--<div class="date">-->
+                			<!--	Meet at: <%=  i.location %> (<%= i.time %>)-->
+                			<!--</div>-->
+                			<!--<div class="rate">-->
+                			<!--	Date: <%= i.date %>-->
+                			<!--</div>-->
+                			<!--<div class="">-->
+                			<!--	Contact: <%= i.email %>-->
+                			<!--</div>-->
+                   <!-- </div>-->
                     <br>
    	             <% end %>
    	  <% end %>
