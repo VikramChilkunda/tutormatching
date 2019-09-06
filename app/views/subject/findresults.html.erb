@@ -42,7 +42,7 @@
               <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
             <li class="divider"></li>
-            <li>
+            <li class = "dropdown-item">
               <%= link_to "Log out", logout_path, method: :delete %>
             </li>
           </ul>
@@ -59,14 +59,13 @@
 </nav>
 	<div class="large_content">
 		<div class="container">
-			<h1 id="homeh1">Find a tutor</h1>
+			<h1 id="homeh1">Available tutors for <br><%= params[:searchName] %></h1>
 			<p id="homep"></p>		
 		</div>
 			
  	</div>
  	
- 	<div><p></p></div>
- 	    <h3 id="findatutor_headingavailabletutors">Available tutors for <%= params[:searchName] %></h3> 
+ 	<!--<div><p></p></div>-->
  	    <% if @subjuctivos.nil? %>
  	      <%= render 'shared/error_messages_search' %>
  	    <% else %>
@@ -101,8 +100,8 @@
                             <% end %>
                       </div>
                       <div><p></p></div>
-                    </div>
-   	             <% end %>
+            </div>
+          <% end %>
    	  <% end %>
    	  <br>
    	<% end %>

@@ -353,6 +353,11 @@ a:hover{
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+    .nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
+	}
 }
 
 #body{
@@ -403,6 +408,11 @@ center{
 	.large_content h1{
 		text-align: center;
 	}
+	.nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
+	}
 }
 
 /* Users index */
@@ -448,11 +458,16 @@ center{
 	}
 	.small_content{
 		padding: 15px;
-		background-color: green;
-		background-image: none;
+		// background-color: green;
+		// background-image: none;
 	}
 	.col-md-6{
 		max-width: 80%!important;
+	}
+	.nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
 	}
 }
 @media screen and (max-width: 600px){
@@ -511,9 +526,9 @@ center{
 		margin-bottom: 0%;
 	}
 	.small_content{
-		background-image: none;
+		// background-image: none;
 		padding: 25px;
-		background-color: green;
+		// background-color: green;
 		margin-bottom: 0px;
 	}
 	.container{
@@ -521,6 +536,11 @@ center{
 	}
 	.col-md-6{
 		max-width: 90%;
+	}
+	.nav-item:hover:before {
+	  visibility: hidden;
+	  -webkit-transform: scaleX(1);
+	  transform: scaleX(1);
 	}
 }
 @media screen and (max-width: 667px){
@@ -533,12 +553,13 @@ center{
 	}
 	.small_content{
 		padding: 15px;
-		background-color: green;
-		background-image: none;
+		// background-color: green;
+		// background-image: none;
 	}
 	.col-md-6{
 		max-width: 90%;
 	}
+	
 }
 
 /*End Responsive Stuff*/
@@ -656,10 +677,22 @@ ul.tutors li img{
 }
 #VisualTable{
 	color: white;
+	width: 50vw !important;
+	table-layout: fixed;
+}
+#VisualTable th{
+	width: 50%;
+	padding: 5px;
 	background-color:rgba(0,0,0,.5);
 }
 #VisualSubjects{
+	width: 50vw !important;
 	color: white;
+	table-layout: fixed;
+}
+#VisualSubjects th{
+	width: 50%;
+	padding: 5px;
 	background-color:rgba(255,255,255,.1);
 }
 #downloadExcel{
@@ -722,6 +755,7 @@ ul.tutors li img{
 	background-color: #eee;
 	position: relative;
 	box-shadow: 0px 10px 20px;
+	margin-top: 40px;
 }
 .tutorgrade{
 	float: left;
@@ -767,6 +801,7 @@ ul.tutors li img{
 }
 .tutorsendrequest{
 	// border: 1px solid black;
+	float: right;
 	height: 100%;
 	position: absolute;
 	left: 100%;
@@ -779,11 +814,28 @@ ul.tutors li img{
 	background: #E0EAFC;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
-	
 }
+.tutorsendrequest h4{
+	margin-top: -1vw;
+}
+.tutorsendrequest input{
+	height: 2vw !important;
+	margin-top: 0 !important;
+	margin-bottom: -1vw !important;
+	padding: 20px;
+	font-size: 1vw;
+}
+.tutorsendrequest #specialanimatedbutton{
+	float: right;
+	width: 12vw;
+	height: 5vw;
+	position: absolute;
+	left: 50%;
+	bottom: 10%;
+	transform: translateX(-50%);
+	padding: 0.1vw;
+}
+
 .tutordisplaycard:hover{
 	cursor: pointer;
 }

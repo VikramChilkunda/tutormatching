@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20190906024558) do
     t.string   "rate"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "rate"
     t.integer  "creatorid"
     t.boolean  "deletedSubject"
   end
