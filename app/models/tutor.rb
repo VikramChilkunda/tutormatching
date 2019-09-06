@@ -23,7 +23,7 @@ class Tutor < ApplicationRecord
         end
         
          Person.all.each do |i|                                #if id doesn't exist, check if an admin key was provided (for a new student or someone not in database)
-            if (self.adminOverride == "600")
+            if (self.adminOverride == i.adminKey)
                 @check = true
             end
             #puts "MY NAME'S NOT JOEL, IDK WHAT YOU HEARD"
@@ -45,7 +45,7 @@ class Tutor < ApplicationRecord
     def adminOverrideCheck
         @check = false
         Person.all.each do |i|
-            if ((i.admin == true) && (self.adminOverride == "600"))
+            if ((i.admin == true) && (self.adminOverride == i.adminKey))
                 @check = true
                 return false
             end
