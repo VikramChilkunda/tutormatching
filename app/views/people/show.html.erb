@@ -126,10 +126,10 @@
           <p style = "color:#fff;">Requests</p>
         <table style="width:120%" id="VisualTable"> 
             <tr>
-                      <th style="width:13.1%", "position:absolute">Student name</th>
-                      <th style="width:12%", "position:absolute">Email</th> 
+                      <th style="width:16.1%", "position:absolute">Student name</th>
+                      <th style="width:17%", "position:absolute">Email</th> 
                       <th style="width:12%", "position:absolute">Subject</th> 
-                      <th style="width:12%", "position:absolute">Day</th> 
+                      <th style="width:8%", "position:absolute">Day</th> 
               </tr>
             
               <% TutorRequest.all.each do |i| %>
@@ -137,10 +137,10 @@
                  
                   <table style="width:120%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
-                      <th style="width:13.1%", "position:absolute"> <%= i.student %></th>
-                      <th style="width:12%", "position:absolute"> <%= i.email %></th> 
+                      <th style="width:16.1%", "position:absolute"> <%= i.student %></th>
+                      <th style="width:17%", "position:absolute"> <%= i.email %></th> 
                       <th style="width:12%", "position:absolute"> <%= i.whichSubject %></th> 
-                      <th style="width:12%", "position:absolute"> <%= i.time %></th> 
+                      <th style="width:8%", "position:absolute"> <%= i.time %></th> 
                       
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
