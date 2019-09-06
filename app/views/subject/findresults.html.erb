@@ -68,6 +68,7 @@
  	<!--<div><p></p></div>-->
  	    <% if @subjuctivos.nil? %>
  	      <%= render 'shared/error_messages_search' %>
+ 	      <% flash[:error] = "I'm a bob" %>
  	    <% else %>
    	    <% @subjuctivos.each do |subjuctivo| %>
    	        
