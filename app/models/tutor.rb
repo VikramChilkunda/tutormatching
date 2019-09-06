@@ -21,6 +21,7 @@ class Tutor < ApplicationRecord
             puts "THIS IS WHAT YOU WANT" 
             puts self.id_num
         end
+        
         # @thisistheadmin = self.adminOverride
         #  Person.all.each do |i|                                #if id doesn't exist, check if an admin key was provided (for a new student or someone not in database)
         #     if @thisistheadmin == 600
