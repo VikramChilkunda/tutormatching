@@ -66,9 +66,10 @@
  	</div>
  	
  	<!--<div><p></p></div>-->
+ 	<% @checker = false  %>
  	    <% if @subjuctivos.nil? %>
  	      <%= render 'shared/error_messages_search' %>
- 	      <% flash[:error] = "I'm a bob" %>
+ 	      
  	    <% else %>
    	    <% @subjuctivos.each do |subjuctivo| %>
    	        
@@ -76,6 +77,7 @@
    	              
    	            <% else %>
    	                <!--new thing vikram implemented on 8/26-->
+   	                <% @checker = true %>
    	                <div class = "tutordisplaycard searchresultslargecontainer">
                 			<div class="tutorgrade">
                 				<%= Tutor.find_by(people_id: subjuctivo.creatorid).grade %>
@@ -104,6 +106,9 @@
             </div>
           <% end %>
    	  <% end %>
+     	  <% if !@checker %>
+     	     <%= render 'shared/error_messages_search' %>
+     	  <% end %>
    	  <br>
    	<% end %>
 </body>
