@@ -11,7 +11,7 @@ class TutorRequestsController < ApplicationController
     @request.whichSubject = params[:whichSubject]
     @request.time = params[:time]
     if @request.save
-      flash[:success] = "Sent request"
+      flash[:success] = "Sent request - tutor will contact you at your given email address"
       redirect_to findatutor_path
     else
       #flash[:error] = @subject.errors.full_messages

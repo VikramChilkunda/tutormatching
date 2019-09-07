@@ -22,16 +22,16 @@ class Tutor < ApplicationRecord
             puts self.id_num
         end
         
-         Person.all.each do |i|                                #if id doesn't exist, check if an admin key was provided (for a new student or someone not in database)
+        Person.all.each do |i|                                #if id doesn't exist, check if an admin key was provided (for a new student or someone not in database)
             if (self.adminOverride == i.adminKey)
                 @check = true
             end
             #puts "MY NAME'S NOT JOEL, IDK WHAT YOU HEARD"
             #puts self.adminOverride
         end
-        # if !@check
-        #  puts "I AM A BOT"
-        # end
+        if !@check
+         puts "I AM A BOT"
+        end
         throw(:abort) if !@check
     end
     
