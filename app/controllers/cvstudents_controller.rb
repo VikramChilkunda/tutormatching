@@ -16,7 +16,7 @@ class CvstudentsController < ApplicationController
               Cvstudent.create(idnum: spreadsheet.row(i)[2])
             end
             flash[:success] = "Records Imported"
-            redirect_to home_path 
+            redirect_to adminPage_path 
           rescue Exception => e
             flash[:error] = "Issues with file"
             redirect_to home_path 

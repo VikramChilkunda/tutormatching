@@ -46,13 +46,11 @@
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
+        <h1 id="bob" style="font-size:3vw;">Profile - Admin</h1>
         <h1>
-          <%= gravatar_for @person %>
-          <br></br>
+          <!--%= gravatar_for @person %>-->
           <div id="bob">
-          <%= @person.name %>
-          <%= @person.email %>
-            
+            <p><%= @person.name %> (<%= @person.email %>) </p>
           <div><p></p></div>
           
           <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %> <!--Edit:'(@oerson)' is redundant after edit_person_path because the edit method in people_controller defines @person -->
@@ -61,11 +59,12 @@
           </div>
          
           <!--<button class="btn btn-warning" id="edit_profile">-->
+          
           <div>
-            <h5 id="downloadExcel">
+            <h2 id="downloadExcel", id="animatedbutton">
               <br>
                 <%= link_to 'Download user list', persons_path(format: :xlsx) %>
-	        </h5>
+	          </h2>
           </div>
           </h1>
           <br>

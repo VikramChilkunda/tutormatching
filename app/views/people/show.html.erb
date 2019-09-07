@@ -44,15 +44,13 @@
     </div>
   </nav>
   <% provide(:title, @person.name) %>
-  <h1 id="bob" style="font-size:3vw;">Profile</h1>
+  <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
         <h1>
           <div id="bob">
-          <%= @person.name %>
-          <%= @person.email %>
-            
+          <p><%= @person.name %> (<%= @person.email %>) </p>
           <div><p></p></div>
           
           <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %> <!--Edit:'(@oerson)' is redundant after edit_person_path because the edit method in people_controller defines @person -->
@@ -75,7 +73,7 @@
            
           <table style="width:180%" id="VisualTable">
             <tr>
-              <th  style="width:43%", "position:absolute">My subjects</th>
+              <th  style="width:43%", "position:absolute">Tutoring:</th>
               <th style="width:22%", "position:absolute">Day</th> 
               <th style="width:15%", "position:absolute">Rate</th>
               <th style="width:24%", "position:absolute">Options</th>
@@ -117,7 +115,7 @@
           </div>
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
           <a href="/subjectcreate">
-            <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Subject</button>
+            <button type="button" class="btn btn-primary" id="createsubjectbutton">Add Subject</button>
           </a>
           </div>
         </h1>
