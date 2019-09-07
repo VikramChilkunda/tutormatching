@@ -36,10 +36,18 @@ class PeopleController < ApplicationController
   end
   
   def destroy
-    Tutor.find(params[:id]).destroy
-    Person.find(params[:id]).destroy
-    flash[:success] = "Person deleted"
-    redirect_to people_url
+    if Person.find_by(id: session[:tutor_id]).admin?
+      Tutor.find(params[:id]).destroy
+      Person.find(params[:id]).destroy
+      flash[:success] = "Person deleted"
+      redirect_to people_url
+    else
+      Tutor.find(params[:id]).destroy
+      Person.find(params[:id]).destroy
+      flash[:success] = "Person deleted"
+      session[:tutor_id] = false
+      redirect_to home_path
+    end
   end
   
   def subject
@@ -91,7 +99,7 @@ class PeopleController < ApplicationController
     end
     
     def admin_person
-      if(session[:tutor_id])
+      if((session[:tutor_id]) && (@person))
       redirect_to(root_url) unless Person.find_by(id: session[:tutor_id]).admin?
       end
     end 

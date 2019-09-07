@@ -27,7 +27,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/studygroup">Study Group</a>
       </li>
-      <% if session[:tutor_id] %>
+      <% if Person.find_by(id: session[:tutor_id]) %>
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
@@ -88,7 +88,7 @@
 		<!--  I'm a Student-->
 				<!--<button id="button" class="button-responsive"> Find a Tutor</button>	-->
 		<!--</a>-->
-		<% if !session[:tutor_id] %>
+		<% if !Person.find_by(id: session[:tutor_id]) %>
   		<a href="/tutorsignup" id="animatedbutton">
   		  I'm a Tutor
   			<!--<button id="tutor" class="button-responsive"> I'm a Tutor</button>	-->
@@ -100,7 +100,7 @@
 		</a>
 			
 		<div><p></p></div>
-		  <% if !session[:tutor_id] %>
+		  <% if !Person.find_by(id: session[:tutor_id]) %>
 		  	<a href="/login" id="animatedbutton">
 		    Login
 			<!--<button id="tutor" class="button-responsive"> Login </button>-->

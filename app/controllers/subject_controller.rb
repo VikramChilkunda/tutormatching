@@ -31,7 +31,7 @@ class SubjectController < ApplicationController
   
   def destroy 
    #Subject.find(session[:selected_subject_id]).destroy
-    Subject.find(params[:check]).destroy!
+    Subject.find(params[:id]).destroy
     Subject.find(params[:check]).update_attribute(:deletedSubject, true)
     flash[:success] = "Subject deleted"
     #flash[:success] = Subject.find(params[:check]).deletedSubject
