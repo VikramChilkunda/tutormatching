@@ -8,6 +8,8 @@ class TutorRequestsController < ApplicationController
     @request.student = params[:student]
     @request.email = params[:email]
     @request.name = params[:name]
+    @request.whichSubject = params[:whichSubject]
+    @request.time = params[:time]
     if @request.save
       flash[:success] = "Sent request"
       redirect_to findatutor_path
@@ -21,6 +23,6 @@ class TutorRequestsController < ApplicationController
   
   private
     def request_params
-      params.require(:tutor_request).permit(:student, :email, :name)
+      params.require(:tutor_request).permit(:student, :email, :name, :whichSubject, :time)
     end
 end

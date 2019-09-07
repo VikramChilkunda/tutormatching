@@ -66,6 +66,11 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
   <br>
+      <% if @person.admin %>
+        <%= f.label :adminKey, "Change Admin Key" %>
+        <%= f.text_field :adminKey, class: 'form-control', placeholder: @person.adminKey%>
+        <br>
+      <% end %>
       <div>
         <p></p>
       </div>

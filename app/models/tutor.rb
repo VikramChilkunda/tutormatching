@@ -4,7 +4,7 @@ class Tutor < ApplicationRecord
     belongs_to :person, foreign_key: :people_id, inverse_of: :tutor
     before_save :save_validation 
     accepts_nested_attributes_for :person
-    validates :id_num, presence: true, length: {is: 6}, uniqueness: true  #, if: :adminOverride
+    validates :id_num, presence: true, length: {is: 6}, uniqueness: true, if: :adminOverrideCheck  #, if: :adminOverride
     validates :grade, presence: true
     # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
     # validates :email, presence: true, length: {maximum: 255}, format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
@@ -21,27 +21,38 @@ class Tutor < ApplicationRecord
             puts "THIS IS WHAT YOU WANT" 
             puts self.id_num
         end
-        # @thisistheadmin = self.adminOverride
-        #  Person.all.each do |i|                                #if id doesn't exist, check if an admin key was provided (for a new student or someone not in database)
-        #     if @thisistheadmin == 600
-        #         flash[:notice] = "not joel"
-        #         @check = true
-        #     end
-        #     puts "MY NAME'S NOT JOEL, IDK WHAT YOU HEARD"
-        #     puts self.adminOverride
-        # end
         
+         Person.all.each do |i|                                #if id doesn't exist, check if an admin key was provided (for a new student or someone not in database)
+            if (self.adminOverride == i.adminKey)
+                @check = true
+            end
+            #puts "MY NAME'S NOT JOEL, IDK WHAT YOU HEARD"
+            #puts self.adminOverride
+        end
+        # if !@check
+        #  puts "I AM A BOT"
+        # end
         throw(:abort) if !@check
     end
     
-    def adminOverride
+    def letAdminRepeat
+       if self.id_num == 111111
+           return false
+       end
+       return true
+    end
+    
+    def adminOverrideCheck
         @check = false
         Person.all.each do |i|
-            if ((i.admin == true) && (self.id_num == 45))
+            if ((i.admin == true) && (self.adminOverride == i.adminKey))
                 @check = true
-                return true
+                return false
             end
         end
-        return false
+        if @check == false
+           puts "AWW MAN IM THE ERROR"
+           return true
+        end
     end
 end

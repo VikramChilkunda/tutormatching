@@ -27,11 +27,11 @@ class TutorsController < ApplicationController
     @tutor = @person.build_tutor
     @tutor.id_num = tutor_params[:id_num]
     @tutor.grade = tutor_params[:grade]
-    if tutor_params[:adminKey] != nil
+    #if tutor_params[:adminKey] != nil
       @tutor.adminOverride = tutor_params[:adminKey]
       #@person.adminKey = tutor_params[:adminKey]
       #flash[:notice] = tutor_params[:adminKey]
-    end
+    #end
         if @person.save && @tutor.save
           log_in @person
           @tutor.adminOverride = nil

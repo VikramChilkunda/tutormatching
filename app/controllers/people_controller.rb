@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
       TutorPerson.new(tutor_params)
     end
     def tutor_params
-      params.require(:person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation)
+      params.require(:person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation, :adminKey)
     end
     def logged_in_person
       unless logged_in?
