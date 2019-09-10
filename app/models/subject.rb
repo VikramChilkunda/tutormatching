@@ -33,7 +33,7 @@ class Subject < ApplicationRecord
             end
           end
       end
-    else if searchName               #if only name has been entered
+    elsif searchName               #if only name has been entered
         subjuctivo = Subject.find_by(name: searchName)
         if subjuctivo
             self.where(name: searchName)
@@ -43,8 +43,7 @@ class Subject < ApplicationRecord
         end
     else                            
       #flash[:error]="No such subject"
-      Subject.all
-    end
+      return nil
     end
   end
     

@@ -4,6 +4,6 @@
   
    <% if Person.find_by(id: session[:tutor_id]).admin? && !current_person?(person) %> <!-- !Person.find_by(id: session[:tutor_id])?(person) *should be where current_person?(person) is, doesn't work for some reason* -->
     | <%= link_to "delete", person, method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
+                                  data: { confirm: "Are you sure you want to delete this account?" } %>
   <% end %>
 </li>

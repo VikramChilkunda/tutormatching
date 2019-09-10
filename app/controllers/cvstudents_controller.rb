@@ -15,10 +15,10 @@ class CvstudentsController < ApplicationController
             (1..spreadsheet.last_row).each do |i|
               Cvstudent.create(idnum: spreadsheet.row(i)[2])
             end
-            flash[:notice] = "Records Imported"
-            redirect_to home_path 
+            flash[:success] = "Records Imported"
+            redirect_to adminPage_path 
           rescue Exception => e
-            flash[:notice] = "Issues with file"
+            flash[:error] = "Issues with file"
             redirect_to home_path 
           end
   end

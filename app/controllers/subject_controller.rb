@@ -31,7 +31,7 @@ class SubjectController < ApplicationController
   
   def destroy 
    #Subject.find(session[:selected_subject_id]).destroy
-    Subject.find(params[:check]).destroy!
+    Subject.find(params[:id]).destroy
     Subject.find(params[:check]).update_attribute(:deletedSubject, true)
     flash[:success] = "Subject deleted"
     #flash[:success] = Subject.find(params[:check]).deletedSubject
@@ -41,9 +41,13 @@ class SubjectController < ApplicationController
   
   def findatutor
     @subjuctivos = Subject.search(params[:searchName], params[:searchDate])
-    if !params[:searchName].nil?
+    if ((!params[:searchName].nil?) && (params[:searchName] != "blank"))                                                    #if subject is not nil (would happen if they got to findresults and then clicked find tutor in the navbar) and a subject had been selected
      #redirect_to findresults_path
      redirect_to  controller: 'subject', action: 'findresults', searchName: params[:searchName], searchDate: params[:searchDate]
+    end 
+    if ((params[:searchName] == "blank"))                             #if no subject has been selected (appears as "select" on the dropdown which return value="blank")
+      flash[:danger] = "No subject chosen"
+      redirect_to :back                                               #reload the page so the flash doesn't appear again if they manually reload the page
     end
   end
   

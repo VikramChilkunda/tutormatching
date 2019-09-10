@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   get '/creategroup', to: 'study_groups#new'
   post '/creategroup', to: 'study_groups#create'
   
+  get '/accountDelete', to: 'people#destroy'
+  delete '/accountDelete', to: 'people#destroy'
+  
   resources :tutees
   
   resources :tutors

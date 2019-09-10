@@ -44,15 +44,13 @@
     </div>
   </nav>
   <% provide(:title, @person.name) %>
-  <h1 id="bob" style="font-size:3vw;">Profile</h1>
+  <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
         <h1>
           <div id="bob">
-          <%= @person.name %>
-          <%= @person.email %>
-            
+          <p><%= @person.name %> (<%= @person.email %>) </p>
           <div><p></p></div>
           
           <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %> <!--Edit:'(@oerson)' is redundant after edit_person_path because the edit method in people_controller defines @person -->
@@ -75,7 +73,7 @@
            
           <table style="width:180%" id="VisualTable">
             <tr>
-              <th  style="width:43%", "position:absolute">My subjects</th>
+              <th  style="width:43%", "position:absolute">Tutoring:</th>
               <th style="width:22%", "position:absolute">Day</th> 
               <th style="width:15%", "position:absolute">Rate</th>
               <th style="width:24%", "position:absolute">Options</th>
@@ -84,7 +82,7 @@
               <% Subject.all.each do |i| %>
                 <% if ((i.creatorid == session[:tutor_id]) && (i.deletedSubject==false)) %>
                  
-                  <table style="width:180%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
+                  <table style="width:150%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
                       <th style="width:43%", "position:absolute"> <%= i.name %></th>
                       <th style="width:22%", "position:absolute"> <%= i.date %></th> 
@@ -117,7 +115,7 @@
           </div>
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
           <a href="/subjectcreate">
-            <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Subject</button>
+            <button type="button" class="btn btn-primary" id="createsubjectbutton">Add Subject</button>
           </a>
           </div>
         </h1>
@@ -126,21 +124,21 @@
           <p style = "color:#fff;">Requests</p>
         <table style="width:120%" id="VisualTable"> 
             <tr>
-                      <th style="width:20.1%", "position:absolute">Student name</th>
-                      <th style="width:37%", "position:absolute">Email</th> 
-                      <th style="width:32%", "position:absolute">Subject</th> 
-                      <th style="width:8%", "position:absolute">Day</th> 
-              </tr>
+              <th style="width:16.1%", "position:absolute">Student name</th>
+              <th style="width:25%", "position:absolute">Email</th> 
+              <th style="width:20%", "position:absolute">Subject</th> 
+              <th style="width:20%", "position:absolute">Day</th> 
+            </tr>
             
               <% TutorRequest.all.each do |i| %>
                 <% if i.name == Person.find_by(id: session[:tutor_id]).email %>
                  
                   <table style="width:160%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
-                      <th style="width:20.1%", "position:absolute"> <%= i.student %></th>
-                      <th style="width:37%", "position:absolute"> <%= i.email %></th> 
-                      <th style="width:32%", "position:absolute"> <%= i.whichSubject %></th> 
-                      <th style="width:8%", "position:absolute"> <%= i.time %></th> 
+                      <th style="width:16.1%", "position:absolute"> <%= i.student %></th>
+                      <th style="width:25%", "position:absolute"> <%= i.email %></th> 
+                      <th style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
+                      <th style="width:20%", "position:absolute"> <%= i.time %></th> 
                       
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
@@ -162,6 +160,8 @@
             <!--</tr>-->
           </table>
           </div>
+            <br><br>
+           <%= link_to "Delete Account", @person, method: :delete, data: {confirm: "Are you sure you want to delete your account?"} %>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)-->   
           </h1>
       </section>
     </aside>

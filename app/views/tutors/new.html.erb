@@ -22,7 +22,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/studygroup">Study Group</a>
       </li>
-      <% if session[:tutor_id] %>
+      <% if Person.find_by(id: session[:tutor_id]) %>
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
@@ -75,8 +75,13 @@
         <!--  % if tutor_params[:id_num] == i.idnum %>-->
           
         
+
         <%= f.label :grade %><span class="required">*</span>
-         <%= f.text_field :grade, class: 'form-control' %>
+         <!--%= f.text_field :grade, class: 'form-control' %>-->
+         <%= f.select :grade, options_for_select(['9', '10', '11', '12'], (@tutor_person.grade)), { include_blank: 'Select grade'}, class: "form-control" %>
+         
+         
+
         <!--<select class = "form-control" name="Contact[email_provider]">-->
         <!--  <option>9</option>-->
         <!--  <option>10</option>-->

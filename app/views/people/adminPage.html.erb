@@ -46,13 +46,11 @@
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
+        <h1 id="bob" style="font-size:3vw;">Profile - Admin</h1>
         <h1>
-          <%= gravatar_for @person %>
-          <br></br>
+          <!--%= gravatar_for @person %>-->
           <div id="bob">
-          <%= @person.name %>
-          <%= @person.email %>
-            
+            <p><%= @person.name %> (<%= @person.email %>) </p>
           <div><p></p></div>
           
           <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %> <!--Edit:'(@oerson)' is redundant after edit_person_path because the edit method in people_controller defines @person -->
@@ -61,18 +59,21 @@
           </div>
          
           <!--<button class="btn btn-warning" id="edit_profile">-->
+          
           <div>
-            <h5 id="downloadExcel">
+            <h2 id="downloadExcel", id="animatedbutton">
               <br>
                 <%= link_to 'Download user list', persons_path(format: :xlsx) %>
-	        </h5>
+	          </h2>
           </div>
           </h1>
-          <br>
-          <a href="/import_from_excel" id="animatedbutton">
-		        Import excel sheet (cv student list)
+          <br><br><br>
+          <a href="/import_from_excel" id="animatedbutton", style="margin-left: 7.5%; width:45%;">
+		        Import CV student list (excel sheet)
 	    	  </a>
-        
+	    	  <h1>
+          <%= link_to "Delete Account", @person, method: :delete, data: {confirm: "Are you sure you want to delete your account?"} %>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)-->  
+        </h1>
       </section>
     </aside>
    </div>
