@@ -86,13 +86,13 @@
         <%= f.text_field :date, class: 'form-control' %>
         
         <%= f.label :location, "Location" %>
-        <%= f.text_field :location, class: 'form-control' %>
+        <%= f.text_field :location, placeholder: "Ex: La Crescenta Library, etc. ", class: 'form-control' %>
         
         <%= f.label :groupSize, "Size of your group" %>
          <%= f.text_field :groupSize, placeholder: "*Set above 100 if this doesn't matter", class: 'form-control' %>   
        
         <%= f.label :groupName, "What you want to study" %>
-        <%= f.text_field :groupName, placeholder: "Ex: AP Calc AB", class: 'form-control' %>
+        <%= f.text_field :groupName, placeholder: "Ex: AP Environmental Science", class: 'form-control' %>
         <br>
         <%= f.label :time, "Time" %>
         <%= f.text_field :time, placeholder: "6:30 p.m.", class: 'form-control', id: 'bottominput' %>

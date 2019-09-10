@@ -2,9 +2,11 @@
   	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin|Red+Hat+Text" rel="stylesheet">
   	<script src="jquery-3.3.1.min.js"></script>
   	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<body>
 <% provide(:title, 'Find a group') %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -50,50 +52,32 @@
     </ul>
   </div>
 </nav>
-<div class="large_content" id="large_content" style="background-position: 30% 37%">
+<div class="large_content" id="large_content" style="background-position: 30% 37%; height: ">
     <h1>Study groups</h1>
+    <a href="/creategroup">
+      <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Group</button>
+    </a>
 </div>
 <br>
-
-            <% @allofthemgroups.each do |i| %>
-   	        
-   	            <% if !StudyGroup.find(i).nil? %>
-   	                <!--new thing vikram implemented on 8/26-->
-   	               <div class = "studygroupdisplaycard">
-                			<div class="host">Joe Schmoe</div>
-                			<div class="groupsize">35</div>
-                			<div class="contact">777-777-7777</div>
-                			<div class="studydate">9/15/19</div>
-                			<div class="location">La Crescenta</div>			
-                		</div>
-   	               <!-- <div class = "tutordisplaycard searchresultslargecontainer">-->
-                			<!--<div class="studygroupcreator">-->
-                			<!--	Host: <%= i.creatorName %>-->
-                			<!--</div>-->
-                			<!--<div class="tutorname">-->
-                			<!--  Group Size: <%= i.groupSize %>-->
-                			<!--</div>-->
-                			<!--<div class="date">-->
-                			<!--	Meet at: <%=  i.location %> (<%= i.time %>)-->
-                			<!--</div>-->
-                			<!--<div class="rate">-->
-                			<!--	Date: <%= i.date %>-->
-                			<!--</div>-->
-                			<!--<div class="">-->
-                			<!--	Contact: <%= i.email %>-->
-                			<!--</div>-->
-                   <!-- </div>-->
-                    <br>
-   	             <% end %>
-   	  <% end %>
-            </div>
+<% @allofthemgroups.each do |i| %>
+ <% if !StudyGroup.find(i).nil? %>
+     <!--new thing vikram implemented on 8/26-->
+    <div class = "studygroupdisplaycard">
+			<div class="groupsize"><%= i.groupSize %></div>
+			<div class="host"><%= i.creatorName %></div>
+			<div class="contact">777-777-7777</div>
+			<div class="studydate"><%= i.date %></div>
+			<div class="location">
+			  <i class="fa fa-map-marker fa-2x"></i>
+			  <div class="loc-popup">La Crescenta Library</div>
+			</div>			
+		</div>
+    <br>
+  <% end %>
+<% end %>
+            <!--</div>-->
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
-          <a href="/creategroup">
-            <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Group</button>
-          </a>
-          </div>
 
-<body>    
-</div>
+          <!--</div>-->
 </body>
 

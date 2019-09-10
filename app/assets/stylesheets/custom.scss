@@ -165,7 +165,7 @@ button:focus{
 }
 .large_content button:hover{
 	transition: 0.3s;
-	background-color: lightslategray;
+	// background-color: lightslategray;
 	cursor: pointer;
 }
 .idk button:hover{
@@ -472,6 +472,11 @@ center{
 	  transform: scaleX(1);
 	}
 }
+@media screen and (min-width: 1366px){
+	// .large_content{
+		// height: 100vh;
+	// }
+}
 @media screen and (max-width: 600px){
 	.navbar{
 		padding-bottom: 10px!important;
@@ -480,8 +485,9 @@ center{
 		width: 100vw;
 		padding-top: 0px;
 		padding-bottom: 50px;
-		background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+		background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 		background-repeat: no-repeat;
+		background-position: 20% 50%;
 		background-size: cover;
 		text-align: center;
 		justify-content: center;
@@ -578,7 +584,8 @@ center{
 }
 #not_taken{
 	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
-	background-size: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 #martin{
 	 background-image: url("https://img1.akspic.com/image/114418-skyscraper-architect-modern_architecture-day-glass-1280x1024.jpg");
@@ -594,7 +601,9 @@ center{
 
 }
 #not_taken .row{
-	height: 100%;
+	height: 80%;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
 #not_taken h1{
 	color: white;
@@ -679,7 +688,7 @@ ul.tutors li img{
 }
 #VisualTable{
 	color: white;
-	width: 50vw !important;
+	width: 75vw !important;
 	table-layout: fixed;
 }
 #VisualTable th{
@@ -688,7 +697,7 @@ ul.tutors li img{
 	background-color:rgba(0,0,0,.5);
 }
 #VisualSubjects{
-	width: 50vw !important;
+	width: 75vw !important;
 	color: white;
 	table-layout: fixed;
 }
@@ -734,6 +743,7 @@ ul.tutors li img{
 	padding-top: 8px;
 	padding-bottom: 8px;
 	outline: none;
+	margin-bottom: 20px;
 }
 #searchDate{
 	outline: none;
@@ -756,7 +766,7 @@ ul.tutors li img{
 	/* border: 1px solid black; */
 	background-color: #eee;
 	position: relative;
-	box-shadow: 0px 10px 20px;
+	box-shadow: 0px 8px 5px rgba(8, 26, 128, 0.5);
 	margin-top: 40px;
 }
 .tutorgrade{
@@ -807,6 +817,7 @@ ul.tutors li img{
 	height: 100%;
 	position: absolute;
 	left: 100%;
+	top: 0px !important;
 	width: 15vw;
 	// padding-top: 0px;
 	padding: 10px;
@@ -814,18 +825,20 @@ ul.tutors li img{
 	transform-origin: 0% 50%;
 	transform: scaleX(0);
 	background: #E0EAFC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-size: 15px;
 }
 .tutorsendrequest h4{
 	margin-top: -1vw;
 }
 .tutorsendrequest input{
 	height: 2vw !important;
+	width: 14vw !important;
 	margin-top: 0 !important;
 	margin-bottom: -1vw !important;
-	padding: 20px;
-	font-size: 1vw;
+	padding: 1vw;
+	font-size: 0.8vw;
 }
 .tutorsendrequest #specialanimatedbutton{
 	float: right;
@@ -860,52 +873,87 @@ background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, F
 
 //group study stuff
 .studygroupdisplaycard{
-	width: 55%;
-	height: 30%;
+	width: 45vw;
+	height: 12.6vw;
 	margin: auto;
 	/* border: 1px solid black; */
 	background-color: #eee;
+	position: relative;
+	box-shadow: 0px 8px 5px rgba(8, 26, 128, 0.5);
+	margin-top: 40px;
 }
 .groupsize{
 	float: left;
 	width: 28%;
 	height: 100%;
-	background-color: #eee;
+	background-color: cornflowerblue;
 	font-family: "Red Hat Text";
 	text-align: center;
-	/* padding: 10px; */
-	box-sizing: border-box;
-	font-size: 150px;
+	font-size: 8vw;
 	background-color: cornflowerblue;
+	padding: 10px;
 }
 .host{
-	margin-left: 200px;
-	padding-top: 30px;
-	padding-left: 50px;
+	float: left;
+	padding-top: 1.566vw;
+	padding-left: 6%;
 	font-family: "Cabin";
 	text-transform: uppercase;
 	font-weight: 700px;
-	font-size: 35px;
+	font-size: 1.8229vw;
 }
 .studydate{
+	// font-size: 20px;
+	font-family: "Cabin";
+	position: absolute;
+	right: 6%;
+	bottom: 1.5666vw;
+	font-size: 1vw;
+}	
+.location{
 	float: right;
-	margin-right: 20px;
-	margin-top: -30px;
+	margin-right: 6%;
+	margin-top: 1.7vw;
 	font-size: 20px;
 	font-family: Cabin;
 }
-.location{
-	float: right;
-	margin-right: 20px;
-	margin-top: 80px;
-	font-size: 20px;
-	font-family: Cabin;
+.location:hover{
+	cursor: pointer;
+}
+.location:hover .loc-popup{
+	transform: scaleY(1);
+	visibility: visible;
+	transition: transform 0.3s visibility 0.1s;
+}
+.loc-popup{
+	position: absolute;
+	top: -0.9vw;
+	background-color: black;
+	color: white;
+	padding: 2vw;
+	box-sizing: border-box;
+	width: 10vw;
+	left: 98%;
+	transform: scaleY(-0.0000000000000000000000000000000001);
+	// visibility: hidden;
+	transition: transform 0.3s;
 }
 .contact{
 	float: left;
-	margin-left: 45px;
-	margin-top: 50px;
+	position: absolute;
+	left: 34%;
+	bottom: 1.566vw;
+	font-family: "Red Hat Text";
 	font-size: 20px;
-	font-family: "Cabin Condensed";
 }
-//end group study stuff
+.fa-question-circle{
+
+}
+.required{
+	color: red;
+	font-size: 15px;
+	margin-left: 5px;
+}
+.form-control{
+	margin-bottom: 20px;
+}
