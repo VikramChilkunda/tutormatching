@@ -124,16 +124,16 @@
           <p style = "color:#fff;">Requests</p>
         <table style="width:120%" id="VisualTable"> 
             <tr>
-                      <th style="width:16.1%", "position:absolute">Student name</th>
-                      <th style="width:25%", "position:absolute">Email</th> 
-                      <th style="width:20%", "position:absolute">Subject</th> 
-                      <th style="width:20%", "position:absolute">Day</th> 
-              </tr>
+              <th style="width:16.1%", "position:absolute">Student name</th>
+              <th style="width:25%", "position:absolute">Email</th> 
+              <th style="width:20%", "position:absolute">Subject</th> 
+              <th style="width:20%", "position:absolute">Day</th> 
+            </tr>
             
               <% TutorRequest.all.each do |i| %>
                 <% if i.name == Person.find_by(id: session[:tutor_id]).email %>
                  
-                  <table style="width:120%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
+                  <table style="width:160%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
                       <th style="width:16.1%", "position:absolute"> <%= i.student %></th>
                       <th style="width:25%", "position:absolute"> <%= i.email %></th> 
@@ -166,4 +166,7 @@
       </section>
     </aside>
   </div>
+  <!--<div id="footer" class="small_content">-->
+    
+  <!--</div>-->
 </body>

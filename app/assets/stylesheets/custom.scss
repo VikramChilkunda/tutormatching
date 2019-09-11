@@ -363,6 +363,9 @@ a:hover{
 }
 #body{
 	padding-top: 0;
+	min-height: 100vh;
+	max-height: 150vh;
+	height: 100vh;
 	// background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940") !important;
 }
 
@@ -374,8 +377,8 @@ a:hover{
 	margin: auto;
 }
 h1{
-	padding-left: 50px;
-	padding-top: 50px;
+	padding-left: 2.60vw;
+	padding-top: 2.6vw;
 }
 #bottominput{
 	margin-bottom: 24px;
@@ -472,10 +475,19 @@ center{
 	  transform: scaleX(1);
 	}
 }
-@media screen and (min-width: 1366px){
+@media screen and (max-width: 1370px){
 	// .large_content{
 		// height: 100vh;
 	// }
+	#body{
+		height: 120vh;
+	}
+	
+}
+@media screen and (max-width: 1000px){
+	#body{
+		height: 140vh;
+	}
 }
 @media screen and (max-width: 600px){
 	.navbar{
@@ -551,6 +563,9 @@ center{
 	  -webkit-transform: scaleX(1);
 	  transform: scaleX(1);
 	}
+	#body{
+		height: 130vh;
+	}
 }
 @media screen and (max-width: 667px){
 	.large_content{
@@ -577,6 +592,12 @@ center{
 	background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	background-size: 100%;
 }
+h1#bob{
+    padding-left: 2.6vw;
+}
+aside.col-md-4{
+	padding-left: 0px !important;
+}
 #bob{
 	color: white;
 }
@@ -587,6 +608,7 @@ center{
 	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+	// height: 180vh;
 }
 #martin{
 	 background-image: url("https://img1.akspic.com/image/114418-skyscraper-architect-modern_architecture-day-glass-1280x1024.jpg");
@@ -595,7 +617,7 @@ center{
 #not_taken{
 	height: 100vh;
 	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
-	background-size: 100%;
+	background-size: cover;
 	//background: #12c2e9 !important;  /* fallback for old browsers */
 	//background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
 	//background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -621,9 +643,9 @@ table, th, td {
 
 }
 #createsubjectbutton{
-	padding: 20px;
+	padding: 1vw;
 	font-family: Lato;
-	font-size: 20px;
+	font-size: 1vw;
 }
 #createsubjectdropdown{
 	padding: 10px;
@@ -767,7 +789,7 @@ ul.tutors li img{
 	/* border: 1px solid black; */
 	background-color: #eee;
 	position: relative;
-	box-shadow: 0px 8px 5px rgba(8, 26, 128, 0.5);
+	box-shadow: 10px 8px 8px rgba(8, 26, 128, 1);
 	margin-top: 40px;
 }
 .tutorgrade{
@@ -880,7 +902,7 @@ ul.tutors li img{
 	/* border: 1px solid black; */
 	background-color: #eee;
 	position: relative;
-	box-shadow: 0px 8px 5px rgba(8, 26, 128, 0.5);
+	box-shadow: 5px 5px 8px rgba(8, 26, 128, 0.7);
 	margin-top: 40px;
 }
 .groupsize{
@@ -931,13 +953,14 @@ ul.tutors li img{
 	top: -0.9vw;
 	background-color: black;
 	color: white;
-	padding: 2vw;
+	padding: 1.5vw;
 	box-sizing: border-box;
-	width: 10vw;
+	width: 15vw;
 	left: 98%;
 	transform: scaleY(-0.0000000000000000000000000000000001);
 	// visibility: hidden;
 	transition: transform 0.3s;
+	font-size: 18px;
 }
 .contact{
 	float: left;
@@ -957,4 +980,40 @@ ul.tutors li img{
 }
 .form-control{
 	margin-bottom: 20px;
+}
+
+.requestname{
+	width: 16vw;
+	font-size: 1.5625vw;
+}
+.requestday{
+	width: 25vw;
+	font-size: 1.5625vw;
+}
+.requestemail{
+	width: 20vw;
+	font-size: 1.5625vw;
+}
+.requestsubject{
+	width: 20vw;
+	font-size: 1.5625vw;
+}
+.tutoringsubject{
+	width: 43vw;
+	font-size: 1.5625vw;
+}
+.tutoringday{
+	width: 22vw;
+	font-size: 1.5625vw;
+}
+.tutoringrate{
+	width: 15vw;
+	font-size: 1.5625vw;	
+}
+.tutoringoptions{
+	width: 24vw;
+	font-size: 1.5625vw;	
+}
+#personnameandemail{
+	font-size: 2vw;
 }
