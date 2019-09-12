@@ -18,31 +18,49 @@ class TutorsController < ApplicationController
    # debugger
   end
   
-  def create 
-    @tutor_person = tutor_person
-    @person = Person.find_or_initialize_by email: tutor_params[:email]
-    @person.name = tutor_params[:name]
-    @person.password = tutor_params[:password]
-    @person.password_confirmation = tutor_params[:password_confirmation]
-    @tutor = @person.build_tutor
-    @tutor.id_num = tutor_params[:id_num]
-    @tutor.grade = tutor_params[:grade]
-    #if tutor_params[:adminKey] != nil
-      @tutor.adminOverride = tutor_params[:adminKey]
-      #@person.adminKey = tutor_params[:adminKey]
-      #flash[:notice] = tutor_params[:adminKey]
-    #end
-        if @person.save && @tutor.save
-          log_in @person
-          @tutor.update_attribute(:adminOverride, nil)
-          flash[:success] = "Tutor signup successful!"
-          redirect_to action: "show", id: @tutor.id
-        else 
-          # flash[:error] = @tutor.errors.full_messages
-          render 'new'
-         # flash[:notice] = "hibye"        
-        end
-     
+  def create
+    @checker = false
+     @tutor_person = tutor_person
+     @person = Person.new
+     @tutor = Tutor.new
+    Person.all.each do |i|
+      if i.email == tutor_params[:email]
+        @checker = true
+      end
+    end
+    if !@checker
+      # @person = Person.find_or_initialize_by email: tutor_params[:email]
+      @person.email = tutor_params[:email]
+      @person.name = tutor_params[:name]
+      @person.password = tutor_params[:password]
+      @person.password_confirmation = tutor_params[:password_confirmation]
+      @tutor = @person.build_tutor
+      @tutor.id_num = tutor_params[:id_num]
+      @tutor.grade = tutor_params[:grade]
+      #if tutor_params[:adminKey] != nil
+        @tutor.adminOverride = tutor_params[:adminKey]
+        #@person.adminKey = tutor_params[:adminKey]
+        #flash[:notice] = tutor_params[:adminKey]
+      #end
+          if @person.save && @tutor.save
+            log_in @person
+            @tutor.update_attribute(:adminOverride, nil)
+            flash[:success] = "Tutor signup successful!"
+            redirect_to action: "show", id: @tutor.id
+          else 
+            # flash[:error] = @tutor.errors.full_messages
+            if @person.errors.any? || @tutor.errors.any?
+              render 'new'
+            else
+              flash[:danger] = "Invalid ID"
+              render 'new'
+            end
+           # flash[:notice] = "hibye"        
+          end
+    else
+      flash[:danger] = "Email taken"
+      render 'new'
+    end
     
   end
   
@@ -54,6 +72,11 @@ class TutorsController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def idInvalid
+    flash[:danger] = "Invalid ID"
+    redirect_to tutorsignup_path
   end
   
   private 

@@ -28,7 +28,7 @@
             <% else %>
               <li class = "dropdown-item"><%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
-            <li class="dropdown-item"><%= link_to "Settings", edit_tutor_path(current_tutor) %></li>
+            <li class="dropdown-item"><%= link_to "Settings", edit_person_path(@person) %></li>
             <li class="divider"></li>
           
           </ul>
