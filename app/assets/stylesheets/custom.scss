@@ -90,6 +90,26 @@ button:focus{
 	text-align: center;
 	display: inline-block;
 }
+.animatedbutton{
+	margin: 20px auto;
+	display: block;
+	padding: 14px 10px;
+	background-color: rgba(255, 255, 255, 1);
+	text-align: center;
+	width: 12.625vw;
+	outline: blue;
+	border: 2px solid #3498db;
+	border-radius: 24px;
+	transition: 0.3s;
+}
+.animatedbutton:hover{
+	text-decoration: none;
+	width: 280px;
+	transition: 0.3s;
+	border-color: #2ecc71;
+	background-color: #222222;
+	color: white;
+}
 #animatedbutton{
 	// font-family: Lato;
 	// font-size: 22px;
@@ -258,7 +278,7 @@ a:hover{
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 4px;
   bottom: 0;
   left: 0;
   background-color: teal;
@@ -643,9 +663,9 @@ table, th, td {
 
 }
 #createsubjectbutton{
-	padding: 1vw;
+	padding: 1.4vw;
 	font-family: Lato;
-	font-size: 1vw;
+	font-size: 1.2vw;
 }
 #createsubjectdropdown{
 	padding: 10px;
@@ -796,7 +816,6 @@ ul.tutors li img{
 	float: left;
 	width: 28%;
 	height: 100%;
-	background-color: cornflowerblue;
 	font-family: "Red Hat Text";
 	text-align: center;
 	font-size: 8vw;
@@ -909,11 +928,11 @@ ul.tutors li img{
 	float: left;
 	width: 28%;
 	height: 100%;
-	background-color: cornflowerblue;
 	font-family: "Red Hat Text";
 	text-align: center;
 	font-size: 8vw;
-	background-color: cornflowerblue;
+	background-color: #FFDF00;
+	color: black;
 	padding: 10px;
 }
 .host{
@@ -949,18 +968,21 @@ ul.tutors li img{
 	transition: transform 0.3s visibility 0.1s;
 }
 .loc-popup{
+	font-family: Poppins;
 	position: absolute;
 	top: -0.9vw;
 	background-color: black;
 	color: white;
 	padding: 1.5vw;
-	box-sizing: border-box;
-	width: 15vw;
+	// box-sizing: border-box;
+	max-width: 100%;
+	width: 14vw;
 	left: 98%;
 	transform: scaleY(-0.0000000000000000000000000000000001);
 	// visibility: hidden;
 	transition: transform 0.3s;
 	font-size: 18px;
+	display: inline-block;
 }
 .contact{
 	float: left;
@@ -1016,4 +1038,11 @@ ul.tutors li img{
 }
 #personnameandemail{
 	font-size: 2vw;
+}
+.fa-mobile{
+	// position: absolute;
+	// bottom: 1.56666vw;
+	// left: -5px;
+	transform: translateY(6px);
+	margin-right: 5px;
 }

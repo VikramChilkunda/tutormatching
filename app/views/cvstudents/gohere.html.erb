@@ -43,7 +43,7 @@
           </ul>
       </ul>
       </nav>
-      <a class="navbar-brand" href="/home">CV Enterprises</a>
+      <!--<a class="navbar-brand" href="/home">CV Enterprises</a>-->
     </div>
       </ul>
     </div>
@@ -51,11 +51,15 @@
   <% provide(:title, "Import from excel") %>
 
 
-
-<h1>Import From Excel</h1>
- <%= form_tag import_from_excel_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import", :class=> "btn"%>
-<% end %>
-
+<div class="large_content">
+  <h1>Import From Excel</h1>
+</div>
+<center>
+  <form enctype="multipart/form-data" action="/import_from_excel" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="&#x2713;"/>
+    <input type="hidden" name="authenticity_token" value="Xr5quy0eOUZXFNewNOTvN1557aBD2muQwPH3GNUFihV8BL5WBO1jW3aeA4qJF3RAgkloUZtNlfxOwuoWQpX6cw==" />
+    <input type="file" name="file" id="file" class="animatedbutton" />
+    <input type="submit" name="commit" value="Import" class="btn btn-primary" data-disable-with="Import" />
+  </form>
+</center>
 <!-- CLEAR ALL BUTTON -->
