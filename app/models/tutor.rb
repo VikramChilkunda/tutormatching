@@ -14,7 +14,7 @@ class Tutor < ApplicationRecord
         @check = false
         Cvstudent.all.each do |i|                             #checks that student id exists 
             
-            if ((i.idnum == self.id_num) || (self.id_num == 111111))
+            if ((i.idnum == self.id_num))
                 @check = true
                # flash[:notice] = "thank god"
             end
@@ -30,17 +30,18 @@ class Tutor < ApplicationRecord
             #puts self.adminOverride
         end
         if !@check
-         puts "I AM A BOT"
+            puts "I AM A BOT"
+           # redirect_to controller: 'tutors', action: 'idInvalid'
+            throw(:abort)
         end
-        throw(:abort) if !@check
     end
     
-    def letAdminRepeat
-       if self.id_num == 111111
-           return false
-       end
-       return true
-    end
+    # def letAdminRepeat
+    #   if self.id_num == 111111
+    #       return false
+    #   end
+    #   return true
+    # end
     
     def adminOverrideCheck
         @check = false
