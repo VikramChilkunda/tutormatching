@@ -1046,3 +1046,8 @@ ul.tutors li img{
 	transform: translateY(6px);
 	margin-right: 5px;
 }
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: white !important;
+}
