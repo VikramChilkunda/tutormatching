@@ -42,9 +42,14 @@ class PeopleController < ApplicationController
       flash[:success] = "Person deleted"
       redirect_to people_url
     else
+      Subject.all.each do |i|
+        if i.creatorid = params[:id]
+          i.update_attribute(:deletedSubject, true)
+        end
+      end
       Tutor.find(params[:id]).destroy
       Person.find(params[:id]).destroy
-      flash[:success] = "Person deleted"
+      flash[:success] = "Account deleted"
       session[:tutor_id] = false
       redirect_to home_path
     end
