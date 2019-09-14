@@ -27,11 +27,22 @@ class PeopleController < ApplicationController
   
   def update 
     @person = Person.find(params[:id])
-    if @person.update_attributes(tutor_params)
-      flash[:success] = "Profile updated"
-      redirect_to @person
+    
+    if @person.admin 
+      if @person.update_attributes(tutor_params) 
+        flash[:success] = "Profile updated"
+        redirect_to adminPage_path
+      else
+        render 'edit'
+      end
+      
     else
-    render 'edit'
+      if @person.update_attributes(tutor_params) 
+        flash[:success] = "Profile updated"
+        redirect_to @person
+      else
+       render 'edit'
+      end
     end
   end
   
