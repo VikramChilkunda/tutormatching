@@ -256,9 +256,15 @@ a:hover{
 }
 /*Navbar stuff
 */
+.bg-dark{
+	transition: 0.2s ease-in-out;
+}
 .navbar{
   padding-bottom: 0px !important;
+  position: fixed !important;
+  width: 100% !important;
   font-family: Signika;
+  transition: 0.2s ease-in-out;
 }
 .navbar-light .navbar-brand {
 	font-size: 15px;
