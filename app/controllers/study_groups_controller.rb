@@ -12,6 +12,7 @@ class StudyGroupsController < ApplicationController
      @study_groups.groupName = group_params[:groupName]
      @study_groups.time = group_params[:time]
      @study_groups.email = group_params[:email]
+     @study_groups.passkey = group_params[:passkey]
     if @study_groups.save 
       flash[:success] = "Group creation successful!"
       redirect_to studygroup_path
@@ -24,12 +25,24 @@ class StudyGroupsController < ApplicationController
   def allgroups
     @allofthemgroups = StudyGroup.all
   end    
+  
+  def ownerPage
+    @ownerGroup = StudyGroup.new
+    @ownedGroup = StudyGroup.find_by(passkey: params[:passkey], email: params[:email])
+    if @ownedGroup
+      redirect_to ownerGroup_path, ownerGroup: @ownerGroup.email
+    end
+  end
+  
+  def ownerGroup
+    @group = StudyGroup.find_by(email: params[:ownerGroup])
+  end
 
   
   private 
   
     def group_params
-      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email)
+      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey)
     end
   
 end

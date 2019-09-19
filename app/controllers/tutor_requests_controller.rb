@@ -21,6 +21,12 @@ class TutorRequestsController < ApplicationController
     end
   end
   
+  def destroy
+     TutorRequest.find(params[:id]).destroy
+      flash[:success] = "Request deleted"
+      redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
+  end
+  
   private
     def request_params
       params.require(:tutor_request).permit(:student, :email, :name, :whichSubject, :time)

@@ -5,7 +5,7 @@
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<% provide(:title, 'Find a group') %>
+<% provide(:title, 'Find your group') %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,41 +53,21 @@
   </div>
 </nav>
 <div class="large_content" id="large_content" style="background-position: 30% 37%; height: ">
-    <h1>Study groups</h1>
-    <a href="/creategroup">
-      <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Group</button>
-    </a>
-    <a href="/owner">
-      <button type="button" class="btn btn-primary" id="createsubjectbutton">View your group</button>
-    </a>
+    <h1>Your group</h1>
 </div>
 <br>
-<% @allofthemgroups.each do |i| %>
- <% if !StudyGroup.find(i).nil? && i.groupSize != 0 %>
-     <!--new thing vikram implemented on 8/26-->
-    <div class = "studygroupdisplaycard ">
-			<div class="groupsize"><%= i.groupSize %></div>
-			<div class="host"><%= i.creatorName %></div>
-			<div class="contact"><%= i.email %></div>
-			<div class="studydate"><%= i.date %></div>
-			<div class="location">
-			  <i class="fa fa-map-marker fa-2x"></i>
-			  <div class="loc-popup">La Crescenta Library</div>
-			</div>			
-		</div>
-		
-		<div class="tutorsendrequest">
-                            <%= form_tag(request_path(name: i.creatorName, groupName: i.groupName), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
-                              <div><p></p></div>
-                     	       <h4 class="findatutor_heading">Join group: </h4>
-                     	       <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
-                     	        <input type="text" name="student" id="student" placeholder="Your name"  class = "form-control"><br> 
-                              <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
-                            <% end %>
-                      </div>
-    <br>
-  <% end %>
-<% end %>
+
+<%= form_for(@ownerGroup, url: owner_path) do |f| %>
+      
+        <%= f.label :email, "Your email" %> <span class="required">*</span>
+        <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
+        
+         <%= f.label :passkey, "Password" %> <span class="required">*</span>
+        <%= f.text_field :passkey, class: 'form-control', id: 'bottominput' %>
+  
+        <%= f.submit "Find group", class: "btn btn-primary", id: "specialanimatedbutton" %>
+    <% end %>
+
             <!--</div>-->
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
 

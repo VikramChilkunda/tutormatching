@@ -9,4 +9,5 @@ class StudyGroup < ApplicationRecord
     validates :groupName, presence: true
     validates :time, presence: true
     validates :email, presence: true
+    validates :passkey, presence: true
 end
