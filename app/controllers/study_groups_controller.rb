@@ -22,19 +22,31 @@ class StudyGroupsController < ApplicationController
     end
   end
   
+  def update
+    @group = StudyGroup.find(params[:id])
+    if @group.update_attributes(group_params)
+      flash[:success] = "Group updated"
+      redirect_to allgroups_path
+    else
+      flash[:danger] = "Failed to update group"
+      redirect_to ownerPage_path
+    end
+  end
+  
   def allgroups
     @allofthemgroups = StudyGroup.all
   end    
   
   def ownerPage
-    @ownerGroup = StudyGroup.new
-    @ownedGroup = StudyGroup.find_by(passkey: params[:passkey], email: params[:email])
-    if @ownedGroup
-      redirect_to ownerGroup_path, ownerGroup: @ownerGroup.email
-    end
+    @ownedGroup = StudyGroup.new
   end
   
   def ownerGroup
+    @ownedGroup = StudyGroup.find_by(passkey: group_params[:passkey], email: group_params[:email])
+    #flash[:success] = group_params[:email]
+    if @ownedGroup
+     # redirect_to ownerGroup_path, ownerGroup: @ownerGroup.email
+    end
     @group = StudyGroup.find_by(email: params[:ownerGroup])
   end
 

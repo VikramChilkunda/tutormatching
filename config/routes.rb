@@ -47,8 +47,8 @@ Rails.application.routes.draw do
   get '/creategroup', to: 'study_groups#new'
   post '/creategroup', to: 'study_groups#create'
   get '/owner', to: 'study_groups#ownerPage'
-  post '/owner', to: 'study_groups#ownerPage'
-  get '/ownerGroup', to: 'study_groups#ownerGroup'
+  post '/owner', to: 'study_groups#ownerGroup'
+  post '/editGroup', to: 'study_groups#update'
   
   get '/accountDelete', to: 'people#destroy'
   delete '/accountDelete', to: 'people#destroy'

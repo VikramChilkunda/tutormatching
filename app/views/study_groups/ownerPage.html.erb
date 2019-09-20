@@ -53,11 +53,11 @@
   </div>
 </nav>
 <div class="large_content" id="large_content" style="background-position: 30% 37%; height: ">
-    <h1>Your group</h1>
+    <h1>Enter password</h1>
 </div>
 <br>
 
-<%= form_for(@ownerGroup, url: owner_path) do |f| %>
+<%= form_for(@ownedGroup, url: owner_path) do |f| %>
       
         <%= f.label :email, "Your email" %> <span class="required">*</span>
         <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
