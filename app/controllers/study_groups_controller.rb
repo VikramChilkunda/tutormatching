@@ -23,13 +23,14 @@ class StudyGroupsController < ApplicationController
   end
   
   def update
-    @group = StudyGroup.find(params[:id])
+    @group = StudyGroup.find_by(email: group_params[:email])
+    
     if @group.update_attributes(group_params)
       flash[:success] = "Group updated"
-      redirect_to allgroups_path
+      redirect_to studygroup_path
     else
       flash[:danger] = "Failed to update group"
-      redirect_to ownerPage_path
+      redirect_to studygroup_path
     end
   end
   

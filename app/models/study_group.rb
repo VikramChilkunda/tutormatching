@@ -1,5 +1,6 @@
 class StudyGroup < ApplicationRecord
     include ActiveModel::Model
+    serialize :thearray,Array
     #attr_accessor :creatorname, :date, :location, :groupSize, :groupName, :time
     
     validates :creatorName, presence: true
