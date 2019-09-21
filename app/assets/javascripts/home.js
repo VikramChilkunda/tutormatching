@@ -3,10 +3,12 @@ $(document).ready(function(){
         if($(window).scrollTop() > 5){
             $(".navbar").addClass("navbar-light bg-light");
             $(".navbar").removeClass("navbar-dark bg-dark");
+            $(".navbar").removeAttr('id');
         }
         else{
             $(".navbar").addClass("navbar-dark bg-dark");
             $(".navbar").removeClass("navbar-light bg-light");
+            $(".navbar").attr('id', 'bg-dark');
         }
     });
 
