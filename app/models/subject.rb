@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-    belongs_to :tutor, foreign_key: :tutor_id, inverse_of: :person, optional:true
+     belongs_to :tutor, foreign_key: :tutor_id, inverse_of: :person, optional:true
    # accepts_nested_attributes_for :person
     include ActiveModel::Model
    #  attr_accessor :name, :date, :rate
@@ -53,5 +53,4 @@ class Subject < ApplicationRecord
     validates :name, presence: true
     validates :date, presence: true
     validates :rate, presence: true
-    
 end

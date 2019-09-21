@@ -5,9 +5,11 @@ one:
   date: MyString
   rate: MyString
   creatorid: 1
+  deletedSubject: false
 
 two:
   name: MyString
   date: MyString
   rate: MyString
   creatorid: 1
+  deletedSubject: false

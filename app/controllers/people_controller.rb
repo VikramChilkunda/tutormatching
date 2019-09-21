@@ -27,11 +27,22 @@ class PeopleController < ApplicationController
   
   def update 
     @person = Person.find(params[:id])
-    if @person.update_attributes(tutor_params)
-      flash[:success] = "Profile updated"
-      redirect_to @person
+    
+    if @person.admin 
+      if @person.update_attributes(tutor_params) 
+        flash[:success] = "Profile updated"
+        redirect_to adminPage_path
+      else
+        render 'edit'
+      end
+      
     else
-    render 'edit'
+      if @person.update_attributes(tutor_params) 
+        flash[:success] = "Profile updated"
+        redirect_to @person
+      else
+       render 'edit'
+      end
     end
   end
   
@@ -42,9 +53,14 @@ class PeopleController < ApplicationController
       flash[:success] = "Person deleted"
       redirect_to people_url
     else
+      Subject.all.each do |i|
+        if i.creatorid = params[:id]
+          i.update_attribute(:deletedSubject, true)
+        end
+      end
       Tutor.find(params[:id]).destroy
       Person.find(params[:id]).destroy
-      flash[:success] = "Person deleted"
+      flash[:success] = "Account deleted"
       session[:tutor_id] = false
       redirect_to home_path
     end

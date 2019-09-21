@@ -79,26 +79,29 @@
     <div  class="col-md-6 col-md-offset-3">
     <%= form_for(@study_groups, url: creategroup_path) do |f| %>
       <%= render 'shared/error_messages_group' %>
-        <%= f.label :creatorName, "Your Name" %>
+        <%= f.label :creatorName, "Your Name" %> <span class="required">*</span>
         <%= f.text_field :creatorName, class: 'form-control' %>
         
-        <%= f.label :date, "Date" %>
+        <%= f.label :date, "Date" %> <span class="required">*</span>
         <%= f.text_field :date, class: 'form-control' %>
         
-        <%= f.label :location, "Location" %>
+        <%= f.label :location, "Location" %> <span class="required">*</span>
         <%= f.text_field :location, placeholder: "Ex: La Crescenta Library, etc. ", class: 'form-control' %>
         
-        <%= f.label :groupSize, "Size of your group" %>
+        <%= f.label :groupSize, "Size of your group" %> <span class="required">*</span>
          <%= f.text_field :groupSize, placeholder: "*Set above 100 if this doesn't matter", class: 'form-control' %>   
        
-        <%= f.label :groupName, "What you want to study" %>
+        <%= f.label :groupName, "What you want to study" %> <span class="required">*</span>
         <%= f.text_field :groupName, placeholder: "Ex: AP Environmental Science", class: 'form-control' %>
         <br>
-        <%= f.label :time, "Time" %>
+        <%= f.label :time, "Time" %> <span class="required">*</span>
         <%= f.text_field :time, placeholder: "6:30 p.m.", class: 'form-control', id: 'bottominput' %>
-        
-        <%= f.label :email, "Your email address" %>
+         
+        <%= f.label :email, "Your email address" %> <span class="required">*</span>
         <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
+        
+         <%= f.label :passkey, "Password (You'll need this to view details or delete your group)" %> <span class="required">*</span>
+        <%= f.text_field :passkey, class: 'form-control', id: 'bottominput' %>
   
         <%= f.submit "Create group", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>

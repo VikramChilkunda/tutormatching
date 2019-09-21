@@ -12,6 +12,7 @@ class StudyGroupsController < ApplicationController
      @study_groups.groupName = group_params[:groupName]
      @study_groups.time = group_params[:time]
      @study_groups.email = group_params[:email]
+     @study_groups.passkey = group_params[:passkey]
     if @study_groups.save 
       flash[:success] = "Group creation successful!"
       redirect_to studygroup_path
@@ -21,15 +22,40 @@ class StudyGroupsController < ApplicationController
     end
   end
   
+  def update
+    @group = StudyGroup.find_by(email: group_params[:email])
+    
+    if @group.update_attributes(group_params)
+      flash[:success] = "Group updated"
+      redirect_to studygroup_path
+    else
+      flash[:danger] = "Failed to update group"
+      redirect_to studygroup_path
+    end
+  end
+  
   def allgroups
     @allofthemgroups = StudyGroup.all
   end    
+  
+  def ownerPage
+    @ownedGroup = StudyGroup.new
+  end
+  
+  def ownerGroup
+    @ownedGroup = StudyGroup.find_by(passkey: group_params[:passkey], email: group_params[:email])
+    #flash[:success] = group_params[:email]
+    if @ownedGroup
+     # redirect_to ownerGroup_path, ownerGroup: @ownerGroup.email
+    end
+    @group = StudyGroup.find_by(email: params[:ownerGroup])
+  end
 
   
   private 
   
     def group_params
-      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email)
+      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey)
     end
   
 end

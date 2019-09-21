@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   #get '/subject', to: 'people#subject'
   get '/request', to: 'tutor_requests#new'
   post '/request', to: 'tutor_requests#create'
+  post '/requestdelete', to: 'tutor_requests#destroy'
   
   get '/import_from_excel', to: 'cvstudents#gohere'
   post 'import_from_excel' => "cvstudents#import_from_excel"
@@ -45,6 +46,9 @@ Rails.application.routes.draw do
   post '/studygroup', to: 'study_groups#allgroups'
   get '/creategroup', to: 'study_groups#new'
   post '/creategroup', to: 'study_groups#create'
+  get '/owner', to: 'study_groups#ownerPage'
+  post '/owner', to: 'study_groups#ownerGroup'
+  post '/editGroup', to: 'study_groups#update'
   
   get '/accountDelete', to: 'people#destroy'
   delete '/accountDelete', to: 'people#destroy'

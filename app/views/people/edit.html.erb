@@ -67,7 +67,7 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
   <br>
       <% if @person.admin %>
-        <%= f.label :adminKey, "Change Admin Key" %>
+        <%= f.label :adminKey, "Change Admin Key" %> <p>(Current: <%= @person.adminKey %>)</p>
         <%= f.text_field :adminKey, class: 'form-control', placeholder: @person.adminKey%>
         <br>
       <% end %>

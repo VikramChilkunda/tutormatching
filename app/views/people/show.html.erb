@@ -122,12 +122,13 @@
         <h1>
         <div id="bob">
           <p style = "color:#fff; font-size: 2vw">Requests</p>
-        <table style="width:120%" id="VisualTable"> 
+        <table style="width:160%" id="VisualTable"> 
             <tr>
               <th class="requestname" style="width:16.1%", "position:absolute">Student name</th>
               <th class="requestemail" style="width:25%", "position:absolute">Email</th> 
               <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
               <th class="requestday" style="width:20%", "position:absolute">Day</th> 
+              <th class="requestday" style="width:20%", "position:absolute">Options</th> 
             </tr>
             
               <% TutorRequest.all.each do |i| %>
@@ -139,7 +140,8 @@
                       <th class="requestemail" style="width:25%", "position:absolute"> <%= i.email %></th> 
                       <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
                       <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
-                      
+                      <th class="tutoringoptions" style="width: 20%", "position:absolute"><%= link_to " Delete", request_path(check: i.id), method: :destroy,
+                                  data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
                      
@@ -160,7 +162,7 @@
             <!--</tr>-->
           </table>
           </div>
-            <br><br>
+            <br>
             <!--replced your link_to with an a href-->
            <a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)-->   
           </h1>
