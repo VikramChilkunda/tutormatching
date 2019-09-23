@@ -3,8 +3,11 @@
   	<script src="jquery-3.3.1.min.js"></script>
   	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
-<body id="not_taken" style="font-family: Signika">
-  <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
+<body id="not_taken" style="font-family: Signika;">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="bg-dark">
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -42,15 +45,17 @@
       </ul>
     </div>
   </nav>
+  <div class="spacer"></div>
+  <h1 id="bob" style="font-size:3vw;">Profile - Admin</h1>
   <% provide(:title, @person.name) %>
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
-        <h1 id="bob" style="font-size:3vw;">Profile - Admin</h1>
         <h1>
           <!--%= gravatar_for @person %>-->
           <div id="bob">
             <p><%= @person.name %> (<%= @person.email %>) </p>
+          </div>
           <div><p></p></div>
           
           <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %> <!--Edit:'(@oerson)' is redundant after edit_person_path because the edit method in people_controller defines @person -->
@@ -61,14 +66,14 @@
           <!--<button class="btn btn-warning" id="edit_profile">-->
           
           <div>
-            <h2 id="downloadExcel", id="animatedbutton">
+            <h2 id="downloadExcel">
               <br>
                 <%= link_to 'Download user list', persons_path(format: :xlsx) %>
 	          </h2>
           </div>
           </h1>
           <br><br><br>
-          <a href="/import_from_excel" id="animatedbutton", style="margin-left: 7.5%; width:45%;">
+          <a href="/import_from_excel" id="animatedbutton", style="margin-left: 7.5%; width:45%; color: white">
 		        Import CV student list (excel sheet)
 	    	  </a>
 	    	  <h1>

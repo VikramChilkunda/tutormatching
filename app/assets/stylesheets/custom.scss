@@ -259,6 +259,10 @@ a:hover{
 .bg-dark{
 	transition: 0.2s ease-in-out;
 }
+#bg-dark{
+	background-color: rgba(0,0,0,0) !important;
+	margin-bottom: 15px !important;
+}
 .navbar{
   padding-bottom: 0px !important;
   position: fixed !important;
@@ -300,82 +304,6 @@ a:hover{
   transform: scaleX(1);
 }
 //end navbar
-.nav-link:hover{
-	color: black;
-}
-/*End Navbar Stuff*/
-
-/*hamburger menu*/
-.hmenu{
-	width: 20px;
-	height: 2px;
-	background-color: gray;
-	margin-top: 5px;
-}
-#hmenu{
-	padding-top: 2%;
-	float: left;
-	cursor: pointer;
-	margin-right: 20px;
-}
-#hmenu:hover:before{
-	visibility: hidden;
-}
-/*end hamburger menu*/
-	/* filler div*/
-.filler{
-	height: 100px;
-}		
-
-/*end filler div*/
-
-/* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: black; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
-    text-align: left;
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    font-family: Signika;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-    color: #f1f1f1;		}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-.sidenav h1{
-	text-align: left;
-	font-size: 38px;
-	color: white;
-	padding-left: 20px;
-}
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-    transition: margin-left .2s;
-}
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -519,6 +447,9 @@ center{
 	.navbar{
 		padding-bottom: 10px!important;
 	}
+	#bg-dark{
+		background-color: #343A40 !important;
+	}
 	.large_content{
 		width: 100vw;
 		padding-top: 0px;
@@ -620,6 +551,7 @@ center{
 }
 h1#bob{
     padding-left: 2.6vw;
+    margin-top: 10px;
 }
 aside.col-md-4{
 	padding-left: 0px !important;
@@ -758,6 +690,9 @@ ul.tutors li img{
 #downloadExcel{
 	position: absolute;
 	margin-left: 0%;
+}
+#downloadExcel a{
+	color: #007bff !important;
 }
 .findatutor_heading{
 	text-align: center;
@@ -1057,4 +992,7 @@ ul.tutors li img{
   color: #fff;
   text-decoration: none;
   background-color: white !important;
+}
+.spacer{
+	height: 40px;
 }
