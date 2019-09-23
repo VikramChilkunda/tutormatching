@@ -56,7 +56,9 @@ class StudyGroupsController < ApplicationController
   def ownerGroup
     @ownedGroup = StudyGroup.find_by(passkey: group_params[:passkey], email: group_params[:email])
     #flash[:success] = group_params[:email]
-    if @ownedGroup
+    if !@ownedGroup
+      flash[:danger] = "Access denied"
+      redirect_to studygroup_path
      # redirect_to ownerGroup_path, ownerGroup: @ownerGroup.email
     end
     @group = StudyGroup.find_by(email: params[:ownerGroup])
