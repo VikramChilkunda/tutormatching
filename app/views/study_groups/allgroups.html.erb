@@ -65,8 +65,9 @@
 <% @allofthemgroups.each do |i| %>
  <% if !StudyGroup.find(i).nil? && i.groupSize > 0 %>
      <!--new thing vikram implemented on 8/26-->
-    <div class = "tutordisplaycard searchresultslargecontainer">
+    <div class = "studygroupdisplaycard searchresultslargecontainer">
 			<div class="groupsize"><%= i.groupSize %></div>
+			<div class="availablespots">Spots available</div>
 			<div class="host"><%= i.creatorName %></div>
 			<div class="contact"><%= i.email %></div>
 			<div class="studydate"><%= i.date %></div>
@@ -76,7 +77,7 @@
 			</div>			
 	
 		
-		  <div class="tutorsendrequest">
+		  <div class="studygroupsendrequest">
          <%= form_tag(joinGroup_path(email: i.email), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
          <div><p></p></div>
           <h4 class="findatutor_heading">Join group: </h4>
