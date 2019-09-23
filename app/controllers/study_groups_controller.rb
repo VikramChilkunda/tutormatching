@@ -15,6 +15,7 @@ class StudyGroupsController < ApplicationController
      @study_groups.passkey = group_params[:passkey]
     if @study_groups.save 
       flash[:success] = "Group creation successful!"
+     #flash[:success] = group_params[:study_group]
       redirect_to studygroup_path
     else 
       #flash[:error] =  "Could not create group"
@@ -35,9 +36,9 @@ class StudyGroupsController < ApplicationController
   end
   
   def joinGroup   #method to add a person to the group's array and reduce the number of spots open by 1
-    @group = StudyGroup.find_by(email: group_params[:email])
+    @group = StudyGroup.find_by(email: um_params[:email])
     @group.thearray_will_change!
-    @group.update_attribute(:thearray, [@group.thearray, params[:name]])
+    @group.update_attribute(:thearray, [@group.thearray, um_params[:name]])
     @group.update_attribute(:groupSize, @group.groupSize-1)
     flash[:success] = "Joined group"
     redirect_to studygroup_path
@@ -65,7 +66,10 @@ class StudyGroupsController < ApplicationController
   private 
   
     def group_params
-      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey, :thearray) #params.require(:study_group).permit.... would be ideal but has errors when using joinGroup
+      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey, :thearray, :name) 
     end
-  
+    
+    def um_params           # MOSTLY FOR JOIN GROUP METHOD - the .require in group_params caused issues with join group and so um_params was born
+      params.permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey, :thearray, :name)
+    end
 end

@@ -77,7 +77,7 @@
 	
 		
 		  <div class="tutorsendrequest">
-         <%= form_tag(joinGroup_path(email: i.email, studyGroup: i), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
+         <%= form_tag(joinGroup_path(email: i.email), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
          <div><p></p></div>
           <h4 class="findatutor_heading">Join group: </h4>
           <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
