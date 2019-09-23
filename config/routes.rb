@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   post '/owner', to: 'study_groups#ownerGroup'
   post '/editGroup', to: 'study_groups#update'
   
+  post '/joinGroup', to: 'study_groups#joinGroup'
+  
   get '/accountDelete', to: 'people#destroy'
   delete '/accountDelete', to: 'people#destroy'
   

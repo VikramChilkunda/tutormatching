@@ -34,8 +34,18 @@ class StudyGroupsController < ApplicationController
     end
   end
   
+  def joinGroup   #method to add a person to the group's array and reduce the number of spots open by 1
+    @group = StudyGroup.find_by(email: group_params[:email])
+    @group.thearray_will_change!
+    @group.update_attribute(:thearray, [@group.thearray, params[:name]])
+    @group.update_attribute(:groupSize, @group.groupSize-1)
+    flash[:success] = "Joined group"
+    redirect_to studygroup_path
+  end
+  
   def allgroups
     @allofthemgroups = StudyGroup.all
+    @group = StudyGroup.new
   end    
   
   def ownerPage
@@ -55,7 +65,7 @@ class StudyGroupsController < ApplicationController
   private 
   
     def group_params
-      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey)
+      params.require(:study_group).permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey, :thearray) #params.require(:study_group).permit.... would be ideal but has errors when using joinGroup
     end
   
 end
