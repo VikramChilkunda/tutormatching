@@ -66,9 +66,11 @@
 			  <i class="fa fa-map-marker fa-2x"></i>
 			  <div class="loc-popup"><%=  @ownedGroup.location %></div>
 			</div>			
-		</div>
-		
-		
+	</div>
+	
+	<h1>Group members: <%= @ownedGroup.thearray.join(', ') %></h1>
+	
+	<h1>Edit group:</h1>
 	<%= form_for(@ownedGroup, url: editGroup_path) do |f| %>
 	   <%= f.label :creatorName, "Change Name" %> <span class="required">*</span>
         <%= f.text_field :creatorName, class: 'form-control' %>

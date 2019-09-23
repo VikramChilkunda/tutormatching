@@ -38,7 +38,7 @@ class StudyGroupsController < ApplicationController
   def joinGroup   #method to add a person to the group's array and reduce the number of spots open by 1
     @group = StudyGroup.find_by(email: um_params[:email])
     @group.thearray_will_change!
-    @group.update_attribute(:thearray, [@group.thearray, um_params[:name]])
+    @group.update_attribute(:thearray, @group.thearray << um_params[:name])
     @group.update_attribute(:groupSize, @group.groupSize-1)
     flash[:success] = "Joined group"
     redirect_to studygroup_path

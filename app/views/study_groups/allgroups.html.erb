@@ -63,7 +63,7 @@
 </div>
 <br>
 <% @allofthemgroups.each do |i| %>
- <% if !StudyGroup.find(i).nil? && i.groupSize != 0 %>
+ <% if !StudyGroup.find(i).nil? && i.groupSize > 0 %>
      <!--new thing vikram implemented on 8/26-->
     <div class = "tutordisplaycard searchresultslargecontainer">
 			<div class="groupsize"><%= i.groupSize %></div>
