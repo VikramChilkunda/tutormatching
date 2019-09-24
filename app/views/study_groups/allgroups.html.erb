@@ -68,7 +68,8 @@
     <div class = "studygroupdisplaycard searchresultslargecontainer">
 			<div class="groupsize"><%= i.groupSize %></div>
 			<div class="availablespots">Spots available</div>
-			<div class="host"><%= i.creatorName %></div>
+			<div class="host"><%= i.groupName %></div>
+			<div class="creatorname"><%= i.creatorName %></div>
 			<div class="contact"><%= i.email %></div>
 			<div class="studydate"><%= i.date %></div>
 			<div class="location">
@@ -86,6 +87,21 @@
           <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
           <% end %>
       </div>
+    </div>
+    <br>
+  <% elsif i.groupSize == 0 %>
+     <div class = "studygroupdisplaycard searchresultslargecontainer">
+			<div class="groupsize"><%= i.groupSize %></div>
+			<div class="availablespots">FULL</div>
+			<div class="host"><%= i.groupName %></div>
+			<div class="creatorname"><%= i.creatorName %></div>
+			<div class="contact"><%= i.email %></div>
+			<div class="studydate"><%= i.date %></div>
+			<div class="location">
+			  <i class="fa fa-map-marker fa-2x"></i>
+			  <div class="loc-popup"><%= i.location %></div>
+			</div>			
+	
     </div>
     <br>
   <% end %>
