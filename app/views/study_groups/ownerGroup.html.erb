@@ -69,7 +69,7 @@
   			  <div class="loc-popup"><%=  @ownedGroup.location %></div>
   			</div>			
   	</div>
-  <% elsif @ownedGroup.groupSize == 0 %>
+  <% elsif !@ownedGroup.nil? && (@ownedGroup.groupSize == 0) %>
     <div class = "studygroupdisplaycard ">
   			<div class="groupsize"><%= @ownedGroup.groupSize %></div>
   			<div class="availablespots">FULL</div>
@@ -82,6 +82,8 @@
   			  <div class="loc-popup"><%=  @ownedGroup.location %></div>
   			</div>			
   	</div>
+  <!--% else %>-->
+  <!--  % redirect_to studygroup_path %>-->
   <% end %>
 	
 	<h1>Group members: <%= @ownedGroup.thearray.join(', ') %></h1>

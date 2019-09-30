@@ -142,7 +142,7 @@
                       <th class="requestemail" style="width:25%", "position:absolute"> <%= i.email %></th> 
                       <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
                       <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
-                      <th class="requestday" style="width:20%", "position:absolute"> <%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
+                      <th class="requestday" style="width:20%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
                       <th class="tutoringoptions" class="delete" style="width: 20%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>

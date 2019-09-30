@@ -13,6 +13,6 @@ module TutorApp
     # -- all .rb files in that directory are automatically loaded.
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     # config/application.rb
-    config.time_zone = "Pacific"
+    config.time_zone = "Pacific Time (US & Canada)"
   end
 end
