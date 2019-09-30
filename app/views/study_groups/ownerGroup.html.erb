@@ -53,7 +53,13 @@
   </div>
 </nav>
 <div class="large_content" id="large_content" style="background-position: 30% 37%; height: ">
-    <h1>Your group</h1>
+    <h1><%= @ownedGroup.creatorName %>'s group
+    <!--% if Person.find_by(id: session[:tutor_id])%>-->
+    <!--  % if Person.find_by(id: session[:tutor_id]).admin? %>-->
+    <!--    (%= Person.find_by(id: session[:tutor_id]).name %>)-->
+    <!--  % end %>-->
+    <!--% end %>-->
+    </h1>
 </div>
 <br>
  <% if !@ownedGroup.nil? && @ownedGroup.groupSize > 0 %>
