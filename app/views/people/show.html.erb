@@ -45,7 +45,11 @@
   </nav>
   <% provide(:title, @person.name) %>
   <br>
-  <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
+  <% if @person.academy %>
+    <h1 id="bob" style="font-size:3vw;">Profile - Tutor (Academy)</h1>
+  <% else %>
+    <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
+  <% end %>
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
@@ -76,7 +80,9 @@
             <tr>
               <th class="tutoringsubject" style="width:43%", "position:absolute">Tutoring:</th>
               <th class="tutoringday" style="width:22%", "position:absolute">Day</th> 
-              <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
+               <% if !@person.academy %>
+                 <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
+              <% end %>
               <th class="tutoringoptions" style="width:24%", "position:absolute">Options</th>
             </tr>
             
@@ -87,7 +93,9 @@
                     <tr>
                       <th class="tutoringsubject" style="width:43%", "position:absolute"> <%= i.name %></th>
                       <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.date %></th> 
-                      <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
+                        <% if !@person.academy %>
+                            <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
+                        <% end %>
                       
                       <th class="tutoringoptions" class="delete" style="width: 24%"><%= link_to " Delete", subjectdelete_path(check: i.id), method: :destroy,
                                   data: { confirm: "Are you sure?" } %></th>
