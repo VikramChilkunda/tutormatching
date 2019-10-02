@@ -96,6 +96,9 @@
         
         <%= f.label "Admin Key (admin use only)" %>
         <%= f.password_field :adminKey, class: 'form-control' %>
+        
+        <%= f.label "Academy member" %>
+        <%= f.check_box :academy, class: 'form-control' %>
   
         <%= f.submit "Create my account", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>
