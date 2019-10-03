@@ -222,7 +222,7 @@ button:focus{
 	width: 100%;
 }
 a{
-	color: black;
+	//color: black;
 	text-decoration: none;
 }
 a:hover{
@@ -583,6 +583,8 @@ aside.col-md-4{
 	height: 100vh;
 	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
 	background-size: cover;
+	 height:100%;
+    overflow-y:auto;
 	//background: #12c2e9 !important;  /* fallback for old browsers */
 	//background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
 	//background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -682,11 +684,12 @@ ul.tutors li img{
 #VisualTable th{
 	width: 50%;
 	padding: 5px;
-	background-color:rgba(0,0,0,.5);
+	background-color:rgba(255,255,255,0.45);
 }
 #VisualSubjects{
 	width: 75vw !important;
 	color: white;
+	background-color:rgba(255,255,255,.09);
 	table-layout: fixed;
 }
 #VisualSubjects th{
@@ -954,6 +957,15 @@ ul.tutors li img{
 	font-family: "Red Hat Text";
 	font-size: 20px;
 }
+.creatorname{
+	float: left;
+	position: absolute;
+	left: 34%;
+	bottom: 2.9vw;
+	font-family: "Red Hat Text";
+	font-size: 20px;	
+	font-weight: bold;
+}
 .fa-question-circle{
 
 }
@@ -1076,4 +1088,7 @@ ul.tutors li img{
 	bottom: 10%;
 	transform: translateX(-50%);
 	padding: 0.1vw;
+}
+.delete{
+	color: white !important;
 }

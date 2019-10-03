@@ -53,51 +53,77 @@
   </div>
 </nav>
 <div class="large_content" id="large_content" style="background-position: 30% 37%; height: ">
-    <h1>Your group</h1>
+    <h1><%= @ownedGroup.creatorName %>'s group
+    <!--% if Person.find_by(id: session[:tutor_id])%>-->
+    <!--  % if Person.find_by(id: session[:tutor_id]).admin? %>-->
+    <!--    (%= Person.find_by(id: session[:tutor_id]).name %>)-->
+    <!--  % end %>-->
+    <!--% end %>-->
+    </h1>
 </div>
 <br>
-
- <div class = "studygroupdisplaycard ">
-			<div class="groupsize"><%= @ownedGroup.groupSize %></div>
-			<div class="host"><%=  @ownedGroup.creatorName %></div>
-			<div class="contact"><%=  @ownedGroup.email %></div>
-			<div class="studydate"><%=  @ownedGroup.date %></div>
-			<div class="location">
-			  <i class="fa fa-map-marker fa-2x"></i>
-			  <div class="loc-popup"><%=  @ownedGroup.location %></div>
-			</div>			
-	</div>
+ <% if !@ownedGroup.nil? && @ownedGroup.groupSize > 0 %>
+   <div class = "studygroupdisplaycard ">
+  			<div class="groupsize"><%= @ownedGroup.groupSize %></div>
+  			<div class="availablespots">Spots available</div>
+  			<div class="host"><%=  @ownedGroup.groupName %></div>
+  			<div class="creatorname"><%=  @ownedGroup.creatorName %></div>
+  			<div class="contact"><%=  @ownedGroup.email %></div>
+  			<div class="studydate"><%=  @ownedGroup.date %></div>
+  			<div class="location">
+  			  <i class="fa fa-map-marker fa-2x"></i>
+  			  <div class="loc-popup"><%=  @ownedGroup.location %></div>
+  			</div>			
+  	</div>
+  <% elsif !@ownedGroup.nil? && (@ownedGroup.groupSize == 0) %>
+    <div class = "studygroupdisplaycard ">
+  			<div class="groupsize"><%= @ownedGroup.groupSize %></div>
+  			<div class="availablespots">FULL</div>
+  			<div class="host"><%=  @ownedGroup.groupName %></div>
+  			<div class="creatorname"><%=  @ownedGroup.creatorName %></div>
+  			<div class="contact"><%=  @ownedGroup.email %></div>
+  			<div class="studydate"><%=  @ownedGroup.date %></div>
+  			<div class="location">
+  			  <i class="fa fa-map-marker fa-2x"></i>
+  			  <div class="loc-popup"><%=  @ownedGroup.location %></div>
+  			</div>			
+  	</div>
+  <!--% else %>-->
+  <!--  % redirect_to studygroup_path %>-->
+  <% end %>
 	
 	<h1>Group members: <%= @ownedGroup.thearray.join(', ') %></h1>
 	
 	<h1>Edit group:</h1>
+	  <div  class="col-md-6 col-md-offset-3">
 	<%= form_for(@ownedGroup, url: editGroup_path) do |f| %>
 	   <%= f.label :creatorName, "Change Name" %> <span class="required">*</span>
         <%= f.text_field :creatorName, class: 'form-control' %>
-        
+        <br>
+         <%= f.label :email, "Email address" %> <span class="required">*</span>
+        <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
+        <br>
         <%= f.label :date, "Date" %> <span class="required">*</span>
         <%= f.text_field :date, class: 'form-control' %>
-        
-        <%= f.label :location, "Location" %> <span class="required">*</span>
-        <%= f.text_field :location, placeholder: "Ex: La Crescenta Library, etc. ", class: 'form-control' %>
-        
+        <br>
+        <%= f.label :location, "Location (preferably a public location e.g. La Crescenta Library)" %> <span class="required">*</span>
+        <%= f.text_field :location, class: 'form-control' %>
+        <br>
         <%= f.label :groupSize, "Size of your group" %> <span class="required">*</span>
-         <%= f.text_field :groupSize, placeholder: "*Set above 100 if this doesn't matter", class: 'form-control' %>   
-       
-        <%= f.label :groupName, "What you want to study" %> <span class="required">*</span>
-        <%= f.text_field :groupName, placeholder: "Ex: AP Environmental Science", class: 'form-control' %>
+         <%= f.text_field :groupSize,  class: 'form-control' %>   
+       <br>
+        <%= f.label :groupName, "What you want to study (Ex: AP Calc AB test)" %> <span class="required">*</span>
+        <%= f.text_field :groupName,  class: 'form-control' %>
         <br>
         <%= f.label :time, "Time" %> <span class="required">*</span>
-        <%= f.text_field :time, placeholder: "6:30 p.m.", class: 'form-control', id: 'bottominput' %>
-         
-        <%= f.label :email, "Your email address" %> <span class="required">*</span>
-        <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
-        
+        <%= f.text_field :time, placeholder: "Ex: 6:30 p.m.", class: 'form-control', id: 'bottominput' %>
+         <br>
          <%= f.label :passkey, "Password (You'll need this to view details or delete your group)" %> <span class="required">*</span>
         <%= f.text_field :passkey, class: 'form-control', id: 'bottominput' %>
         
          <%= f.submit "Save changes", class: "btn btn-primary", id: "specialanimatedbutton" %>
 	<% end %>
+	</div>
             <!--</div>-->
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
 

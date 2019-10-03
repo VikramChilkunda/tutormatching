@@ -52,5 +52,5 @@ class Subject < ApplicationRecord
    # accepts_nested_attributes_for :tutor
     validates :name, presence: true
     validates :date, presence: true
-    validates :rate, presence: true
+    #validates :rate, presence: true
 end

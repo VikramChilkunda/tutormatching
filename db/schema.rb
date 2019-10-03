@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190920180618) do
+ActiveRecord::Schema.define(version: 20191002183929) do
 
   create_table "cv_subjects", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20190920180618) do
     t.boolean  "admin",           default: false
     t.string   "remember_digest"
     t.string   "adminKey"
+    t.boolean  "academy"
   end
 
   create_table "study_groups", force: :cascade do |t|
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(version: 20190920180618) do
     t.string   "name"
     t.string   "whichSubject"
     t.string   "time"
+    t.boolean  "invisible"
   end
 
   create_table "tutors", force: :cascade do |t|
@@ -83,6 +85,7 @@ ActiveRecord::Schema.define(version: 20190920180618) do
     t.integer  "people_id"
     t.integer  "grade"
     t.string   "adminOverride"
+    t.boolean  "academy"
     t.index ["people_id"], name: "index_tutors_on_people_id"
   end
 

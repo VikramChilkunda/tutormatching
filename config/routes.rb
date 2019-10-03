@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   #get '/subject', to: 'people#subject'
   get '/request', to: 'tutor_requests#new'
   post '/request', to: 'tutor_requests#create'
-  post '/requestdelete', to: 'tutor_requests#destroy'
+  delete '/requestdelete', to: 'tutor_requests#destroy'
   
   get '/import_from_excel', to: 'cvstudents#gohere'
   post 'import_from_excel' => "cvstudents#import_from_excel"

@@ -44,7 +44,12 @@
     </div>
   </nav>
   <% provide(:title, @person.name) %>
-  <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
+  <br>
+  <% if @person.academy %>
+    <h1 id="bob" style="font-size:3vw;">Profile - Tutor (Academy)</h1>
+  <% else %>
+    <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
+  <% end %>
   <div class="row">
     <aside class="col-md-4">
       <section class="tutor_info">
@@ -75,7 +80,9 @@
             <tr>
               <th class="tutoringsubject" style="width:43%", "position:absolute">Tutoring:</th>
               <th class="tutoringday" style="width:22%", "position:absolute">Day</th> 
-              <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
+               <% if !@person.academy %>
+                 <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
+              <% end %>
               <th class="tutoringoptions" style="width:24%", "position:absolute">Options</th>
             </tr>
             
@@ -86,9 +93,11 @@
                     <tr>
                       <th class="tutoringsubject" style="width:43%", "position:absolute"> <%= i.name %></th>
                       <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.date %></th> 
-                      <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
+                        <% if !@person.academy %>
+                            <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
+                        <% end %>
                       
-                      <th class="tutoringoptions" style="width: 24%"><%= link_to " Delete", subjectdelete_path(check: i.id), method: :destroy,
+                      <th class="tutoringoptions" class="delete" style="width: 24%"><%= link_to " Delete", subjectdelete_path(check: i.id), method: :destroy,
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
@@ -128,11 +137,12 @@
               <th class="requestemail" style="width:25%", "position:absolute">Email</th> 
               <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
               <th class="requestday" style="width:20%", "position:absolute">Day</th> 
+              <th class="requestday" style="width:20%", "position:absolute">Asked on</th> 
               <th class="requestday" style="width:20%", "position:absolute">Options</th> 
             </tr>
             
               <% TutorRequest.all.each do |i| %>
-                <% if i.name == Person.find_by(id: session[:tutor_id]).email %>
+                <% if (i.name == Person.find_by(id: session[:tutor_id]).email) && !i.invisible %>
                  
                   <table style="width:160%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
@@ -140,7 +150,8 @@
                       <th class="requestemail" style="width:25%", "position:absolute"> <%= i.email %></th> 
                       <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
                       <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
-                      <th class="tutoringoptions" style="width: 20%", "position:absolute"><%= link_to " Delete", request_path(check: i.id), method: :destroy,
+                      <th class="requestday" style="width:20%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
+                      <th class="tutoringoptions" class="delete" style="width: 20%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
@@ -164,7 +175,7 @@
           </div>
             <br>
             <!--replced your link_to with an a href-->
-           <a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)-->   
+           <a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)-->   
           </h1>
       </section>
     </aside>

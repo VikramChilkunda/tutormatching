@@ -37,6 +37,10 @@ class TutorsController < ApplicationController
       @tutor = @person.build_tutor
       @tutor.id_num = tutor_params[:id_num]
       @tutor.grade = tutor_params[:grade]
+      if tutor_params[:academy]
+        @tutor.update_attribute(:academy, true)
+        @person.update_attribute(:academy, true)
+      end
       #if tutor_params[:adminKey] != nil
         @tutor.adminOverride = tutor_params[:adminKey]
         #@person.adminKey = tutor_params[:adminKey]
@@ -82,7 +86,7 @@ class TutorsController < ApplicationController
   private 
   
     def tutor_params
-      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation, :adminKey)
+      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation, :adminKey, :academy)
     end
     def tutor_person
       TutorPerson.new(tutor_params)

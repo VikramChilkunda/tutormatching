@@ -55,11 +55,27 @@ class StudyGroupsController < ApplicationController
   
   def ownerGroup
     @ownedGroup = StudyGroup.find_by(passkey: group_params[:passkey], email: group_params[:email])
+    @adminLook = StudyGroup.find_by(email: group_params[:email])
     #flash[:success] = group_params[:email]
-    if @ownedGroup
+    @checker = false                                                 #CHECKER IS USED TO CHECK FOR AN ADMIN PASS CODE
+    Person.all.each do |i|
+      if group_params[:passkey] == i.adminKey
+       @checker = true
+      end
+    end
+    if @checker && !@adminLook.nil?
+       @group = StudyGroup.find_by(email: params[:ownerGroup])
+       @ownedGroup = @adminLook
+    elsif !@ownedGroup && !@checker
+      flash[:danger] = "Access denied"
+      redirect_to studygroup_path
      # redirect_to ownerGroup_path, ownerGroup: @ownerGroup.email
     end
-    @group = StudyGroup.find_by(email: params[:ownerGroup])
+     @group = StudyGroup.find_by(email: params[:ownerGroup])
+  end
+  
+  def destroy
+    
   end
 
   
