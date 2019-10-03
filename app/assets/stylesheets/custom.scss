@@ -57,7 +57,7 @@ button:focus{
 .large_content{
 	padding-bottom: 50px;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 150px;
 	// background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 	background-repeat: no-repeat;
@@ -71,7 +71,7 @@ button:focus{
 	color: white;
 	font-weight: bold;
 	font-family: Cabin;
-	font-size: 90px;
+	font-size: 5vw;
 	margin-bottom: 50px;
 	z-index: 100;
 }
@@ -302,6 +302,13 @@ a:hover{
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
+}
+.navbar-dark .navbar-nav .nav-link{
+	color: white !important;
+}
+.navbar-nav .active > .nav-link{
+	color: rgba(66, 135, 245, 1) !important;
+	font-weight: bold;
 }
 //end navbar
 
@@ -874,8 +881,8 @@ ul.tutors li img{
 	font-family: "Red Hat Text";
 	text-align: center;
 	font-size: 1vw;
-	background-color: #a434eb;
-	color: white;
+	background-color: #74aaee;
+	color: black;
 	padding: 10px;
 }
 .groupsize{
@@ -886,7 +893,7 @@ ul.tutors li img{
 	font-family: "Red Hat Text";
 	text-align: center;
 	font-size: 7vw;
-	background-color: #FFDF00;
+	background-color: cornflowerblue;
 	color: black;
 	padding: 20px;
 }
