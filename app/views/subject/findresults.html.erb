@@ -89,9 +89,19 @@
                 			<div class="date">
                 				<%= subjuctivo.date%>
                 			</div>
-                			<div class="rate">
-                				Rate: <%= subjuctivo.rate %>
-                			</div>
+                			<% if Person.find_by(id: subjuctivo.creatorid).academy %>
+                			  <div class="rate">
+                    			Academy Tutor - Free
+                  			</div>
+                  			<div class="location">
+                    			  <i class="fa fa-map-marker fa-2x"></i>
+                    			  <div class="loc-popup">CV Library</div>
+                    			</div>	
+                			<% else %>
+                  			<div class="rate">
+                  				Rate: <%= subjuctivo.rate %>
+                  			</div>
+                  		<% end %>
           
                       <div class="tutorsendrequest">
                             <%= form_tag(request_path(name: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name, time: subjuctivo.date), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->

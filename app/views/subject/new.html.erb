@@ -79,6 +79,8 @@
           <%= f.text_field :rate, class: 'form-control', value: "$" %><br>
       <% else %>
           <!-- automate rate to be $-1 (and on find page, if $ = -1 show academy/free -->
+          <% f.label :rate %>
+          <% f.text_field :rate, class: 'form-control', value: "$-1" %>
       <% end %>
   
       <div>
