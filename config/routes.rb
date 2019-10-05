@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   
   get '/import_from_excel', to: 'cvstudents#gohere'
   post 'import_from_excel' => "cvstudents#import_from_excel"
+  get '/clear', to: 'cvstudents#clear'
+  post '/clear', to: 'cvstudents#clear'
   
     
   get '/studygroup', to: 'study_groups#allgroups'
@@ -54,6 +56,8 @@ Rails.application.routes.draw do
   
   get '/accountDelete', to: 'people#destroy'
   delete '/accountDelete', to: 'people#destroy'
+  
+  get '/nope', to: 'static_pages#forbidden'
   
   resources :tutees
   

@@ -1,5 +1,6 @@
 class CvstudentsController < ApplicationController
-  
+   skip_before_filter :verify_authenticity_token  
+   
   def gohere
     
   end
@@ -27,9 +28,10 @@ class CvstudentsController < ApplicationController
     Cvstudent.all.each do |i|
       i.destroy
     end
+    redirect_back(fallback_location: import_from_excel_path)
   end
   
   def destroy
-    
+    Cvstudent.find(params[:id]).destroy
   end
 end
