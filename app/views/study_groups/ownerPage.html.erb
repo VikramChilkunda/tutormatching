@@ -56,19 +56,19 @@
     <h1>Enter password</h1>
 </div>
 <br>
+<center>
   <div  class="col-md-6 col-md-offset-3">
-<%= form_for(@ownedGroup, url: owner_path) do |f| %>
+    <%= form_for(@ownedGroup, url: owner_path) do |f| %>
+      <%= f.label :email, "Your email" %> <span class="required">*</span>
+      <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
       
-        <%= f.label :email, "Your email" %> <span class="required">*</span>
-        <%= f.text_field :email, class: 'form-control', id: 'bottominput' %>
-        
-         <%= f.label :passkey, "Password" %> <span class="required">*</span>
-        <%= f.text_field :passkey, class: 'form-control', id: 'bottominput' %>
-  
-        <%= f.submit "Find group", class: "btn btn-primary", id: "specialanimatedbutton" %>
-    <% end %>
-    </div>
+       <%= f.label :passkey, "Password" %> <span class="required">*</span>
+      <%= f.password_field :passkey, class: 'form-control', id: 'bottominput' %>
 
+      <%= f.submit "Find group", class: "btn btn-primary", id: "specialanimatedbutton" %>
+    <% end %>
+  </div>
+</center>
             <!--</div>-->
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
 
