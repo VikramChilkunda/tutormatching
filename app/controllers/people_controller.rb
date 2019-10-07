@@ -20,7 +20,17 @@ class PeopleController < ApplicationController
   end
   
   def show
-     @person = Person.find(params[:id])
+    
+      unless ((session[:tutor_id].to_s == params[:id]) || (Person.find(session[:tutor_id]).admin))             #make sure a person is only going to their profile or the user is an admin    session[:tutor_id] is an int and params[:id] is a string
+       flash[:danger] = "ACCESS DENIED" 
+       # flash[:danger] = session[:tutor_id]
+      # flash[:danger] = (session[:tutor_id].to_s == params[:id]), session[:tutor_id], params[:id]
+       # redirect_to home_path
+      
+       redirect_to nope_path, :overwrite_params => { :parm => 'foo' }
+        return
+      end
+    @person = Person.find(params[:id])
     # $knockout = params[:id]
    # debugger
   end

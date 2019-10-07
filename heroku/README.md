@@ -64,7 +64,7 @@ For other issues, [submit a support ticket](https://help.heroku.com/).
 * [`heroku notifications`](docs/notifications.md) - display notifications
 * [`heroku orgs`](docs/orgs.md) - manage organizations
 * [`heroku pg`](docs/pg.md) - manage postgresql databases
-* [`heroku pipelines`](docs/pipelines.md) - groups of apps that share the same codebase
+* [`heroku pipelines`](docs/pipelines.md) - manage pipelines
 * [`heroku plugins`](docs/plugins.md) - list installed plugins
 * [`heroku ps`](docs/ps.md) - Client tools for Heroku Exec
 * [`heroku psql`](docs/psql.md) - open a psql shell to the database
