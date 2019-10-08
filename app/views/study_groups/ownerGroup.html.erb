@@ -123,7 +123,12 @@
         
          <%= f.submit "Save changes", class: "btn btn-primary", id: "specialanimatedbutton" %>
 	<% end %>
+	 <%= link_to " Delete", @ownedGroup, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
+                                  
 	</div>
+	
+	 
             <!--</div>-->
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
 

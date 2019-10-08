@@ -75,7 +75,9 @@ class StudyGroupsController < ApplicationController
   end
   
   def destroy
-    
+    StudyGroup.find(params[:id]).destroy
+    flash[:success] = "Group deleted"
+    redirect_to studygroup_path
   end
 
   
