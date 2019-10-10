@@ -4,7 +4,7 @@ module SessionsHelper
   #  flash[:danger]="created"
  end
  
- def current_person?(person)s
+ def current_person?(person)
     person == current_person
  end
  
