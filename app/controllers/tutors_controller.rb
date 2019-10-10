@@ -48,7 +48,7 @@ class TutorsController < ApplicationController
       #end
           if @person.save && @tutor.save
             log_in @person
-            session[:tutor_id] = @person.id
+           # session[:tutor_id] = @person.id
             @tutor.update_attribute(:adminOverride, nil)
             flash[:success] = "Tutor signup successful!"
             redirect_to controller: "people", action: "show", id: @tutor.id
