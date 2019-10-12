@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   get '/owner', to: 'study_groups#ownerPage'
   post '/owner', to: 'study_groups#ownerGroup'
   post '/editGroup', to: 'study_groups#update'
-  delete '/study_groups', to: 'study_groups#destroy'
+ # delete '/study_group_delete', to: 'study_groups#destroy'
   
   post '/joinGroup', to: 'study_groups#joinGroup'
   
@@ -70,7 +70,7 @@ Rails.application.routes.draw do
   
   resources :account_activations, only: [:edit]
   
-  resources :study_group
+  resources :study_groups
   
   resources :tutor_request
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

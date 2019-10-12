@@ -1,4 +1,5 @@
 class StudyGroupsController < ApplicationController
+   before_action :is_owner, only: [:destroy]
   def new
     @study_groups = StudyGroup.new
   end
@@ -89,5 +90,12 @@ class StudyGroupsController < ApplicationController
     
     def um_params           # MOSTLY FOR JOIN GROUP METHOD - the .require in group_params caused issues with join group and so um_params was born
       params.permit(:creatorName, :date, :location, :groupSize, :groupName, :time, :email, :passkey, :thearray, :name)
+    end
+    
+    def is_owner
+      unless 1==1
+          flash[:danger] = "Please log in."
+          redirect_to ownerPage_url
+      end
     end
 end

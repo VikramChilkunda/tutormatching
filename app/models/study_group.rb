@@ -1,5 +1,5 @@
 class StudyGroup < ApplicationRecord
-    include ActiveModel::Model
+  #  include ActiveModel::Model
     serialize :thearray,Array
     #attr_accessor :creatorname, :date, :location, :groupSize, :groupName, :time
     

@@ -59,6 +59,11 @@ class PeopleController < ApplicationController
   
   def destroy
     if Person.find_by(id: session[:tutor_id]).admin?
+       Subject.all.each do |i|
+        if i.creatorid = params[:id]
+          i.update_attribute(:deletedSubject, true)
+        end
+      end
        Tutor.find_by(people_id: params[:id]).destroy
        Person.find(params[:id]).destroy
       flash[:success] = "Person deleted"
@@ -69,8 +74,8 @@ class PeopleController < ApplicationController
           i.update_attribute(:deletedSubject, true)
         end
       end
-    Tutor.find_by(people_id: params[:id]).destroy
-       Person.find(params[:id]).destroy
+      Tutor.find_by(people_id: params[:id]).destroy
+      Person.find(params[:id]).destroy
       flash[:success] = "Account deleted"
       session[:tutor_id] = false
       redirect_to home_path
