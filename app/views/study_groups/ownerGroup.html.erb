@@ -91,7 +91,8 @@
   <!--% else %>-->
   <!--  % redirect_to studygroup_path %>-->
   <% end %>
-	
+	 <%= link_to " Delete", delete_path(id: @ownedGroup.id), method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
 	<h1>Group members: <%= @ownedGroup.thearray.join(', ') %></h1>
 	
 	<h1>Edit group:</h1>
@@ -123,8 +124,7 @@
         
          <%= f.submit "Save changes", class: "btn btn-primary", id: "specialanimatedbutton" %>
 	<% end %>
-	 <%= link_to " Delete", @ownedGroup, method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
+	
                                   
 	</div>
 	
