@@ -87,7 +87,7 @@
             </tr>
             
               <% Subject.all.each do |i| %>
-                <% if ((i.creatorid == session[:tutor_id]) && (i.deletedSubject==false)) %>
+                <% if (i.creatorid == session[:tutor_id]) %>
                  
                   <table style="width:150%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
