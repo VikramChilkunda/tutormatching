@@ -142,7 +142,7 @@
             </tr>
             
               <% TutorRequest.all.each do |i| %>
-                <% if (i.name == Person.find_by(id: session[:tutor_id]).email) && !i.invisible %>
+                <% if (i.name == Person.find_by(id: session[:tutor_id]).email)%>
                  
                   <table style="width:160%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>

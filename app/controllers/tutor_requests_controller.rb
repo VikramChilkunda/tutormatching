@@ -23,7 +23,7 @@ class TutorRequestsController < ApplicationController
   
   def destroy
      TutorRequest.find(params[:check]).destroy
-     TutorRequest.find(params[:check]).update_attribute(:invisible, true)
+     #TutorRequest.find(params[:check]).update_attribute(:invisible, true)
       flash[:success] = "Request deleted"
       redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
   end

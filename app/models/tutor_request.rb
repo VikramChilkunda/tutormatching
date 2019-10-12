@@ -1,5 +1,5 @@
 class TutorRequest < ApplicationRecord
-    include ActiveModel::Model
+   # include ActiveModel::Model
     
     
     validates :student, presence: true

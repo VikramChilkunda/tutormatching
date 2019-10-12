@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191002183929) do
+ActiveRecord::Schema.define(version: 20191012204414) do
 
   create_table "cv_subjects", force: :cascade do |t|
     t.string   "name"
@@ -53,11 +53,10 @@ ActiveRecord::Schema.define(version: 20191002183929) do
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
     t.string   "date"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "rate"
     t.integer  "creatorid"
-    t.boolean  "deletedSubject"
   end
 
   create_table "tutees", force: :cascade do |t|
@@ -75,7 +74,6 @@ ActiveRecord::Schema.define(version: 20191002183929) do
     t.string   "name"
     t.string   "whichSubject"
     t.string   "time"
-    t.boolean  "invisible"
   end
 
   create_table "tutors", force: :cascade do |t|
