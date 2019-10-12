@@ -81,7 +81,7 @@ function connect(context, addonHost, dynoUser, privateKey, callback) {
   });
 }
 
-function ssh(context, dynoUser, tunnelHost, privateKey) {
+function ssh(context, dynoUser, tunnelHost, privateKey, proxyKey) {
   cli.hush("[cli-ssh] native")
   return new Promise((resolve, reject) => {
     temp.track();
@@ -90,26 +90,32 @@ function ssh(context, dynoUser, tunnelHost, privateKey) {
         fs.writeSync(info.fd, privateKey);
         fs.close(info.fd, function(err) {
           fs.chmodSync(`${info.path}`, "0700")
-          let sshCommand = "ssh " +
-            "-o UserKnownHostsFile=/dev/null " +
-            "-o StrictHostKeyChecking=no " +
-            "-o ServerAliveInterval=10 " +
-            "-o ServerAliveCountMax=3 " +
-            "-p 80 " +
-            `-i ${info.path} ` +
-            `${dynoUser}@${tunnelHost} `
+          temp.open('heroku-exec-proxy-key', function(err, proxyKeyFile) {
+            if (!err) {
+              fs.writeSync(proxyKeyFile.fd, `[${tunnelHost}]:80 ${proxyKey}`);
+              fs.close(proxyKeyFile.fd, function(err) {
+                let sshCommand = "ssh " +
+                  `-o UserKnownHostsFile=${proxyKeyFile.path} ` +
+                  "-o ServerAliveInterval=10 " +
+                  "-o ServerAliveCountMax=3 " +
+                  "-p 80 " +
+                  `-i ${info.path} ` +
+                  `${dynoUser}@${tunnelHost} `
 
-          if (context.args.length > 0 && context.args != 'bash') {
-            sshCommand = `${sshCommand} ${_buildCommand(context.args)}`
-          }
+                if (context.args.length > 0 && context.args != 'bash') {
+                  sshCommand = `${sshCommand} ${_buildCommand(context.args)}`
+                }
 
-          try {
-            child.execSync(sshCommand, { stdio: ['inherit', 'inherit', 'ignore' ] }
-            )
-          } catch (e) {
-            if (e.stderr) cli.hush(e.stderr)
-            cli.hush(`[cli-ssh] exit: ${e.status}, ${e.message}`)
-          }
+                try {
+                  child.execSync(sshCommand, { stdio: ['inherit', 'inherit', 'ignore' ] }
+                  )
+                } catch (e) {
+                  if (e.stderr) cli.hush(e.stderr)
+                  cli.hush(`[cli-ssh] exit: ${e.status}, ${e.message}`)
+                }
+              });
+            }
+          });
         });
       }
     });
