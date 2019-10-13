@@ -15,7 +15,7 @@ Admins:
   
       -Click "Clear CV Student List"
       
-      -Click choose file and select your excel sheet with the most up-to-date list of CV students. This is the list the website runs all          tutors against to ensure that they are CV students
+      -Click choose file and select your excel sheet with the most up-to-date list of CV students. This is the list the website runs all tutors against to ensure that they are CV students
       
       -Click Import
       
