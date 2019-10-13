@@ -50,9 +50,9 @@ Rails.application.routes.draw do
   post '/creategroup', to: 'study_groups#create'
   get '/owner', to: 'study_groups#ownerPage'
   post '/owner', to: 'study_groups#ownerGroup'
-  post '/editGroup', to: 'study_groups#update'
+  patch '/editGroup', to: 'study_groups#update'
+  #patch not post
  # delete '/study_group_delete', to: 'study_groups#destroy'
-  
   post '/joinGroup', to: 'study_groups#joinGroup'
   
   get '/accountDelete', to: 'people#destroy'
