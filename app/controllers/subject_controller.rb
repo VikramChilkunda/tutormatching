@@ -18,7 +18,7 @@ class SubjectController < ApplicationController
     @subject.date = subject_params[:date]
     @subject.rate = subject_params[:rate]
     @subject.creatorid = session[:tutor_id]
-    @subject.deletedSubject = false
+    #@subject.deletedSubject = false
     if @subject.save
       flash[:success] = "Created Subject"
       redirect_to Person.find_by(id: session[:tutor_id])
