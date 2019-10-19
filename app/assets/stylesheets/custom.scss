@@ -59,12 +59,9 @@ button:focus{
 	text-align: center;
 	padding-top: 150px;
 	// background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-<<<<<<< HEAD
 //	background-color: rgb(44, 54, 82);
-	background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-=======
+
 	background-image: url("https://images.pexels.com/photos/159752/pencil-office-design-creative-159752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
->>>>>>> f48ddca8e8075b1cc5e5097bc2d2ddcb766ee762
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
@@ -1169,4 +1166,11 @@ ul.tutors li img{
 	letter-spacing: 0;
 	font-size: 50px;
 	margin-bottom: 20px;
+}
+.profile{
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
 }
