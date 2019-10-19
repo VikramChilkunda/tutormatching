@@ -18,7 +18,7 @@ class SubjectController < ApplicationController
     @subject.date = subject_params[:date]
     @subject.rate = subject_params[:rate]
     @subject.creatorid = session[:tutor_id]
-    @subject.deletedSubject = false
+    #@subject.deletedSubject = false
     if @subject.save
       flash[:success] = "Created Subject"
       redirect_to Person.find_by(id: session[:tutor_id])
@@ -31,8 +31,8 @@ class SubjectController < ApplicationController
   
   def destroy 
    #Subject.find(session[:selected_subject_id]).destroy
-   # Subject.find(params[:id]).destroy
-    Subject.find(params[:check]).update_attribute(:deletedSubject, true)
+      # Subject.find(params[:check]).update_attribute(:deletedSubject, true)
+        Subject.find(params[:check]).destroy
     flash[:success] = "Subject deleted"
     #flash[:success] = Subject.find(params[:check]).deletedSubject
     

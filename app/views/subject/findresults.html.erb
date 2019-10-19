@@ -73,7 +73,7 @@
  	    <% else %>
    	    <% @subjuctivos.each do |subjuctivo| %>
    	        
-   	            <% if ((Person.find_by(id: subjuctivo.creatorid).nil?) || (subjuctivo.deletedSubject)) %>
+   	            <% if (Person.find_by(id: subjuctivo.creatorid).nil?)%>
    	              
    	            <% else %>
    	                <!--new thing vikram implemented on 8/26-->

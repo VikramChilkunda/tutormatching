@@ -37,9 +37,12 @@ class TutorsController < ApplicationController
       @tutor = @person.build_tutor
       @tutor.id_num = tutor_params[:id_num]
       @tutor.grade = tutor_params[:grade]
-      if tutor_params[:academy]
+      if tutor_params[:academy] == "true"
         @tutor.update_attribute(:academy, true)
         @person.update_attribute(:academy, true)
+      else
+        @tutor.update_attribute(:academy, false)
+        @person.update_attribute(:academy, false)
       end
       #if tutor_params[:adminKey] != nil
         @tutor.adminOverride = tutor_params[:adminKey]
@@ -48,9 +51,10 @@ class TutorsController < ApplicationController
       #end
           if @person.save && @tutor.save
             log_in @person
+           # session[:tutor_id] = @person.id
             @tutor.update_attribute(:adminOverride, nil)
             flash[:success] = "Tutor signup successful!"
-            redirect_to controller: "people", action: "show", id: @tutor.id
+            redirect_to controller: "people", action: "show", id: (@tutor.people_id)
           else 
             # flash[:error] = @tutor.errors.full_messages
             if @person.errors.any? || @tutor.errors.any?

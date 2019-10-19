@@ -1,7 +1,7 @@
 class Subject < ApplicationRecord
      belongs_to :tutor, foreign_key: :tutor_id, inverse_of: :person, optional:true
    # accepts_nested_attributes_for :person
-    include ActiveModel::Model
+    #include ActiveModel::Model
    #  attr_accessor :name, :date, :rate
     # def self.from_tutor_id(id)
     #     tutor = Tutor.find(id)

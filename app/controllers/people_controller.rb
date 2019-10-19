@@ -22,7 +22,8 @@ class PeopleController < ApplicationController
   def show
     
       unless ((session[:tutor_id].to_s == params[:id]) || (Person.find(session[:tutor_id]).admin))             #make sure a person is only going to their profile or the user is an admin    session[:tutor_id] is an int and params[:id] is a string
-       flash[:danger] = "ACCESS DENIED" 
+       #flash[:danger] = "ACCESS DENIED" 
+       
        # flash[:danger] = session[:tutor_id]
       # flash[:danger] = (session[:tutor_id].to_s == params[:id]), session[:tutor_id], params[:id]
        # redirect_to home_path
@@ -58,6 +59,11 @@ class PeopleController < ApplicationController
   
   def destroy
     if Person.find_by(id: session[:tutor_id]).admin?
+       Subject.all.each do |i|
+        if i.creatorid = params[:id]
+          i.update_attribute(:deletedSubject, true)
+        end
+      end
        Tutor.find_by(people_id: params[:id]).destroy
        Person.find(params[:id]).destroy
       flash[:success] = "Person deleted"
@@ -68,8 +74,8 @@ class PeopleController < ApplicationController
           i.update_attribute(:deletedSubject, true)
         end
       end
-    Tutor.find_by(people_id: params[:id]).destroy
-       Person.find(params[:id]).destroy
+      Tutor.find_by(people_id: params[:id]).destroy
+      Person.find(params[:id]).destroy
       flash[:success] = "Account deleted"
       session[:tutor_id] = false
       redirect_to home_path

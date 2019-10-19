@@ -25,7 +25,7 @@
         <%= f.email_field :email, placeholder: "example@gmail.com", class: 'form-control' %>
         
         <%= f.label :ID_Number %><span class="required">*</span>
-        <%= f.text_field :id_num, placeholder: "123456", class: 'form-control' %>
+        <%= f.password_field :id_num, placeholder: "123456", class: 'form-control' %>
         
         <!--% Cvstudent.all.each do |i| %>-->
         <!--  % if tutor_params[:id_num] == i.idnum %>-->
@@ -54,7 +54,7 @@
         <%= f.password_field :adminKey, class: 'form-control' %>
         
         <%= f.label "Academy member" %>
-        <%= f.check_box :academy, class: 'form-control' %>
+        <%= f.check_box :academy, {class: 'form-control'}, "true", "false"%>        <!--  checked_value = true, unchecked_value = false, -->
   
         <%= f.submit "Create my account", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>

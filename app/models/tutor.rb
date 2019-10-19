@@ -18,8 +18,8 @@ class Tutor < ApplicationRecord
                 @check = true
                # flash[:notice] = "thank god"
             end
-            puts "THIS IS WHAT YOU WANT" 
-            puts self.id_num
+           # puts "THIS IS WHAT YOU WANT" 
+          #  puts self.id_num
         end
         
         Person.all.each do |i|                                #if id doesn't exist, check if an admin key was provided (for a new student or someone not in database)
