@@ -1,43 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item" id="hmenu" onclick="openNav()">
-          	<div class="hmenu"> </div>
-          	<div class="hmenu"> </div>
-          	<div class="hmenu"> </div>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link"  id="active" href="/home">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-          	<a class="nav-link" href="/about">About</a>
-          </li>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/help">Help</a>
-          </li>
-          
-          <% if logged_in? %>
-          <li><%= link_to "Tutors", 'tutors_path' %></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_tutor %></li>
-              <li><%= link_to "Settings", edit_tutor_path(current_tutor) %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-        <% end %>
-      </ul>
-        
-        </ul>
-      <a class="navbar-brand" href="/home">CV Enterprises</a>
-    </div>
-  </nav>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <nav class="sidenav">
+		<i class="fa fa-bars fa-2x"></i>
+		<div class="side">
+			<i class="fa fa-times fa-2x"></i>
+			<li class="item"><a href="/home">Home</a></li>
+			<li class="item"><a href="/about">About</a></li>
+			<li class="item"><a href="/help">Help</a></li>
+			<li class="item"><a href="/studygroups">Study Groups</a></li>
+		</div>
+	</nav>
+</body>
