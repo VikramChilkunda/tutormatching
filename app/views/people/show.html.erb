@@ -131,14 +131,14 @@
         <h1>
         <div id="bob">
           <p style = "color:#fff; font-size: 2vw">Requests</p>
-        <table style="width:160%" id="VisualTable"> 
+        <table style="width:460%" id="VisualTable"> 
             <tr>
               <th class="requestname" style="width:16.1%", "position:absolute">Student name</th>
               <th class="requestemail" style="width:25%", "position:absolute">Email</th> 
               <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
               <th class="requestday" style="width:20%", "position:absolute">Day</th> 
               <th class="requestday" style="width:20%", "position:absolute">Asked on</th> 
-              <th class="requestday" style="width:20%", "position:absolute">Options</th> 
+              <th class="requestday" style="width:10%", "position:absolute">Options</th> 
             </tr>
             
               <% TutorRequest.all.each do |i| %>
@@ -151,7 +151,7 @@
                       <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
                       <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
                       <th class="requestday" style="width:20%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
-                      <th class="tutoringoptions" class="delete" style="width: 20%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
+                      <th class="tutoringoptions" class="delete" style="width: 10%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
@@ -176,10 +176,11 @@
             <br>
             <!--replced your link_to with an a href-->
             
-           <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)-->   -->
-         
+           <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)--> 
+          <span id="delete_button_profile">
          <%= link_to " Delete", accountDelete_path(id: Tutor.find_by(people_id: @person.id).id), method: :delete,
                                   data: { confirm: "Are you sure?" } %>
+          </span>
          
           </h1>
       </section>

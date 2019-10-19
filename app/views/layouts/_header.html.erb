@@ -11,7 +11,7 @@
 			<li class="item"><a href="/home">Home</a></li><br>
 			<li class="item"><a href="/about">About</a></li><br>
 			<li class="item"><a href="/help">Help</a></li><br>
-			<li class="item"><a href="/studygroups">Study Groups</a></li><br>
+			<li class="item"><a href="/studygroup">Study Groups</a></li><br>
 
 			<li class="item profile">
 			
@@ -23,7 +23,7 @@
                 <%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
             <% end %>
             <li class="divider"></li>
-            <li class = "dropdown-item">
+            <li class = "item">
              <%= link_to "Log out", logout_path, method: :delete %>
 				<% else %>
 				<% end %>

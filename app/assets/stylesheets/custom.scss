@@ -572,22 +572,17 @@ aside.col-md-4{
 #edit_profile{
 	width: 10em;
 }
-#not_taken{
-	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	// height: 180vh;
-}
 #martin{
 	 background-image: url("https://img1.akspic.com/image/114418-skyscraper-architect-modern_architecture-day-glass-1280x1024.jpg");
 	 background-size: 100%;
 }
 #not_taken{
 	height: 100vh;
-	background-image: url("https://fcit.usf.edu/matrix/wp-content/uploads/2016/12/blur-1866562_wide.jpg");
+	background-image: url("https://images.unsplash.com/photo-1460355976672-71c3f0a4bdac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
 	background-size: cover;
-	 height:100%;
-    overflow-y:auto;
+	// background-size: cover;
+	 //height:100%;
+    // overflow-y:auto;
 	//background: #12c2e9 !important;  /* fallback for old browsers */
 	//background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
 	//background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -872,11 +867,11 @@ ul.tutors li img{
 	width: 45vw;
 	height: 12.6vw;
 	margin: auto;
-	/* border: 1px solid black; */
-	background-color: #eee;
+	background-color: #fbfbfb;
 	position: relative;
-	box-shadow: 5px 5px 8px rgba(8, 26, 128, 0.7);
+	box-shadow: inset 0px 0px 3px rgba(8, 26, 128, 0.7);
 	margin-top: 40px;
+	border-radius: 20px;
 }
 .availablespots{
 	box-sizing: border-box;
@@ -887,9 +882,10 @@ ul.tutors li img{
 	font-family: "Red Hat Text";
 	text-align: center;
 	font-size: 1vw;
-	background-color: #74aaee;
+	background-color: cornflowerblue;
 	color: black;
 	padding: 10px;
+	border-bottom-left-radius: 20px;
 }
 .groupsize{
 	box-sizing: border-box;
@@ -902,6 +898,7 @@ ul.tutors li img{
 	background-color: cornflowerblue;
 	color: black;
 	padding: 20px;
+	border-top-left-radius: 20px;
 }
 .host{
 	float: left;
@@ -983,35 +980,35 @@ ul.tutors li img{
 
 .requestname{
 	width: 16vw;
-	font-size: 1.5625vw;
+	font-size: 1.3vw;
 }
 .requestday{
 	width: 25vw;
-	font-size: 1.5625vw;
+	font-size: 1.3vw;
 }
 .requestemail{
 	width: 20vw;
-	font-size: 1.5625vw;
+	font-size: 1.3vw;
 }
 .requestsubject{
 	width: 20vw;
-	font-size: 1.5625vw;
+	font-size: 1.3vw;
 }
 .tutoringsubject{
 	width: 43vw;
-	font-size: 1.5625vw;
+	font-size: 1.3vw;
 }
 .tutoringday{
-	width: 22vw;
-	font-size: 1.5625vw;
+	width: 23vw;
+	font-size: 1.3vw;
 }
 .tutoringrate{
 	width: 15vw;
-	font-size: 1.5625vw;	
+	font-size: 1.3vw;	
 }
 .tutoringoptions{
 	width: 24vw;
-	font-size: 1.5625vw;	
+	font-size: 1.3vw;	
 }
 #personnameandemail{
 	font-size: 2vw;
@@ -1041,29 +1038,27 @@ ul.tutors li img{
 	color: black !important;	
 }
 .studygroupdisplaycard{
-	width: 45vw;
-	height: 12.6vw;
-	margin: auto;
-	/* border: 1px solid black; */
-	background-color: #eee;
-	position: relative;
-	box-shadow: 10px 8px 8px rgba(8, 26, 128, 1);
-	margin-top: 40px;
+	
 }
 .studygroupdisplaycard:hover{
 	cursor: pointer;
 }
-.studygroupdisplaycard:hover .studygroupsendrequest{
+.studygroupdisplaycard:hover .studygroupsendrequest, input:focus .studygroupsendrequest{
 	visibility: visible;
 	transition: 0.2s;
 	transform: scaleX(1);
+}
+.popoutrequest{
+	visibility: visible !important;
+	transition: 0.2s !important;
+	transform: scaleX(1) !important;
 }
 .studygroupsendrequest{
 	// border: 1px solid black;
 	float: right;
 	height: 100%;
 	position: absolute;
-	left: 100%;
+	left: 98%;
 	top: 0px !important;
 	width: 15vw;
 	// padding-top: 0px;
@@ -1194,4 +1189,10 @@ ul.tutors li img{
 	left: 50%;
 	transform: translateX(-50%);
 	text-align: center;
+}
+/////
+
+#delete_button_profile a:hover{
+	text-decoration: none;
+	color: #007bff;
 }
