@@ -59,7 +59,7 @@ button:focus{
 	text-align: center;
 	padding-top: 150px;
 	// background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-	background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-image: url("https://images.pexels.com/photos/159752/pencil-office-design-creative-159752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
@@ -461,7 +461,7 @@ center{
 		width: 100vw;
 		padding-top: 0px;
 		padding-bottom: 50px;
-		background-image: url("https://images.pexels.com/photos/315938/pexels-photo-315938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+		background-image: url("https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 		// background-image: url("https://s3.envato.com/files/233994195/590x332.jpg");
 		background-repeat: no-repeat;
 		background-position: 20% 50%;
@@ -1098,5 +1098,69 @@ ul.tutors li img{
 	color: white !important;
 }
 
-
-
+//sidenav stuff
+.sidepopup h1{
+	padding-left: 0 !important;
+}
+.side{
+	height: 100vh;
+	width: 0;
+	background-color: rgba(0,0,0,1);
+	visibility: hidden;
+	transition: 0.2s ease-in-out;
+	position: absolute;
+	left: -25vw;
+	top: 0;
+	padding-top: 100px;
+}
+.sidepopup{
+	padding-top: 100px;
+	width: 25vw;
+	box-sizing: border-box;
+	visibility: visible;
+	transition: 0.2s linear;
+	left: 0;
+	text-align: center;
+	z-index: 9;
+}
+.fa-bars{
+	margin-left: 20px;
+	margin-top: 20px;
+	padding: 5px 8px;
+	// border: 2px solid black;
+	float: left;
+	color: white;
+	background-color: transparent;
+}
+.fa:hover{
+	cursor: pointer;
+}
+.fa-times{
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	color: rgba(235, 64, 52, 1);
+}
+.item{
+	z-index: 10;
+	text-transform: uppercase;
+	color: rgba(235, 64, 52, 1);
+	font-weight: bold;
+	font-size: 50px;
+	list-style: none;
+	margin-bottom: 50px;
+}
+.item a{
+	color: rgba(255,255,255,1);
+	font-family: "Cabin";
+	text-decoration: none;
+	letter-spacing: 0em;
+}
+.brand{
+	color: rgba(50, 168, 141, 1);
+	font-family: "Cabin";
+	text-decoration: none;
+	letter-spacing: 0;
+	font-size: 50px;
+	margin-bottom: 20px;
+}
