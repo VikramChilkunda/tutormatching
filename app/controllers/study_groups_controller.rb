@@ -64,15 +64,21 @@ class StudyGroupsController < ApplicationController
        @checker = true
       end
     end
-    if @checker && !@adminLook.nil?
-       @group = StudyGroup.find_by(email: params[:ownerGroup])
+    if (@checker && @adminLook) 
+      # @group = StudyGroup.find_by(email: params[:ownerGroup])
        @ownedGroup = @adminLook
-    elsif !@ownedGroup && !@checker
-      flash[:danger] = "Access denied"
+    elsif @checker
+      flash[:danger] = "Email entered does not own a group"
       redirect_to studygroup_path
+    elsif @ownedGroup 
+       @ownedGroup
      # redirect_to ownerGroup_path, ownerGroup: @ownerGroup.email
+    else
+     flash[:danger] = "Access denied"
+      redirect_to studygroup_path
     end
-     @group = StudyGroup.find_by(email: params[:ownerGroup])
+    
+    # @group = StudyGroup.find_by(email: params[:ownerGroup])
   end
   
   def destroy
