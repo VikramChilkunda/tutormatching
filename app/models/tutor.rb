@@ -30,7 +30,7 @@ class Tutor < ApplicationRecord
             #puts self.adminOverride
         end
         if !@check
-            puts "I AM A BOT"
+            puts "EITHER STUDENT ID IS INVALID OR ADMIN KEY IS INVALID (IF IT WAS ENTERED)"
            # redirect_to controller: 'tutors', action: 'idInvalid'
             throw(:abort)
         end
@@ -52,7 +52,7 @@ class Tutor < ApplicationRecord
             end
         end
         if @check == false
-           puts "AWW MAN IM THE ERROR"
+           puts "NO VALID ADMIN KEY ENTERED"
            return true
         end
     end

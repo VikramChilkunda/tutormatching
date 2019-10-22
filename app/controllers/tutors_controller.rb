@@ -26,6 +26,9 @@ class TutorsController < ApplicationController
     Person.all.each do |i|
       if i.email == tutor_params[:email]
         @checker = true
+        puts "IM LOOOKING FOR YOUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+      #  puts i.email
+      #  puts tutor_params[:email]
       end
     end
     if !@checker
@@ -38,20 +41,32 @@ class TutorsController < ApplicationController
       @tutor.id_num = tutor_params[:id_num]
       @tutor.grade = tutor_params[:grade]
       if tutor_params[:academy] == "true"
-        @tutor.update_attribute(:academy, true)
-        @person.update_attribute(:academy, true)
+        @tutor.academy = true
+        @person.academy = true
       else
-        @tutor.update_attribute(:academy, false)
-        @person.update_attribute(:academy, false)
+         @tutor.academy = false
+        @person.academy = false
       end
+      # if tutor_params[:academy] == "true"
+      #   @tutor.update_attribute(:academy, true)
+      #   @person.update_attribute(:academy, true)
+      # else
+      #   @tutor.update_attribute(:academy, false)
+      #   @person.update_attribute(:academy, false)
+      # end
+      
       #if tutor_params[:adminKey] != nil
         @tutor.adminOverride = tutor_params[:adminKey]
         #@person.adminKey = tutor_params[:adminKey]
         #flash[:notice] = tutor_params[:adminKey]
       #end
-          if @person.save && @tutor.save
+      
+      
+      # UNCOMMENT HERE
+          if (@tutor.save && @person.save)
+            #puts "MY NAME IS BOB JEFFERONI PEPPERONIIIIIIIII"
             log_in @person
-           # session[:tutor_id] = @person.id
+          # session[:tutor_id] = @person.id
             @tutor.update_attribute(:adminOverride, nil)
             flash[:success] = "Tutor signup successful!"
             redirect_to controller: "people", action: "show", id: (@tutor.people_id)
@@ -63,10 +78,13 @@ class TutorsController < ApplicationController
               flash[:danger] = "Invalid ID"
               render 'new'
             end
-           # flash[:notice] = "hibye"        
+          # flash[:notice] = "hibye"        
           end
+          
+      # STOP UNCOMMENTING HERE
     else
-      flash[:danger] = "Email taken"
+     flash[:danger] = "Email taken"
+     #flash[:danger] = tutor_params[:email]
       render 'new'
     end
     
