@@ -21,6 +21,14 @@ class TutorRequestsController < ApplicationController
     end
   end
   
+  def makeAccepted
+    if accept_params[:accepted] == true
+      TutorRequest.find(params[:id]).update_attribute(:accepted, true)
+      redirect_to person_show_path
+    end
+    redirect_to person_show_path
+  end
+  
   def destroy
      TutorRequest.find(params[:check]).destroy
      #TutorRequest.find(params[:check]).update_attribute(:invisible, true)
@@ -31,5 +39,8 @@ class TutorRequestsController < ApplicationController
   private
     def request_params
       params.require(:tutor_request).permit(:student, :email, :name, :whichSubject, :time)
+    end
+    def accept_params
+      params.permit(:accepted)
     end
 end

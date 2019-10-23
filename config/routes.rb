@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get '/request', to: 'tutor_requests#new'
   post '/request', to: 'tutor_requests#create'
   delete '/requestdelete', to: 'tutor_requests#destroy'
+  post '/accepted', to: 'tutor_requests#makeAccepted'
   
   get '/import_from_excel', to: 'cvstudents#gohere'
   post 'import_from_excel' => "cvstudents#import_from_excel"
