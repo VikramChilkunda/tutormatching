@@ -771,6 +771,8 @@ ul.tutors li img{
 	font-size: 8vw;
 	background-color: cornflowerblue;
 	padding: 10px;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
 }
 .tutorname{
 	float: left;
@@ -808,7 +810,7 @@ ul.tutors li img{
 	float: right;
 	height: 100%;
 	position: absolute;
-	left: 100%;
+	left: 97%;
 	top: 0px !important;
 	width: 15vw;
 	// padding-top: 0px;
