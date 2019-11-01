@@ -60,8 +60,13 @@ class PeopleController < ApplicationController
   def destroy
     if Person.find_by(id: session[:tutor_id]).admin?                 #FOR ADMINS DELETING A TUTOR
        Subject.all.each do |i|
-        if i.creatorid = params[:id]
+        if i.creatorid == params[:id]
           i.destroy
+        end
+        TutorRequest.all.each do |i|
+          if i.name == Person.find(params[:id]).name
+            i.destroy
+          end
         end
       end
        Tutor.find_by(people_id: params[:id]).destroy
@@ -70,10 +75,15 @@ class PeopleController < ApplicationController
       redirect_to people_url
     else                                                             #FOR TUTORS DELETING THEIR OWN ACCOUNT
       Subject.all.each do |i|
-        if i.creatorid = params[:id]
+        if i.creatorid == params[:id]
           i.destroy
         end
       end
+       TutorRequest.all.each do |i|
+        if i.name == Person.find(params[:id]).name
+          i.destroy
+        end
+       end
       Tutor.find_by(people_id: params[:id]).destroy
       Person.find(params[:id]).destroy
       flash[:success] = "Account deleted"

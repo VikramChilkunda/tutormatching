@@ -5,44 +5,45 @@
   	
 </head>
 <body id="not_taken" style="font-family: Signika; background-color: black;">
-  <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-        	<a class="nav-link" href="/about">About</a>
-        </li>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/help">Help</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/studygroup">Study Group</a>
-        </li>
+  <%= render "layouts/header" %>
+  <!--<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">-->
+  <!--  <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+  <!--    <ul class="navbar-nav mr-auto">-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--      	<a class="nav-link" href="/about">About</a>-->
+  <!--      </li>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link" href="/help">Help</a>-->
+  <!--      </li>-->
+  <!--      <li class="nav-item">-->
+  <!--        <a class="nav-link" href="/studygroup">Study Group</a>-->
+  <!--      </li>-->
         
         <!--<li class="nav-item">-->
         <!--  <li><%= link_to "Tutor", '#' %></li> -->
         <!--</li>-->
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account
-            </button>
-          <ul class="dropdown-menu">
-            <li class = "dropdown-item"><%= link_to "Profile", current_person %></li>
-            <li class = "dropdown-item"><%= link_to "Settings", edit_person_path(@person) %></li>
-            <li class="divider"></li>
-            <li class = "dropdown-item">
-              <%= link_to "Log out", logout_path, method: :delete %>
-            </li>
-          </ul>
-      </ul>
-      <a class="navbar-brand" href="/home">CV Enterprises</a>
-    </div>
-      </ul>
-    </div>
-  </nav>
+  <!--      <div class="dropdown">-->
+  <!--          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+  <!--            Account-->
+  <!--          </button>-->
+  <!--        <ul class="dropdown-menu">-->
+  <!--          <li class = "dropdown-item"><%= link_to "Profile", current_person %></li>-->
+  <!--          <li class = "dropdown-item"><%= link_to "Settings", edit_person_path(@person) %></li>-->
+  <!--          <li class="divider"></li>-->
+  <!--          <li class = "dropdown-item">-->
+  <!--            <%= link_to "Log out", logout_path, method: :delete %>-->
+  <!--          </li>-->
+  <!--        </ul>-->
+  <!--    </ul>-->
+  <!--    <a class="navbar-brand" href="/home">CV Enterprises</a>-->
+  <!--  </div>-->
+  <!--    </ul>-->
+  <!--  </div>-->
+  <!--</nav>-->
   <% provide(:title, @person.name) %>
   <br>
   <% if @person.academy %>
@@ -57,8 +58,10 @@
           <div id="bob">
           <p style="	font-size: 2vw"><%= @person.name %> (<%= @person.email %>) </p>
           <div><p></p></div>
-          
-          <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff; font-size: 2vw;"} %> <!--Edit:'(@oerson)' is redundant after edit_person_path because the edit method in people_controller defines @person -->
+          <span id="editprofile">
+          <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff; font-size: 2vw;"} %>
+          </span><!--Edit:'(@oerson)' is redundant after
+          edit_person_path because the edit method in people_controller defines @person -->
 
           <!--<button class="btn btn-warning" id="edit_profile">-->
 
@@ -154,7 +157,7 @@
                       <th class="requestday" style="width:20%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
                       <th class="tutoringoptions" class="delete" style="width: 10%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %></th>
-                       <th class="tutoringoptions" style="width: 10%", "position:absolute"><%= check_box("Accepted", :accepted, {}, true, false) %></th>
+                       <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= check_box("Accepted", :accepted, {method: accepted_path}, true, false) %></th>
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
                      
@@ -180,7 +183,7 @@
             
            <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)--> 
           <span id="delete_button_profile">
-         <%= link_to " Delete", accountDelete_path(id: Tutor.find_by(people_id: @person.id).id), method: :delete,
+         <%= link_to " Delete Account", accountDelete_path(id: Tutor.find_by(people_id: @person.id).id), method: :delete,
                                   data: { confirm: "Are you sure?" } %>
           </span>
          
