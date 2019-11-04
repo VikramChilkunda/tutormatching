@@ -24,7 +24,7 @@ module SessionsHelper
  end
  
  def logged_in?
-  !current_tutor.nil?
+  !current_tutor.nil?                    
  end
  
  def log_out
