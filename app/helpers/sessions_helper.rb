@@ -10,7 +10,7 @@ module SessionsHelper
  
  def current_tutor
    if session[:tutor_id]
-    @current_tutor ||= Tutor.find_by(id: session[:tutor_id])
+    @current_tutor ||= Tutor.find_by(people_id: session[:tutor_id])
    end
    
  end
@@ -19,7 +19,7 @@ module SessionsHelper
    if session[:id]
      @current_person ||= Person.find_by(id: session[:id])
    else
-     @current_person ||= Person.first
+    ## @current_person ||= Person.first
    end
  end
  
