@@ -2,10 +2,8 @@
 
 const child = require('child_process');
 const cli = require('heroku-cli-util');
-const co = require('co');
 const Client = require('ssh2').Client;
-const https = require('https')
-const url = require('url');
+const crypto = require('crypto');
 const tty = require('tty')
 const stream = require('stream')
 const fs = require('fs')
@@ -13,7 +11,7 @@ const socks = require('@heroku/socksv5');
 const progress = require('smooth-progress')
 const temp = require('temp')
 
-function connect(context, addonHost, dynoUser, privateKey, callback) {
+function connect(context, addonHost, dynoUser, privateKey, proxyKey, callback) {
   return new Promise((resolve, reject) => {
     var conn = new Client();
     cli.hush("[cli-ssh] created")
@@ -70,8 +68,8 @@ function connect(context, addonHost, dynoUser, privateKey, callback) {
       }
       reject
     }).connect({
+      ..._connectionDefaults(proxyKey),
       host: addonHost,
-      port: 80,
       username: dynoUser,
       privateKey: privateKey,
       keepaliveInterval: 10000,
@@ -81,7 +79,7 @@ function connect(context, addonHost, dynoUser, privateKey, callback) {
   });
 }
 
-function ssh(context, dynoUser, tunnelHost, privateKey, proxyKey) {
+function ssh(context, addonHost, dynoUser, privateKey, proxyKey) {
   cli.hush("[cli-ssh] native")
   return new Promise((resolve, reject) => {
     temp.track();
@@ -92,7 +90,7 @@ function ssh(context, dynoUser, tunnelHost, privateKey, proxyKey) {
           fs.chmodSync(`${info.path}`, "0700")
           temp.open('heroku-exec-proxy-key', function(err, proxyKeyFile) {
             if (!err) {
-              fs.writeSync(proxyKeyFile.fd, `[${tunnelHost}]:80 ${proxyKey}`);
+              fs.writeSync(proxyKeyFile.fd, `[${addonHost}]:80 ${proxyKey}`);
               fs.close(proxyKeyFile.fd, function(err) {
                 let sshCommand = "ssh " +
                   `-o UserKnownHostsFile=${proxyKeyFile.path} ` +
@@ -100,7 +98,7 @@ function ssh(context, dynoUser, tunnelHost, privateKey, proxyKey) {
                   "-o ServerAliveCountMax=3 " +
                   "-p 80 " +
                   `-i ${info.path} ` +
-                  `${dynoUser}@${tunnelHost} `
+                  `${dynoUser}@${addonHost} `
 
                 if (context.args.length > 0 && context.args != 'bash') {
                   sshCommand = `${sshCommand} ${_buildCommand(context.args)}`
@@ -122,7 +120,7 @@ function ssh(context, dynoUser, tunnelHost, privateKey, proxyKey) {
   });
 }
 
-function scp(context, addonHost, dynoUser, privateKey, src, dest) {
+function scp(context, addonHost, dynoUser, privateKey, proxyKey, src, dest) {
   return new Promise((resolve, reject) => {
     var conn = new Client();
     conn.on('ready', function() {
@@ -159,8 +157,8 @@ function scp(context, addonHost, dynoUser, privateKey, src, dest) {
         });
       });
     }).on('error', reject).connect({
+      ..._connectionDefaults(proxyKey),
       host: addonHost,
-      port: 80,
       username: dynoUser,
       privateKey: privateKey
     });
@@ -212,7 +210,7 @@ function _readStdin (c) {
   }
 }
 
-function socksv5(ssh_config, callback) {
+function socksv5(context, addonHost, dynoUser, privateKey, proxyKey, callback) {
   var socksPort = 1080;
   socks.createServer(function(info, accept, deny) {
     var conn = new Client();
@@ -237,7 +235,12 @@ function socksv5(ssh_config, callback) {
       });
     }).on('error', function(err) {
       deny();
-    }).connect(ssh_config);
+    }).connect({
+      ..._connectionDefaults(proxyKey),
+      host: addonHost,
+      username: dynoUser,
+      privateKey: privateKey
+    });
   }).listen(socksPort, 'localhost', function() {
     console.log(`SOCKSv5 proxy server started on port ${cli.color.white.bold(socksPort)}`);
     if (callback) callback(socksPort);
@@ -258,6 +261,18 @@ function _buildCommand (args) {
     cmd = cmd + ' ' + arg
   }
   return cmd.trim()
+}
+
+function _connectionDefaults(proxyKey) {
+  return {
+    port: 80,
+    hostHash: 'sha256',
+    hostVerifier: function(hashedKey) {
+      var hasher = crypto.createHash('sha256');
+      hasher.update(Buffer.from(proxyKey.split(' ')[1], 'base64'));
+      return hasher.digest('hex') === hashedKey
+    }
+  }
 }
 
 module.exports = {
