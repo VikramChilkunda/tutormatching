@@ -14,8 +14,8 @@ class PeopleController < ApplicationController
   end
   
   def edit
-     @tutor = Tutor.find(params[:id])
-     @person = Person.find(@tutor.people_id)
+     @tutor = Tutor.find_by(people_id: params[:id])
+     @person = Person.find(params[:id])
      @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
   end
   

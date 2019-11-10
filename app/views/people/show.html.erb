@@ -157,7 +157,8 @@
                       <th class="requestday" style="width:15%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
                       <th class="tutoringoptions" class="delete" style="width: 10%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %></th>
-                       <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= check_box("Accepted", :accepted, {method: accepted_path}, true, false) %></th>
+                       <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= link_to "Yes", accepted_path, data: { confirm: "Are you sure?" } %> | <%= link_to "No", accepted_path, data: { confirm: "Are you sure?" } %></th>
+              
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
                      
@@ -183,7 +184,7 @@
             
            <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)--> 
           <span id="delete_button_profile">
-         <%= link_to " Delete Account", accountDelete_path(id: Tutor.find_by(people_id: @person.id).id), method: :delete,
+         <%= link_to " Delete Account", accountDelete_path(id: @person.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %>
           </span>
          

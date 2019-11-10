@@ -10,7 +10,6 @@ const forge = require('node-forge');
 const socks = require('@heroku/socksv5');
 const ssh = require('./ssh')
 const wait = require('co-wait')
-const Client = require('ssh2').Client;
 
 function * checkStatus(context, heroku, configVars) {
   let dynos = yield heroku.request({path: `/apps/${context.app}/dynos`})
@@ -168,16 +167,12 @@ function updateClientKey(context, heroku, configVars, callback) {
 
 
 function createSocksProxy(context, heroku, configVars, callback) {
-  return updateClientKey(context, heroku, configVars, function(key, dyno, response) {
+  return updateClientKey(context, heroku, configVars, function(privateKey, dyno, response) {
     cli.hush(response.body);
     var json = JSON.parse(response.body);
-    var user = json['client_user']
-    var host = json['tunnel_host']
-    var port = 80
-    var dyno_ip = json['dyno_ip']
 
-    ssh.socksv5({ host: host, port: port, username: user, privateKey: key }, function(socks_port) {
-      if (callback) callback(dyno_ip, dyno, socks_port)
+    ssh.socksv5(context, json['tunnel_host'], json['client_user'], privateKey, json['proxy_public_key'], function(socks_port) {
+      if (callback) callback(json['dyno_ip'], dyno, socks_port)
       else cli.log(`Use ${cli.color.magenta('CTRL+C')} to stop the proxy`)
     });
   })
