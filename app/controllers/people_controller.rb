@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   before_action :admin_person,     only: [:destroy, :index, :excel, :adminPage]
   
   def index
-    @people = Person.paginate(page: params[:page])
+    @people = Person.paginate(page: params[:page]).order(:name)
   end
   
   def new
