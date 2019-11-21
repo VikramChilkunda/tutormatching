@@ -1,5 +1,7 @@
 class Subject < ApplicationRecord
      belongs_to :tutor, foreign_key: :tutor_id, inverse_of: :person, optional:true
+     
+     serialize :days,Array
    # accepts_nested_attributes_for :person
     #include ActiveModel::Model
    #  attr_accessor :name, :date, :rate

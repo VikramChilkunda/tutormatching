@@ -13,19 +13,31 @@ class SubjectController < ApplicationController
     # @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
     
     #@subject = @tutor.build_subject
-    @subject = Subject.new     
-    @subject.name = subject_params[:name]
-    @subject.date = subject_params[:date]
-    @subject.rate = subject_params[:rate]
-    @subject.creatorid = session[:tutor_id]
-    #@subject.deletedSubject = false
-    if @subject.save
-      flash[:success] = "Created Subject"
-      redirect_to Person.find_by(id: session[:tutor_id])
-    else
-      #flash[:error] = @subject.errors.full_messages
-     # redirect_back(fallback_location: '/home')
-      render 'new'
+    @appended = false
+    Subject.all.each do |i|
+      if((subject_params[:name] == i.name) && (subject_params[:rate] == i.rate))
+        @appended = true
+        i.update_attribute(:days, i.days << subject_params[:date])
+        flash[:success] = "Created Subject thanks"
+        redirect_to Person.find_by(id: session[:tutor_id])           
+      end
+    end
+    if !@appended
+      @subject = Subject.new     
+      @subject.name = subject_params[:name]
+      @subject.date = subject_params[:date]
+      @subject.rate = subject_params[:rate]
+      @subject.creatorid = session[:tutor_id]
+      @subject.days << subject_params[:date]
+      #@subject.deletedSubject = false
+      if @subject.save
+        flash[:success] = "Created Subject"
+        redirect_to Person.find_by(id: session[:tutor_id])
+      else
+        #flash[:error] = @subject.errors.full_messages
+       # redirect_back(fallback_location: '/home')
+        render 'new'
+      end
     end
   end
   
