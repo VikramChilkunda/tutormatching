@@ -7,9 +7,11 @@ $(document).on('turbolinks:load', function() {
     });
     $("input").focus(function(){
         $(".studygroupsendrequest").toggleClass("popoutrequest");
+        $(".tutorsendrequest").toggleClass("popoutrequest");
     });
     $("input").focusout(function(){
         $(".studygroupsendrequest").toggleClass("popoutrequest");
+        $(".tutorsendrequest").toggleClass("popoutrequest");
     });
 });
  
