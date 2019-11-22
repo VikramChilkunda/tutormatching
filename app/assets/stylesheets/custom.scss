@@ -544,13 +544,18 @@ center{
 	}
 	.side{
 		font-size: 8vw !important;
+		display: flex;
+	    align-items: center;
+	    padding-top: 0 !important;
 	}
 	.fa-times{
 		font-size: 5.6vw !important;
 	}
 	.sidepopup{
 		width: 100vw !important;
-		padding: 10vw !important;
+		padding-left: 9vh !important;
+		padding-right: 9vh !important;
+		// padding-top: 60px !important;
 		font-size: 8vw !important;
 	}
 	.sidepopup .item, .side .item{
@@ -558,6 +563,9 @@ center{
 	}
 	.item{
 		margin-bottom: 10vw !important;
+	}
+	#studygroups_link{
+		display: none;
 	}
 }
 @media screen and (max-width: 667px){
@@ -1140,11 +1148,12 @@ ul.tutors li img{
 	position: absolute;
 	left: -25vw;
 	top: 0;
-	padding-top: 100px;
+	padding-top: 60px;
 }
 .sidepopup{
-	padding-top: 100px;
-	width: 25vw;
+	padding: 1vw;
+	padding-top: 6vw;
+	width: 30vw;
 	box-sizing: border-box;
 	visibility: visible;
 	transition: 0.2s linear;
@@ -1207,6 +1216,9 @@ ul.tutors li img{
 	font-weight: 600;
 	text-decoration: none;
 	letter-spacing: 0em;
+}
+.item_container{
+	margin: auto;
 }
 .brand{
 	color: rgba(50, 168, 141, 1);
