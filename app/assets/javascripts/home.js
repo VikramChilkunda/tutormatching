@@ -5,6 +5,9 @@ $(document).on('turbolinks:load', function() {
     $(".fa-times").on("click", function(){
         $(".side").removeClass("sidepopup");
     });
+    $(".item").on("click", function(){
+        $(".side").removeClass("sidepopup");
+    })
     $("input").focus(function(){
         $(".studygroupsendrequest").toggleClass("popoutrequest");
         $(".tutorsendrequest").toggleClass("popoutrequest");

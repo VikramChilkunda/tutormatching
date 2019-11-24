@@ -22,27 +22,25 @@
  <% if !StudyGroup.find(i).nil? && i.groupSize > 0 %>
      <!--new thing vikram implemented on 8/26-->
     <div class = "studygroupdisplaycard searchresultslargecontainer">
-			<div class="groupsize"><%= i.groupSize %></div>
-			<div class="availablespots">Spots available</div>
-			<div class="host"><%= i.groupName %></div>
-			<div class="creatorname"><%= i.creatorName %></div>
-			<div class="contact"><%= i.email %></div>
-			<div class="studydate"><%= i.date %></div>
-			<div class="location">
-			  <i class="fa fa-map-marker fa-2x"></i>
-			  <div class="loc-popup"><%= i.location %></div>
-			</div>			
-	
-		
-		  <div class="studygroupsendrequest">
-         <%= form_tag(joinGroup_path(email: i.email), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
-         <div><p></p></div>
-          <h4 class="findatutor_heading">Join group: </h4>
-          <input autocomplete="off" type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
-          <input autocomplete="off" type="text" name="name" id="name" placeholder="Your name"  class = "form-control"><br> 
-          <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
-          <% end %>
-      </div>
+		<div class="groupsize"><%= i.groupSize %></div>
+		<div class="availablespots">Spots Open</div>
+		<div class="host"><%= i.groupName %></div>
+		<div class="creatorname"><%= i.creatorName %></div>
+		<div class="contact"><%= i.email %></div>
+		<div class="studydate"><%= i.date %></div>
+		<div class="location">
+		  <i class="fa fa-map-marker fa-2x"></i>
+		  <div class="loc-popup"><%= i.location %></div>
+		</div>			
+        <div class="studygroupsendrequest">
+            <%= form_tag(joinGroup_path(email: i.email), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
+                <div><p></p></div>
+                <h4 class="findatutor_heading">Join group: </h4>
+                <input autocomplete="off" type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
+                <input autocomplete="off" type="text" name="name" id="name" placeholder="Your name"  class = "form-control"><br> 
+                <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
+            <% end %>
+        </div>
     </div>
     <br>
   <% elsif i.groupSize == 0 %>
