@@ -16,7 +16,7 @@
 
 			<li class="item profile">
 			
-				<% if Person.find_by(id: session[:tutor_id]) %>
+				<% if session[:tutor_id] && Person.find_by(id: session[:tutor_id]) %>
 				 		<i class="fa fa-user"></i>
 						<% if Person.find_by(id: session[:tutor_id]).admin? %>
               				<a href="/adminPage">Profile</a>

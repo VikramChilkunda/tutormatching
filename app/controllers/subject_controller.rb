@@ -15,14 +15,15 @@ class SubjectController < ApplicationController
     #@subject = @tutor.build_subject
     @appended = false
     Subject.all.each do |i|
-      if((subject_params[:name] == i.name) && (subject_params[:rate] == i.rate))
+      if((subject_params[:name] == i.name) && (subject_params[:rate] == i.rate) && (i.creatorid == session[:tutor_id]))
         @appended = true
         i.update_attribute(:days, i.days << subject_params[:date])
-        flash[:success] = "Created Subject thanks"
-        redirect_to Person.find_by(id: session[:tutor_id])           
+        flash[:success] = (i.date)
       end
     end
-    if !@appended
+    if @appended    
+      redirect_to Person.find_by(id: session[:tutor_id])     
+    elsif !@appended
       @subject = Subject.new     
       @subject.name = subject_params[:name]
       @subject.date = subject_params[:date]
