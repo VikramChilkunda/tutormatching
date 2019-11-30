@@ -10,6 +10,7 @@
    
 <div class="large_content" id="large_content" style="background-position: 30% 37%; height: ">
     <h1>Study groups</h1>
+    <p style="max-width: 100%">Click on a card to join a group</p><br>
     <a href="/creategroup">
       <button type="button" class="btn btn-primary" id="createsubjectbutton">Create Group</button>
     </a>
@@ -32,14 +33,17 @@
 		  <i class="fa fa-map-marker fa-2x"></i>
 		  <div class="loc-popup"><%= i.location %></div>
 		</div>			
-        <div class="studygroupsendrequest">
-            <%= form_tag(joinGroup_path(email: i.email), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
-                <div><p></p></div>
-                <h4 class="findatutor_heading">Join group: </h4>
-                <input autocomplete="off" type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
-                <input autocomplete="off" type="text" name="name" id="name" placeholder="Your name"  class = "form-control"><br> 
-                <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
-            <% end %>
+        <div class="request_container nodisplay">
+            <div class="studygroupsendrequest">
+                <%= form_tag(joinGroup_path(email: i.email), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
+                    <div><p></p></div>
+                    <h4 class="findatutor_heading">Join group: </h4>
+                    <input autocomplete="off" type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
+                    <input autocomplete="off" type="text" name="name" id="name" placeholder="Your name"  class = "form-control"><br> 
+                    <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
+                <% end %>
+                <i class="fa fa-times req-times"></i>
+            </div>
         </div>
     </div>
     <br>
