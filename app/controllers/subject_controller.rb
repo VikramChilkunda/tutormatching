@@ -1,40 +1,61 @@
 class SubjectController < ApplicationController
   def new
     @subject = Subject.new
-    
   end
   
   def create
-    # @tutor = Tutor.last
-    # @subject = Subject.new
-    
-    # @tutor = Tutor.find(params[:id])
-    # @person = Person.find(@tutor.people_id)
-    # @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
-    
-    #@subject = @tutor.build_subject
-    @subject = Subject.new     
-    @subject.name = subject_params[:name]
-    @subject.date = subject_params[:date]
-    @subject.rate = subject_params[:rate]
-    @subject.creatorid = session[:tutor_id]
-    #@subject.deletedSubject = false
-    if @subject.save
-      flash[:success] = "Created Subject"
-      redirect_to Person.find_by(id: session[:tutor_id])
-    else
-      #flash[:error] = @subject.errors.full_messages
-     # redirect_back(fallback_location: '/home')
-      render 'new'
-    end
+      @multSubjects = subject_params[:Multiplesubjects]
+      @multSubjects.to_a.each do |i|
+        @appended = false
+        
+        Subject.all.each do |f|
+          if((i == f.name) && (subject_params[:rate] == f.rate) && (f.creatorid == session[:tutor_id]))
+            @dayexists = false      ### CHECKS IF THE REQUESTED DAY IS ALREADY REGISTERED
+            f.days.to_a.each do |x|
+              if (x == subject_params[:date])
+                @dayexists = true
+                i=nil
+              end
+            end
+            
+            if !@dayexists
+              @appended = true
+              f.update_attribute(:days, f.days << subject_params[:date])
+            end
+          end
+        end
+        
+        if @appended    
+          #redirect_to Person.find_by(id: session[:tutor_id])     
+        elsif !@appended &&  !i.nil?
+          @subject = Subject.new     
+          @subject.name = i
+          @subject.date = subject_params[:date]
+          @subject.rate = subject_params[:rate]
+          @subject.creatorid = session[:tutor_id]
+          @subject.days << subject_params[:date]
+          if @subject.save
+            flash[:success] = "Created Subject"
+          else
+            render 'new'
+          end
+        end
+      end
+      redirect_to Person.find_by(id: session[:tutor_id])     
   end
   
   def destroy 
-   #Subject.find(session[:selected_subject_id]).destroy
-      # Subject.find(params[:check]).update_attribute(:deletedSubject, true)
-        Subject.find(params[:check]).destroy
-    flash[:success] = "Subject deleted"
-    #flash[:success] = Subject.find(params[:check]).deletedSubject
+   
+    if (params[:check].to_s == "-2")
+      Subject.all.each do |i|
+        if (i.creatorid == session[:tutor_id])
+          i.destroy
+        end
+      end
+    else
+      Subject.find(params[:check]).destroy
+      flash[:success] = "Subject deleted"
+    end
     
     redirect_to person_path(Person.find_by(id: session[:tutor_id]))
   end
@@ -68,7 +89,7 @@ class SubjectController < ApplicationController
   
   private
     def subject_params
-      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate)
+      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, :Multiplesubjects => [])
     end
     
 end

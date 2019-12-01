@@ -4,11 +4,12 @@ wb.add_worksheet(name: "People") do |sheet|
     @current_row = 0
     @persons.each do |person|
         
-        sheet.add_row [person.name, person.email, Tutor.find_by(people_id: person.id).id_num, Tutor.find_by(people_id: person.id).grade, "  Subjects:   "]
+        sheet.add_row [person.name, person.email, Tutor.find_by(people_id: person.id).id_num, Tutor.find_by(people_id: person.id).grade, "..............  ","  Tutoring:"]
        
         Subject.all.each do |i|
-            if (i.creatorid = person.id) 
-            sheet.rows[@current_row].add_cell("Jeff")
+            if (i.creatorid == person.id) 
+                sheet.rows[@current_row].add_cell(i.name)
+            end
         end
         
         @current_row = @current_row+1
