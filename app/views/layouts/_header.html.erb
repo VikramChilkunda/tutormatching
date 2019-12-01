@@ -3,34 +3,36 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin|Montserrat:600,900" rel="stylesheet">
   <script src="jquery-3.3.1.min.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
   <nav class="sidenav">
 		<i class="fa fa-bars fa-2x"></i>
 		<div class="side">
-			<div class="item_container">
-				<i class="fa fa-times fa-2x"></i>
-				<li class="item"><a href="/home">Home</a></li><br>
-				<li class="item"><a href="/about">About</a></li><br>
-				<li class="item"><a href="/help">Help</a></li><br>
-				<li class="item" id="studygroups_link"><a href="/studygroup">Study Groups</a></li><br>
-	
-				<li class="item profile">
-				
-					<% if Person.find_by(id: session[:tutor_id]) %>
-					 		<i class="fa fa-user"></i>
-							<% if Person.find_by(id: session[:tutor_id]).admin? %>
-	              				<a href="/adminPage">Profile</a>
-	           				<% else %>
-	                			<%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
-	           				<% end %>
-	            		<li class="divider"></li>
-	           			<li class = "item logout">
-	             		<%= link_to "Log out", logout_path, method: :delete %>
-					<% else %>
-					<% end %>
-				</li>
+
+			<i class="fa fa-times fa-2x"></i>
+			<li class="item"><a href="/home">Home</a></li><br>
+			<li class="item"><a href="/about">About</a></li><br>
+			<li class="item"><a href="/help">Help</a></li><br>
+			<li class="item"><a href="/studygroup">Study Groups</a></li><br>
+
+			<li class="item profile">
+			
+				<% if session[:tutor_id] && Person.find_by(id: session[:tutor_id]) %>
+				 		<i class="fa fa-user"></i>
+						<% if Person.find_by(id: session[:tutor_id]).admin? %>
+              				<a href="/adminPage">Profile</a>
+           				<% else %>
+                			<%= link_to "Profile", person_path(Person.find_by(id: session[:tutor_id])) %></li>
+           				<% end %>
+            		<li class="divider"></li>
+           			<li class = "item logout">
+             		<%= link_to "Log out", logout_path, method: :delete %>
+				<% else %>
+				<% end %>
+			</li>
 			</div>
+
 		</div>
 	</nav>
 </body>
