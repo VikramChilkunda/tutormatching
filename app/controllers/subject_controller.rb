@@ -4,53 +4,58 @@ class SubjectController < ApplicationController
   end
   
   def create
-   
       @multSubjects = subject_params[:Multiplesubjects]
       @multSubjects.to_a.each do |i|
-        @subject = Subject.new     
-        @subject.name = i
-        @subject.date = subject_params[:date]
-        @subject.rate = subject_params[:rate]
-        @subject.creatorid = session[:tutor_id]
-        @subject.days << subject_params[:date]
+        @appended = false
+        
+        Subject.all.each do |f|
+          if((i == f.name) && (subject_params[:rate] == f.rate) && (f.creatorid == session[:tutor_id]))
+            @dayexists = false      ### CHECKS IF THE REQUESTED DAY IS ALREADY REGISTERED
+            f.days.to_a.each do |x|
+              if (x == subject_params[:date])
+                @dayexists = true
+                i=nil
+              end
+            end
+            
+            if !@dayexists
+              @appended = true
+              f.update_attribute(:days, f.days << subject_params[:date])
+            end
+          end
+        end
+        
+        if @appended    
+          #redirect_to Person.find_by(id: session[:tutor_id])     
+        elsif !@appended &&  !i.nil?
+          @subject = Subject.new     
+          @subject.name = i
+          @subject.date = subject_params[:date]
+          @subject.rate = subject_params[:rate]
+          @subject.creatorid = session[:tutor_id]
+          @subject.days << subject_params[:date]
+          if @subject.save
+            flash[:success] = "Created Subject"
+          else
+            render 'new'
+          end
+        end
       end
-    
-    @appended = false
-    Subject.all.each do |i|
-      if((subject_params[:name] == i.name) && (subject_params[:rate] == i.rate) && (i.creatorid == session[:tutor_id]))
-        @appended = true
-        i.update_attribute(:days, i.days << subject_params[:date])
-       # flash[:success] = (i.date)
-      end
-    end
-    if @appended    
       redirect_to Person.find_by(id: session[:tutor_id])     
-    elsif !@appended
-      @subject = Subject.new     
-      @subject.name = subject_params[:name]
-      @subject.date = subject_params[:date]
-      @subject.rate = subject_params[:rate]
-      @subject.creatorid = session[:tutor_id]
-      @subject.days << subject_params[:date]        #this line is used to ensure the day gets added to the newly created, empty array
-      #@subject.deletedSubject = false
-      if @subject.save
-        #flash[:success] = subject_params[:Multiplesubjects]
-        flash[:success] = "Created Subject"
-        redirect_to Person.find_by(id: session[:tutor_id])
-      else
-        #flash[:error] = @subject.errors.full_messages
-       # redirect_back(fallback_location: '/home')
-        render 'new'
-      end
-    end
   end
   
   def destroy 
-   #Subject.find(session[:selected_subject_id]).destroy
-      # Subject.find(params[:check]).update_attribute(:deletedSubject, true)
-        Subject.find(params[:check]).destroy
-    flash[:success] = "Subject deleted"
-    #flash[:success] = Subject.find(params[:check]).deletedSubject
+   
+    if (params[:check].to_s == "-2")
+      Subject.all.each do |i|
+        if (i.creatorid == session[:tutor_id])
+          i.destroy
+        end
+      end
+    else
+      Subject.find(params[:check]).destroy
+      flash[:success] = "Subject deleted"
+    end
     
     redirect_to person_path(Person.find_by(id: session[:tutor_id]))
   end
@@ -84,7 +89,7 @@ class SubjectController < ApplicationController
   
   private
     def subject_params
-      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, Multiplesubjects:[])
+      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, :Multiplesubjects => [])
     end
     
 end

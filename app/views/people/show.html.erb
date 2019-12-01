@@ -87,7 +87,8 @@
                <% if !@person.academy %>
                  <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
               <% end %>
-              <th class="tutoringoptions" style="width:24%", "position:absolute">Options</th>
+              <th class="tutoringoptions" style="width:24%", "position:absolute">Options <div><%= link_to "Delete All", subjectdelete_path(check: -2), method: :destroy,
+                                  data: { confirm: "Are you sure?" } %></div></th>
             </tr>
             
               <% Subject.all.each do |i| %>
