@@ -1,24 +1,26 @@
 class SubjectController < ApplicationController
   def new
     @subject = Subject.new
-    
   end
   
   def create
-    # @tutor = Tutor.last
-    # @subject = Subject.new
+   
+      @multSubjects = subject_params[:Multiplesubjects]
+      @multSubjects.to_a.each do |i|
+        @subject = Subject.new     
+        @subject.name = i
+        @subject.date = subject_params[:date]
+        @subject.rate = subject_params[:rate]
+        @subject.creatorid = session[:tutor_id]
+        @subject.days << subject_params[:date]
+      end
     
-    # @tutor = Tutor.find(params[:id])
-    # @person = Person.find(@tutor.people_id)
-    # @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})
-    
-    #@subject = @tutor.build_subject
     @appended = false
     Subject.all.each do |i|
       if((subject_params[:name] == i.name) && (subject_params[:rate] == i.rate) && (i.creatorid == session[:tutor_id]))
         @appended = true
         i.update_attribute(:days, i.days << subject_params[:date])
-        flash[:success] = (i.date)
+       # flash[:success] = (i.date)
       end
     end
     if @appended    
@@ -29,9 +31,10 @@ class SubjectController < ApplicationController
       @subject.date = subject_params[:date]
       @subject.rate = subject_params[:rate]
       @subject.creatorid = session[:tutor_id]
-      @subject.days << subject_params[:date]
+      @subject.days << subject_params[:date]        #this line is used to ensure the day gets added to the newly created, empty array
       #@subject.deletedSubject = false
       if @subject.save
+        #flash[:success] = subject_params[:Multiplesubjects]
         flash[:success] = "Created Subject"
         redirect_to Person.find_by(id: session[:tutor_id])
       else
@@ -81,7 +84,7 @@ class SubjectController < ApplicationController
   
   private
     def subject_params
-      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate)
+      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, Multiplesubjects:[])
     end
     
 end
