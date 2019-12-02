@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   #patch not post
  # delete '/study_group_delete', to: 'study_groups#destroy'
   post '/joinGroup', to: 'study_groups#joinGroup'
+  delete '/groupdelete', to: 'study_groups#destroy'
   
   get '/accountDelete', to: 'people#destroy'
   delete '/accountDelete', to: 'people#destroy'
