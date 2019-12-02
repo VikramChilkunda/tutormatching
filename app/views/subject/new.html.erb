@@ -1,5 +1,8 @@
 <% provide(:title, "Register a subject") %>
        <!--   % if logged_in? %> -->
+	
+	
+
 <body>
  <%= render "layouts/header" %>
 <!--<h1 id="martin"><div style="background-color:lightgrey; opacity: 0.96; text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 83% 0% -1%; border-radius:25px;"> Create a subject</h1></div>-->
@@ -12,57 +15,59 @@
 <!--<h1 id="martin"><div style="background-color:lightgrey; opacity: 0.96; text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 75% 0% -1%; border-radius:25px;"> Create a subject</h1></div>-->
 
 
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
     <%= form_for(@subject, url: subjectcreate_path) do |f| %>
       <%= render 'shared/error_messages_subject' %>
-  
-      <div class="listsubjects">
-        <%= f.label :subject %>
-        <!--%= f.collection_select :subject, :cvsubject_id, CvSubject.all, :id %>-->
-        <!--collection_select(:post, :author_id, Author.all, :id, :name_with_initial, prompt: true)-->
-        <!--</select><br>-->
-        <div id = "splitthecols">
-            <% subjects = ['American Government','English 11','Biology','Chemistry', 'Applied Programming (buffet)', 'ELD','Earth Space Science','Economics','English 10 Honors','English 10','English 9 Advanced','English 9','English 12','French 1-2','French 3-4','French 5-6','German 1-2','German 3-4','German 5-6 Honors','German 5-6','Health','Human Geography', 'Int. Math I','Int. Math II Accelerated','Int. Math II','Int. Math III Accelerated','Int. Math III','Intervention Math','Kinesiology','Korean 1-2','Korean 3-4','Korean 5-6','Linear Algebra Honors','Lit for Success','Math Analysis Honors','Math Analysis','Math Thinking','Medical Biology','Physics','Physiology Honors','Physiology','Psychology','Sociology','Spanish 1-2','Spanish 3-4','Spanish 5-6','Sports Medicine','Trigonometry/Statistics','US History','World History','AP Biology','AP Calculus AB','AP Calculus BC','AP Chemistry','AP Computer Science', 'AP Economics','AP English Language','AP English Literature','AP Environmental Science','AP European History','AP French Language','AP German Language','AP Government/Politics','AP Human Geography','AP Physics 1','AP Physics 2','AP Physics C','AP Psychology','AP Spanish Language (7-8)','AP Spanish Literature (9-10)','AP Statistics','AP US History'] %>
-            <% subjects.each do |i| %>
-              <%# counter = 0 %>
-              <%= f.check_box :Multiplesubjects, { multiple: true, :style => "width: 20px; height: 20px;" }, i, nil %>
-              <div>
-                <%= f.label(:subjects, i) %>
-                <%# counter++ %>
-              </div><br>
-            <% end %>
-        </div>
-        <%= f.label "Optimal day" %>
-        <%= f.select :date, options_for_select(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), { include_blank: 'None'}, class: "form-control" %>
-        
-        <% if !Person.find_by(id: session[:tutor_id]).academy %>
-            <%= f.label :rate %>
-            <%= f.text_field :rate, class: 'form-control', value: "$" %><br>
-        <% else %>
-            <!-- automate rate to be $-1 (and on find page, if $ = -1 show academy/free -->
-            <% f.label :rate %>
-            <% f.text_field :rate, class: 'form-control', value: "$-1" %>
-        <% end %>
-        <div id="center_save_changes"> <%= f.submit "Save", class: "btn btn-primary" %> </div>
-        <br>
-      </div>
-    <% end %>
-    <span id="dropdown-subjects">
-      <%= form_for(@subject, url: subjectcreate_path) do |f| %>
-        <%= f.select :name, options_for_select(['American Government','English 11','Biology','Chemistry', 'Applied Computer Programming (buffet)', 'ELD','Earth Space Science','Economics','English 10 Honors','English 10','English 9 Advanced','English 9','English 12','French 1-2','French 3-4','French 5-6','German 1-2','German 3-4','German 5-6 Honors','German 5-6','Health','Human Geography', 'Integrated Math I','Integrated Math II Accelerated','Integrated Math II','Integrated Math III Accelerated','Integrated Math III','Intervention Math','Kinesiology','Korean 1-2','Korean 3-4','Korean 5-6','Linear Algebra Honors','Lit for Success','Math Analysis Honors','Math Analysis','Math Thinking','Medical Biology','Physics','Physiology Honors','Physiology','Psychology','Sociology','Spanish 1-2','Spanish 3-4','Spanish 5-6','Sports Medicine','Trigonometry/Statistics','US History','World History','AP Biology','AP Calculus AB','AP Calculus BC','AP Chemistry','AP Computer Science', 'AP Economics','AP English Language','AP English Literature','AP Environmental Science','AP European History','AP French Language','AP German Language','AP Government/Politics','AP Human Geography','AP Physics 1','AP Physics 2','AP Physics C','AP Psychology','AP Spanish Language (7-8)','AP Spanish Literature (9-10)','AP Statistics','AP US History'], (@subject.name)), { include_blank: 'None'}, class: "form-control" %>
-        <%= f.label "Optimal day" %>
-        <%= f.select :date, options_for_select(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), { include_blank: 'None'}, class: "form-control" %>
-        
-        <% if !Person.find_by(id: session[:tutor_id]).academy %>
-            <%= f.label :rate %>
-            <%= f.text_field :rate, class: 'form-control', value: "$" %><br>
-        <% else %>
-            <!-- automate rate to be $-1 (and on find page, if $ = -1 show academy/free -->
-            <% f.label :rate %>
-            <% f.text_field :rate, class: 'form-control', value: "$-1" %>
-        <% end %>
-        <div id="center_save_changes"> <%= f.submit "Save", class: "btn btn-primary" %> </div>
-      <% end %>
-    </span>
-    </select>
 
+<div style=" text-align:left; vertical-align: middle; padding:15px 15px; margin: 1% 5%% 0% -1%; border-radius:25px;">
+      <%= f.label :subject %>
+      <!--%= f.collection_select :subject, :cvsubject_id, CvSubject.all, :id %>-->
+      <!--collection_select(:post, :author_id, Author.all, :id, :name_with_initial, prompt: true)-->
+    
+      
+      </select><br>
+      <div id = "splitthecols">
+          <% subjects = ['American Government','English 11','Biology','Chemistry', 'Applied Computer Programming (buffet)', 'ELD','Earth Space Science','Economics','English 10 Honors','English 10','English 9 Advanced','English 9','English 12','French 1-2','French 3-4','French 5-6','German 1-2','German 3-4','German 5-6 Honors','German 5-6','Health','Human Geography', 'Integrated Math I','Integrated Math II Accelerated','Integrated Math II','Integrated Math III Accelerated','Integrated Math III','Intervention Math','Kinesiology','Korean 1-2','Korean 3-4','Korean 5-6','Linear Algebra Honors','Lit for Success','Math Analysis Honors','Math Analysis','Math Thinking','Medical Biology','Physics','Physiology Honors','Physiology','Psychology','Sociology','Spanish 1-2','Spanish 3-4','Spanish 5-6','Sports Medicine','Trigonometry/Statistics','US History','World History','AP Biology','AP Calculus AB','AP Calculus BC','AP Chemistry','AP Computer Science', 'AP Economics','AP English Language','AP English Literature','AP Environmental Science','AP European History','AP French Language','AP German Language','AP Government/Politics','AP Human Geography','AP Physics 1','AP Physics 2','AP Physics C','AP Psychology','AP Spanish Language (7-8)','AP Spanish Literature (9-10)','AP Statistics','AP US History'] %>
+          <% subjects.each do |i| %>
+            <%# counter = 0 %>
+            <%= f.check_box :Multiplesubjects, { multiple: true, :style => "width: 25px; height: 25px;" }, i, nil %>
+            <div class = "checkbox inline">
+            <%= f.label(:subjects, i) %>
+            <%# counter++ %>
+          </div>
+          <div></div>
+           <% end %>
+      </div>
+      
+      <%= f.label "Optimal day" %>
+      <%= f.select :date, options_for_select(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), { include_blank: 'None'}, class: "form-control" %>
+      
+      <% if !Person.find_by(id: session[:tutor_id]).academy %>
+          <%= f.label :rate %>
+          <%= f.text_field :rate, class: 'form-control', value: "$" %><br>
+      <% else %>
+          <!-- automate rate to be $-1 (and on find page, if $ = -1 show academy/free -->
+          <% f.label :rate %>
+          <% f.text_field :rate, class: 'form-control', value: "$-1" %>
+      <% end %>
+  
+      <div>
+        <p></p>
+      </div>
+      <div id="center_save_changes"> <%= f.submit "Save", class: "btn btn-primary" %> </div>
+     
+      <div>
+        <p>
+        </p>
+      </div>
+      
+      
+    <% end %>
+
+    
+  </div>
+</div>
+</div>
 </body>
