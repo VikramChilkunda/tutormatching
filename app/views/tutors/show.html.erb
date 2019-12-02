@@ -6,6 +6,7 @@
 </head>
 <body id="not_taken" style="font-family: Signika; background-color: black;">
   <%= render "layouts/header" %>
+  
   <!--<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">-->
   <!--  <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
   <!--    <ul class="navbar-nav mr-auto">-->
@@ -86,7 +87,8 @@
                <% if !@person.academy %>
                  <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
               <% end %>
-              <th class="tutoringoptions" style="width:24%", "position:absolute">Options</th>
+              <th class="tutoringoptions" style="width:24%", "position:absolute">Options <div><%= link_to "Delete All", subjectdelete_path(check: -2), method: :destroy,
+                                  data: { confirm: "Are you sure?" } %></div></th>
             </tr>
             
               <% Subject.all.each do |i| %>
@@ -95,7 +97,7 @@
                   <table style="width:150%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
                       <th class="tutoringsubject" style="width:43%", "position:absolute"> <%= i.name %></th>
-                      <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.date %></th> 
+                      <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.days.join(', ') %></th> 
                         <% if !@person.academy %>
                             <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
                         <% end %>
@@ -140,7 +142,7 @@
               <th class="requestemail" style="width:25%", "position:absolute">Email</th> 
               <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
               <th class="requestday" style="width:20%", "position:absolute">Day</th> 
-              <th class="requestday" style="width:20%", "position:absolute">Asked on</th> 
+              <th class="requestday" style="width:15%", "position:absolute">Asked on</th> 
               <th class="requestday" style="width:10%", "position:absolute">Options</th> 
                <th class="requestday" style="width:10%", "position:absolute">Did you meet?</th> 
             </tr>
@@ -154,10 +156,11 @@
                       <th class="requestemail" style="width:25%", "position:absolute"> <%= i.email %></th> 
                       <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
                       <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
-                      <th class="requestday" style="width:20%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
+                      <th class="requestday" style="width:15%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
                       <th class="tutoringoptions" class="delete" style="width: 10%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %></th>
-                       <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= check_box("Accepted", :accepted, {method: accepted_path}, true, false) %></th>
+                       <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= link_to "Yes", accepted_path, data: { confirm: "Are you sure?" } %> | <%= link_to "No", accepted_path, data: { confirm: "Are you sure?" } %></th>
+              
                     </tr>
                     <%# session[:selected_subject_id] = i.id %>
                      
@@ -183,7 +186,7 @@
             
            <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)--> 
           <span id="delete_button_profile">
-         <%= link_to " Delete Account", accountDelete_path(id: Tutor.find_by(people_id: @person.id).id), method: :delete,
+         <%= link_to " Delete Account", accountDelete_path(id: @person.id), method: :delete,
                                   data: { confirm: "Are you sure?" } %>
           </span>
          
