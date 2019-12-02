@@ -1,3 +1,10 @@
+.listsubjects{
+	display: inline-block;
+	
+}
+#splitthecols{
+	padding: 20px;
+}
 .nodisplay{
 	display: none;
 }
@@ -1455,12 +1462,20 @@ input[type="checkbox"]:focus{
 }
 #splitthecols{
 	column-count: 6;
+	padding-left: 0px !important;
 }
 .listsubjects{
 	padding: 0 !important;
-	padding-top: 50px !important;
 	max-width: 90% !important;
 	margin: auto;
+}
+.listsubjects label{
+	font-size: 0.83333vw;
+}
+#container-subjects{
+	max-width: 90%;
+	margin: auto;
+	margin-top: 40px;
 }
 #splitthecols div{
 	display: inline-block;
