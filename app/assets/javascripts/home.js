@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
         $(".side").removeClass("sidepopup");
         // $(".side").removeClass("transition");
     });
-    if($(window).width() <= 600){
+    // if($(window).width() <= 600){
         $(".studygroupdisplaycard").on("click", function() {
             $(".nodisplay").addClass("blockdisplay");
             $(".blockdisplay").removeClass("nodisplay");
@@ -22,7 +22,7 @@ $(document).on('turbolinks:load', function() {
             $(".nodisplay").removeClass("blockdisplay");
         });
         
-    }
+    // }
     $(".item").on("click", function(){
         $(".side").removeClass("sidepopup");
     })

@@ -1,23 +1,53 @@
-// @font-face {
-//   font-family: Oswald-Regular;
-//   src: url('../fonts/Oswald-Regular.ttf'); 
-// }
-
-// @font-face {
-//   font-family: Oswald-Medium;
-//   src: url('../fonts/Oswald-Medium.ttf'); 
-// }
-
-// @font-face {
-//   font-family: SixCaps;
-//   src: url('../fonts/SixCaps.ttf'); 
-// }
-
-// @font-face {
-//   font-family: Krub;
-//   src: url('../fonts/Krub-Regular.ttf'); 
-// }
-
+.nodisplay{
+	display: none;
+}
+.blockdisplay{
+	display: block;
+}
+.studygroupsendrequest, .tutorsendrequest{
+    height: 40% !important;
+    padding: 0px !important;
+    position: absolute !important;
+    left: 50% !important; 
+    top: 50% !important;
+    width: 60vw !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 40px !important;
+    border-radius: 10px;
+}
+.studygroupsendrequest input, .tutorsendrequest input{
+	height: 5vh !important;
+	width: 90% !important;
+	font-size: 13px !important;
+	margin: auto;
+	padding: 5px;
+}
+.studygroupsendrequest .fa-times, .tutorsendrequest .fa-times{
+	position: absolute;
+	top: 6px;
+	right: 6px;
+}
+.findatutor_heading{
+	height: 5vh;
+	font-size: 19px;
+	padding: 5px;
+	padding-top: 18px;
+	margin-top: 0px;
+	line-height: 100%;
+}
+.studygroupsendrequest input, .tutorsendrequest input{
+	padding: 10px !important;
+	width: 70% !important;
+	font-size: 15px !important;
+}
+.request_container{
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(0,0,0,0.5);
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
 button:focus{
 	outline: 0;
 }
@@ -120,7 +150,7 @@ button:focus{
 	background-color: rgba(255, 255, 255, 1);
 	text-align: center;
 	width: 200px;
-	border: 3px solid black;
+	border: 1px solid black;
 	border-radius: 24px;
 	transition: 0.3s;
 }
@@ -416,8 +446,8 @@ center{
 	background-size: 100%;
 }
 h1#bob{
-    padding-left: 2.6vw;
-    margin-top: 10px;
+    padding-left: 0!important;
+    margin-top: 15px;
 }
 aside.col-md-4{
 	padding-left: 0px !important;
@@ -436,6 +466,7 @@ aside.col-md-4{
 	height: 100vh;
 	background-image: url("https://images.pexels.com/photos/3107624/pexels-photo-3107624.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 	background-size: cover;
+	padding: 50px;
 	// background-size: cover;
 	 //height:100%;
     // overflow-y:auto;
@@ -443,6 +474,10 @@ aside.col-md-4{
 	//background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
 	//background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+#req-responsive{
+	display: none;
 }
 #not_taken .row{
 	height: 80%;
@@ -616,7 +651,7 @@ ul.tutors li img{
 	/* border: 1px solid black; */
 	background-color: #eee;
 	position: relative;
-	box-shadow: 10px 8px 8px rgba(8, 26, 128, 1);
+	box-shadow: 8px 5px 1px #081a80;
 	margin-top: 40px;
 	border-radius: 20px;
 }
@@ -730,7 +765,7 @@ ul.tutors li img{
 	margin: auto;
 	background-color: #fbfbfb;
 	position: relative;
-	box-shadow: inset 0px 0px 3px rgba(8, 26, 128, 0.7);
+	box-shadow: 8px 5px 1px #081a80;
 	margin-top: 40px;
 	border-radius: 20px;
 }
@@ -997,6 +1032,10 @@ ul.tutors li img{
 	color: white;
 	background-color: transparent;
 }
+#not_taken .fa-bars{
+	margin-left: 5px !important;
+	margin-top: 5px !important;
+}
 .fa:hover{
 	cursor: pointer;
 }
@@ -1048,6 +1087,9 @@ ul.tutors li img{
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	height: 100%;
+	width: 90%;
+	padding-top: 5%;
 }
 .brand{
 	color: rgba(50, 168, 141, 1);
@@ -1222,6 +1264,9 @@ input[type="checkbox"]:focus{
 	#body{
 		height: 130vh;
 	}
+	#body form{
+		width: 90% !important;
+	}
 	.side{
 		font-size: 8vw !important;
 		display: flex;
@@ -1244,9 +1289,6 @@ input[type="checkbox"]:focus{
 	.item{
 		margin-bottom: 10vw !important;
 	}
-	#studygroups_link{
-		display: none;
-	}
 	#animatedbutton{
 		transform: scale(0.9);
 		border: 1px solid black;
@@ -1262,9 +1304,6 @@ input[type="checkbox"]:focus{
 		width: 85vw !important;
 		max-width: 100vw !important;
 		height: 15vh !important;
-	}
-	.studygroupdisplaycard:hover .request_container, input:focus .request_container{
-		// display: block;
 	}
 	.groupsize{
 		padding: 5px !important;
@@ -1326,7 +1365,7 @@ input[type="checkbox"]:focus{
 		display: none !important;
 	}
 	.studygroupsendrequest, .tutorsendrequest{
-	    height: 40% !important;
+	    height: 30% !important;
 	    padding: 0px !important;
 	    position: absolute !important;
 	    left: 50% !important; 
@@ -1341,20 +1380,43 @@ input[type="checkbox"]:focus{
 		width: 90% !important;
 		font-size: 13px !important;
 		margin: auto;
-		padding: 5px;
+		margin-bottom: 5px !important;
+		padding: 5px !important;
+		padding-left: 10px !important;
 	}
-	.studygroupsendrequest .fa-times, .tutorsendrequest{
+	.studygroupsendrequest .fa-times, .tutorsendrequest .fa-times{
 		position: absolute;
 		top: 6px;
 		right: 6px;
 	}
-	.request_container{
-		width: 100vw;
-		height: 100vh;
-		background-color: rgba(0,0,0,0.5);
-		position: fixed;
-		top: 0;
-		left: 0;
+	
+	.fa-bars{
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+	.item_container{
+		height: 100%;
+		width: 90%;
+		padding-top: 10%;
+	}
+	.profile{
+		margin-bottom: 10vh;
+	}
+	h1#bob{
+		font-size: 16px !important;
+	}
+	#bob p, #bob #editprofile a, #bob table tbody, #bob table th,#req-responsive p, #req-responsive table tbody, #req-responsive table th{
+		font-size: 15px !important;
+	}
+	#createsubjectbutton{
+		border-radius: 5px !important;
+		margin: 10px 0px !important;
+	}
+	#req-responsive{
+		display: block;
+	}
+	div.requests{
+		display: none;
 	}
 }
 @media screen and (max-width: 667px){
@@ -1374,10 +1436,4 @@ input[type="checkbox"]:focus{
 		max-width: 90%;
 	}
 	
-}
-.nodisplay{
-	display: none;
-}
-.blockdisplay{
-	display: block;
 }
