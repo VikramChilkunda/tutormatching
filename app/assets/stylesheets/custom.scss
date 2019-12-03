@@ -1,6 +1,47 @@
+.nodisplay{
+	display: none;
+}
+.blockdisplay{
+	display: block;
+}
+#splitthecols{
+	column-count: 6;
+	padding-left: 0px !important;
+}
+#dropdown-responsive-subjects{
+	display: none;
+}
+#checkbox-desktop-subjects{
+	display: block;
+}
+.listsubjects{
+	padding: 0 !important;
+	max-width: 90% !important;
+	margin: auto;
+}
+.listsubjects label{
+	font-size: 0.83333vw;
+}
+#container-subjects{
+	max-width: 90%;
+	margin: auto;
+	margin-top: 40px;
+}
+#splitthecols div{
+	display: inline-block;
+}
+.groupDelete{
+	font-color: black!important;
+}
+.requestscontainer{
+	padding-left: 0 !important;
+}
 .listsubjects{
 	display: inline-block;
 	
+}
+.requestscontainer-responsive{
+	display: none;
 }
 #splitthecols{
 	padding: 20px;
@@ -15,12 +56,13 @@
 	display: none;
 }
 .studygroupsendrequest, .tutorsendrequest{
-    height: 40% !important;
+    height: 31% !important;
     padding: 0px !important;
     position: absolute !important;
-    left: 50% !important; 
+    left: 50% !important;
     top: 50% !important;
-    width: 60vw !important;
+    width: 25vw !important;
+    -webkit-transform: translate(-50%, -50%) !important;
     transform: translate(-50%, -50%) !important;
     font-size: 40px !important;
     border-radius: 10px;
@@ -966,7 +1008,7 @@ ul.tutors li img{
 	height: 100%;
 	position: absolute;
 	left: 98%;
-	top: 0px !important;
+	top: 0px;
 	width: 15vw;
 	// padding-top: 0px;
 	padding: 10px;
@@ -1279,7 +1321,6 @@ input[type="checkbox"]:focus{
 	}
 	.side{
 		font-size: 8vw !important;
-		display: flex;
 	    align-items: center;
 	    padding-top: 0 !important;
 	}
@@ -1287,6 +1328,7 @@ input[type="checkbox"]:focus{
 		font-size: 5.6vw !important;
 	}
 	.sidepopup{
+		padding-top: 70px !important;
 		width: 100vw !important;
 		padding-left: 9vh !important;
 		padding-right: 9vh !important;
@@ -1435,6 +1477,23 @@ input[type="checkbox"]:focus{
 	.listsubjects{
 		display: none;
 	}
+	#not_taken{
+		padding-left: 10px;
+	}
+	.requestscontainer-responsive{
+		display: block;
+	}
+	.requestscontainer{
+		display: none;
+	}
+	#dropdown-responsive-subjects{
+		display: block !important;
+		width: 90vw !important;
+		margin: auto;
+	}
+	#checkbox-desktop-subjects{
+		display: none !important;
+	}
 }
 @media screen and (max-width: 667px){
 	.large_content{
@@ -1454,32 +1513,6 @@ input[type="checkbox"]:focus{
 	}
 	
 }
-.nodisplay{
-	display: none;
-}
-.blockdisplay{
-	display: block;
-}
-#splitthecols{
-	column-count: 6;
-	padding-left: 0px !important;
-}
-.listsubjects{
-	padding: 0 !important;
-	max-width: 90% !important;
-	margin: auto;
-}
-.listsubjects label{
-	font-size: 0.83333vw;
-}
-#container-subjects{
-	max-width: 90%;
-	margin: auto;
-	margin-top: 40px;
-}
-#splitthecols div{
-	display: inline-block;
-}
-.groupDelete{
-	font-color: black!important;
+#email{
+	margin-bottom: 2vh !important;
 }
