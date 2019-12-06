@@ -1,6 +1,7 @@
 class SubjectController < ApplicationController
   def new
     @subject = Subject.new
+    
   end
   
   def create

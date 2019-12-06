@@ -2,84 +2,23 @@
   	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
   	<script src="jquery-3.3.1.min.js"></script>
   	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-  	
 </head>
 <body id="not_taken" style="font-family: Signika; background-color: black;">
   <%= render "layouts/header" %>
-  
-  <!--<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light bg-light">-->
-  <!--  <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-  <!--    <ul class="navbar-nav mr-auto">-->
-  <!--      <li class="nav-item">-->
-  <!--        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>-->
-  <!--      </li>-->
-  <!--      <li class="nav-item">-->
-  <!--      	<a class="nav-link" href="/about">About</a>-->
-  <!--      </li>-->
-  <!--      </li>-->
-  <!--      <li class="nav-item">-->
-  <!--        <a class="nav-link" href="/help">Help</a>-->
-  <!--      </li>-->
-  <!--      <li class="nav-item">-->
-  <!--        <a class="nav-link" href="/studygroup">Study Group</a>-->
-  <!--      </li>-->
-        
-        <!--<li class="nav-item">-->
-        <!--  <li><%= link_to "Tutor", '#' %></li> -->
-        <!--</li>-->
-  <!--      <div class="dropdown">-->
-  <!--          <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-  <!--            Account-->
-  <!--          </button>-->
-  <!--        <ul class="dropdown-menu">-->
-  <!--          <li class = "dropdown-item"><%= link_to "Profile", current_person %></li>-->
-  <!--          <li class = "dropdown-item"><%= link_to "Settings", edit_person_path(@person) %></li>-->
-  <!--          <li class="divider"></li>-->
-  <!--          <li class = "dropdown-item">-->
-  <!--            <%= link_to "Log out", logout_path, method: :delete %>-->
-  <!--          </li>-->
-  <!--        </ul>-->
-  <!--    </ul>-->
-  <!--    <a class="navbar-brand" href="/home">CV Enterprises</a>-->
-  <!--  </div>-->
-  <!--    </ul>-->
-  <!--  </div>-->
-  <!--</nav>-->
   <% provide(:title, @person.name) %>
-  <br>
   <% if @person.academy %>
     <h1 id="bob" style="font-size:3vw;">Profile - Tutor (Academy)</h1>
   <% else %>
     <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
   <% end %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="tutor_info">
-        <h1>
-          <div id="bob">
-          <p style="	font-size: 2vw"><%= @person.name %> (<%= @person.email %>) </p>
-          <div><p></p></div>
-          <span id="editprofile">
-          <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff; font-size: 2vw;"} %>
-          </span><!--Edit:'(@oerson)' is redundant after
-          edit_person_path because the edit method in people_controller defines @person -->
 
-          <!--<button class="btn btn-warning" id="edit_profile">-->
-
-
-          <div><p></p></div>
-           <!--<script>-->
-           <!--   function addRow() {-->
-           <!--     alert('ok');-->
-           <!--     document.getElementById("VisualTable").insertRow(-1);-->
-           <!--      document.getElementById("VisualTable").insertRow(1);-->
-           <!--      document.getElementById("VisualTable").insertRow().insertCell(0);-->
-           <!--      document.getElementById("VisualTable").insertRow().insertCell(1);-->
-           <!--       document.getElementById("VisualTable").insertRow().insertCell(2);-->
-           <!--   }-->
-           <!--   window.onload = addRow();-->
-           <!-- </script> -->
-           
+  <div id="bob">
+    <p style="	font-size: 2vw"><%= @person.name %> (<%= @person.email %>) </p>
+    <span id="editprofile">
+      <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff; font-size: 2vw;"} %>
+    </span><!--Edit:'(@oerson)' is redundant after
+    edit_person_path because the edit method in people_controller defines @person -->
+    
           <table style="width:180%" id="VisualTable">
             <tr>
               <th class="tutoringsubject" style="width:43%", "position:absolute">Tutoring:</th>
@@ -123,78 +62,123 @@
             <!--  <td>%= Subject.second.rate %></td>-->
             <!--</tr>-->
           </table>
-         
-          <div>
-            <p></p>
-          </div>
           <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
           <a href="/subjectcreate">
             <button type="button" class="btn btn-primary" id="createsubjectbutton">Add Subject</button>
           </a>
-          </div>
-        </h1>
-        <h1>
-        <div id="bob">
-          <p style = "color:#fff; font-size: 2vw">Requests</p>
-        <table style="width:460%" id="VisualTable"> 
-            <tr>
-              <th class="requestname" style="width:16.1%", "position:absolute">Student name</th>
-              <th class="requestemail" style="width:25%", "position:absolute">Email</th> 
-              <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
-              <th class="requestday" style="width:20%", "position:absolute">Day</th> 
-              <th class="requestday" style="width:15%", "position:absolute">Asked on</th> 
-              <th class="requestday" style="width:10%", "position:absolute">Options</th> 
-               <th class="requestday" style="width:10%", "position:absolute">Did you meet?</th> 
-            </tr>
-            
-              <% TutorRequest.all.each do |i| %>
-                <% if (i.name == Person.find_by(id: session[:tutor_id]).email)%>
+  </div>
+  <h1 class="requestscontainer">
+    <div id="bob">
+      <p style = "color:#fff; font-size: 2vw">Requests</p>
+      <table style="width:460%" id="VisualTable"> 
+        <tr>
+          <th class="requestname" style="width:16.1%", "position:absolute">Student name</th>
+          <th class="requestemail" style="width:25%", "position:absolute">Email</th> 
+          <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
+          <th class="requestday" style="width:20%", "position:absolute">Day</th> 
+          <th class="requestday" style="width:15%", "position:absolute">Asked on</th> 
+          <th class="requestday" style="width:10%", "position:absolute">Options</th> 
+           <th class="requestday" style="width:10%", "position:absolute">Did you meet?</th> 
+        </tr>
+        
+          <% TutorRequest.all.each do |i| %>
+            <% if (i.name == Person.find_by(id: session[:tutor_id]).email)%>
+             
+              <table style="width:160%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
+                <tr>
+                  <th class="requestname" style="width:16.1%", "position:absolute"> <%= i.student %></th>
+                  <th class="requestemail" style="width:25%", "position:absolute"> <%= i.email %></th> 
+                  <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
+                  <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
+                  <th class="requestday" style="width:15%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
+                  <th class="tutoringoptions" class="delete" style="width: 10%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
+                              data: { confirm: "Are you sure?" } %></th>
+                   <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= link_to "Yes", accepted_path, data: { confirm: "Are you sure?" } %> | <%= link_to "No", accepted_path, data: { confirm: "Are you sure?" } %></th>
+          
+                </tr>
+                <%# session[:selected_subject_id] = i.id %>
                  
-                  <table style="width:160%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
-                    <tr>
-                      <th class="requestname" style="width:16.1%", "position:absolute"> <%= i.student %></th>
-                      <th class="requestemail" style="width:25%", "position:absolute"> <%= i.email %></th> 
-                      <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
-                      <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
-                      <th class="requestday" style="width:15%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
-                      <th class="tutoringoptions" class="delete" style="width: 10%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
-                                  data: { confirm: "Are you sure?" } %></th>
-                       <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= link_to "Yes", accepted_path, data: { confirm: "Are you sure?" } %> | <%= link_to "No", accepted_path, data: { confirm: "Are you sure?" } %></th>
+              </table>
               
-                    </tr>
-                    <%# session[:selected_subject_id] = i.id %>
-                     
-                  </table>
-                <% end %>
-              <% end %>
-            
-            
-            <!--<tr>-->
-            <!--  <td> %= Subject.first.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) --> 
-            <!--  <td> %= Subject.first.date %> </td> -->
-            <!--  <td>%= Subject.first.rate %></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--  <td>%=Subject.second.name%></td>-->
-            <!--  <td>%= Subject.second.date %></td> -->
-            <!--  <td>%= Subject.second.rate %></td>-->
-            <!--</tr>-->
-          </table>
-          </div>
-            <br>
-            <!--replced your link_to with an a href-->
-            
-           <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)--> 
-          <span id="delete_button_profile">
-         <%= link_to " Delete Account", accountDelete_path(id: @person.id), method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
-          </span>
-         
-          </h1>
+            <% end %>
+          <% end %>
+        
+        
+        <!--<tr>-->
+        <!--  <td> %= Subject.first.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) --> 
+        <!--  <td> %= Subject.first.date %> </td> -->
+        <!--  <td>%= Subject.first.rate %></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <td>%=Subject.second.name%></td>-->
+        <!--  <td>%= Subject.second.date %></td> -->
+        <!--  <td>%= Subject.second.rate %></td>-->
+        <!--</tr>-->
+      </table>
+    </div>
+  </h1>
+  <h1 class="requestscontainer-responsive">
+    <div id="bob">
+      <p style = "color:#fff; font-size: 2vw">Requests</p>
+      <table style="width:460%" id="VisualTable"> 
+        <tr>
+          <th class="requestname" style="width:30%", "position:absolute">Name/Email</th>
+          <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
+          <th class="requestday" style="width:20%", "position:absolute">Day</th> 
+          <th class="requestday" style="width:15%", "position:absolute">Asked on</th> 
+          <th class="requestday" style="width:10%", "position:absolute">Options</th> 
+           <th class="requestday" style="width:10%", "position:absolute">Did you meet?</th> 
+        </tr>
+        
+          <% TutorRequest.all.each do |i| %>
+            <% if (i.name == Person.find_by(id: session[:tutor_id]).email)%>
+             
+              <table style="width:160%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
+                <tr>
+                  <th class="requestname-responsive" style="width:30%", "position:absolute">
+                     <a target="_blank" style="color: #00BFFF;"href="https://mail.google.com/mail/?view=cm&fs=1&to=<%= i.email %>&su=Tutoring &body=&bcc="><%= i.student %></a>
+                  </th>
+                  <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
+                  <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
+                  <th class="requestday" style="width:15%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
+                  <th class="tutoringoptions" class="delete" style="width: 10%", "position:absolute"><%= link_to " Delete", requestdelete_path(check: i.id), method: :delete,
+                              data: { confirm: "Are you sure?" } %></th>
+                   <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= link_to "Yes", accepted_path, data: { confirm: "Are you sure?" } %> | <%= link_to "No", accepted_path, data: { confirm: "Are you sure?" } %></th>
+          
+                </tr>
+                <%# session[:selected_subject_id] = i.id %>
+                 
+              </table>
+              
+            <% end %>
+          <% end %>
+        
+        
+        <!--<tr>-->
+        <!--  <td> %= Subject.first.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) --> 
+        <!--  <td> %= Subject.first.date %> </td> -->
+        <!--  <td>%= Subject.first.rate %></td>-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--  <td>%=Subject.second.name%></td>-->
+        <!--  <td>%= Subject.second.date %></td> -->
+        <!--  <td>%= Subject.second.rate %></td>-->
+        <!--</tr>-->
+      </table>
+    </div>
+  </h1>
+      <br>
+      <!--replced your link_to with an a href-->
+      
+     <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)--> 
+    <span id="delete_button_profile">
+   <%= link_to " Delete Account", accountDelete_path(id: @person.id), method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+    </span>
+   
+    </h1>
       </section>
     </aside>
-  </div>
-  <!--<div id="footer" class="small_content">-->
-    
-  <!--</div>-->
+  </div><br>
+     <!--<a data-confirm="Are you sure you want to delete your account?" rel="nofollow" data-method="delete" href="/people/4" style="font-size: 2vw" class="delete">Delete Account</a>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)--> 
 </body>
