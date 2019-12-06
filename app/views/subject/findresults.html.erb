@@ -40,7 +40,7 @@
                 			  <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email, searchName: params[:searchName], searchDate: params[:searchDate]) %>
                 			</div>
                 			<div class="date">
-                				<%= subjuctivo.date%>
+                				<%= subjuctivo.days.join(', ')%>
                 			</div>
                 			<% if Person.find_by(id: subjuctivo.creatorid).academy %>
                 			  <div class="rate">

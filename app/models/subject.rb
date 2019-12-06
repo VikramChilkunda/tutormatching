@@ -14,7 +14,7 @@ class Subject < ApplicationRecord
     
   def self.search(searchName, searchDate)
    #search = search.downcase   *no need for downcase if we implement dropdowns
-   @subjuctivos = [] #should be an array
+   @subjuctivos = Array.new #should be an array
     if searchName && searchDate   #if a name and date have been entered
       if searchDate == "All"      #if searching for any day
        # self.where(["name = :name and email = :email", { name: "Joe", email: "joe@example.com" }])
