@@ -20,6 +20,17 @@ class PeopleController < ApplicationController
   end
   
   def show
+    # Subject.all.each do |i|
+    #   @boberoni = false
+    #   i.days.each do |x|
+    #     if (x == i.date)
+    #       @boberoni = true
+    #     end
+    #   end
+    #   if !@boberoni
+    #     i.days << i.date
+    #   end
+    # end
     
       unless ((session[:tutor_id].to_s == params[:id]) || (Person.find(session[:tutor_id]).admin))             #make sure a person is only going to their profile or the user is an admin    session[:tutor_id] is an int and params[:id] is a string
        #flash[:danger] = "ACCESS DENIED" 

@@ -18,60 +18,64 @@
 			
  	</div>
  	
- <!--<div><p></p></div>-->
- <% @checker = false  %>
-     <% if @subjuctivos.nil? %>
-       <%= render 'shared/error_messages_search' %>
-       
-     <% else %>
- 	    <% @subjuctivos.each do |subjuctivo| %>
- 	            <% if (Person.find_by(id: subjuctivo.creatorid).nil?)%>
- 	              
- 	            <% else %>
- 	                <!--new thing vikram implemented on 8/26-->
- 	                <% @checker = true %>
- 	                <div class = "tutordisplaycard searchresultslargecontainer">
-              			<div class="tutorgrade">
-              				<%= Tutor.find_by(people_id: subjuctivo.creatorid).grade %>
-              			</div>
-              			<div class="tutorname">
-              			  <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email, searchName: params[:searchName], searchDate: params[:searchDate]) %>
-              			</div>
-              			<div class="date">
-              				<%= subjuctivo.date%>
-              			</div>
-              			<% if Person.find_by(id: subjuctivo.creatorid).academy %>
-              			  <div class="rate">
-                  			Academy Tutor - Free
+ 	<!--<div><p></p></div>-->
+ 	<% @checker = false  %>
+ 	    <% if @subjuctivos.nil? %>
+ 	      <%= render 'shared/error_messages_search' %>
+ 	      
+ 	    <% else %>
+   	    <% @subjuctivos.each do |subjuctivo| %>
+   	        
+   	            <% if (Person.find_by(id: subjuctivo.creatorid).nil?)%>
+   	              
+   	            <% else %>
+   	                <!--new thing vikram implemented on 8/26-->
+   	                <% @checker = true %>
+   	                <div class = "tutordisplaycard searchresultslargecontainer">
+                			<div class="tutorgrade">
+                				<%= Tutor.find_by(people_id: subjuctivo.creatorid).grade %>
+                				<!--Adarsh i need you to put the Carrot Percent thing for tutor's grade here  *DONE*(-->
                 			</div>
-                			<div class="location">
-                  			 <i class="fa fa-map-marker fa-2x"></i>
-                  			  <div class="loc-popup">CV Library</div>
-                  		</div>	
-              			<% else %>
-                			<div class="rate">
-                				Rate: <%= subjuctivo.rate %>
+                			<div class="tutorname">
+                			  <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email, searchName: params[:searchName], searchDate: params[:searchDate]) %>
                 			</div>
-                		<% end %>
-                  <div class="request_container nodisplay">
-                    <div class="tutorsendrequest">
-                      <%= form_tag(request_path(name: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name, time: subjuctivo.date), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
-                        <div><p></p></div>
-               	       <h4 class="findatutor_heading">Send request to tutor: </h4>
-               	       <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control">
-               	        <input type="text" name="student" id="student" placeholder="Your name"  class = "form-control">
-                        <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
-                      <% end %>
-                      <i class="fa fa-times req-times"></i>
+                			<div class="date">
+                			  
+                				<%= subjuctivo.date %>, <%= subjuctivo.days.join(', ')%>
+                			</div>
+                			<% if Person.find_by(id: subjuctivo.creatorid).academy %>
+                			  <div class="rate">
+                    			Academy Tutor - Free
+                  			</div>
+                  			<div class="location">
+                    			 <i class="fa fa-map-marker fa-2x"></i>
+                    			  <div class="loc-popup">CV Library</div>
+                    		</div>	z
+                			<% else %>
+                  			<div class="rate">
+                  				Rate: <%= subjuctivo.rate %>
+                  			</div>
+                  		<% end %>
+                    <div class="request_container nodisplay">
+                          <div class="tutorsendrequest">
+                                <%= form_tag(request_path(name: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name, time: subjuctivo.date), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
+                                  <div><p></p></div>
+                         	       <h4 class="findatutor_heading">Send request to tutor: </h4>
+                         	       <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>
+                         	        <input type="text" name="student" id="student" placeholder="Your name"  class = "form-control"><br> 
+                                  <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
+                                <% end %>
+                                <i class="fa fa-times req-times"></i>
+                          </div>
                     </div>
-                  </div>
-          </div>
-        <% end %>
- 	  <% end %>
-   	  <% if !@checker %>
-   	     <%= render 'shared/error_messages_search' %>
+                      <div><p></p></div>
+            </div>
+          <% end %>
    	  <% end %>
- 	  <br>
- 	<% end %>
+     	  <% if !@checker %>
+     	     <%= render 'shared/error_messages_search' %>
+     	  <% end %>
+   	  <br>
+   	<% end %>
 </body>
 </html>
