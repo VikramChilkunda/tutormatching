@@ -767,6 +767,16 @@ ul.tutors li img{
 	background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(to right, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	font-size: 15px;
+	height: 31% !important;
+    padding: 0px !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 25vw !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    transform: translate(-50%, -50%) !important;
+    font-size: 40px !important;
+    border-radius: 10px;
 }
 .tutorsendrequest h4{
 	margin-top: -1vw;
@@ -1000,7 +1010,7 @@ ul.tutors li img{
 .popoutrequest{
 	visibility: visible !important;
 	transition: 0.2s !important;
-	transform: scaleX(1) !important;
+	transform: scaleX(1) translate(-50%, -50%) !important;
 }
 .studygroupsendrequest{
 	// border: 1px solid black;
