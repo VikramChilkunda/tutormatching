@@ -131,6 +131,17 @@ class PeopleController < ApplicationController
     end
   end
   
+  def godAction          #add all individual date attributes for a tutor's subjects to the days array attribute 
+    Person.all.each do |i|
+      Subject.all.each do |f|
+        if f.creatorid == i.id
+          #add f.date to f.days and delete <the subject?>
+          f.days >> f.date
+        end
+      end
+    end
+  end
+  
   private 
    
     def tutor_person
