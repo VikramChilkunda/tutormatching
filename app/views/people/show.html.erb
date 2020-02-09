@@ -36,7 +36,7 @@
                   <table style="width:150%" id="VisualSubjects">   <!-- NOTE: I'm creating a new table here instead of adding a row because for some reason it won't add a row to the existing table and display the name, date, and rate outside the table -->
                     <tr>
                       <th class="tutoringsubject" style="width:43%", "position:absolute"> <%= i.name %></th>
-                      <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.days.join(', ') %></th> 
+                      <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.date %></th> 
                         <% if !@person.academy %>
                             <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
                         <% end %>
