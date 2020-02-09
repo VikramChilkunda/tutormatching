@@ -39,8 +39,8 @@ Rails.application.routes.draw do
   delete '/requestdelete', to: 'tutor_requests#destroy'
   post '/accepted', to: 'tutor_requests#makeAccepted'
   
-  #get '/godaction', to: 'people_controller#godAction'
-  #post '/godaction', to: 'people_controller#godAction'
+  get '/godaction', to: 'people#adminPage'
+  post '/godaction', to: 'people_controller#godAction'
   
   get '/import_from_excel', to: 'cvstudents#gohere'
   post 'import_from_excel' => "cvstudents#import_from_excel"

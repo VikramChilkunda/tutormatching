@@ -136,7 +136,15 @@ class PeopleController < ApplicationController
       Subject.all.each do |f|
         if f.creatorid == i.id
           #add f.date to f.days and delete <the subject?>
-          f.days >> f.date
+          temp = 0;
+          f.days do |m|
+            if m == f.date
+              temp = 1;
+            end
+          end
+          if temp == 0
+            f.days << f.date
+          end
         end
       end
     end
