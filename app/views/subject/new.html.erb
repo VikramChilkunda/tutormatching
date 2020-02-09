@@ -44,7 +44,7 @@
             
           
           <%= f.label "Optimal day" %>
-          <%= f.select :date, options_for_select(['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), { include_blank: 'None'}, class: "form-control" %>
+          <%= f.select :date, options_for_select(['All', 'Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), class: "form-control" %>
           
           <% if !Person.find_by(id: session[:tutor_id]).academy %>
               <%= f.label :rate %>

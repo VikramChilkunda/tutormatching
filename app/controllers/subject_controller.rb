@@ -34,7 +34,11 @@ class SubjectController < ApplicationController
           @subject.date = subject_params[:date]
           @subject.rate = subject_params[:rate]
           @subject.creatorid = session[:tutor_id]
-          @subject.days << subject_params[:date]
+          if subject_params[:date] == 'All'
+            (@subject.days << ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']).flatten!
+          else
+            @subject.days << subject_params[:date]
+          end
           if @subject.save
             flash[:success] = "Created Subject"
           else
