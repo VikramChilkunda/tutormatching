@@ -74,9 +74,9 @@ class PeopleController < ApplicationController
         if i.creatorid == params[:id]
           i.destroy
         end
-        TutorRequest.all.each do |i|
-          if i.name == Person.find(params[:id]).name
-            i.destroy
+        TutorRequest.all.each do |r|
+          if r.name == Person.find(params[:id]).name
+            r.destroy
           end
         end
       end
@@ -90,9 +90,9 @@ class PeopleController < ApplicationController
           i.destroy
         end
       end
-       TutorRequest.all.each do |i|
-        if i.name == Person.find(params[:id]).name
-          i.destroy
+       TutorRequest.all.each do |r|
+        if r.name == Person.find(params[:id]).name
+          r.destroy
         end
        end
       Tutor.find_by(people_id: params[:id]).destroy
@@ -137,11 +137,11 @@ class PeopleController < ApplicationController
         if f.creatorid == i.id
           #add f.date to f.days and delete <the subject?>
           temp = 0;
-          f.days do |m|
-            if m == f.date
-              temp = 1;
-            end
-          end
+          # f.days do |m|
+          #   if m == f.date
+          #     temp = 1;
+          #   end
+          # end
           if temp == 0
             f.days << f.date
           end
