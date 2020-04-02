@@ -79,6 +79,7 @@
 	    	  <a href="/godaction" id="specialanimatedbutton", style="margin-left: 7.5%; width:45%;">
 		        Update old date to days attribute
 	    	  </a>
+	    	  <%= link_to "Send email", {:action => :sendemail}, :method => :post %>
 	    	  <h1>
 	    	  <div class="btn btn-primary" id="delete_account_admin">
             <%= link_to "Delete Account", @person, method: :delete, data: {confirm: "Are you sure you want to delete your account?"} %>   <!--instead of accountDelete_path just submit the current person DDDD accountDelete_path(id: Tutor.find_by(people_id: @person.id).id)-->  

@@ -31,6 +31,8 @@ gem 'turbolinks',              '5.0.1'
 
 gem 'jbuilder',                '2.7.0'
 
+gem 'sendgrid-ruby'
+
 # Export data to spreadsheets
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'

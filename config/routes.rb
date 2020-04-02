@@ -37,10 +37,11 @@ Rails.application.routes.draw do
   get '/request', to: 'tutor_requests#new'
   post '/request', to: 'tutor_requests#create'
   delete '/requestdelete', to: 'tutor_requests#destroy'
-  post '/accepted', to: 'tutor_requests#makeAccepted'
+  post '/makeAccepted', to: 'tutor_requests#makeAccepted'
   
-  get '/godaction', to: 'people#adminPage'
-  post '/godaction', to: 'people_controller#godAction'
+  get '/godaction', to: 'static_pages#home'
+  post '/godaction', to: 'people#godAction'
+  post '/sendemail', to: 'people#sendemail'
   
   get '/import_from_excel', to: 'cvstudents#gohere'
   post 'import_from_excel' => "cvstudents#import_from_excel"

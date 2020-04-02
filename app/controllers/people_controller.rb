@@ -1,3 +1,5 @@
+require 'Mail.rb'
+
 class PeopleController < ApplicationController
   
   before_action :logged_in_person, only: [:edit, :update, :destroy]
@@ -131,7 +133,16 @@ class PeopleController < ApplicationController
     end
   end
   
+  
+  
+  def sendemail
+    Mail.email("adroyalz@gmail.com")
+  end
+  
+  
+  
   def godAction          #add all individual date attributes for a tutor's subjects to the days array attribute 
+    puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
     Person.all.each do |i|
       Subject.all.each do |f|
         if f.creatorid == i.id
@@ -144,6 +155,7 @@ class PeopleController < ApplicationController
           # end
           if temp == 0
             f.days << f.date
+            puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
           end
         end
       end

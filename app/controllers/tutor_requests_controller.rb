@@ -1,3 +1,5 @@
+require 'Mail.rb'
+
 class TutorRequestsController < ApplicationController
   def new
     @request = TutorRequest.new
@@ -7,11 +9,12 @@ class TutorRequestsController < ApplicationController
     @request = TutorRequest.new     
     @request.student = params[:student]
     @request.email = params[:email]
-    @request.name = params[:name]
+    @request.name = params[:tutoremail]     #name is supposed to be the tutor's email, but I don't want to mess the database up right now by changing the model attribute
     @request.whichSubject = params[:whichSubject]
     @request.time = params[:time]
     if @request.save
       flash[:success] = "Sent request - tutor will contact you at your given email address"
+      Mail.email(params[:tutoremail])
       redirect_to findatutor_path
     else
       #flash[:error] = @subject.errors.full_messages
@@ -22,11 +25,9 @@ class TutorRequestsController < ApplicationController
   end
   
   def makeAccepted
-    if accept_params[:accepted] == true
-      TutorRequest.find(params[:id]).update_attribute(:accepted, true)
-      redirect_to person_show_path
-    end
-    redirect_to person_show_path
+      TutorRequest.find(params[:check]).update_attribute(:accepted, true)
+      flash[:success] = "Accepted"
+      redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
   end
   
   def destroy
@@ -38,7 +39,7 @@ class TutorRequestsController < ApplicationController
   
   private
     def request_params
-      params.require(:tutor_request).permit(:student, :email, :name, :whichSubject, :time)
+      params.require(:tutor_request).permit(:student, :email, :tutoremail, :whichSubject, :time)
     end
     def accept_params
       params.permit(:accepted)
