@@ -1,4 +1,4 @@
-class Acceptedemail
+class Declinedemail
     def self.email(receiver, tutorName, subjectName)
         # using SendGrid's Ruby Library
         # https://github.com/sendgrid/sendgrid-ruby
@@ -7,8 +7,8 @@ class Acceptedemail
         
         from = Email.new(email: 'adroyalz@gmail.com')
         to = Email.new(email: receiver)
-        subject = 'Your tutoring request was accepted - Tutormatching'
-        content = Content.new(type: 'text/plain', value: tutorName + ' has accepted your request for tutoring in ' + subjectName + ". Contact crescentavalleytutors@gmail.com or reply to this email if you need assistance.")
+        subject = 'Your tutoring request was declined - Tutormatching'
+        content = Content.new(type: 'text/plain', value: "Sorry, " + tutorName + " declined your request for tutoring in " + subjectName + ". Contact crescentavalleytutors@gmail.com or reply to this email if you need assistance.")
         mail = Mail.new(from, subject, to, content)
         
         sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY']) #ENV['SENDGRID_API_KEY']

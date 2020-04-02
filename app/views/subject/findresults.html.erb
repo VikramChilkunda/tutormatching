@@ -37,7 +37,8 @@
                 				<!--Adarsh i need you to put the Carrot Percent thing for tutor's grade here  *DONE*(-->
                 			</div>
                 			<div class="tutorname">
-                			  <%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email, searchName: params[:searchName], searchDate: params[:searchDate]) %>
+                			  <!--%= link_to Person.find_by(id: subjuctivo.creatorid).name, selectedTutor_path(helpthevariables: Person.find_by(id: subjuctivo.creatorid).email, searchName: params[:searchName], searchDate: params[:searchDate]) %>-->
+                			  <%= Person.find_by(id: subjuctivo.creatorid).name %>
                 			</div>
                 			<div class="date">
                 			  

@@ -22,7 +22,7 @@ class Subject < ApplicationRecord
       else
         Subject.all.each do |i|         
             if i.days.detect {|x| x==searchDate} && (i.name == searchName)     #Find all subjects with the chosen day in the subject's :days array attribute
-                @subjuctivos >> i 
+                @subjuctivos << i 
             end
         end
         if !@subjuctivos.first.nil?

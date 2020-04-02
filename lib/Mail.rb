@@ -1,5 +1,5 @@
 class Mail
-    def self.email(receiver)
+    def self.email(receiver, studentName, subjectName)
         # using SendGrid's Ruby Library
         # https://github.com/sendgrid/sendgrid-ruby
         require 'sendgrid-ruby'
@@ -8,7 +8,7 @@ class Mail
         from = Email.new(email: 'adroyalz@gmail.com')
         to = Email.new(email: receiver)
         subject = 'Tutoring request - Tutormatching'
-        content = Content.new(type: 'text/plain', value: 'fill in some arguments here')
+        content = Content.new(type: 'text/plain', value: studentName + ' has requested to be tutored in ' + subjectName + ". Log into your account at cvhstutors.herokuapp.com to accept or decline this request. Contact crescentavalleytutors@gmail.com or reply to this email if you need assistance.")
         mail = Mail.new(from, subject, to, content)
         
         sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY']) #ENV['SENDGRID_API_KEY']

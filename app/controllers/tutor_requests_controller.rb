@@ -1,3 +1,5 @@
+require 'Acceptedemail.rb'
+require 'Declinedemail.rb'
 require 'Mail.rb'
 
 class TutorRequestsController < ApplicationController
@@ -14,7 +16,7 @@ class TutorRequestsController < ApplicationController
     @request.time = params[:time]
     if @request.save
       flash[:success] = "Sent request - tutor will contact you at your given email address"
-      Mail.email(params[:tutoremail])
+      Mail.email(params[:tutoremail], params[:student], params[:whichSubject])
       redirect_to findatutor_path
     else
       #flash[:error] = @subject.errors.full_messages
@@ -24,16 +26,19 @@ class TutorRequestsController < ApplicationController
     end
   end
   
+  #ADD A TRY CATCH
   def makeAccepted
+      Acceptedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
       TutorRequest.find(params[:check]).update_attribute(:accepted, true)
       flash[:success] = "Accepted"
       redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
   end
   
   def destroy
+    #IMPORTANT: since destroy will only be called when a request is declined, the declined email goes in this method
+    Declinedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
      TutorRequest.find(params[:check]).destroy
-     #TutorRequest.find(params[:check]).update_attribute(:invisible, true)
-      flash[:success] = "Request deleted"
+     flash[:success] = "Request deleted"
       redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
   end
   
