@@ -8,6 +8,10 @@ class TutorRequestsController < ApplicationController
   end
   
   def create 
+    
+    #form info from subjects/findresults.html.erb
+    
+    
     @request = TutorRequest.new     
     @request.student = params[:student]
     @request.email = params[:email]
@@ -15,28 +19,34 @@ class TutorRequestsController < ApplicationController
     @request.whichSubject = params[:whichSubject]
     @request.time = params[:time]
     if @request.save
-      flash[:success] = "Sent request - tutor will contact you at your given email address"
+      flash[:success] = "Sent request - you will be notified of " + Person.find_by(email: @request.name).name + "'s answer at your given email address"
       Mail.email(params[:tutoremail], params[:student], params[:whichSubject])
       redirect_to findatutor_path
     else
-      #flash[:error] = @subject.errors.full_messages
-     # redirect_back(fallback_location: '/home')
-     flash[:alert] = "Unable to send request"
+      flash[:alert] = "Unable to send request"
       redirect_to findatutor_path
     end
   end
   
   #ADD A TRY CATCH
   def makeAccepted
-      Acceptedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
+      # Acceptedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
+      Acceptedemail.email(params[:receiverEmail], Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
       TutorRequest.find(params[:check]).update_attribute(:accepted, true)
-      flash[:success] = "Accepted"
+      flash[:success] = "Accepted, contact " + TutorRequest.find(params[:check]).student + " at " + TutorRequest.find(params[:check]).email + " to finalize your tutoring date and location/online method!"
+      redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
+  end
+  
+  def declined
+    Declinedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
+     TutorRequest.find(params[:check]).destroy
+     flash[:success] = "Request deleted"
       redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
   end
   
   def destroy
-    #IMPORTANT: since destroy will only be called when a request is declined, the declined email goes in this method
-    Declinedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
+    # #IMPORTANT: since destroy will only be called when a request is declined, the declined email goes in this method
+    # Declinedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
      TutorRequest.find(params[:check]).destroy
      flash[:success] = "Request deleted"
       redirect_to person_path(Person.find_by(id: session[:tutor_id])) 

@@ -136,7 +136,7 @@ class PeopleController < ApplicationController
   
   
   def sendemail
-    Mail.email("adroyalz@gmail.com")
+    Mail.email("adroyalz@gmail.com", "testName", "testSubject")
   end
   
   

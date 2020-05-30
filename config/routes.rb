@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   post '/request', to: 'tutor_requests#create'
   delete '/requestdelete', to: 'tutor_requests#destroy'
   post '/makeAccepted', to: 'tutor_requests#makeAccepted'
+  post '/decline', to: 'tutor_request#decline'
   
   get '/godaction', to: 'static_pages#home'
   post '/godaction', to: 'people#godAction'
