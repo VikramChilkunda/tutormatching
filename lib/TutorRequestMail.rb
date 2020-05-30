@@ -1,4 +1,4 @@
-class Mail
+class TutorRequestMail
     def self.email(receiver, studentName, subjectName)
         # using SendGrid's Ruby Library
         # https://github.com/sendgrid/sendgrid-ruby

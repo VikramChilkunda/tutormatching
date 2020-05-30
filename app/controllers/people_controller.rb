@@ -1,4 +1,4 @@
-require 'Mail.rb'
+require 'TutorRequestMail.rb'
 
 class PeopleController < ApplicationController
   
@@ -136,7 +136,7 @@ class PeopleController < ApplicationController
   
   
   def sendemail
-    Mail.email("adroyalz@gmail.com", "testName", "testSubject")
+    TutorRequestMail.email("adroyalz@gmail.com", "testName", "testSubject")
   end
   
   

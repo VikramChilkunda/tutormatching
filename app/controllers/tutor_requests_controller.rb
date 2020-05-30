@@ -1,6 +1,6 @@
 require 'Acceptedemail.rb'
 require 'Declinedemail.rb'
-require 'Mail.rb'
+require 'TutorRequestMail.rb'
 
 class TutorRequestsController < ApplicationController
   def new
@@ -20,7 +20,7 @@ class TutorRequestsController < ApplicationController
     @request.time = params[:time]
     if @request.save
       flash[:success] = "Sent request - you will be notified of " + Person.find_by(email: @request.name).name + "'s answer at your given email address"
-      Mail.email(params[:tutoremail], params[:student], params[:whichSubject])
+      TutorRequestMail.email(params[:tutoremail], params[:student], params[:whichSubject])
       redirect_to findatutor_path
     else
       flash[:alert] = "Unable to send request"
