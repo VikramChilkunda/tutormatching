@@ -40,7 +40,7 @@ class TutorRequestsController < ApplicationController
   def declined
     Declinedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
      TutorRequest.find(params[:check]).destroy
-     flash[:success] = "Request deleted"
+     flash[:success] = "Request deleted, student has been notified of your declination"
       redirect_to person_path(Person.find_by(id: session[:tutor_id])) 
   end
   
