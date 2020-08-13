@@ -333,12 +333,15 @@ a:hover{
 	transition: 0.2s ease-in-out;
 }
 #bg-dark{
-	background-color: rgba(0,0,0,0) !important;
+	//background-color: rgba(0,0,0,0) !important;
 	margin-bottom: 15px !important;
 }
 .navbar{
   padding-bottom: 0px !important;
   position: fixed !important;
+  top: 0;
+  left: 0;
+  //position: relative;
   width: 100% !important;
   font-family: Signika;
   transition: 0.2s ease-in-out;
@@ -983,6 +986,9 @@ ul.tutors li img{
   color: #fff;
   text-decoration: none;
   background-color: white !important;
+}
+.dropdown-menu{
+	background-color: #212529;
 }
 .spacer{
 	height: 40px;
