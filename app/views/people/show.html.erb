@@ -13,7 +13,7 @@
   <% end %>
 
   <div id="bob">
-    <p style="	font-size: 2vw"><%= @person.name %> (<%= @person.email %>) </p>
+    <p style="	font-size: 2vw"><%= @person.name %> (<%= @person.email %>), Grade <%=Tutor.find_by(people_id:@person.id).grade%> </p>
     <span id="editprofile">
       <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff; font-size: 2vw;"} %>
     </span><!--Edit:'(@oerson)' is redundant after

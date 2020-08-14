@@ -1,0 +1,13 @@
+<li style="background-color: rgb(55,155,55,.4); ">
+    <% @sophomoreId = sophomores.people_id %>
+    <% @tempPerson = Person.find_by(id: @sophomoreId) %>
+    
+    <% if @tempPerson %>
+     <%= link_to @tempPerson.name, person_path(@tempPerson.id) %>
+    <% end %>
+   
+    <% if Person.find_by(id: session[:tutor_id]).admin?%> 
+    | <%= link_to "delete", Person.find_by(id: @sophomoreId), method: :delete,
+                                  data: { confirm: "Are you sure you want to delete this account?" } %>
+    <% end %>
+</li>

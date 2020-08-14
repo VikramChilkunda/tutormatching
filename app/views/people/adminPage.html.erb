@@ -24,15 +24,12 @@
           <a class="nav-link" href="/studygroup">Study Group</a>
         </li>
         
-        <!--<li class="nav-item">-->
-        <!--  <li><%= link_to "Tutor", '#' %></li> -->
-        <!--</li>-->
         <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
             </button>
           <ul class="dropdown-menu">
-            <li class = "dropdown-item"><%= link_to "Profile", adminPage_path %></li>
+            <li class = "dropdown-item"><div  id="av2"><%= link_to "Profile", adminPage_path %></div></li>
             <li class = "dropdown-item"><%= link_to "Settings", edit_person_path(@person) %></li>
             <li class="divider"></li>
             <li class = "dropdown-item">
@@ -45,6 +42,8 @@
       </ul>
     </div>
   </nav>
+  
+  
   <div class="spacer"></div>
   <h1 id="bob" style="font-size:3vw;">Profile - Admin</h1>
   <% provide(:title, @person.name) %>
