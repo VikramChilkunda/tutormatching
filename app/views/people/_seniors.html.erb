@@ -3,11 +3,13 @@
     <% @tempPerson = Person.find_by(id: @seniorId) %>
     
     <% if @tempPerson %>
-     <%= link_to @tempPerson.name, person_path(@tempPerson.id) %>
-    <% end %>
-   
-    <% if Person.find_by(id: session[:tutor_id]).admin?%> 
-    | <%= link_to "delete", Person.find_by(id: @seniorId), method: :delete,
-                                  data: { confirm: "Are you sure you want to delete this account?" } %>
+        <% if !@tempPerson.admin?%>
+             <%= link_to @tempPerson.name, person_path(@tempPerson.id) %>
+        <% end %>
+           
+        <% if Person.find_by(id: session[:tutor_id]).admin? && !@tempPerson.admin?%> 
+            | <%= link_to "delete", Person.find_by(id: @seniorId), method: :delete,
+                                          data: { confirm: "Are you sure you want to delete this account?" } %>
+        <% end %>
     <% end %>
 </li>
