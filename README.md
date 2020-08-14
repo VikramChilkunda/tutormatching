@@ -21,5 +21,5 @@ Admins:
       
 -If a new student reaches out to you because they are unable to signup as a tutor, it's probably because their ID number is not in our databse. Have them give you their name, email, id number, grade, and password and sign them up on the website with your admin key(which you can set by going to your profile -> edit profile -> admin key).
 
-If you have questions about this README, contact Adarsh Chilkunda at adroyalz@gmail.com
+If you have questions about this README, contact Adarsh Chilkunda at adroyalz@gmail.com or the CV Tutor Match email at cvtutormatch@gmail.com
 # Tutor Matching
