@@ -8,6 +8,7 @@ class PeopleController < ApplicationController
   
   def index
     @people = Person.paginate(page: params[:page]).order(:name)
+    @admins = Person.all.select{|a| a.admin}.paginate(page: params[:page])
     @seniors = Tutor.all.select{|a| a.grade == 12}.paginate(page: params[:page])
     @juniors = Tutor.all.select{|a| a.grade == 11}.paginate(page: params[:page])
     @sophomores = Tutor.all.select{|a| a.grade == 10}.paginate(page: params[:page])

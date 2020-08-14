@@ -15,6 +15,9 @@
     
 <%= will_paginate %>
   <!--%= render @people %>-->
+  <h1 class="adminPageGradeName">Admins</h1>
+  <%= render partial: "admins", collection: @admins %>
+  
   <h1 class="adminPageGradeName">Seniors</h1>
   <%= render partial: "seniors", collection: @seniors %>
   
@@ -26,6 +29,7 @@
   
   <h1 class="adminPageGradeName">Freshmen</h1>
   <%= render partial: "freshmen", collection: @freshmen %>
+  
 <%= will_paginate %>
 </ul>
 
