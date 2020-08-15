@@ -27,31 +27,13 @@ class PeopleController < ApplicationController
   end
   
   def show
-    # Subject.all.each do |i|
-    #   @boberoni = false
-    #   i.days.each do |x|
-    #     if (x == i.date)
-    #       @boberoni = true
-    #     end
-    #   end
-    #   if !@boberoni
-    #     i.days << i.date
-    #   end
-    # end
     
       unless ((session[:tutor_id].to_s == params[:id]) || (Person.find(session[:tutor_id]).admin))             #make sure a person is only going to their profile or the user is an admin    session[:tutor_id] is an int and params[:id] is a string
-       #flash[:danger] = "ACCESS DENIED" 
-       
-       # flash[:danger] = session[:tutor_id]
-      # flash[:danger] = (session[:tutor_id].to_s == params[:id]), session[:tutor_id], params[:id]
-       # redirect_to home_path
       
-       redirect_to nope_path, :overwrite_params => { :parm => 'foo' }
+      redirect_to nope_path, :overwrite_params => { :parm => 'foo' }
         return
       end
-    @person = Person.find(params[:id])
-    # $knockout = params[:id]
-   # debugger
+      @person = Person.find(params[:id])
   end
   
   def update 
@@ -147,7 +129,6 @@ class PeopleController < ApplicationController
   
   
   def godAction          #add all individual date attributes for a tutor's subjects to the days array attribute 
-    puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
     Person.all.each do |i|
       Subject.all.each do |f|
         if f.creatorid == i.id
@@ -160,11 +141,28 @@ class PeopleController < ApplicationController
           # end
           if temp == 0
             f.days << f.date
-            puts "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
           end
         end
       end
     end
+  end
+  
+  def startNewAcademicYear #increment grade and delete all graduated students
+    Person.all.each do |a|
+      @newGrade = a.tutor.grade + 1
+      a.tutor.update_attributes(grade: @newGrade)
+      if(a.tutor.grade == 13)
+        Subject.all.each do |s|        #very inefficient, need to make a tutor subject relationship
+          if s.creatorid == a.tutor.id
+            s.delete
+          end
+        end
+        a.tutor.delete
+        a.delete
+      end
+    end
+    flash[:success] = "Academic year updated"
+    redirect_to adminPage_path
   end
   
   private 

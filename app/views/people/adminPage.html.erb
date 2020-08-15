@@ -61,6 +61,9 @@
           <div><br>
              <%= link_to "User list", people_path(@person), {:style=>"color:#fff;"} %>
           </div>
+          <div ><br>
+             <%= link_to "Start New Academic Year", startNewAcademicYear_path, method: :post, data: {confirm: "Are you sure you want to start a new academic year? This action will change all tutors' grade level and remove graduating seniors!"} %>
+          </div>
           
           <div>
             <h2 id="downloadExcel">

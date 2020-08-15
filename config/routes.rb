@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get '/findresults', to: 'subject#findresults'
   get '/adminPage', to: 'people#adminPage'
   post '/adminPage', to: 'people#adminPage'
+  post '/startNewAcademicYear', to: 'people#startNewAcademicYear'
+  
   get '/selectedTutor', to: 'subject#selectedTutor'
   #get '/subject', to: 'people#subject'
   get '/request', to: 'tutor_requests#new'
@@ -48,6 +50,7 @@ Rails.application.routes.draw do
   post 'import_from_excel' => "cvstudents#import_from_excel"
   get '/clear', to: 'cvstudents#clear'
   post '/clear', to: 'cvstudents#clear'
+  
   
     
   get '/studygroup', to: 'study_groups#allgroups'

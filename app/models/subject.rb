@@ -1,5 +1,5 @@
 class Subject < ApplicationRecord
-     belongs_to :tutor, foreign_key: :tutor_id, inverse_of: :person, optional:true
+     belongs_to :tutor, foreign_key: :tutor_id, inverse_of: :subject, optional:true
      
      serialize :days,Array
      serialize :Multiplesubjects,Array
