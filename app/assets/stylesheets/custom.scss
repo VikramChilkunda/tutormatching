@@ -1558,6 +1558,13 @@ input[type="checkbox"]:focus{
 .adminPageGradeName{
 	color: white;
 }
-#clear-users{
-	color: black;
+#clear_users{
+	background-color: BurlyWood !important;
+	font-weight: bold;
+	width: auto;
+	padding: 25px 25px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 30px;
+	display: inline-block;
 }

@@ -28,7 +28,8 @@ class CvstudentsController < ApplicationController
     Cvstudent.all.each do |i|
       i.destroy
     end
-    redirect_back(fallback_location: import_from_excel_path)
+    redirect_to import_from_excel_path, notice: "Student list removed successfully"
+    # redirect_back(fallback_location: import_from_excel_path)
   end
   
   def destroy
