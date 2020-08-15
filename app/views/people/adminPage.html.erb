@@ -57,9 +57,9 @@
           </div>
           <div><p></p></div>
           
-          <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff;"} %> <!--Edit:'(@oerson)' is redundant after edit_person_path because the edit method in people_controller defines @person -->
+          <div><%= link_to "Settings", edit_person_path(@person), {:style=>"color:#fff;"} %></div>
           <div><br>
-             <%= link_to "Admin actions", people_path(@person), {:style=>"color:#fff;"} %>
+             <%= link_to "User list", people_path(@person), {:style=>"color:#fff;"} %>
           </div>
           
           <div>

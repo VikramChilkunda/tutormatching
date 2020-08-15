@@ -226,6 +226,26 @@ button:focus{
 	background-color: #222222;
 	color: white;
 }
+#specialanimatedbuttontop{
+	color: black;
+	margin: 20px auto;
+	display: block;
+	padding: 14px 10px;
+	background-color: rgba(255, 255, 255, 1);
+	text-align: center;
+	width: 200px;
+	outline: blue;
+	border: 2px solid #12dbff;
+	border-radius: 24px;
+	transition: 0.3s;
+}
+#specialanimatedbuttontop:hover{
+	text-decoration: none;
+	transition: 0.3s;
+	border-color: #12dbff;
+	background-color: #222222;
+	color: white;
+}
 #animatedbutton:hover{
 	text-decoration: none;
 	width: 280px;
@@ -1537,4 +1557,7 @@ input[type="checkbox"]:focus{
 }
 .adminPageGradeName{
 	color: white;
+}
+#clear-users{
+	color: black;
 }

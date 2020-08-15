@@ -21,8 +21,8 @@ class Person < ApplicationRecord
     end
     
     def remember
-    self.remember_token = Person.new_token
-    update_attribute(:remember_digest, Person.digest(remember_token))
+      self.remember_token = Person.new_token
+      update_attribute(:remember_digest, Person.digest(remember_token))
     end
     
     def self.new_token

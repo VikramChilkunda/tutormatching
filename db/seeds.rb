@@ -8,13 +8,18 @@
 
 Person.create!(name:  "Adarsh Chilkunda",
              email: "adroyalz@gmail.com",
-             password:              "foobar",
-             password_confirmation: "foobar",
-             admin: true
+             password:              "advik291",
+             password_confirmation: "advik291",
+             admin: true,
+             adminKey: "advik291",
+             academy: false
              )
-Tutor.create!(id_num: 419418,
-              people_id: 1,
-              grade: 10)
+Tutor.create!(id: Person.find_by(name: "Adarsh Chilkunda").id,
+              id_num: 419418,
+              people_id: Person.find_by(name: "Adarsh Chilkunda").id,
+              grade: 0,
+              academy: false,
+              adminOverride: "advik291")
 # CvSubject.create!(name: "English 9")
 # CvSubject.create!(name: "English 9 Advanced")
 # CvSubject.create!(name: "English 10")
