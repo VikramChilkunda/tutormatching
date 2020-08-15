@@ -16,8 +16,7 @@
     <p style="	font-size: 2vw"><%= @person.name %> (<%= @person.email %>), Grade <%=Tutor.find_by(people_id:@person.id).grade%> </p>
     <span id="editprofile">
       <%= link_to "Edit Profile", edit_person_path(@person), {:style=>"color:#fff; font-size: 2vw;"} %>
-    </span><!--Edit:'(@oerson)' is redundant after
-    edit_person_path because the edit method in people_controller defines @person -->
+    </span>
     
           <table style="width:180%" id="VisualTable">
             <tr>
@@ -44,25 +43,13 @@
                       <th class="tutoringoptions" class="delete" style="width: 24%"><%= link_to " Delete", subjectdelete_path(check: i.id), method: :destroy,
                                   data: { confirm: "Are you sure?" } %></th>
                     </tr>
-                    <%# session[:selected_subject_id] = i.id %>
-                     
                   </table>
                 <% end %>
               <% end %>
             
             
-            <!--<tr>-->
-            <!--  <td> %= Subject.first.name %></td> <!-- Subject.find_by(tutor_id: params[:id]) --> 
-            <!--  <td> %= Subject.first.date %> </td> -->
-            <!--  <td>%= Subject.first.rate %></td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-            <!--  <td>%=Subject.second.name%></td>-->
-            <!--  <td>%= Subject.second.date %></td> -->
-            <!--  <td>%= Subject.second.rate %></td>-->
-            <!--</tr>-->
           </table>
-          <!--%= link_to "Create Subject", 'subjectcreate_path', {:style=>"color:#fff;"} %>-->
+          <br>
           <a href="/subjectcreate">
             <button type="button" class="btn btn-primary" id="createsubjectbutton">Add Subject</button>
           </a>
