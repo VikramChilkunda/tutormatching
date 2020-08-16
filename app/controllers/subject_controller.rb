@@ -10,7 +10,7 @@ class SubjectController < ApplicationController
         @appended = false
         
         Subject.all.each do |f|
-          if((i == f.name) && (subject_params[:rate] == f.rate) && (f.creatorid == session[:tutor_id]))
+          if((i == f.name) && (subject_params[:rate] == f.rate) && (f.creatorid == session[:tutor_id]) && (subject_params[:timeslot] == f.timeslot))
             @dayexists = false      ### CHECKS IF THE REQUESTED DAY IS ALREADY REGISTERED
             f.days.to_a.each do |x|
               if (x == subject_params[:date])
@@ -34,6 +34,7 @@ class SubjectController < ApplicationController
           @subject.date = subject_params[:date]
           @subject.rate = subject_params[:rate]
           @subject.creatorid = session[:tutor_id]
+          @subject.timeslot = subject_params[:timeslot]
           if subject_params[:date] == 'All'
             (@subject.days << ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']).flatten!
           else
@@ -94,7 +95,7 @@ class SubjectController < ApplicationController
   
   private
     def subject_params
-      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, :Multiplesubjects => [])
+      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, :timeslot, :Multiplesubjects => [])
     end
     
 end

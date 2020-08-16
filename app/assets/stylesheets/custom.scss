@@ -742,6 +742,13 @@ ul.tutors li img{
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
 }
+.tutorGradeLabel{
+	padding-top: 1vw;
+	padding-bottom: 1vw;
+	text-align: center;
+	font-family: "Red Hat Text";
+	font-size: 6vw;
+}
 .tutorname{
 	float: left;
 	padding-top: 1.566vw;
@@ -761,7 +768,7 @@ ul.tutors li img{
 	// font-size: 20px;
 	font-family: "Red Hat Text";  //"Cabin"
 	position: absolute;
-	right: 2%;
+	right: 4%;
 	bottom: 1.1666vw; //1.5666vw
 	font-size: 1vw;
 }	
@@ -771,7 +778,15 @@ ul.tutors li img{
 	left: 34%;
 	bottom: 3vw;
 	font-family: "Red Hat Text";
-	font-size: 20px;
+	font-size: 1vw;
+}
+.timeslot{
+	float: right;
+	position: absolute;
+	right: 4%;
+	bottom: 3vw;
+	font-family: "Red Hat Text";
+	font-size: 1vw;
 }
 .tutorsendrequest{
 	// border: 1px solid black;

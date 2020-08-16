@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200814221949) do
+ActiveRecord::Schema.define(version: 20200816081441) do
 
   create_table "cv_subjects", force: :cascade do |t|
     t.string   "name"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20200814221949) do
     t.text     "Multiplesubjects"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.string   "timeslot"
   end
 
   create_table "tutees", force: :cascade do |t|

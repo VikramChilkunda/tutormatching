@@ -21,7 +21,8 @@
           <table style="width:180%" id="VisualTable">
             <tr>
               <th class="tutoringsubject" style="width:43%", "position:absolute">Tutoring:</th>
-              <th class="tutoringday" style="width:22%", "position:absolute">Day</th> 
+              <th class="tutoringday" style="width:22%", "position:absolute">Day(s)</th> 
+              <th class="tutoringday" style="width:22%", "position:absolute">Time Slot</th> 
                <% if !@person.academy %>
                  <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
               <% end %>
@@ -36,6 +37,7 @@
                     <tr>
                       <th class="tutoringsubject" style="width:43%", "position:absolute"> <%= i.name %></th>
                       <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.days.join(', ') %></th> 
+                      <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.timeslot %></th>
                         <% if !@person.academy %>
                             <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
                         <% end %>
@@ -65,7 +67,7 @@
           <th class="requestday" style="width:20%", "position:absolute">Day</th> 
           <th class="requestday" style="width:15%", "position:absolute">Asked on</th> 
           <th class="requestday" style="width:10%", "position:absolute">Options</th> 
-           <th class="requestday" style="width:10%", "position:absolute">Accept?</th>    <!-- used to say "Did you meet?" -->
+           <th class="requestday" style="width:10%", "position:absolute">Accept?</th> 
         </tr>
         
           <% TutorRequest.all.each do |i| %>
@@ -86,7 +88,6 @@
                     <th class="tutoringoptions", style="width: 10%", "position:absolute"><%= link_to "Yes", {:controller => :tutor_requests, :action => :makeAccepted, :check => i.id, :receiverEmail => i.email},  :method => :post, data: { confirm: "Accept request?" } %> | <%= link_to "No", decline_path(check: i.id), method: :post, data: { confirm: "Decline request? This action cannot be reversed and will delete the request" } %></th>
                   <% end %>
                 </tr>
-                <%# session[:selected_subject_id] = i.id %>
                  
               </table>
               
