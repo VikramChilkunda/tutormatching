@@ -11,13 +11,13 @@ class TutorRequestsController < ApplicationController
     
     #form info from subjects/findresults.html.erb
     
-    
     @request = TutorRequest.new     
     @request.student = params[:student]
     @request.email = params[:email]
     @request.name = params[:tutoremail]     #name is supposed to be the tutor's email, but I don't want to mess the database up right now by changing the model attribute
     @request.whichSubject = params[:whichSubject]
     @request.time = params[:time]
+    @request.timeslot = params[:timeslot]
     if @request.save
       flash[:success] = "Sent request - you will be notified of " + Person.find_by(email: @request.name).name + "'s answer at your given email address"
       TutorRequestMail.email(params[:tutoremail], params[:student], params[:whichSubject])
@@ -30,7 +30,6 @@ class TutorRequestsController < ApplicationController
   
   #ADD A TRY CATCH
   def makeAccepted
-      # Acceptedemail.email(TutorRequest.find(params[:check]).email, Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
       Acceptedemail.email(params[:receiverEmail], Person.find_by(email: TutorRequest.find(params[:check]).name).name, TutorRequest.find(params[:check]).whichSubject)
       TutorRequest.find(params[:check]).update_attribute(:accepted, true)
       flash[:success] = "Accepted, contact " + TutorRequest.find(params[:check]).student + " at " + TutorRequest.find(params[:check]).email + " to finalize your tutoring date and location/online method!"
@@ -54,7 +53,7 @@ class TutorRequestsController < ApplicationController
   
   private
     def request_params
-      params.require(:tutor_request).permit(:student, :email, :tutoremail, :whichSubject, :time)
+      params.require(:tutor_request).permit(:student, :email, :tutoremail, :whichSubject, :time, :timeslot)
     end
     def accept_params
       params.permit(:accepted)
