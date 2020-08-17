@@ -1,0 +1,5 @@
+class DropTutees < ActiveRecord::Migration[5.0]
+  def change
+    drop_table :tutees
+  end
+end
