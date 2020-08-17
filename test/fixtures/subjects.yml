@@ -7,6 +7,7 @@ one:
   creatorid: 1
   days: MyText
   Multiplesubjects: MyText
+  timeslot: MyString
 
 two:
   name: MyString
@@ -15,3 +16,4 @@ two:
   creatorid: 1
   days: MyText
   Multiplesubjects: MyText
+  timeslot: MyString
