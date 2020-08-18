@@ -3,6 +3,7 @@ class Subject < ApplicationRecord
      
      serialize :days,Array
      serialize :Multiplesubjects,Array
+     serialize :timeslots,Array
     
      def self.search(searchName, searchDate)
          @subjuctivos = Array.new 
@@ -27,4 +28,5 @@ class Subject < ApplicationRecord
          end
      end
     validates :date, presence: true
+    validates :timeslots, presence: true
 end

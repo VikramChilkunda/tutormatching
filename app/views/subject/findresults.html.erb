@@ -56,11 +56,11 @@
                   			</div>
                   		<% end %>
                   		<div class="timeslot">
-                				<%= subjuctivo.timeslot %>
+                				<%= subjuctivo.timeslots.join(', ')%>
                 			</div>
                     <div class="request_container nodisplay">
                           <div class="tutorsendrequest">
-                                <%= form_tag(request_path(tutoremail: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name, time: subjuctivo.date, timeslot: subjuctivo.timeslot), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
+                                <%= form_tag(request_path(tutoremail: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name, time: subjuctivo.date, timeslots: subjuctivo.timeslots), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
                                   <div><p></p></div>
                          	       <h4 class="findatutor_heading">Send request to tutor: </h4>
                          	       <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control"><br>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200817062751) do
+ActiveRecord::Schema.define(version: 20200818223437) do
 
   create_table "cv_subjects", force: :cascade do |t|
     t.string   "name"
@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 20200817062751) do
     t.integer  "creatorid"
     t.text     "days"
     t.text     "Multiplesubjects"
-    t.string   "timeslot"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.text     "timeslots"
   end
 
   create_table "tutor_requests", force: :cascade do |t|
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20200817062751) do
     t.string   "whichSubject"
     t.string   "time"
     t.boolean  "accepted"
-    t.string   "timeslot"
     t.string   "string"
+    t.text     "timeslots"
   end
 
   create_table "tutors", force: :cascade do |t|
