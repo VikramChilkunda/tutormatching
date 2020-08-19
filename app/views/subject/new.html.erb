@@ -12,7 +12,7 @@
   <%= form_for(@subject, url: subjectcreate_path) do |f| %>
       <%= render 'shared/error_messages_subject' %>
       <div id="container-subjects">
-          <%= f.label :subject %><br>
+          <span style="font-weight: bold;"><%= f.label :subject %><br></span>
             <div id = "splitthecols">
               <% subjects = ['American Government','English 11','Biology','Chemistry', 'Applied Programming (buffet)', 'ELD','Earth Space Science','Economics','English 10 Honors','English 10','English 9 Advanced','English 9','English 12','French 1-2','French 3-4','French 5-6','German 1-2','German 3-4','German 5-6 Honors','German 5-6','Health','Human Geography', 'Integrated Math I','Integrated Math II Accelerated','Integrated Math II','Integrated Math III Accelerated','Integrated Math III','Intervention Math','Kinesiology','Korean 1-2','Korean 3-4','Korean 5-6','Linear Algebra Honors','Lit for Success','Math Analysis Honors','Math Analysis','Math Thinking','Medical Biology','Physics','Physiology Honors','Physiology','Psychology','Sociology','Spanish 1-2','Spanish 3-4','Spanish 5-6','Sports Medicine','Trigonometry/Statistics','US History','World History','AP Biology','AP Calculus AB','AP Calculus BC','AP Chemistry','AP Computer Science', 'AP Economics','AP English Language','AP English Literature','AP Environmental Science','AP European History','AP French Language','AP German Language','AP Government/Politics','AP Human Geography','AP Physics 1','AP Physics 2','AP Physics C','AP Psychology','AP Spanish Language (7-8)','AP Spanish Literature (9-10)','AP Statistics','AP US History'] %>
                 <span id="checkbox-desktop-subjects">
@@ -26,14 +26,27 @@
                 </span><br>
             </div>
               
-          <%= f.label "Tutoring days" %>
-          <%= f.select :date, options_for_select(['All', 'Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], (@subject.date)), class: "form-control" %><br><br>
+          <span style="font-weight: bold;"><%= f.label "Tutoring day(s):" %></span><br>
+            <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Monday", nil %>
+            <%= f.label(:days, "Monday") %><br>
+            <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Tuesday", nil %>
+            <%= f.label(:days, "Tuesday") %><br>
+            <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Wednesday", nil %>
+            <%= f.label(:days, "Wednesday") %><br>
+            <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Thursday", nil %>
+            <%= f.label(:days, "Thursday") %><br>
+            <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Friday", nil %>
+            <%= f.label(:days, "Friday") %><br>
+            <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Saturday", nil %>
+            <%= f.label(:days, "Saturday") %><br>
+            <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Sunday", nil %>
+            <%= f.label(:days, "Sunday") %><br><br>
           
           <% if !Person.find_by(id: session[:tutor_id]).academy %>
-            <%= f.label :rate %>
+            <span style="font-weight: bold;"><%= f.label :rate %></span>
             <%= f.text_field :rate, class: 'form-control', value: "$" %><br>
           <% else %>
-            <%= f.label "Time Slot (applies to all selected days, you'll have to create a new entry for each day that has a different time slot)" %><br>
+            <span style="font-weight: bold;"><%= f.label "Times Available: (select all that apply for the day(s) you selected)" %></span><br>
               <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "3:00pm-4:30pm", nil %>
               <%= f.label(:timeslots, "3:00pm-4:30pm (recommended)") %><br>
               <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "4:30pm-6:00pm", nil %>

@@ -1,46 +1,45 @@
 class SubjectController < ApplicationController
   def new
     @subject = Subject.new
-    
   end
   
   def create
-      @multSubjects = subject_params[:Multiplesubjects]
+      @multSubjects = subject_params[:Multiplesubjects] #Multiplesubjects is an array of strings (subject names), not Subjects
       @multSubjects.to_a.each do |i|
         @appended = false
-        
+  
         Subject.all.each do |f|
-          if((i == f.name) && (subject_params[:rate] == f.rate) && (f.creatorid == session[:tutor_id]) && (subject_params[:timeslots] == f.timeslots))
-            @dayexists = false      ### CHECKS IF THE REQUESTED DAY IS ALREADY REGISTERED
-            f.days.to_a.each do |x|
-              if (x == subject_params[:date])
-                @dayexists = true
-                i=nil
+          if((f.creatorid == session[:tutor_id]) && (i == f.name) && (subject_params[:rate] == f.rate))
+            #Same timeslots, maybe adding new days
+            if(subject_params[:timeslots].to_a.sort == f.timeslots.to_a.sort)
+              subject_params[:days].to_a.each do |x|
+                if !f.days.to_a.include?(x)
+                  f.update_attribute(:days, f.days << x)
+                  @appended = true
+                end
               end
-            end
-            
-            if !@dayexists
-              @appended = true
-              f.update_attribute(:days, f.days << subject_params[:date])
+            #Same days, maybe adding new timeslots
+            elsif(subject_params[:days].to_a.sort == f.days.to_a.sort)
+              subject_params[:timeslots].to_a.each do |x|
+                if !f.timeslots.to_a.include?(x)
+                  f.update_attribute(:timeslots, f.timeslots << x)
+                  @appended = true
+                end
+              end
             end
           end
         end
         
-        if @appended    
-          #redirect_to Person.find_by(id: session[:tutor_id])     
-        elsif !@appended &&  !i.nil?
+        if !@appended
           @subject = Subject.new     
           @subject.name = i
-          @subject.date = subject_params[:date]
           @subject.rate = subject_params[:rate]
           @subject.creatorid = session[:tutor_id]
           subject_params[:timeslots].to_a.each do |a|
             @subject.timeslots << a
           end
-          if subject_params[:date] == 'All'
-            (@subject.days << ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']).flatten!
-          else
-            @subject.days << subject_params[:date]
+          subject_params[:days].to_a.each do |a|
+            @subject.days << a
           end
           if @subject.save
             flash[:success] = "Created Subject"
@@ -97,7 +96,7 @@ class SubjectController < ApplicationController
   
   private
     def subject_params
-      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, :timeslots => [], :Multiplesubjects => [])
+      params.require(:subject).permit(:name, :date, :rate, :searchName, :searchDate, :days => [], :timeslots => [], :Multiplesubjects => [])
     end
     
 end

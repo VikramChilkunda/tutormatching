@@ -23,12 +23,11 @@ class Subject < ApplicationRecord
             end
           end
          else                            
-            #flash[:error]="No such subject"
             return nil
          end
      end
      
-    validates :date, presence: true
+    #validates :date, presence: true
     #validates :rate, presence: true
     #validates_length_of :rate, minimum: 2
 end
