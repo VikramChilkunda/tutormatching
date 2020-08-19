@@ -3,10 +3,13 @@ require 'TutorRequestMail.rb'
 class PeopleController < ApplicationController
   
   before_action :logged_in_person, only: [:edit, :update, :destroy]
- # before_action :correct_person, only: [:edit, :update]
-  before_action :admin_person,     only: [:destroy, :index, :excel, :adminPage]
+  before_action :admin_person,     only: [:destroy, :index, :excel, :adminPage, :people]
   
   def index
+    unless Person.find(session[:tutor_id]).admin
+      redirect_to nope_path, :overwrite_params => { :parm => 'foo' }
+      return
+    end
     @people = Person.paginate(page: params[:page]).order(:name)
     @admins = Person.all.select{|a| a.admin}.paginate(page: params[:page])
     @seniors = Tutor.all.select{|a| a.grade == 12}.paginate(page: params[:page])
@@ -126,26 +129,6 @@ class PeopleController < ApplicationController
     TutorRequestMail.email("adroyalz@gmail.com", "testName", "testSubject")
   end
   
-  
-  
-  def godAction          #add all individual date attributes for a tutor's subjects to the days array attribute 
-    Person.all.each do |i|
-      Subject.all.each do |f|
-        if f.creatorid == i.id
-          #add f.date to f.days and delete <the subject?>
-          temp = 0;
-          # f.days do |m|
-          #   if m == f.date
-          #     temp = 1;
-          #   end
-          # end
-          if temp == 0
-            f.days << f.date
-          end
-        end
-      end
-    end
-  end
   
   def startNewAcademicYear #increment grade and delete all graduated students
     Person.all.each do |a|

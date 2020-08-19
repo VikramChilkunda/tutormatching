@@ -12,6 +12,11 @@ class TutorsController < ApplicationController
   end
   
   def show
+      unless ((session[:tutor_id].to_s == params[:id]) || (Person.find(session[:tutor_id]).admin))
+      
+      redirect_to nope_path, :overwrite_params => { :parm => 'foo' }
+        return
+      end
      @tutor = Tutor.find(params[:id])
      @person = Person.find(@tutor.people_id)
      @tutor_person = TutorPerson.new({:name => @person.name, :email => @person.email, :grade => @tutor.grade, :id_num => @tutor.id_num})

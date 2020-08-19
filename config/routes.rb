@@ -42,8 +42,6 @@ Rails.application.routes.draw do
   post '/makeAccepted', to: 'tutor_requests#makeAccepted'
   post '/decline', to: 'tutor_requests#declined'
   
-  get '/godaction', to: 'static_pages#home'
-  post '/godaction', to: 'people#godAction'
   post '/sendemail', to: 'people#sendemail'
   
   get '/import_from_excel', to: 'cvstudents#gohere'
