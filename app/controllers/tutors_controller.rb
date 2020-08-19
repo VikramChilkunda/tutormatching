@@ -26,13 +26,9 @@ class TutorsController < ApplicationController
     Person.all.each do |i|
       if i.email == tutor_params[:email]
         @checker = true
-        puts "IM LOOOKING FOR YOUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
-      #  puts i.email
-      #  puts tutor_params[:email]
       end
     end
     if !@checker
-      # @person = Person.find_or_initialize_by email: tutor_params[:email]
       @person.email = tutor_params[:email]
       @person.name = tutor_params[:name]
       @person.password = tutor_params[:password]
@@ -47,44 +43,23 @@ class TutorsController < ApplicationController
          @tutor.academy = false
         @person.academy = false
       end
-      # if tutor_params[:academy] == "true"
-      #   @tutor.update_attribute(:academy, true)
-      #   @person.update_attribute(:academy, true)
-      # else
-      #   @tutor.update_attribute(:academy, false)
-      #   @person.update_attribute(:academy, false)
-      # end
-      
-      #if tutor_params[:adminKey] != nil
         @tutor.adminOverride = tutor_params[:adminKey]
-        #@person.adminKey = tutor_params[:adminKey]
-        #flash[:notice] = tutor_params[:adminKey]
-      #end
       
-      
-      # UNCOMMENT HERE
           if (@tutor.save && @person.save)
-            #puts "MY NAME IS BOB JEFFERONI PEPPERONIIIIIIIII"
             log_in @person
-          # session[:tutor_id] = @person.id
             @tutor.update_attribute(:adminOverride, nil)
             flash[:success] = "Tutor signup successful!"
             redirect_to controller: "people", action: "show", id: (@tutor.people_id)
           else 
-            # flash[:error] = @tutor.errors.full_messages
             if @person.errors.any? || @tutor.errors.any?
               render 'new'
             else
               flash[:danger] = "Invalid ID"
               render 'new'
             end
-          # flash[:notice] = "hibye"        
           end
-          
-      # STOP UNCOMMENTING HERE
     else
-     flash[:danger] = "Email taken"
-     #flash[:danger] = tutor_params[:email]
+      flash[:danger] = "Email taken"
       render 'new'
     end
     

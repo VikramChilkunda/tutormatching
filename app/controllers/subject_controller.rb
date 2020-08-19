@@ -45,7 +45,7 @@ class SubjectController < ApplicationController
           if @subject.save
             flash[:success] = "Created Subject"
           else
-            render 'new'
+            render 'new' and return
           end
         end
       end

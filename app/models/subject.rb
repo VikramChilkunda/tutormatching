@@ -27,6 +27,8 @@ class Subject < ApplicationRecord
             return nil
          end
      end
+     
     validates :date, presence: true
-    validates :timeslots, presence: true
+    validates :rate, presence: true
+    validates_length_of :rate, minimum: 2
 end
