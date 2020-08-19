@@ -29,6 +29,6 @@ class Subject < ApplicationRecord
      end
      
     validates :date, presence: true
-    validates :rate, presence: true
-    validates_length_of :rate, minimum: 2
+    #validates :rate, presence: true
+    #validates_length_of :rate, minimum: 2
 end
