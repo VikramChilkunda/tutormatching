@@ -68,7 +68,7 @@
           <th class="requestsubject" style="width:20%", "position:absolute">Subject</th> 
           <th class="requestday" style="width:20%", "position:absolute">Day</th>
           <% if @person.academy %>
-            <th class="requestday" style="width:20%", "position:absolute">Time Slots</th>
+            <th class="requestday" style="width:20%", "position:absolute">Time Slot</th>
           <% end %>
           <th class="requestday" style="width:15%", "position:absolute">Asked on</th> 
           <th class="requestday" style="width:10%", "position:absolute">Options</th> 
@@ -85,7 +85,7 @@
                   <th class="requestsubject" style="width:20%", "position:absolute"> <%= i.whichSubject %></th> 
                   <th class="requestday" style="width:20%", "position:absolute"> <%= i.time %></th> 
                   <% if @person.academy %>
-                    <th class="requestday" style="width:20%", "position:absolute"> <%= i.timeslots.join(', ') %></th>
+                    <th class="requestday" style="width:20%", "position:absolute"> <%= i.timeslots%></th>
                   <% end %>
                   <th class="requestday" style="width:15%", "position:absolute"> <%= i.created_at.strftime("%m-%d-%y") %><br>(<%= i.created_at.in_time_zone('Pacific Time (US & Canada)').strftime("%I:%M %P") %>)</th> 
                    

@@ -17,9 +17,8 @@ class TutorRequestsController < ApplicationController
     @request.name = params[:tutoremail]     #name is supposed to be the tutor's email, but I don't want to mess the database up right now by changing the model attribute
     @request.whichSubject = params[:whichSubject]
     @request.time = params[:time]
-    params[:timeslots].to_a.each do |a|
-            @request.timeslots << a
-    end
+    @request.timeslots = params[:timeslots]
+    
     if @request.save
       flash[:success] = "Sent request - you will be notified of " + Person.find_by(email: @request.name).name + "'s answer at your given email address"
       TutorRequestMail.email(params[:tutoremail], params[:student], params[:whichSubject])

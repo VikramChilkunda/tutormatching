@@ -752,7 +752,7 @@ ul.tutors li img{
 .tutorname{
 	float: left;
 	padding-top: 1.566vw;
-	padding-left: 6%;
+	padding-left: 3%;
 	font-family: "Cabin";
 	text-transform: uppercase;
 	font-weight: 700px;
@@ -815,17 +815,17 @@ ul.tutors li img{
     width: 25vw !important;
     -webkit-transform: translate(-50%, -50%) !important;
     transform: translate(-50%, -50%) !important;
-    font-size: 40px !important;
+    font-size: 24px !important;
     border-radius: 10px;
 }
 .tutorsendrequest h4{
-	margin-top: -1vw;
+	margin-top: 0vw;
 }
 .tutorsendrequest input{
-	height: 2vw !important;
+	height: 2.3vw !important;
 	width: 14vw !important;
 	margin-top: 0 !important;
-	margin-bottom: -1vw !important;
+	margin-bottom: 0vw !important;
 	padding: 1vw;
 	font-size: 0.8vw;
 }
@@ -1011,6 +1011,17 @@ ul.tutors li img{
 }
 #personnameandemail{
 	font-size: 2vw;
+}
+#dayOnSendRequest{
+	margin-left: 25%;
+}
+#dayOnSendRequestAcademy{
+	font-size: 15px;
+	margin-left: 10%;
+}
+#timeOnSendRequestAcademy{
+	font-size: 15px;
+	margin-left: 35%;
 }
 .fa-mobile{
 	// position: absolute;
@@ -1581,6 +1592,9 @@ input[type="checkbox"]:focus{
 }
 #email{
 	margin-bottom: 2vh !important;
+}
+#student{
+	margin-bottom: 1vh !important;
 }
 .adminPageGradeName{
 	color: white;
