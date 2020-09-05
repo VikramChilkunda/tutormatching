@@ -131,21 +131,23 @@ class PeopleController < ApplicationController
   
   
   def startNewAcademicYear #increment grade and delete all graduated students
-    Person.all.each do |a|
-      @newGrade = a.tutor.grade + 1
-      a.tutor.update_attributes(grade: @newGrade)
-      if(a.tutor.grade == 13)
-        Subject.all.each do |s|        #very inefficient, need to make a tutor subject relationship
-          if s.creatorid == a.tutor.id
-            s.delete
+    if(Person.find(session[:tutor_id]).admin)
+      Person.all.each do |a|
+        @newGrade = a.tutor.grade + 1
+        a.tutor.update_attributes(grade: @newGrade)
+        if(a.tutor.grade == 13)
+          Subject.all.each do |s|        #very inefficient, need to make a tutor subject relationship
+            if s.creatorid == a.tutor.id
+              s.delete
+            end
           end
+          a.tutor.delete
+          a.delete
         end
-        a.tutor.delete
-        a.delete
       end
+      flash[:success] = "Academic year updated"
+      redirect_to adminPage_path
     end
-    flash[:success] = "Academic year updated"
-    redirect_to adminPage_path
   end
   
   private 
