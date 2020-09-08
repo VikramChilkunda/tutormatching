@@ -13,7 +13,7 @@
 	<div class="large_content">
 		<div class="container">
 			<h1 id="homeh1">Available tutors for <br><%= params[:searchName] %></h1>
-			<p id="homep">Click on a card to request tutoring</p>		
+			<p id="homep">Click 'Select' on a card to request that tutor</p>		
 		</div>
 			
  	</div>
@@ -58,27 +58,46 @@
                   		<div class="timeslot">
                 				<%= subjuctivo.timeslots.join(', ')%>
                 			</div>
-                    <div class="request_container nodisplay">
-                      <div class="tutorsendrequest">
-                        <%= form_tag(request_path(tutoremail: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
-                          <h4 class="findatutor_heading">Send request to tutor: </h4>
-                            <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control">
-                         	  <input type="text" name="student" id="student" placeholder="Your name"  class = "form-control"><p></p> 
-                         	  <% if Person.find_by(id: subjuctivo.creatorid).academy %>
-                           	  <div id='dayOnSendRequestAcademy'><%= label_tag "Day:" %>
-                                <%= select_tag :time, options_for_select(subjuctivo.days.to_a), include_blank: true %>
-                                <%= label_tag "Time slot:" %>
-                                <%= select_tag :timeslots, options_for_select(subjuctivo.timeslots.to_a), include_blank: true %>
-                              </div>
-                            <% else %>
-                              <div id='dayOnSendRequest'><%= label_tag "Day:" %>
-                              <%= select_tag :time, options_for_select(subjuctivo.days.to_a), include_blank: true %></div>
+                    
+                    
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-success btn-xs selectTutor" data-toggle="modal" data-target="#approvalModal">
+                      Select
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Selection</h4>
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                          </div>
+                          <div class="modal-body">
+                             <%= form_tag(request_path(tutoremail: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
+                            <h4 class="findatutor_heading">Send request to tutor: </h4>
+                              <input type="text" name="student" id="student" placeholder="Your name"  class = "form-control"><p></p> 
+                              <input type="text" name="email" id="email" placeholder="Enter your email" class = "form-control">
+                           	  <% if Person.find_by(id: subjuctivo.creatorid).academy %>
+                             	  <div id='dayOnSendRequestAcademy'><%= label_tag "Day:" %>
+                                  <%= select_tag :time, options_for_select(subjuctivo.days.to_a), include_blank: true %>
+                                  <%= label_tag "Time slot:" %>
+                                  <%= select_tag :timeslots, options_for_select(subjuctivo.timeslots.to_a), include_blank: true %>
+                                </div>
+                              <% else %>
+                                <div id='dayOnSendRequest'><%= label_tag "Day:" %>
+                                <%= select_tag :time, options_for_select(subjuctivo.days.to_a), include_blank: true %></div>
+                              <% end %>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                               <%= submit_tag "Submit Request", name: nil, class: "btn btn-success" %>
                             <% end %>
-                          <input type="submit" name="commit" value="Send" data-disable-with="Send" id="specialanimatedbutton">
-                        <% end %>
-                        <i class="fa fa-times req-times"></i>
-                      </div>
-                    </div>
+                          </div>
+                        </div><!-- /.modal-content -->
+                      </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+                    
             </div>
           <% end %>
    	  <% end %>
