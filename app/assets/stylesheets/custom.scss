@@ -754,6 +754,7 @@ ul.tutors li img{
 	font-size: 6vw;
 }
 .tutorname{
+	width: 30vw;
 	float: left;
 	padding-top: 1.566vw;
 	padding-left: 3%;
@@ -761,6 +762,8 @@ ul.tutors li img{
 	text-transform: uppercase;
 	font-weight: 700px;
 	font-size: 1.8229vw;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 .tutorname a{
 	color: black !important;
@@ -798,9 +801,9 @@ ul.tutors li img{
 	float: right;
 	position: absolute;
 	right: 21.5%;
-	top: 1.566vw;
+	top: 4vw;
 	box-shadow: 8px 5px 1px #081a80;
-	font-size: 1.8229vw;
+	font-size: 1.6229vw;
 }
 .tutorsendrequest{
 	// border: 1px solid black;
