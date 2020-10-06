@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   
   get '/findatutor', to: 'subject#findatutor'
   post '/findatutor', to: 'subject#findatutor'
+  get '/findresults', to: 'subject#findresults'
+  get '/findatutorRosemont', to: 'subject#findatutorRosemont'
+  post '/findatutorRosemont', to: 'subject#findatutorRosemont'
+  get '/findresultsRosemont', to: 'subject#findresultsRosemont'
   
   get  '/signup', to: 'tutees#new'
   post '/signup',  to: 'tutees#create'
@@ -29,7 +33,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/download', to: 'people#adminPage'
   get '/persons', to: 'people#adminPage'
-  get '/findresults', to: 'subject#findresults'
+  
   get '/adminPage', to: 'people#adminPage'
   post '/adminPage', to: 'people#adminPage'
   post '/startNewAcademicYear', to: 'people#startNewAcademicYear'

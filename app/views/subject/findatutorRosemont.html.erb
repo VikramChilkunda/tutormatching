@@ -1,0 +1,53 @@
+<% provide(:title, "Find a Tutor (for Rosemont)") %>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME PAGE</title>
+	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+	<script src="jquery-3.3.1.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body id="body">
+<%= render 'layouts/header' %>
+	<div class="large_content" style="background-position: 30% 37%">
+		<div class="container">
+			<h1 id="homeh1">Find a tutor (for Rosemont students)</h1>
+			<p id="homep"></p>		
+		</div>
+			
+ 	</div>
+ 	
+ 	<div>
+    <div  class="col-md-6 col-md-offset-3" id="findatutorcontainer">
+ 	    <%= form_tag(findatutorRosemont_path, method: :get) do %>
+ 	       <h4 class="findatutor_heading">Subject  </h4>
+ 	      
+ 	       <div>
+   	       <select name="searchName" id="searchName">
+   	          <option value="blank">Select</option>
+   	          <option value="English (Rosemont)">English</option>
+   	          <option value="History (Rosemont)">History</option>
+   	          <option value="Math (Rosemont)">Math</option>
+   	          <option value="Science (Rosemont)">Science</option>
+   	          <option value="Languages (Rosemont)">Languages</option>
+   	         
+          </select>
+ 	       </div>
+ 	       <h4 class="findatutor_heading">Day </h4>
+ 	      <select name="searchDate" id="searchName">
+ 	          <option value="All">Any day</option>
+   	        <option value="Sunday">Sunday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+          </select>
+          <input type="submit" name="commit" value="Search" data-disable-with="Search" id="specialanimatedbutton" class="btn btn-primary findatutorbutton">	    
+        <% end %>
+ 	  </div>
+ 	</div>
+</body>
+</html>
