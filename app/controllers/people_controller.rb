@@ -37,7 +37,16 @@ class PeopleController < ApplicationController
     # else
     #   render 'adminSignup'
     # end
-    
+    @person.email = admin_params[:email]
+    @person.name = admin_params[:name]
+    @person.password = admin_params[:password]
+    @person.password_confirmation = admin_params[:password_confirmation]
+    @person.academy = false
+    if @person.save
+      flash[:success] = "Admin successfully registered! Visit your profile page to view available actions"
+    else
+      render 'adminSignup'
+    end
   end
   
   def edit
