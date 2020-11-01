@@ -8,9 +8,9 @@ wb.add_worksheet(name: "Academy tutor requests") do |sheet|
         TutorRequest.all.each do |ab|
             if ab.name == person.email
                 @numRequests = @numRequests + 1
-            end
-            if ab.accepted
-                @numAccepted = @numAccepted + 1
+                if ab.accepted
+                    @numAccepted = @numAccepted + 1
+                end
             end
         end
         sheet.add_row [person.name, person.email, Tutor.find_by(people_id: person.id).id_num, Tutor.find_by(people_id: person.id).grade, "..............  ","  Tutor requests: ", @numRequests, " Requests Accepted: ", @numAccepted]
