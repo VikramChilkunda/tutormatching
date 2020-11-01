@@ -25,6 +25,7 @@ class PeopleController < ApplicationController
   
   def adminSignup
     @person = Person.new
+    #@tutor1 = Tutor.new
   end
   def createAdmin
     # @person.email = admin_params[:email]
@@ -47,6 +48,7 @@ class PeopleController < ApplicationController
     else
       render 'adminSignup'
     end
+    
   end
   
   def edit
