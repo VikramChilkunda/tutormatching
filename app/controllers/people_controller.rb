@@ -28,16 +28,6 @@ class PeopleController < ApplicationController
     #@tutor1 = Tutor.new
   end
   def createAdmin
-    # @person.email = admin_params[:email]
-    # @person.name = admin_params[:name]
-    # @person.password = admin_params[:password]
-    # @person.password_confirmation = admin_params[:password_confirmation]
-    # @person.academy = false
-    # if @person.save
-      
-    # else
-    #   render 'adminSignup'
-    # end
     @person.email = admin_params[:email]
     @person.name = admin_params[:name]
     @person.password = admin_params[:password]
@@ -151,7 +141,22 @@ class PeopleController < ApplicationController
     end
   end
   
-  
+  def academyInfo
+    @person = Person.find(session[:tutor_id])
+    
+    @academyTutors = Array.new
+    Person.all.each do |i|
+      if Tutor.find_by(people_id: i.id).academy
+        @academyTutors << i
+      end
+    end
+    respond_to do |format|
+      format.html
+      format.xlsx {
+        response.headers['Content-Disposition'] = 'attachment; filename="academy_tutor_info.xlsx"'
+      }
+    end
+  end
   
   def sendemail
     TutorRequestMail.email("adroyalz@gmail.com", "testName", "testSubject")

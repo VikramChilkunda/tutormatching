@@ -68,16 +68,14 @@
           <div>
             <h2 id="downloadExcel">
               <br>
-                <%= link_to 'Download user list', persons_path(format: :xlsx) %>
+                <%= link_to 'Download user list', persons_path(format: :xlsx) %><br>
+                <%= link_to 'Download academy tutor info', downloadAcademyInfo_path(format: :xlsx) %>
 	          </h2>
           </div>
           </h1>
-          <br><br><br>
+          <br><br><br><br><br>
           <a href="/import_from_excel" id="specialanimatedbutton", style="margin-left: 0.1vw; width:45%;">
 		        Import CV student list (excel sheet)
-	    	  </a>
-	    	  <a href="/godaction" id="specialanimatedbutton", style="margin-left: 0.1vw; width:45%;">
-		        Update old date to days attribute
 	    	  </a>
 	    	  <h1>
 	    	  <div class="btn btn-primary" id="delete_account_admin", style="margin-left: 0.1vw;">
