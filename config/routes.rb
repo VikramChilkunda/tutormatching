@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/download', to: 'people#adminPage'
   get '/persons', to: 'people#adminPage'
+  get '/downloadAcademyInfo', to: 'people#academyInfo'
   
   get '/adminPage', to: 'people#adminPage'
   post '/adminPage', to: 'people#adminPage'
