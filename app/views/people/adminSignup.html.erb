@@ -23,12 +23,6 @@
         
         <%= f.label :email %><span class="required">*</span>
         <%= f.email_field :email, placeholder: "example@gmail.com", class: 'form-control' %>
-        
-        <%= f.label :ID_Number %><span class="required">*</span>
-        <%= f.password_field :id_num, placeholder: "123456", class: 'form-control' %>
-
-        <%= f.label :grade %><span class="required">*</span>
-         <%= f.select :grade, options_for_select(['9', '10', '11', '12'], (@tutor_person.grade)), { include_blank: 'Select grade'}, class: "form-control" %>
          
         <%= f.label :password %><span class="required">*</span>
         <%= f.password_field :password, class: 'form-control' %>
@@ -36,12 +30,9 @@
         <%= f.label :password_confirmation, "Re-enter password" %><span class="required">*</span>
         <%= f.password_field :password_confirmation, class: 'form-control', id: 'bottominput' %>
         
-        <%= f.label "Admin Key (admin use only)" %>
+        <%= f.label "Admin Key (receive this from an existing admin)" %>
         <%= f.password_field :adminKey, class: 'form-control' %>
         
-        <%= f.label "Academy member" %>
-        <%= f.check_box :academy, {class: 'form-control'}, "true", "false"%>        <!--  checked_value = true, unchecked_value = false, -->
-  
         <%= f.submit "Create my account", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>
    
