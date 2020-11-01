@@ -1,6 +1,5 @@
 class Person < ApplicationRecord
      attr_accessor :remember_token
-    has_one :tutee, foreign_key: :people_id, autosave: true, inverse_of: :person
     has_one :tutor, foreign_key: :people_id, autosave: true, inverse_of: :person
     validates :name, presence: true, length: { maximum: 50 }, uniqueness: false
    

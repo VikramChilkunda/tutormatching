@@ -23,6 +23,23 @@ class PeopleController < ApplicationController
 
   end
   
+  def adminSignup
+    @person = Person.new
+  end
+  def createAdmin
+    # @person.email = admin_params[:email]
+    # @person.name = admin_params[:name]
+    # @person.password = admin_params[:password]
+    # @person.password_confirmation = admin_params[:password_confirmation]
+    # @person.academy = false
+    # if @person.save
+      
+    # else
+    #   render 'adminSignup'
+    # end
+    
+  end
+  
   def edit
      @tutor = Tutor.find_by(people_id: params[:id])
      @person = Person.find(params[:id])
@@ -168,6 +185,9 @@ class PeopleController < ApplicationController
     def correct_person
       @person = Person.find(params[:id])
       redirect_to(root_url) unless current_person?(@person)
+    end
+    def admin_params
+      params.require(:person).permit(:name, :email, :password, :password_confirmation)
     end
     
     def admin_person

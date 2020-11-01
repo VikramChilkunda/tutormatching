@@ -8,15 +8,14 @@
 <%= render 'layouts/header' %>
     
 <div class="large_content" id="large_content" style="background-position: 30% 37%">
-    <h1> Sign Up</h1>
-    <a href="/adminSignup" id="adminSignup">Staff? Click here instead to request an admin account</a>
+    <h1> Admin Account Request Form</h1>
 </div>
 
 <body>    
 <div class="row">
   
     <div  class="col-md-6 col-md-offset-3">
-    <%= form_for(@tutor_person, url: tutorsignup_path) do |f| %>
+    <%= form_for(@person, url: adminSignup_path) do |f| %>
       <%= render 'shared/error_messages_tutor_people' %>
           
         <%= f.label :name %><span class="required">*</span>

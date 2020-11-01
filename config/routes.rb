@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   post '/findatutorRosemont', to: 'subject#findatutorRosemont'
   get '/findresultsRosemont', to: 'subject#findresultsRosemont'
   
-  get  '/signup', to: 'tutees#new'
-  post '/signup',  to: 'tutees#create'
   get  '/tutorsignup', to: 'tutors#new'
   post '/tutorsignup', to: 'tutors#create'
+  get '/adminSignup', to: 'people#adminSignup'
+  post '/adminSignup', to: 'people#createAdmin'
   get  '/login', to: 'sessions#new'
   post  '/login', to: 'sessions#create'
  
