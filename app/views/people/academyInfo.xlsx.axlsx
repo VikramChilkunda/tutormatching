@@ -13,7 +13,7 @@ wb.add_worksheet(name: "Academy tutor requests") do |sheet|
                 end
             end
         end
-        sheet.add_row [person.name, person.email, Tutor.find_by(people_id: person.id).id_num, Tutor.find_by(people_id: person.id).grade, "..............  ","  Tutor requests: ", @numRequests, " Requests Accepted: ", @numAccepted]
+        sheet.add_row [person.name, person.email, Tutor.find_by(people_id: person.id).grade, "..............  ","  Tutor requests: ", @numRequests, " Requests Accepted: ", @numAccepted]
         
         @current_row = @current_row+1
     end

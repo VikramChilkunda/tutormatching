@@ -1,0 +1,36 @@
+<% provide(:title, "About") %>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME PAGE</title>
+	<link href="https://fonts.googleapis.com/css?family=Signika|Ubuntu|Quicksand|Lato|Arimo|Cabin" rel="stylesheet">
+	<script src="jquery-3.3.1.min.js"></script>
+<style>
+  @media screen and (min-width: 1366px){
+  	.large_content{
+  		height: 120vh;
+  	}
+  }
+  @media screen and (max-width: 600px){
+  	.large_content{
+  		height: 100vh;
+  	}
+  }
+</style>
+</head>
+<body id="body">
+  	<%= render 'layouts/header' %>
+
+		<div class="large_content">
+		<div class="container">
+			<h1>Welcome</h1>
+            <h2>
+			    <%= link_to 'Download academy tutor info', downloadAcademyInfo_path(format: :xlsx) %>
+			</h2>
+			</p>
+		</div>
+ 	<!-- <button id="top" onload ="hide()" onclick="topFunction()" >Top</button> -->
+ 
+ 	<div class="filler"></div>
+</body>
+</html>

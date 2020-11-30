@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/home',    to: 'static_pages#home'
   get '/help',    to: 'static_pages#help'
   get '/about',   to: 'static_pages#about'
+  get '/academyLink', to: 'static_pages#academyLink'
   
   get '/findatutor', to: 'subject#findatutor'
   post '/findatutor', to: 'subject#findatutor'
