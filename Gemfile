@@ -9,7 +9,7 @@ gem 'bcrypt',                  '3.1.12'
 
 #gem 'faker',                   '1.7.3'
 
-gem 'carrierwave',             '1.2.2'
+gem 'carrierwave',             '1.3.2'
 
 gem 'mini_magick',             '4.9.4'
 
