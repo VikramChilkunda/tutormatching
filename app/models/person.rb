@@ -1,4 +1,5 @@
 class Person < ApplicationRecord
+    require 'securerandom' 
      attr_accessor :remember_token
     has_one :tutor, foreign_key: :people_id, autosave: true, inverse_of: :person
     validates :name, presence: true, length: { maximum: 50 }, uniqueness: false
@@ -43,6 +44,28 @@ class Person < ApplicationRecord
 
   def self.current
     @current_person
+  end
+  
+  def generate_password_token!
+    self.reset_password_token = generate_token
+    self.reset_password_sent_at = Time.now.utc
+    save!
+  end
+  
+  def password_token_valid?
+    (self.reset_password_sent_at + 4.hours) > Time.now.utc
+  end
+  
+  def reset_password!(password)
+    self.reset_password_token = nil
+    self.password = password
+    save!
+  end
+  
+  private
+  
+  def generate_token
+   SecureRandom.hex(10)
   end
     
      has_secure_password

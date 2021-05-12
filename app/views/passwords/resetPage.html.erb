@@ -1,0 +1,34 @@
+<% provide(:title, "Reset Password") %>
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+  <script src="jquery-3.3.1.min.js"></script>
+</head>
+
+	<%= render 'layouts/header' %>
+<div class="large_content" style="background-position: 30% 37%">
+  <h1>Reset Password</h1>
+</div>
+
+<div class="row">
+  <div  class="col-md-6 col-md-offset-3">
+    <%= form_for(:password, url: resetPassword_path) do |f| %>
+       
+      <%= f.label :newpassword, "New Password (6+ characters)"  %>
+      <%= f.password_field :newpassword, class: 'form-control' %>
+      <br>
+      <%= f.label :password_confirmation, "Password confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <br>
+      <%= f.label :token, "Unique Reset Token (from the email we sent you)"  %>
+      <%= f.text_field :token, class: 'form-control' %>
+      <br>
+      <div>
+        <p></p>  <!-- Intentionally left blank to add space before the log in button -->
+      </div>
+      <%= f.submit "Reset password", class: "btn btn-primary", id: "specialanimatedbutton" %>
+    <% end %>
+    <br>
+  </div>
+
+</body>

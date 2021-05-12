@@ -1,4 +1,4 @@
-<% provide(:title, "Log in") %>
+<% provide(:title, "Forgot Password") %>
 <head>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
@@ -7,27 +7,22 @@
 
 	<%= render 'layouts/header' %>
 <div class="large_content" style="background-position: 30% 37%">
-  <h1>Log In</h1>
+  <h1>Request Password Reset</h1>
 </div>
 
 <div class="row">
   <div  class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for(:password, url: forgotPassword_path) do |f| %>
        
-      <%= f.label :email %>
+      <%= f.label :email, "Email address of the account you want to reset the password for:"  %>
       <%= f.email_field :email, class: 'form-control' %>
-      <br>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control', id: 'bottominput' %>
-      <a href="/forgotPassword" class="defaultlink">Forgot Password?</a>
       <br>
       <div>
         <p></p>  <!-- Intentionally left blank to add space before the log in button -->
       </div>
-      <%= f.submit "Log in", class: "btn btn-primary", id: "specialanimatedbutton" %>
+      <%= f.submit "Send reset request", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>
     <br>
-    <a href="/tutorsignup" class="defaultlink">New User? Sign up now!</a>
   </div>
 
 </body>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # mount RailsAdmin::Engine => '/t/admin', as: 'rails_admin'
   get 'tutor_requests/new'
 
   get 'cvstudents/import_from_excel'
@@ -73,6 +74,11 @@ Rails.application.routes.draw do
   delete '/accountDelete', to: 'people#destroy'
   
   get '/nope', to: 'static_pages#forbidden'
+  
+  get '/forgotPassword', to: 'passwords#forgotPage'
+  get '/resetPassword', to: 'passwords#resetPage'
+  post '/forgotPassword', to: 'passwords#forgot'
+  post '/resetPassword', to: 'passwords#reset'
   
   resources :tutees
   
