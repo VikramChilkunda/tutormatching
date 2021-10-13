@@ -58,17 +58,17 @@ Rails.application.routes.draw do
   
   
     
-  get '/studygroup', to: 'study_groups#allgroups'
-  post '/studygroup', to: 'study_groups#allgroups'
-  get '/creategroup', to: 'study_groups#new'
-  post '/creategroup', to: 'study_groups#create'
-  get '/owner', to: 'study_groups#ownerPage'
-  post '/owner', to: 'study_groups#ownerGroup'
-  patch '/editGroup', to: 'study_groups#update'
-  #patch not post
- # delete '/study_group_delete', to: 'study_groups#destroy'
-  post '/joinGroup', to: 'study_groups#joinGroup'
-  delete '/groupdelete', to: 'study_groups#destroy'
+#   get '/studygroup', to: 'study_groups#allgroups'
+#   post '/studygroup', to: 'study_groups#allgroups'
+#   get '/creategroup', to: 'study_groups#new'
+#   post '/creategroup', to: 'study_groups#create'
+#   get '/owner', to: 'study_groups#ownerPage'
+#   post '/owner', to: 'study_groups#ownerGroup'
+#   patch '/editGroup', to: 'study_groups#update'
+#   #patch not post
+#  # delete '/study_group_delete', to: 'study_groups#destroy'
+#   post '/joinGroup', to: 'study_groups#joinGroup'
+#   delete '/groupdelete', to: 'study_groups#destroy'
   
   get '/accountDelete', to: 'people#destroy'
   delete '/accountDelete', to: 'people#destroy'
@@ -90,7 +90,7 @@ Rails.application.routes.draw do
   
   resources :account_activations, only: [:edit]
   
-  resources :study_groups
+  # resources :study_groups
   
   resources :tutor_request
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
