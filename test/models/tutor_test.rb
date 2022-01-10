@@ -35,7 +35,7 @@ class TutorTest < ActiveSupport::TestCase
     assert_not @tutor.valid?
   end
   
-  test "id should be 6 digits" do
+  test "ID should be 6 digits" do
     @tutor.id_num = "1234567"
     assert_not @tutor.valid?
   end
