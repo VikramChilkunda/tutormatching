@@ -25,11 +25,11 @@
         <%= f.label :email %><span class="required">*</span>
         <%= f.email_field :email, placeholder: "example@stu.gusd.net", class: 'form-control' %>
         
-        <%= f.label :ID_Number %><span class="required">*</span>
+        <%= f.label :ID_Number, '6 Digit ID Number' %><span class="required">*</span>
         <%= f.password_field :id_num, placeholder: "123456", class: 'form-control' %>
 
         <%= f.label :grade %><span class="required">*</span>
-         <%= f.select :grade, options_for_select(['9', '10', '11', '12'], (@tutor_person.grade)), { include_blank: 'Select grade'}, class: "form-control" %>
+         <%= f.select :grade, options_for_select(['9', '10', '11', '12'], (@tutor_person.grade)), { include_blank: 'Select Grade'}, class: "form-control" %>
          
         <%= f.label :password %><span class="required">*</span>
         <%= f.password_field :password, class: 'form-control' %>
