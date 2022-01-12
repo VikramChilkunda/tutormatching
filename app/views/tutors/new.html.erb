@@ -20,10 +20,10 @@
       <%= render 'shared/error_messages_tutor_people' %>
           
         <%= f.label :name %><span class="required">*</span>
-        <%= f.text_field :name, placeholder: "Joe Falcon",class: 'form-control' %>
+        <%= f.text_field :name, placeholder: "John Smith",class: 'form-control' %>
         
         <%= f.label :email %><span class="required">*</span>
-        <%= f.email_field :email, placeholder: "example@stu.gusd.net", class: 'form-control' %>
+        <%= f.email_field :email, placeholder: "example@gmail.com", class: 'form-control' %>
         
         <%= f.label :ID_Number, '6 Digit ID Number' %><span class="required">*</span>
         <%= f.password_field :id_num, placeholder: "123456", class: 'form-control' %>
@@ -40,7 +40,7 @@
         <%= f.label "Admin Key (admin use only)" %>
         <%= f.password_field :adminKey, class: 'form-control' %>
         
-        <%= f.label "Academy member" %>
+        <%= f.label "Academy Member" %>
         <%= f.check_box :academy, {class: 'form-control'}, "true", "false"%>        <!--  checked_value = true, unchecked_value = false, -->
   
         <%= f.submit "Create my account", class: "btn btn-primary", id: "specialanimatedbutton" %>

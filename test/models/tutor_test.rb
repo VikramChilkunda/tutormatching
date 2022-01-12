@@ -34,7 +34,7 @@ class TutorTest < ActiveSupport::TestCase
     @tutor.email = "a" * 244 + "@example.com"
     assert_not @tutor.valid?
   end
-  
+ 
   test "ID should be 6 digits" do
     @tutor.id_num = "1234567"
     assert_not @tutor.valid?
