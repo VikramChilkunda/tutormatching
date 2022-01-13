@@ -50,7 +50,7 @@ class TutorTest < ActiveSupport::TestCase
   # end
   
   test "email validation should accept valid addresses" do
-    valid_addresses = %w[user@gusd.net user@stu.gusd.net USER@gusd.NET USER@stu.gusd.NET]
+    valid_addresses = %w[user@gusd.net user@stu.gusd.net]
     valid_addresses.each do |valid_address|
       @tutor.email = valid_address
       assert @tutor.valid?, "#{valid_address.inspect} should be valid"
