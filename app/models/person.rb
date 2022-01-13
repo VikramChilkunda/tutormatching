@@ -9,9 +9,10 @@ class Person < ApplicationRecord
     
     
     
-    
+    #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+
     before_save { self.email = email.downcase }
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@+gusd\.net\z/i
     validates :email, presence: true, length: {maximum: 255}, uniqueness: {case_sensitive: false}, format: {with: VALID_EMAIL_REGEX}
     
     def self.digest(string)
