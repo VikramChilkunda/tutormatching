@@ -1,6 +1,6 @@
 <h1>Tutor Matching</h1>
 Hi <%= @person.name %>,
 
-<p>Welcome to the TutorMatching app! Click on that little link below to get started! </p>
+<p>Welcome to the TutorMatching app! Click on that link below to get started! </p>
 
 <%= link_to "Activate", edit_account_activation_url(@person.activation_token, email: @person.email) %>
