@@ -55,7 +55,6 @@ class TutorsController < ApplicationController
             @tutor.update_attribute(:adminOverride, nil)
             flash[:success] = "Tutor signup successful!"
             redirect_to controller: "people", action: "show", id: (@tutor.people_id)
-            #
           else 
             if @person.errors.any? || @tutor.errors.any?
               render 'new'
