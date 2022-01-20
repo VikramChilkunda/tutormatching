@@ -58,17 +58,18 @@
           <% if !Person.find_by(id: session[:tutor_id]).academy %>
             <span style="font-weight: bold;"><%= f.label :rate %></span>
             <%= f.text_field :rate, class: 'form-control', value: "$" %><br>
+          <% end %>
           # <% else %>
-            <span style="font-weight: bold;"><%= f.label "Times Available: (select all that apply for the day(s) you selected)" %></span><br>
-              <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "3:00pm-4:30pm", nil %>
-              <%= f.label(:timeslots, "3:00pm-4:30pm (recommended)") %><br>
-              <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "4:30pm-6:00pm", nil %>
-              <%= f.label(:timeslots, "4:30pm-6:00pm") %><br>
-              <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "6:00pm-7:30pm", nil %>
-              <%= f.label(:timeslots, "6:00pm-7:30pm") %><br>
-              <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "7:30pm-9:00pm", nil %>
-              <%= f.label(:timeslots, "7:30pm-9:00pm") %><br><br>
-          # <% end %>
+          <span style="font-weight: bold;"><%= f.label "Times Available: (select all that apply for the day(s) you selected)" %></span><br>
+            <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "3:00pm-4:30pm", nil %>
+            <%= f.label(:timeslots, "3:00pm-4:30pm (recommended)") %><br>
+            <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "4:30pm-6:00pm", nil %>
+            <%= f.label(:timeslots, "4:30pm-6:00pm") %><br>
+            <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "6:00pm-7:30pm", nil %>
+            <%= f.label(:timeslots, "6:00pm-7:30pm") %><br>
+            <%= f.check_box :timeslots, { multiple: true, :style => "width: 25px; height: 25px;" }, "7:30pm-9:00pm", nil %>
+            <%= f.label(:timeslots, "7:30pm-9:00pm") %><br><br>
+          # 
 
           <div id="center_save_changes"> <%= f.submit "Save", class: "btn btn-primary" %> </div><br>
         </div>
