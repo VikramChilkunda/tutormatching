@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   post '/startNewAcademicYear', to: 'people#startNewAcademicYear'
   
   get '/selectedTutor', to: 'subject#selectedTutor'
-  #get '/subject', to: 'people#subject'
+  get '/subject', to: 'people#subject'
   get '/request', to: 'tutor_requests#new'
   post '/request', to: 'tutor_requests#create'
   delete '/requestdelete', to: 'tutor_requests#destroy'
@@ -89,7 +89,7 @@ Rails.application.routes.draw do
   resources :subject
   
   resources :account_activations, only: [:edit]
-  
+
   # resources :study_groups
   
   resources :tutor_request
