@@ -86,8 +86,11 @@
                       <%= select_tag :timeslots, options_for_select(subjuctivo.timeslots.to_a), include_blank: true %>
                     </div>
                   <% else %>
-                    <div id='dayOnSendRequest'><%= label_tag "Day:" %>
-                    <%= select_tag :time, options_for_select(subjuctivo.days.to_a), include_blank: true %></div>
+                    <div id='dayOnSendRequestAcademy'><%= label_tag "Day:" %>
+                      <%= select_tag :time, options_for_select(subjuctivo.days.to_a), include_blank: true %>
+                      <%= label_tag "Time slot:" %>
+                      <%= select_tag :timeslots, options_for_select(subjuctivo.timeslots.to_a), include_blank: true %>
+                    </div>
                   <% end %>
               </div>
               <div class="modal-footer">
