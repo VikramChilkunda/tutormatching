@@ -77,8 +77,8 @@
               <div class="modal-body">
                  <%= form_tag(request_path(tutoremail: Person.find_by(id: subjuctivo.creatorid).email, whichSubject: subjuctivo.name), method: :post) do %> <!-- params[:name] is for the tutor's email I just have too much to do rn to change the attribute name -->
                 <h4 class="findatutor_heading">Send a request to <%= Person.find_by(id: subjuctivo.creatorid).email %>: </h4>
-                  <input type="text" name="student" id="student" placeholder="Your name"  class = "form-control" required><p></p> 
-                  <input type="text" name="email" id="email" pattern=".+@stu\.gusd\.net" placeholder="Enter your email" class = "form-control" required>
+                  <input type="text" name="student" id="student" placeholder="Your Name"  class = "form-control" required><p></p> 
+                  <input type="text" name="email" id="email" pattern=".+@stu\.gusd\.net" placeholder="Enter Your GUSD Student Email" class = "form-control" required>
                	  <% if Person.find_by(id: subjuctivo.creatorid).academy %>
                  	  <div id='dayOnSendRequestAcademy'><%= label_tag "Day:" %>
                       <%= select_tag :time, options_for_select(subjuctivo.days.to_a), include_blank: true %>
