@@ -1,6 +1,6 @@
 class TutorPerson
     include ActiveModel::Model
-    attr_accessor :name, :email, :password, :password_confirmation, :grade, :id_num, :adminKey, :academy
+    attr_accessor :name, :email, :password, :password_confirmation, :grade, :id_num, :adminKey, :academy, :supert
     
     #validates :id_num, presence: true, length: {is: 6}, if: :idnum_validation_check
     
