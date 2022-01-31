@@ -13,12 +13,14 @@ Person.create!(name:  "Adarsh Chilkunda",
              admin: true,
              adminKey: "advik291",
              academy: false
+             super: false
              )
 Tutor.create!(id: Person.find_by(name: "Adarsh Chilkunda").id,
               id_num: 419418,
               people_id: Person.find_by(name: "Adarsh Chilkunda").id,
               grade: 0,
               academy: false,
+              super: true
               adminOverride: "advik291")
 # CvSubject.create!(name: "English 9")
 # CvSubject.create!(name: "English 9 Advanced")

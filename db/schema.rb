@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210512003212) do
+ActiveRecord::Schema.define(version: 20220131174630) do
 
   create_table "cv_subjects", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20210512003212) do
     t.string   "remember_digest"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.boolean  "super"
   end
 
   create_table "study_groups", force: :cascade do |t|
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 20210512003212) do
     t.integer  "grade"
     t.string   "adminOverride"
     t.boolean  "academy"
+    t.boolean  "super"
     t.index ["people_id"], name: "index_tutors_on_people_id"
   end
 

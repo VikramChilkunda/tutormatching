@@ -8,6 +8,8 @@
   <% provide(:title, @person.name) %>
   <% if @person.academy %>
     <h1 id="bob" style="font-size:3vw;">Profile - Tutor (Academy)</h1>
+  <% elsif %>
+    <h1 id="bob" style="font-size:3vw;">Profile - Tutor (Super)</h1>
   <% else %>
     <h1 id="bob" style="font-size:3vw;">Profile - Tutor</h1>
   <% end %>
@@ -22,7 +24,7 @@
             <tr>
               <th class="tutoringsubject" style="width:43%", "position:absolute">Tutoring:</th>
               <th class="tutoringday" style="width:22%", "position:absolute">Day(s)</th> 
-              <% if !@person.academy %>
+              <% if !@person.academy || !@person.super%>
                  <th class="tutoringrate" style="width:15%", "position:absolute">Rate</th>
               <% end %>
               <th class="tutoringday" style="width:22%", "position:absolute">Time Slot</th>
@@ -37,7 +39,7 @@
                     <tr>
                       <th class="tutoringsubject" style="width:43%", "position:absolute"> <%= i.name %></th>
                       <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.days.join(', ') %></th> 
-                        <% if !@person.academy %>
+                        <% if !@person.academy || !@person.super%>
                           <th class="tutoringrate" style="width:15%", "position:absolute"> <%= i.rate %></th>
                           <% end %>
                           <th class="tutoringday" style="width:22%", "position:absolute"> <%= i.timeslots.join(', ') %></th>
