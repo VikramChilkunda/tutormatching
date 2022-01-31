@@ -44,18 +44,9 @@ class TutorsController < ApplicationController
       if tutor_params[:academy] == "true"
         @tutor.academy = true
         @person.academy = true
-        @tutor.super = false
-        @person.super = false
-      elsif tutor_params[:super] == "true"
-          @tutor.super = true
-          @person.super = true
-          @tutor.academy = false
-          @person.academy = false
       else
-          @tutor.academy = false
-          @person.academy = false
-          @tutor.super = false
-          @person.super = false
+         @tutor.academy = false
+        @person.academy = false
       end
         @tutor.adminOverride = tutor_params[:adminKey]
       
@@ -97,7 +88,7 @@ class TutorsController < ApplicationController
   private 
   
     def tutor_params
-      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation, :adminKey, :academy, :super)
+      params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation, :adminKey, :academy)
     end
     def tutor_person
       TutorPerson.new(tutor_params)
