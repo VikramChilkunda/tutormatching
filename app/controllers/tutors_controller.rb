@@ -41,14 +41,17 @@ class TutorsController < ApplicationController
       @tutor = @person.build_tutor
       @tutor.id_num = tutor_params[:id_num]
       @tutor.grade = tutor_params[:grade]
+      
       if tutor_params[:academy] == "true"
         @tutor.academy = true
         @person.academy = true
+        @tutor.supert = false
+        @person.supert = false
       elsif tutor_params[:supert] == "true"
-        @tutor.supert = true
-        @person.supert = true
         @tutor.academy = false
         @person.academy = false
+        @tutor.supert = true
+        @person.supert = true
       else
          @tutor.academy = false
           @person.academy = false
