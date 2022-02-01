@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
     @person.password = admin_params[:password]
     @person.password_confirmation = admin_params[:password_confirmation]
     @person.academy = false
-    @person.supert = false
+    @person.super = false
     if @person.save
       flash[:success] = "Admin successfully registered! Visit your profile page to view available actions"
     else
