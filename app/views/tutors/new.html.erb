@@ -40,9 +40,11 @@
         <%= f.label "Admin Key (admin use only)" %>
         <%= f.password_field :adminKey, class: 'form-control' %>
         
-        <%= f.label "Academy Member" %>
+        <%= f.label :academys, 'Academy Member' %>
         <%= f.check_box :academy, {class: 'form-control'}, "true", "false"%>        <!--  checked_value = true, unchecked_value = false, -->
-  
+
+        <%= f.label :supertut, 'Super Tutor" %>
+        <%= f.check_box :supert, {class: 'form-control'}, "true", "false"%>
         <%= f.submit "Create my account", class: "btn btn-primary", id: "specialanimatedbutton" %>
     <% end %>
    

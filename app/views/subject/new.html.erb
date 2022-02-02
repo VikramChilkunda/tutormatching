@@ -55,7 +55,7 @@
             <%= f.check_box :days, { multiple: true, :style => "width: 25px; height: 25px;" }, "Sunday", nil %>
             <%= f.label(:days, "Sunday") %><br><br>
           
-          <% if !Person.find_by(id: session[:tutor_id]).academy %>
+          <% if !Person.find_by(id: session[:tutor_id]).academy && !Person.find_by(id: session[:tutor_id]).supert %>
             <span style="font-weight: bold;"><%= f.label :rate %></span>
             <%= f.text_field :rate, class: 'form-control', value: "$" %><br>
           <% end %>
