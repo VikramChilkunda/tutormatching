@@ -1,0 +1,2 @@
+class AddSupertToTutor < ApplicationRecord
+end

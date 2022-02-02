@@ -1,0 +1,2 @@
+class RemoveSuperPerson < ApplicationRecord
+end

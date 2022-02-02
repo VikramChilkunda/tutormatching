@@ -1,0 +1,2 @@
+class AddSupertToPerson < ApplicationRecord
+end

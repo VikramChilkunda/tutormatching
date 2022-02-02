@@ -1,0 +1,2 @@
+class RemoveSuperTutor < ApplicationRecord
+end
