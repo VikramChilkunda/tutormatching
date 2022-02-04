@@ -1,0 +1,2 @@
+class AddTimeslotToSubject < ApplicationRecord
+end
