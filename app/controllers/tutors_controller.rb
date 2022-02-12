@@ -44,18 +44,18 @@ class TutorsController < ApplicationController
       if tutor_params[:academy] == "true"
         @tutor.academy = true
         @person.academy = true
-        @tutor.supert = false
-        @person.supert = false
+        # @tutor.supert = false
+        # @person.supert = false
       elsif tutor_params[:supert] == "true"
         @tutor.academy = false
         @person.academy = false
-        @tutor.supert = true
-        @person.supert = true
+        # @tutor.supert = true
+        # @person.supert = true
       else
          @tutor.academy = false
         @person.academy = false
-        @tutor.supert = false
-        @person.supert = false
+        # @tutor.supert = false
+        # @person.supert = false
       end
         @tutor.adminOverride = tutor_params[:adminKey]
       
