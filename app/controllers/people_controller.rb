@@ -206,7 +206,8 @@ class PeopleController < ApplicationController
     def admin_params
       params.require(:person).permit(:name, :email, :password, :password_confirmation)
     end
-    
+    def supert
+    end
     def admin_person
       if((session[:tutor_id]) && (@person))
       redirect_to(root_url) unless Person.find_by(id: session[:tutor_id]).admin?

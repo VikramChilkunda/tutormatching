@@ -99,6 +99,8 @@ class TutorsController < ApplicationController
     def tutor_params
       params.require(:tutor_person).permit(:id_num, :grade, :name, :email, :password, :password_confirmation, :adminKey, :academy, :supert)
     end
+    def supert
+    end
     def tutor_person
       TutorPerson.new(tutor_params)
     end
