@@ -1,0 +1,110 @@
+== Changes
+
+This document describes the relevant changes beween releases of the
+_rbovirt_ project.
+
+Note that this list of changes was added with the 0.0.30 release,
+previous releases aren't described here.
+
+== 0.1.5
+
+New features:
+
+* Adding disk format when cloning a disk from template
+
+== 0.1.4
+
+New features:
+
+* Support passing custom script to start_with_cloudinit
+
+Bug fixes:
+
+* Support for multi-line runcmd params
+* RBOVIRT_REST_TIMEOUT parse as integer
+* Pin rack to 1.x
+* Blank template does not contain a <cluster> element
+
+== 0.1.3
+
+New features:
+
+* Add instance_type support for VM
+* Add mtu vlan_id and usages to networks
+* Name servers and search domains should be space separated strings
+
+Bug fixes:
+
+* Name servers and search domains should be passed as space separated strings
+
+== 0.1.2
+
+Bug fixes:
+
+* Explicitly use version 3 of the API
+
+== 0.1.1
+
+New features:
+
+* Support operating systems
+* Added missing brackets for template display
+* Support for using the persistent-auth
+* Add instance types support.
+* Fixes Blank template display
+* Added support for VMS search options max/pages
+* Handle template's disk
+* Fix cloud init for OVirt >= 3.5
+* Set storage domain for template when provided.
+* Include disks in VM XML.
+* Make comment of vm or template editable
+* Adding override_iptables parameter to reinstall_host
+* Implement stricter checks of nicsdef content
+* Implement cloud-init for multiple nics
+* Fix broken OVIRT::Template#volumes
+* Fix for cloudinit so nokogiri correctly processes the files section
+* Add option to set description on VM create.
+
+== 0.1.0 / 2015-05-07
+
+New features:
+
+* Updated the Ruby required version to 1.9.3.
+* Updated the _rest_client_ required version to 1.7.0.
+* Added +wipe_after_delete+ flag for volumes.
+* Added +comment+ attribute to VMs.
+* Added +clone+ attribute to VMs in order to support creation of full
+  clones.
+* Added +ha_priority+ attribute to VMs.
+* Added support for the top level +disks+ collection (also known as
+  floating disks).
+* Added +alias+ attribute to volumes.
+* Added support for affinity groups.
+
+== 0.0.32 / 2015-01-14
+
+New features:
+
+* Added support for template versions.
+
+Bug fixes:
+
+* Handle correctly the _cloud-init_ +phone_home+ option.
+
+== 0.0.31 / 2014-12-11
+
+New features:
+
+* Added support for starting virtual machines with _cloud-init_, using
+  the new +vm_start_with_cloud_init+ method of the client class.
+
+== 0.0.30 / 2014-11-25
+
+New features:
+
+* Added support for updating disks.
+* Added support for the data center +local+ attribute.
+
+Bug fixes:
+
+* Parse correctly the +status+ element.

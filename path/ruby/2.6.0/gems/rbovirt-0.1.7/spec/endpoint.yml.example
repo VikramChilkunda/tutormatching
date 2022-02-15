@@ -1,0 +1,9 @@
+# This is example configuration for integration tests and it should
+# work out-of-box with all-in-one oVirt setup
+
+url: "https://localhost/api"
+user: "admin@internal"
+password: "ovirt"
+datacenter: "local_datacenter"
+cluster: "local_cluster"
+network: "ovirtmgmt"
